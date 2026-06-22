@@ -124,7 +124,8 @@
 /* Chart wrap */
 .tl-wrap {
   padding: 24px 16px 12px;
-  overflow: hidden;
+  overflow: auto;
+  max-height: min(78vh, 920px);
   transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 .tl-wrap:hover {
@@ -142,17 +143,36 @@
 }
 
 /* SVG bar micro-interactions */
+.tl .bar {
+  transition: opacity 0.25s var(--ease);
+}
 .tl .bar rect.tl-bar {
   transition: opacity 0.25s var(--ease), filter 0.25s var(--ease), stroke-width 0.25s var(--ease);
 }
 .tl .bar circle.tl-birth {
   transition: r 0.25s var(--ease), filter 0.25s var(--ease);
 }
+.tl .bar text.tl-label {
+  transition: opacity 0.2s var(--ease), fill 0.2s var(--ease);
+  paint-order: stroke fill;
+  stroke: rgba(8, 10, 18, 0.85);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
 .tl .bar:hover rect.tl-bar {
   opacity: 1;
 }
 .tl .bar:hover circle.tl-birth {
   filter: drop-shadow(0 0 4px currentColor);
+}
+.tl .bar:hover text.tl-label {
+  opacity: 1 !important;
+}
+
+/* Dim siblings when one bar is hovered */
+.tl__canvas:has(.bar.is-hover) .bar:not(.is-hover) {
+  opacity: 0.38;
 }
 
 /* Hover state on bars (driven by d3 .is-hover class) */
@@ -166,6 +186,7 @@
   filter: drop-shadow(0 0 6px var(--accent));
 }
 .tl .bar.is-hover text.tl-label {
+  opacity: 1 !important;
   fill: var(--accent) !important;
   font-weight: 700 !important;
 }

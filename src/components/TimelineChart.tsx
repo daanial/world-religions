@@ -12,6 +12,68 @@ interface TimelineChartProps {
 const YEAR_MIN = -3600;
 const YEAR_MAX = new Date().getFullYear();
 
+const LANE_ORDER = [
+  "Abrahamic",
+  "Indian",
+  "Iranian",
+  "East Asian",
+  "Indo-European",
+  "African",
+  "Indigenous",
+  "Modern",
+] as const;
+
+const LANE_LABELS = [
+  "Abrahamic",
+  "Indian",
+  "Iranian",
+  "East Asian",
+  "European",
+  "African",
+  "Indigenous",
+  "Modern",
+];
+
+const ROW_H = 24;
+const BAR_H = 16;
+
+interface ReligionLayout {
+  y: number;
+  barH: number;
+  laneTop: number;
+  laneH: number;
+}
+
+function computeLayout(): {
+  positions: Map<string, ReligionLayout>;
+  innerH: number;
+  lanes: { family: string; label: string; top: number; height: number }[];
+} {
+  const byFamily = d3.group(RELIGIONS, (r) => r.family);
+  const positions = new Map<string, ReligionLayout>();
+  const lanes: { family: string; label: string; top: number; height: number }[] = [];
+  let y = 0;
+
+  LANE_ORDER.forEach((family, i) => {
+    const items = [...(byFamily.get(family) ?? [])].sort((a, b) => a.origin - b.origin);
+    const laneH = Math.max(items.length, 1) * ROW_H;
+    lanes.push({ family, label: LANE_LABELS[i], top: y, height: laneH });
+
+    items.forEach((r, row) => {
+      positions.set(r.id, {
+        y: y + row * ROW_H + ROW_H / 2,
+        barH: BAR_H,
+        laneTop: y,
+        laneH,
+      });
+    });
+
+    y += laneH;
+  });
+
+  return { positions, innerH: y, lanes };
+}
+
 // Eras for background bands
 const ERAS = [
   { from: -3600, to: -1200, name: "Bronze Age", color: "rgba(230,180,80,0.04)" },
@@ -21,17 +83,6 @@ const ERAS = [
   { from: 1500, to: YEAR_MAX, name: "Modern", color: "rgba(106,123,216,0.04)" },
 ];
 
-// Lane assignment by family to reduce overlap
-const FAMILY_LANE: Record<string, number> = {
-  Abrahamic: 0,
-  Indian: 1,
-  Iranian: 2,
-  "East Asian": 3,
-  "Indo-European": 4,
-  African: 5,
-  Indigenous: 6,
-  Modern: 7,
-};
 
 export default function TimelineChart({ accent }: TimelineChartProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -39,22 +90,25 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState<string | null>(null);
 
+  const layout = useMemo(() => computeLayout(), []);
+
   // dimensions
-  const [size, setSize] = useState({ width: 1000, height: 460 });
+  const margin = { top: 50, right: 40, bottom: 60, left: 130 };
+  const chartInnerH = layout.innerH;
+  const [size, setSize] = useState({ width: 1000, height: margin.top + margin.bottom + chartInnerH });
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
     const ro = new ResizeObserver((entries) => {
       const w = entries[0].contentRect.width;
-      setSize({ width: Math.max(640, w), height: 460 });
+      setSize({ width: Math.max(640, w), height: margin.top + margin.bottom + chartInnerH });
     });
     ro.observe(el);
     return () => ro.disconnect();
-  }, []);
+  }, [chartInnerH, margin.bottom, margin.top]);
 
-  const margin = { top: 50, right: 40, bottom: 60, left: 130 };
   const innerW = size.width - margin.left - margin.right;
-  const innerH = size.height - margin.top - margin.bottom;
+  const innerH = chartInnerH;
 
   const xScale = useMemo(
     () => d3.scaleLinear().domain([YEAR_MIN, YEAR_MAX]).range([0, innerW]),
@@ -134,39 +188,28 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
     });
 
     // ---- Lane labels (family names on the left) ----
-    const laneNames = [
-      "Abrahamic",
-      "Indian",
-      "Iranian",
-      "East Asian",
-      "European",
-      "African",
-      "Indigenous",
-      "Modern",
-    ];
-    const laneH = innerH / laneNames.length;
     g.append("g")
       .selectAll("text")
-      .data(laneNames)
+      .data(layout.lanes)
       .join("text")
       .attr("x", -16)
-      .attr("y", (_, i) => i * laneH + laneH / 2)
+      .attr("y", (d) => d.top + d.height / 2)
       .attr("text-anchor", "end")
       .attr("alignment-baseline", "middle")
       .attr("fill", "var(--text-dim)")
       .attr("font-size", "10.5px")
       .attr("letter-spacing", "0.08em")
-      .text((d) => d.toUpperCase());
+      .text((d) => d.label.toUpperCase());
 
     // lane separators
     g.append("g")
       .selectAll("line")
-      .data(laneNames.slice(1))
+      .data(layout.lanes.slice(1))
       .join("line")
       .attr("x1", 0)
       .attr("x2", innerW)
-      .attr("y1", (_, i) => (i + 1) * laneH)
-      .attr("y2", (_, i) => (i + 1) * laneH)
+      .attr("y1", (d) => d.top)
+      .attr("y2", (d) => d.top)
       .attr("stroke", "rgba(255,255,255,0.03)");
 
     // ---- Split connectors (lines from parent → child birth) ----
@@ -180,11 +223,11 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .attr("d", (r) => {
         const parent = RELIGIONS.find((p) => p.id === r.splitsFrom);
         if (!parent) return "";
-        const px = xScale(r.origin); // split happens at child's birth
-        const py1 =
-          (FAMILY_LANE[parent.family] ?? 4) * laneH + laneH / 2;
-        const py2 = (FAMILY_LANE[r.family] ?? 4) * laneH + laneH / 2;
-        return `M${px},${py1} C${px - 30},${py1} ${px - 30},${py2} ${px},${py2}`;
+        const childPos = layout.positions.get(r.id);
+        const parentPos = layout.positions.get(parent.id);
+        if (!childPos || !parentPos) return "";
+        const px = xScale(r.origin);
+        return `M${px},${parentPos.y} C${px - 30},${parentPos.y} ${px - 30},${childPos.y} ${px},${childPos.y}`;
       })
       .attr("fill", "none")
       .attr("stroke", "rgba(255,255,255,0.18)")
@@ -192,7 +235,6 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .attr("stroke-dasharray", "3 3");
 
     // ---- Lifespan bars ----
-    const barH = laneH * 0.5;
     const barGroups = chart
       .append("g")
       .attr("class", "tl-bars")
@@ -211,12 +253,12 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .attr("class", "tl-bar")
       .attr("x", (r) => xScale(r.origin))
       .attr("y", (r) => {
-        const lane = FAMILY_LANE[r.family] ?? 4;
-        return lane * laneH + (laneH - barH) / 2;
+        const pos = layout.positions.get(r.id);
+        return (pos?.y ?? 0) - (pos?.barH ?? BAR_H) / 2;
       })
       .attr("width", (r) => Math.max(3, xScale(r.ended ?? YEAR_MAX) - xScale(r.origin)))
-      .attr("height", barH)
-      .attr("rx", barH / 2)
+      .attr("height", (r) => layout.positions.get(r.id)?.barH ?? BAR_H)
+      .attr("rx", (r) => (layout.positions.get(r.id)?.barH ?? BAR_H) / 2)
       .attr("fill", (r) => (r.extinct ? "url(#extinct-grad)" : "url(#living-grad)"))
       .attr("stroke", (r) => r.accent)
       .attr("stroke-width", 1)
@@ -240,10 +282,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .append("circle")
       .attr("class", "tl-birth")
       .attr("cx", (r) => xScale(r.origin))
-      .attr("cy", (r) => {
-        const lane = FAMILY_LANE[r.family] ?? 4;
-        return lane * laneH + laneH / 2;
-      })
+      .attr("cy", (r) => layout.positions.get(r.id)?.y ?? 0)
       .attr("r", 4)
       .attr("fill", (r) => r.accent)
       .attr("stroke", "var(--bg)")
@@ -257,27 +296,36 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .join("text")
       .attr("class", "tl-death")
       .attr("x", (r) => xScale(r.ended!))
-      .attr("y", (r) => {
-        const lane = FAMILY_LANE[r.family] ?? 4;
-        return lane * laneH + laneH / 2 + 4;
-      })
+      .attr("y", (r) => (layout.positions.get(r.id)?.y ?? 0) + 4)
       .attr("font-size", "13px")
       .attr("fill", "var(--text-dim)")
       .attr("text-anchor", "middle")
       .text("†");
 
-    // labels — only those with room
+    // labels — show on hover or when the bar is wide enough
     barGroups
       .append("text")
       .attr("class", "tl-label")
-      .attr("x", (r) => xScale(r.origin) + 10)
-      .attr("y", (r) => {
-        const lane = FAMILY_LANE[r.family] ?? 4;
-        return lane * laneH + laneH / 2 + 3.5;
+      .attr("x", (r) => {
+        const barW = xScale(r.ended ?? YEAR_MAX) - xScale(r.origin);
+        const inside = barW > 90;
+        return inside
+          ? xScale(r.origin) + barW / 2
+          : xScale(r.ended ?? YEAR_MAX) + 8;
       })
+      .attr("y", (r) => layout.positions.get(r.id)?.y ?? 0)
+      .attr("text-anchor", (r) => {
+        const barW = xScale(r.ended ?? YEAR_MAX) - xScale(r.origin);
+        return barW > 90 ? "middle" : "start";
+      })
+      .attr("dominant-baseline", "middle")
       .attr("fill", "var(--text)")
-      .attr("font-size", "11.5px")
+      .attr("font-size", "11px")
       .attr("font-weight", 500)
+      .attr("opacity", (r) => {
+        const barW = xScale(r.ended ?? YEAR_MAX) - xScale(r.origin);
+        return barW > 140 ? 0.85 : 0;
+      })
       .text((r) => r.name);
 
     // "now" marker line
@@ -291,7 +339,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .attr("stroke-width", 1.5)
       .attr("stroke-dasharray", "2 3")
       .attr("opacity", 0.6);
-  }, [size, xScale, margin.left, margin.top, innerH, innerW, navigate]);
+  }, [size, xScale, margin.left, margin.top, innerH, innerW, navigate, layout]);
 
   // highlight hovered bar via DOM mutation (cheap, avoids full redraw)
   useEffect(() => {
