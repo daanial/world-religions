@@ -1,0 +1,310 @@
+/* ===================== Timeline page ===================== */
+
+.tl-page {
+  position: relative;
+}
+.tl-page__head {
+  padding-bottom: 24px;
+}
+
+/* Toolbar */
+.tl-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+}
+.tl-toolbar__filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tl-toolbar__label {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-right: 6px;
+}
+.tl-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+.tl-filter__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c);
+  opacity: 0.4;
+  transition: opacity 0.25s;
+}
+.tl-filter--active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+  border-color: color-mix(in srgb, var(--c) 50%, transparent);
+}
+.tl-filter--active .tl-filter__dot {
+  opacity: 1;
+  box-shadow: 0 0 8px var(--c);
+}
+.tl-toolbar__legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.tl-leg {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  transition: color 0.25s var(--ease);
+}
+.tl-leg:hover {
+  color: var(--text-muted);
+}
+.tl-leg__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px var(--gold);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.tl-leg:hover .tl-leg__dot {
+  transform: scale(1.15);
+}
+.tl-leg__dot--birth {
+  box-shadow: 0 0 8px var(--gold), 0 0 0 2px var(--bg), 0 0 0 3px rgba(230, 180, 80, 0.45);
+}
+.tl-leg__bar {
+  width: 22px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.tl-leg:hover .tl-leg__bar {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.tl-leg__line {
+  width: 22px;
+  height: 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.4);
+  transition: border-color 0.25s var(--ease);
+}
+.tl-leg:hover .tl-leg__line {
+  border-top-color: rgba(255, 255, 255, 0.65);
+}
+.tl-leg__extinct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  font-size: 0.82rem;
+  line-height: 1;
+  color: var(--text-dim);
+  font-family: var(--font-display);
+}
+
+/* Chart wrap */
+.tl-wrap {
+  padding: 24px 16px 12px;
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.tl-wrap:hover {
+  border-color: rgba(230, 180, 80, 0.18);
+  box-shadow: 0 12px 40px -16px rgba(0, 0, 0, 0.55);
+}
+.tl {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+.tl__canvas {
+  min-width: 760px;
+  position: relative;
+}
+
+/* SVG bar micro-interactions */
+.tl .bar rect.tl-bar {
+  transition: opacity 0.25s var(--ease), filter 0.25s var(--ease), stroke-width 0.25s var(--ease);
+}
+.tl .bar circle.tl-birth {
+  transition: r 0.25s var(--ease), filter 0.25s var(--ease);
+}
+.tl .bar:hover rect.tl-bar {
+  opacity: 1;
+}
+.tl .bar:hover circle.tl-birth {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+/* Hover state on bars (driven by d3 .is-hover class) */
+.tl .bar.is-hover rect {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px var(--accent));
+  stroke-width: 1.5;
+}
+.tl .bar.is-hover circle.tl-birth {
+  r: 5;
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+.tl .bar.is-hover text.tl-label {
+  fill: var(--accent) !important;
+  font-weight: 700 !important;
+}
+
+/* tooltip */
+.tl__tooltip {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  pointer-events: none;
+  min-width: 220px;
+  z-index: 5;
+  animation: tl-tooltip-in 0.35s var(--ease-out) both;
+}
+@keyframes tl-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.tl__tooltip-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 4px;
+  box-shadow: 0 0 10px currentColor;
+}
+.tl__tooltip-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.tl__tooltip-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.tl__tooltip-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.7rem;
+}
+
+/* Directory */
+.tl-directory {
+  margin-top: 72px;
+  padding-bottom: 80px;
+}
+.tl-directory__title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: var(--text-muted);
+}
+.tl-directory__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.tl-card {
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease),
+    background 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.tl-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px -18px rgba(0, 0, 0, 0.65);
+}
+.tl-card:active {
+  transform: translateY(-1px);
+}
+.tl-card__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  transition: width 0.35s var(--ease);
+}
+.tl-card:hover .tl-card__bar {
+  width: 4px;
+}
+.tl-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.tl-card__head h3 {
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.tl-card__extinct {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  white-space: nowrap;
+  padding: 2px 6px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+}
+.tl-card__meta {
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.tl-card__blurb {
+  font-size: 0.88rem;
+  margin: 0 0 16px;
+  flex: 1;
+}
+.tl-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tl-card__go {
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: letter-spacing 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.tl-card:hover .tl-card__go {
+  letter-spacing: 0.04em;
+  transform: translateX(2px);
+}
