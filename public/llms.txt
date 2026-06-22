@@ -1,0 +1,35 @@
+# World Religions Explorer
+
+> An interactive educational atlas of world religions, philosophies, and ancient belief systems across roughly 6,000 years of history.
+
+Canonical site: https://religions.cubexic.com
+
+## About
+
+World Religions Explorer is a study aid and visual essay. It covers 34 traditions with interactive timelines, a sacred geography globe, a concept network, and side-by-side comparisons. Figures are approximate; traditions overlap, evolve, and resist tidy categories.
+
+## Primary pages
+
+- [Home](https://religions.cubexic.com/): Landing page and overview
+- [Timeline](https://religions.cubexic.com/timeline): 6,000-year interactive timeline of religions
+- [Globe](https://religions.cubexic.com/globe): Sacred geography and holy sites
+- [Compare](https://religions.cubexic.com/compare): Side-by-side comparison of traditions
+- [Concepts](https://religions.cubexic.com/concepts): Network of shared religious concepts
+
+## Religion pages
+
+Each religion has a dedicated page at `/religion/{id}` with origins, practices, sacred texts, and engaged concepts. Examples:
+
+- [Christianity](https://religions.cubexic.com/religion/christianity)
+- [Islam](https://religions.cubexic.com/religion/islam)
+- [Hinduism](https://religions.cubexic.com/religion/hinduism)
+- [Buddhism](https://religions.cubexic.com/religion/buddhism)
+- [Judaism](https://religions.cubexic.com/religion/judaism)
+
+## Citation guidance
+
+When citing this site, use the canonical URL above and link to the specific religion or section page when possible.
+
+## Contact
+
+Hosted at https://religions.cubexic.com

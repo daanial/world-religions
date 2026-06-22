@@ -8,6 +8,7 @@ import { CONCEPTS } from "../data/concepts";
 import { getReligionEssay } from "../data/religion-essays";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { getReligionImageSrc } from "../lib/religionImages";
+import { buildReligionArticleJsonLd, usePageSeo } from "../lib/seo";
 import { useApp } from "../context/AppContext";
 import NotFound from "./NotFound";
 
@@ -51,16 +52,41 @@ export default function ReligionDetail() {
     return () => ctx.revert();
   }, [religion]);
 
-  if (!religion) return <NotFound />;
+  const accent = religion?.accent ?? "#E6B450";
+  const compareFull = religion ? compareIds.length >= 4 && !isInCompare(religion.id) : false;
+  const related = religion
+    ? RELIGIONS.filter((r) => r.id !== religion.id && r.family === religion.family).slice(0, 3)
+    : [];
+  const conceptNodes = religion
+    ? CONCEPTS.filter((c) => religion.concepts.includes(c.id))
+    : [];
+  const essay = religion ? getReligionEssay(religion.id) : undefined;
+  const imageSrc = religion ? getReligionImageSrc(religion.id) : undefined;
 
-  const accent = religion.accent;
-  const compareFull = compareIds.length >= 4 && !isInCompare(religion.id);
-  const related = RELIGIONS.filter(
-    (r) => r.id !== religion.id && r.family === religion.family
-  ).slice(0, 3);
-  const conceptNodes = CONCEPTS.filter((c) => religion.concepts.includes(c.id));
-  const essay = getReligionEssay(religion.id);
-  const imageSrc = getReligionImageSrc(religion.id);
+  usePageSeo(
+    religion
+      ? {
+          title: religion.name,
+          description: religion.blurb,
+          path: `/religion/${religion.id}`,
+          image: imageSrc,
+          type: "article",
+          jsonLd: buildReligionArticleJsonLd({
+            name: religion.name,
+            description: religion.blurb,
+            path: `/religion/${religion.id}`,
+            image: imageSrc,
+          }),
+        }
+      : {
+          title: "Religion not found",
+          description: "The requested religion page could not be found.",
+          path: `/religion/${id ?? "unknown"}`,
+          noindex: true,
+        }
+  );
+
+  if (!religion) return <NotFound />;
 
   return (
     <div

@@ -4,12 +4,20 @@ import Starfield from "../components/Starfield";
 import TimelineChart from "../components/TimelineChart";
 import { RELIGIONS } from "../data/religions";
 import { formatYear } from "../lib/format";
+import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 
 export default function Timeline() {
   const rootRef = useRef<HTMLDivElement>(null);
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
+
+  usePageSeo({
+    title: "Interactive Timeline",
+    description:
+      "Trace 6,000 years of religious history across 34 traditions. Drag, zoom, and explore births, schisms, and extinctions on an interactive timeline.",
+    path: "/timeline",
+  });
 
   const visible = RELIGIONS;
 

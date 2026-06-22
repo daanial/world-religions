@@ -1,7 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Starfield from "../components/Starfield";
+import { usePageSeo } from "../lib/seo";
 
 export default function NotFound() {
+  const { pathname } = useLocation();
+
+  usePageSeo({
+    title: "Page not found",
+    description: "The page you requested could not be found on World Religions Explorer.",
+    path: pathname,
+    noindex: true,
+  });
+
   return (
     <div className="page">
       <Starfield density="calm" drift={false} />

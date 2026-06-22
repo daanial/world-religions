@@ -5,6 +5,7 @@ import Starfield from "../components/Starfield";
 import { RELIGIONS, type Religion } from "../data/religions";
 import { useApp } from "../context/AppContext";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
+import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 
 // Feature rows for the comparison matrix.
@@ -54,6 +55,13 @@ export default function Compare() {
   const rootRef = useRef<HTMLDivElement>(null);
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
+
+  usePageSeo({
+    title: "Compare Religions",
+    description:
+      "Compare up to four religions side by side across monotheism, reincarnation, salvation, prayer, pilgrimage, and other core concepts.",
+    path: "/compare",
+  });
 
   const selected = useMemo(
     () => RELIGIONS.filter((r) => compareIds.includes(r.id)),

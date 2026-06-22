@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Starfield from "../components/Starfield";
 import { CONCEPTS, CONCEPT_EDGES, type ConceptId } from "../data/concepts";
 import { RELIGIONS } from "../data/religions";
+import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 
 export default function Concepts() {
@@ -11,6 +12,13 @@ export default function Concepts() {
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
   const [active, setActive] = useState<ConceptId | null>(null);
+
+  usePageSeo({
+    title: "Concept Network",
+    description:
+      "Explore a force-directed map of karma, salvation, sacrifice, enlightenment, and other ideas shared across world religions.",
+    path: "/concepts",
+  });
 
   useEffect(() => {
     if (!active || !detailRef.current) return;

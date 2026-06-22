@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Starfield from "../components/Starfield";
 import HeroTimelineStrip from "../components/HeroTimelineStrip";
 import { RELIGIONS } from "../data/religions";
+import { buildWebsiteJsonLd, usePageSeo } from "../lib/seo";
+import { SITE_DESCRIPTION } from "../lib/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,6 +47,13 @@ const features = [
 
 export default function Landing() {
   const rootRef = useRef<HTMLDivElement>(null);
+
+  usePageSeo({
+    title: "World Religions Explorer",
+    description: SITE_DESCRIPTION,
+    path: "/",
+    jsonLd: buildWebsiteJsonLd(),
+  });
 
   useEffect(() => {
     const ctx = gsap.context(() => {

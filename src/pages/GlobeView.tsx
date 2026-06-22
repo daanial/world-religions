@@ -4,6 +4,7 @@ import Starfield from "../components/Starfield";
 import Globe from "../components/Globe";
 import { SITES, type SacredSite } from "../data/sites";
 import { RELIGIONS } from "../data/religions";
+import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 
 export default function GlobeView() {
@@ -11,6 +12,13 @@ export default function GlobeView() {
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
   const [selected, setSelected] = useState<SacredSite | null>(null);
+
+  usePageSeo({
+    title: "Sacred Geography Globe",
+    description:
+      "Explore sacred sites across the world on an interactive globe. Fly between Jerusalem, Mecca, Varanasi, Lhasa, and other holy places.",
+    path: "/globe",
+  });
 
   return (
     <div className="page globe-page" ref={rootRef}>
