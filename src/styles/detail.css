@@ -77,6 +77,25 @@
   max-width: 640px;
   line-height: 1.5;
 }
+.rd__infographic {
+  position: relative;
+  z-index: 1;
+  width: min(1600px, calc(100% - 64px));
+  max-width: 1600px;
+  margin: 0 auto 36px;
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.rd__infographic img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .rd__cta {
   display: flex;
   gap: 12px;

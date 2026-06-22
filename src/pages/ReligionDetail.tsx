@@ -7,6 +7,7 @@ import { RELIGIONS } from "../data/religions";
 import { CONCEPTS } from "../data/concepts";
 import { getReligionEssay } from "../data/religion-essays";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
+import { getReligionImageSrc } from "../lib/religionImages";
 import { useApp } from "../context/AppContext";
 import NotFound from "./NotFound";
 
@@ -29,6 +30,7 @@ export default function ReligionDetail() {
       tl.from(".rd__eyebrow", { y: 16, opacity: 0, duration: 0.6 })
         .from(".rd__name", { y: 30, opacity: 0, duration: 0.8 }, "-=0.3")
         .from(".rd__blurb", { y: 20, opacity: 0, duration: 0.7 }, "-=0.4")
+        .from(".rd__infographic", { y: 24, opacity: 0, duration: 0.8 }, "-=0.35")
         .from(".rd__cta > *", { y: 14, opacity: 0, duration: 0.5, stagger: 0.08 }, "-=0.3")
         .from(".rd-stat", { y: 20, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=0.3");
 
@@ -58,6 +60,7 @@ export default function ReligionDetail() {
   ).slice(0, 3);
   const conceptNodes = CONCEPTS.filter((c) => religion.concepts.includes(c.id));
   const essay = getReligionEssay(religion.id);
+  const imageSrc = getReligionImageSrc(religion.id);
 
   return (
     <div
@@ -82,6 +85,20 @@ export default function ReligionDetail() {
           </div>
           <h1 className="rd__name">{religion.name}</h1>
           <p className="rd__blurb">{religion.blurb}</p>
+        </div>
+        {imageSrc && (
+          <figure className="rd__infographic">
+            <img
+              src={imageSrc}
+              alt={`${religion.name} overview`}
+              width={1600}
+              height={1067}
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        )}
+        <div className="container rd__hero-content">
           <div className="rd__cta">
             <button
               className={`btn ${isInCompare(religion.id) ? "btn--ghost" : "btn--primary"}`}
