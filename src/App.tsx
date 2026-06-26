@@ -11,6 +11,7 @@ import ReligionDetail from "./pages/ReligionDetail";
 import Compare from "./pages/Compare";
 import Concepts from "./pages/Concepts";
 import Pilgrimage from "./pages/Pilgrimage";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const Timeline = lazy(() => import("./pages/Timeline"));
@@ -25,6 +26,7 @@ import "./styles/detail.css";
 import "./styles/compare.css";
 import "./styles/concepts.css";
 import "./styles/pilgrimage.css";
+import "./styles/about.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -66,6 +68,7 @@ export default function App() {
               <Route path="/compare" element={<Compare />} />
               <Route path="/concepts" element={<Concepts />} />
               <Route path="/pilgrimage" element={<Pilgrimage />} />
+              <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

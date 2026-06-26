@@ -7,6 +7,7 @@ const exploreLinks = [
   { to: "/compare", label: "Compare" },
   { to: "/concepts", label: "Concepts" },
   { to: "/pilgrimage", label: "Pilgrimage" },
+  { to: "/about", label: "About" },
 ];
 
 const stack = ["React", "TypeScript", "Vite", "Three.js", "D3", "GSAP", "Framer Motion"];

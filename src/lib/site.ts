@@ -13,6 +13,7 @@ export const STATIC_ROUTES = [
   "/compare",
   "/concepts",
   "/pilgrimage",
+  "/about",
 ] as const;
 
 export function getReligionRoutes(): string[] {

@@ -37,6 +37,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://religions.cubexic.com/about</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://religions.cubexic.com/religion/sumerian</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
