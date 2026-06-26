@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Starfield from "../components/Starfield";
+import NarrationButton from "../components/NarrationButton";
 import { CONCEPTS, CONCEPT_EDGES, type ConceptId } from "../data/concepts";
 import { RELIGIONS } from "../data/religions";
 import { usePageSeo } from "../lib/seo";
+import { conceptNarrationId } from "../lib/narration-catalog";
+import { useRegisterNarration } from "../context/NarrationContext";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 
 export default function Concepts() {
@@ -12,6 +15,12 @@ export default function Concepts() {
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
   const [active, setActive] = useState<ConceptId | null>(null);
+  const activeConcept = active ? CONCEPTS.find((c) => c.id === active) : undefined;
+
+  useRegisterNarration(
+    activeConcept ? conceptNarrationId(activeConcept.id) : null,
+    activeConcept?.label ?? ""
+  );
 
   usePageSeo({
     title: "Concept Network",
@@ -93,9 +102,16 @@ export default function Concepts() {
                 <div className="eyebrow" style={{ color: CONCEPTS.find((c) => c.id === active)?.accent }}>
                   Concept detail
                 </div>
-                <h2 className="concept-detail__title">
-                  {CONCEPTS.find((c) => c.id === active)?.label}
-                </h2>
+                <div className="concept-detail__title-row">
+                  <h2 className="concept-detail__title">
+                    {CONCEPTS.find((c) => c.id === active)?.label}
+                  </h2>
+                  <NarrationButton
+                    id={conceptNarrationId(active)}
+                    label={activeConcept?.label ?? "concept"}
+                    variant="prominent"
+                  />
+                </div>
               </div>
               <button className="concept-detail__close" onClick={() => setActive(null)} aria-label="Close">
                 ✕

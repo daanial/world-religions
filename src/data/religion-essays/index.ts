@@ -31,6 +31,6 @@ export function assertEssayCoverage(): void {
   }
 }
 
-if (import.meta.env.DEV) {
+if (import.meta.env?.DEV) {
   assertEssayCoverage();
 }

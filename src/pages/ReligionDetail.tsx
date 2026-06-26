@@ -3,12 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Starfield from "../components/Starfield";
+import NarrationButton from "../components/NarrationButton";
 import { RELIGIONS } from "../data/religions";
 import { CONCEPTS } from "../data/concepts";
 import { getReligionEssay } from "../data/religion-essays";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { getReligionImageSrc } from "../lib/religionImages";
 import { buildReligionArticleJsonLd, usePageSeo } from "../lib/seo";
+import { religionNarrationId } from "../lib/narration-catalog";
+import { useRegisterNarration } from "../context/NarrationContext";
 import { useApp } from "../context/AppContext";
 import NotFound from "./NotFound";
 
@@ -62,6 +65,11 @@ export default function ReligionDetail() {
     : [];
   const essay = religion ? getReligionEssay(religion.id) : undefined;
   const imageSrc = religion ? getReligionImageSrc(religion.id) : undefined;
+
+  useRegisterNarration(
+    religion ? religionNarrationId(religion.id) : null,
+    religion?.name ?? ""
+  );
 
   usePageSeo(
     religion
@@ -159,7 +167,14 @@ export default function ReligionDetail() {
       {/* ---------- DESCRIPTION ---------- */}
       <section className="container rd__section rd-reveal">
         <div className="rd__prose">
-          <h2 className="rd__section-title">Origins & essence</h2>
+          <div className="rd__section-head">
+            <h2 className="rd__section-title">Origins & essence</h2>
+            <NarrationButton
+              id={religionNarrationId(religion.id)}
+              label={religion.name}
+              variant="prominent"
+            />
+          </div>
           {essay ? (
             <>
               {essay.paragraphs.map((paragraph, index) => (

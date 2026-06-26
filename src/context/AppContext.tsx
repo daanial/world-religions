@@ -25,6 +25,7 @@ interface AppState {
   dismissToast: () => void;
   ambientOn: boolean;
   toggleAmbient: () => void;
+  setAmbientOn: (on: boolean) => void;
 }
 
 const LS_KEYS = {
@@ -196,6 +197,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const dismissToast = useCallback(() => setNewlyUnlocked(null), []);
   const toggleAmbient = useCallback(() => setAmbientOn((v) => !v), []);
+  const setAmbient = useCallback((on: boolean) => setAmbientOn(on), []);
 
   const value = useMemo<AppState>(
     () => ({
@@ -211,6 +213,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       dismissToast,
       ambientOn,
       toggleAmbient,
+      setAmbientOn: setAmbient,
     }),
     [
       compareIds,
@@ -225,6 +228,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       dismissToast,
       ambientOn,
       toggleAmbient,
+      setAmbient,
     ]
   );
 

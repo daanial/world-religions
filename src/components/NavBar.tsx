@@ -1,6 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useApp } from "../context/AppContext";
+import { useNarration } from "../context/NarrationContext";
+import NarrationButton from "./NarrationButton";
 
 const links = [
   { to: "/", label: "Home" },
@@ -13,6 +15,7 @@ const links = [
 
 export default function NavBar() {
   const { compareIds, ambientOn, toggleAmbient, achievements } = useApp();
+  const { registration } = useNarration();
   const [scrolled, setScrolled] = useState(false);
   const loc = useLocation();
 
@@ -59,6 +62,13 @@ export default function NavBar() {
         </nav>
 
         <div className="nav__actions">
+          {registration && (
+            <NarrationButton
+              id={registration.id}
+              label={registration.label}
+              variant="compact"
+            />
+          )}
           <button
             className="icon-btn"
             onClick={toggleAmbient}

@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
+import { NarrationProvider } from "./context/NarrationContext";
 import { useAmbientSound } from "./hooks/useAmbientSound";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -52,22 +53,24 @@ export default function App() {
     <AppProvider>
       <AmbientBootstrap />
       <BrowserRouter>
-        <ScrollToTop />
-        <NavBar />
-        <Overlays />
-        <Suspense fallback={<RouteFallback />}>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/timeline" element={<Timeline />} />
-            <Route path="/globe" element={<GlobeView />} />
-            <Route path="/religion/:id" element={<ReligionDetail />} />
-            <Route path="/compare" element={<Compare />} />
-            <Route path="/concepts" element={<Concepts />} />
-            <Route path="/pilgrimage" element={<Pilgrimage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-        <Footer />
+        <NarrationProvider>
+          <ScrollToTop />
+          <NavBar />
+          <Overlays />
+          <Suspense fallback={<RouteFallback />}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/timeline" element={<Timeline />} />
+              <Route path="/globe" element={<GlobeView />} />
+              <Route path="/religion/:id" element={<ReligionDetail />} />
+              <Route path="/compare" element={<Compare />} />
+              <Route path="/concepts" element={<Concepts />} />
+              <Route path="/pilgrimage" element={<Pilgrimage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+          <Footer />
+        </NarrationProvider>
       </BrowserRouter>
     </AppProvider>
   );

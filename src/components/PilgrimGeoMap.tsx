@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import Map, { Layer, Marker, Source } from "react-map-gl/mapbox";
 import type { MapRef } from "react-map-gl/mapbox";
+import type { Map as MapboxMap } from "mapbox-gl";
 import * as turf from "@turf/turf";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { ROUTES, type RouteKey } from "../data/pilgrimage-routes";
@@ -50,6 +51,26 @@ async function loadLegGeometry(leg: RouteLegGeo): Promise<LegGeometry> {
 
 function legColor(routeKey: Exclude<RouteKey, "all">, legIndex: number): string {
   return LEG_PALETTE[routeKey][legIndex % LEG_PALETTE[routeKey].length]!;
+}
+
+function disableMapTerrain(map: MapboxMap) {
+  try {
+    map.setTerrain(null);
+  } catch {
+    // Map may already be partially torn down.
+  }
+}
+
+/** Must render last inside <Map> so terrain is cleared before geojson sources unmount. */
+function MapTerrainCleanup({ mapRef }: { mapRef: RefObject<MapRef | null> }) {
+  useEffect(() => {
+    const map = mapRef.current?.getMap();
+    return () => {
+      if (map) disableMapTerrain(map);
+    };
+  }, [mapRef]);
+
+  return null;
 }
 
 export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMapProps) {
@@ -151,7 +172,10 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
           latitude: places[0]?.lat ?? 20,
           zoom: 4,
         }}
-        onLoad={() => setMapReady(true)}
+        onLoad={(event) => {
+          disableMapTerrain(event.target);
+          setMapReady(true);
+        }}
         attributionControl={false}
         dragRotate={false}
         pitchWithRotate={false}
@@ -205,6 +229,8 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
             <span className="pilgrim-geo-traveler" style={{ background: accent }} />
           </Marker>
         )}
+
+        <MapTerrainCleanup mapRef={mapRef} />
       </Map>
 
       {loading && (

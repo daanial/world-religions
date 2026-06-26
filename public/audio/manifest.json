@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "religion-sumerian",
+      "hash": "503085b39389",
+      "file": "religion-sumerian.mp3"
+    },
+    {
+      "id": "religion-egyptian",
+      "hash": "0583393d89b7",
+      "file": "religion-egyptian.mp3"
+    },
+    {
+      "id": "religion-zoroastrian",
+      "hash": "f40493b43d21",
+      "file": "religion-zoroastrian.mp3"
+    },
+    {
+      "id": "religion-canaanite",
+      "hash": "a2d9f09518fd",
+      "file": "religion-canaanite.mp3"
+    },
+    {
+      "id": "religion-greek-roman",
+      "hash": "11b0495fd029",
+      "file": "religion-greek-roman.mp3"
+    },
+    {
+      "id": "religion-norse",
+      "hash": "882de5e39fc8",
+      "file": "religion-norse.mp3"
+    },
+    {
+      "id": "religion-druidic",
+      "hash": "08f0b6e90ade",
+      "file": "religion-druidic.mp3"
+    },
+    {
+      "id": "religion-manichaean",
+      "hash": "77d1403de2ee",
+      "file": "religion-manichaean.mp3"
+    },
+    {
+      "id": "religion-tengrism",
+      "hash": "8d23ba5175ef",
+      "file": "religion-tengrism.mp3"
+    },
+    {
+      "id": "religion-mithraism",
+      "hash": "3525ea0b5262",
+      "file": "religion-mithraism.mp3"
+    },
+    {
+      "id": "religion-hinduism",
+      "hash": "c90c2e83aeef",
+      "file": "religion-hinduism.mp3"
+    },
+    {
+      "id": "religion-buddhism",
+      "hash": "06a15af94954",
+      "file": "religion-buddhism.mp3"
+    },
+    {
+      "id": "religion-jainism",
+      "hash": "882304c85e4d",
+      "file": "religion-jainism.mp3"
+    },
+    {
+      "id": "religion-sikhism",
+      "hash": "ba6724be9562",
+      "file": "religion-sikhism.mp3"
+    },
+    {
+      "id": "religion-judaism",
+      "hash": "dd765d490c6a",
+      "file": "religion-judaism.mp3"
+    },
+    {
+      "id": "religion-christianity",
+      "hash": "f79f9164fbf9",
+      "file": "religion-christianity.mp3"
+    },
+    {
+      "id": "religion-islam",
+      "hash": "298b39d78a3b",
+      "file": "religion-islam.mp3"
+    },
+    {
+      "id": "religion-bahai",
+      "hash": "cf00a3932ca2",
+      "file": "religion-bahai.mp3"
+    },
+    {
+      "id": "religion-taoism",
+      "hash": "bf1ed5ef2c6d",
+      "file": "religion-taoism.mp3"
+    },
+    {
+      "id": "religion-confucianism",
+      "hash": "445fa97a257c",
+      "file": "religion-confucianism.mp3"
+    },
+    {
+      "id": "religion-shinto",
+      "hash": "f3f710a76651",
+      "file": "religion-shinto.mp3"
+    },
+    {
+      "id": "religion-korean-shin",
+      "hash": "acf61f97a67d",
+      "file": "religion-korean-shin.mp3"
+    },
+    {
+      "id": "religion-yazidi",
+      "hash": "8a6837574da0",
+      "file": "religion-yazidi.mp3"
+    },
+    {
+      "id": "religion-druse",
+      "hash": "1a3c2e3d5d23",
+      "file": "religion-druse.mp3"
+    },
+    {
+      "id": "religion-santeria",
+      "hash": "5cc9ef42c8f7",
+      "file": "religion-santeria.mp3"
+    },
+    {
+      "id": "religion-yoruba",
+      "hash": "9a6cd3aeca7d",
+      "file": "religion-yoruba.mp3"
+    },
+    {
+      "id": "religion-vodou",
+      "hash": "41b498750b8b",
+      "file": "religion-vodou.mp3"
+    },
+    {
+      "id": "religion-inuit",
+      "hash": "d1f0152d699f",
+      "file": "religion-inuit.mp3"
+    },
+    {
+      "id": "religion-navajo",
+      "hash": "3ff33ec6db9f",
+      "file": "religion-navajo.mp3"
+    },
+    {
+      "id": "religion-maori",
+      "hash": "407b4e831080",
+      "file": "religion-maori.mp3"
+    },
+    {
+      "id": "religion-dreamtime",
+      "hash": "5355a4438325",
+      "file": "religion-dreamtime.mp3"
+    },
+    {
+      "id": "religion-ifa",
+      "hash": "329f9f4611dd",
+      "file": "religion-ifa.mp3"
+    },
+    {
+      "id": "religion-stoicism",
+      "hash": "17e471118869",
+      "file": "religion-stoicism.mp3"
+    },
+    {
+      "id": "religion-wicca",
+      "hash": "9b7fd4cb255d",
+      "file": "religion-wicca.mp3"
+    },
+    {
+      "id": "pilgrimage-hajj",
+      "hash": "aaf6cbbd3f3b",
+      "file": "pilgrimage-hajj.mp3"
+    },
+    {
+      "id": "pilgrimage-camino",
+      "hash": "d59cf0d6f773",
+      "file": "pilgrimage-camino.mp3"
+    },
+    {
+      "id": "pilgrimage-chakchak",
+      "hash": "d68a22a6f29b",
+      "file": "pilgrimage-chakchak.mp3"
+    },
+    {
+      "id": "pilgrimage-buddhist",
+      "hash": "5931a25d9790",
+      "file": "pilgrimage-buddhist.mp3"
+    },
+    {
+      "id": "pilgrimage-kumbh",
+      "hash": "ef081b88b484",
+      "file": "pilgrimage-kumbh.mp3"
+    },
+    {
+      "id": "concept-soul",
+      "hash": "0bfe18664066",
+      "file": "concept-soul.mp3"
+    },
+    {
+      "id": "concept-salvation",
+      "hash": "bf217c2d1d86",
+      "file": "concept-salvation.mp3"
+    },
+    {
+      "id": "concept-sacrifice",
+      "hash": "c801db7ecc56",
+      "file": "concept-sacrifice.mp3"
+    },
+    {
+      "id": "concept-enlightenment",
+      "hash": "b5de7dab3178",
+      "file": "concept-enlightenment.mp3"
+    },
+    {
+      "id": "concept-judgement",
+      "hash": "ec91c58214fb",
+      "file": "concept-judgement.mp3"
+    },
+    {
+      "id": "concept-nonviolence",
+      "hash": "4f75b95ca7ed",
+      "file": "concept-nonviolence.mp3"
+    },
+    {
+      "id": "concept-mysticism",
+      "hash": "bdbc8e5d013d",
+      "file": "concept-mysticism.mp3"
+    },
+    {
+      "id": "concept-monotheism",
+      "hash": "0192d19f7d1e",
+      "file": "concept-monotheism.mp3"
+    },
+    {
+      "id": "concept-polytheism",
+      "hash": "f492dab90e65",
+      "file": "concept-polytheism.mp3"
+    },
+    {
+      "id": "concept-reincarnation",
+      "hash": "9956bd238999",
+      "file": "concept-reincarnation.mp3"
+    },
+    {
+      "id": "concept-karma",
+      "hash": "c0bb506f2a98",
+      "file": "concept-karma.mp3"
+    },
+    {
+      "id": "concept-liberation",
+      "hash": "3f2eda4fd3d2",
+      "file": "concept-liberation.mp3"
+    },
+    {
+      "id": "concept-heaven",
+      "hash": "410a78e5b467",
+      "file": "concept-heaven.mp3"
+    },
+    {
+      "id": "concept-hell",
+      "hash": "96d62b2cda10",
+      "file": "concept-hell.mp3"
+    },
+    {
+      "id": "concept-sin",
+      "hash": "bcd59eb74601",
+      "file": "concept-sin.mp3"
+    },
+    {
+      "id": "concept-meditation",
+      "hash": "5d8a1b5948ac",
+      "file": "concept-meditation.mp3"
+    },
+    {
+      "id": "concept-prayer",
+      "hash": "4a68c9b044ac",
+      "file": "concept-prayer.mp3"
+    },
+    {
+      "id": "concept-fasting",
+      "hash": "ab4f1ba6dbb3",
+      "file": "concept-fasting.mp3"
+    },
+    {
+      "id": "concept-pilgrimage",
+      "hash": "50ae5612aafb",
+      "file": "concept-pilgrimage.mp3"
+    }
+  ]
+}

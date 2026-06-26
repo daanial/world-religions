@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Starfield from "../components/Starfield";
+import NarrationButton from "../components/NarrationButton";
 import {
   ROUTES,
   ROUTE_ORDER,
@@ -11,6 +12,8 @@ import {
 } from "../data/pilgrimage-routes";
 import { RELIGIONS } from "../data/religions";
 import { usePageSeo } from "../lib/seo";
+import { pilgrimageNarrationId } from "../lib/narration-catalog";
+import { useRegisterNarration } from "../context/NarrationContext";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 
 function PilgrimVideoEmbed({ videoId, title }: { videoId: string; title: string }) {
@@ -143,7 +146,14 @@ function RouteSection({ routeKey }: { routeKey: GeoRouteKey }) {
         <p className="pilgrim-section__meta">
           {content.religionLabel} · {caption.meta}
         </p>
-        <h2 className="pilgrim-section__title">{caption.title}</h2>
+        <div className="pilgrim-section__title-row">
+          <h2 className="pilgrim-section__title">{caption.title}</h2>
+          <NarrationButton
+            id={pilgrimageNarrationId(routeKey)}
+            label={caption.title}
+            variant="prominent"
+          />
+        </div>
       </header>
 
       <dl className="pilgrim-facts card">
@@ -201,6 +211,16 @@ function RouteSection({ routeKey }: { routeKey: GeoRouteKey }) {
 
 export default function Pilgrimage() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const hashRoute = location.hash.replace("#", "");
+  const activeRoute =
+    ROUTE_ORDER.find((key) => key === hashRoute) ?? ROUTE_ORDER[0];
+  const activeCaption = getCaption(activeRoute);
+
+  useRegisterNarration(
+    pilgrimageNarrationId(activeRoute),
+    activeCaption.title
+  );
 
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
