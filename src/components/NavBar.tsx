@@ -8,6 +8,7 @@ const links = [
   { to: "/globe", label: "Globe" },
   { to: "/compare", label: "Compare" },
   { to: "/concepts", label: "Concepts" },
+  { to: "/pilgrimage", label: "Pilgrimage" },
 ];
 
 export default function NavBar() {

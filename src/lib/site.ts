@@ -12,6 +12,7 @@ export const STATIC_ROUTES = [
   "/globe",
   "/compare",
   "/concepts",
+  "/pilgrimage",
 ] as const;
 
 export function getReligionRoutes(): string[] {

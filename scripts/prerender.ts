@@ -6,7 +6,7 @@ import { getAllRoutes } from "../src/lib/site";
 
 const DIST_DIR = resolve(process.cwd(), "dist");
 const PORT = 4173;
-const BASE_URL = `http://127.0.0.1:${PORT}`;
+const BASE_URL = `http://localhost:${PORT}`;
 
 function routeToOutputPath(route: string): string {
   if (route === "/") return join(DIST_DIR, "index.html");
@@ -16,8 +16,14 @@ function routeToOutputPath(route: string): string {
 function startPreviewServer(): Promise<ChildProcess> {
   return new Promise((resolvePromise, reject) => {
     const server = spawn(
-      "npx",
-      ["vite", "preview", "--port", String(PORT), "--strictPort"],
+      process.execPath,
+      [
+        resolve(process.cwd(), "node_modules/vite/bin/vite.js"),
+        "preview",
+        "--port",
+        String(PORT),
+        "--strictPort",
+      ],
       {
         cwd: process.cwd(),
         stdio: ["ignore", "pipe", "pipe"],
@@ -54,6 +60,20 @@ function startPreviewServer(): Promise<ChildProcess> {
   });
 }
 
+async function waitForPreviewReady(): Promise<void> {
+  const deadline = Date.now() + 30000;
+  while (Date.now() < deadline) {
+    try {
+      const response = await fetch(`${BASE_URL}/`);
+      if (response.ok) return;
+    } catch {
+      // Preview still starting.
+    }
+    await new Promise((resolveDelay) => setTimeout(resolveDelay, 250));
+  }
+  throw new Error("Preview server health check failed");
+}
+
 async function waitForPageContent(page: import("puppeteer").Page, route: string) {
   await page.waitForSelector("h1", { timeout: 20000 });
 
@@ -87,7 +107,7 @@ async function prerenderRoute(browser: Browser, route: string) {
 
   try {
     await page.setViewport({ width: 1440, height: 900 });
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.goto(url, { waitUntil: "networkidle0", timeout: 60000 });
     await waitForPageContent(page, route);
 
     const html = await page.content();
@@ -103,17 +123,13 @@ async function prerenderRoute(browser: Browser, route: string) {
 async function main() {
   const routes = getAllRoutes();
   const server = await startPreviewServer();
+  await waitForPreviewReady();
   let browser: Browser | null = null;
 
   try {
     browser = await puppeteer.launch({
       headless: true,
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--disable-gpu",
-      ],
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
 
     for (const route of routes) {

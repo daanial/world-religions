@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilgrim Paths — comparative prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#11151D;
+    --ink-soft:#1A2030;
+    --panel:#1B2230;
+    --brass:#C6A256;
+    --brass-bright:#F0CD80;
+    --ember:#C2613A;
+    --parchment:#EDE5D2;
+    --mist:#7A8696;
+    --hairline: rgba(198,162,86,0.14);
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--font-body);
+    padding:48px 24px 64px;
+  }
+
+  .wrap{ max-width:1180px; margin:0 auto; }
+
+  header{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:28px;
+    border-bottom:1px solid var(--hairline);
+    padding-bottom:20px;
+  }
+
+  .titles h1{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(28px,4vw,40px);
+    margin:0 0 6px;
+    letter-spacing:0.2px;
+  }
+
+  .titles p{
+    margin:0;
+    color:var(--mist);
+    font-size:14px;
+    max-width:48ch;
+  }
+
+  .tabs{ display:flex; gap:4px; flex-wrap:wrap; }
+
+  .tab{
+    background:transparent;
+    border:none;
+    border-bottom:2px solid transparent;
+    color:var(--mist);
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    padding:9px 14px;
+    cursor:pointer;
+    transition:color .2s;
+  }
+
+  .tab:hover{ color:var(--brass-bright); }
+
+  .tab.active{
+    color:var(--parchment);
+    border-bottom-color:var(--brass);
+  }
+
+  .tab:focus-visible{
+    outline:1px solid var(--brass-bright);
+    outline-offset:2px;
+  }
+
+  .stage{
+    position:relative;
+    background:radial-gradient(circle at 50% 38%, var(--ink-soft), var(--ink) 72%);
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    overflow:hidden;
+  }
+
+  svg#map{ display:block; width:100%; height:auto; }
+
+  .route-arc{
+    fill:none;
+    stroke:var(--brass);
+    stroke-width:1.6;
+    stroke-linecap:round;
+    opacity:0;
+  }
+
+  .travel-dot{
+    fill:var(--brass-bright);
+    opacity:0;
+    filter:drop-shadow(0 0 4px rgba(240,205,128,0.85));
+  }
+
+  .marker circle{ transition:none; }
+
+  .marker.source circle{
+    fill:var(--ink);
+    stroke:var(--brass);
+    stroke-width:1.3;
+  }
+
+  .marker.dest circle{
+    fill:var(--ember);
+    filter:drop-shadow(0 0 7px rgba(194,97,58,0.75));
+  }
+
+  .marker text{
+    font-family:var(--font-mono);
+    fill:var(--mist);
+    font-size:11px;
+    letter-spacing:0.04em;
+    text-anchor:middle;
+  }
+
+  .marker.dest text{
+    fill:var(--parchment);
+    font-size:12px;
+    font-weight:500;
+  }
+
+  .corner-mark{
+    stroke:var(--brass);
+    stroke-width:1.4;
+    fill:none;
+    opacity:0.22;
+  }
+
+  .ruled-line{
+    stroke:var(--brass);
+    stroke-width:0.6;
+    opacity:0.05;
+  }
+
+  #instrument-ring circle{
+    fill:none;
+    stroke:var(--brass);
+    opacity:0.07;
+  }
+  #instrument-ring line{
+    stroke:var(--brass);
+    opacity:0.07;
+  }
+
+  .caption{
+    margin-top:18px;
+    background:var(--panel);
+    border:1px solid var(--hairline);
+    border-radius:8px;
+    padding:22px 26px;
+    min-height:118px;
+  }
+
+  .caption .meta{
+    margin:0 0 8px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+
+  .caption h3{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:22px;
+    margin:0 0 10px;
+    color:var(--parchment);
+  }
+
+  .caption .fact{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.55;
+    color:#C9C2B0;
+    max-width:74ch;
+  }
+
+  footer{
+    margin-top:14px;
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--mist);
+    opacity:0.65;
+    letter-spacing:0.02em;
+  }
+
+  @media (max-width:640px){
+    header{ flex-direction:column; align-items:flex-start; }
+    .tabs{ gap:0; }
+    .tab{ padding:8px 10px; font-size:10px; }
+    .caption h3{ font-size:19px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .route-arc, .travel-dot, .marker, .caption{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="titles">
+      <h1>Pilgrim Paths</h1>
+      <p>Three faiths, one shape — a comparative study in convergence, not a literal map.</p>
+    </div>
+    <div class="tabs" id="tabs">
+      <button class="tab" data-key="all">All Paths</button>
+      <button class="tab" data-key="hajj">Hajj</button>
+      <button class="tab" data-key="camino">Camino</button>
+      <button class="tab" data-key="chakchak">Chak Chak</button>
+    </div>
+  </header>
+
+  <div class="stage">
+    <svg id="map" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+      <!-- ruled lines -->
+      <g id="rules">
+        <line class="ruled-line" x1="0" y1="150" x2="1200" y2="150"/>
+        <line class="ruled-line" x1="0" y1="300" x2="1200" y2="300"/>
+        <line class="ruled-line" x1="0" y1="450" x2="1200" y2="450"/>
+      </g>
+
+      <!-- decorative rotating instrument ring -->
+      <g id="instrument-ring" transform="translate(600,300)">
+        <circle r="250" />
+        <circle r="270" />
+        <!-- ticks -->
+        <g id="ticks"></g>
+      </g>
+
+      <!-- corner crop marks -->
+      <path class="corner-mark" d="M22,46 L22,22 L46,22"/>
+      <path class="corner-mark" d="M1178,46 L1178,22 L1154,22"/>
+      <path class="corner-mark" d="M22,554 L22,578 L46,578"/>
+      <path class="corner-mark" d="M1178,554 L1178,578 L1154,578"/>
+
+      <g id="arcs-layer"></g>
+      <g id="dots-layer"></g>
+      <g id="markers-layer"></g>
+    </svg>
+  </div>
+
+  <div class="caption" id="caption">
+    <p class="meta">Loading…</p>
+    <h3>—</h3>
+    <p class="fact"></p>
+  </div>
+
+  <footer>Schematic diagram — relative positions only, not a geographic projection. Historic caravan roads (Hajj) are scholarly reconstructions; Camino and Chak Chak routes are still walked today.</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const NS = "http://www.w3.org/2000/svg";
+
+const POINTS = {
+  // Camino sources
+  paris:    { x: 330, y: 92,  label: "Paris" },
+  lepuy:    { x: 298, y: 168, label: "Le Puy" },
+  arles:    { x: 348, y: 236, label: "Arles" },
+  // Hajj sources
+  damascus: { x: 562, y: 222, label: "Damascus" },
+  cairo:    { x: 476, y: 286, label: "Cairo" },
+  kufa:     { x: 686, y: 244, label: "Kufa" },
+  // Chak Chak sources
+  tehran:   { x: 822, y: 162, label: "Tehran" },
+  kerman:   { x: 904, y: 322, label: "Kerman" },
+  mumbai:   { x: 1086, y: 386, label: "Mumbai" },
+  // Destinations
+  santiago: { x: 138, y: 168, label: "Santiago de Compostela", isDest: true },
+  mecca:    { x: 614, y: 388, label: "Mecca", isDest: true },
+  chakchak: { x: 856, y: 258, label: "Chak Chak", isDest: true }
+};
+
+const ROUTES = {
+  hajj: {
+    name: "The Hajj — Darb al-Hajj",
+    era: "7th c. – present",
+    cadence: "Once yearly, fixed lunar dates",
+    fact: "The Syrian caravan route alone ran 1,307 km, Damascus to Medina to Mecca. The Syrian, Egyptian, and Iraqi (Darb Zubayda) roads are now jointly proposed for UNESCO World Heritage status as a single serial site.",
+    destination: "mecca",
+    sources: ["damascus", "cairo", "kufa"]
+  },
+  camino: {
+    name: "Camino de Santiago",
+    era: "9th c. – present",
+    cadence: "Year-round, self-paced",
+    fact: "Via Podiensis: 762 km from Le Puy. Via Turonensis: 1,021 km from Paris. In 2013 alone, over 215,000 pilgrims received the Compostela in Santiago — still the most-walked of the three routes shown here.",
+    destination: "santiago",
+    sources: ["paris", "lepuy", "arles"]
+  },
+  chakchak: {
+    name: "Chak Chak (Pir-e Sabz)",
+    era: "7th c. – present",
+    cadence: "Annual, 14–18 June",
+    fact: "The smallest of the three by far — thousands, not millions — but among the most continuous. Zoroastrians travel from Tehran, Kerman, and the Indian diaspora to one mountain shrine in Yazd province.",
+    destination: "chakchak",
+    sources: ["tehran", "kerman", "mumbai"]
+  }
+};
+
+const svg = document.getElementById('map');
+const arcsLayer = document.getElementById('arcs-layer');
+const markersLayer = document.getElementById('markers-layer');
+const dotsLayer = document.getElementById('dots-layer');
+const ticksGroup = document.getElementById('ticks');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// instrument ring ticks
+for (let i = 0; i < 36; i++) {
+  const angle = (i / 36) * Math.PI * 2;
+  const r1 = 250, r2 = (i % 3 === 0) ? 238 : 244;
+  const line = document.createElementNS(NS, 'line');
+  line.setAttribute('x1', Math.cos(angle) * r1);
+  line.setAttribute('y1', Math.sin(angle) * r1);
+  line.setAttribute('x2', Math.cos(angle) * r2);
+  line.setAttribute('y2', Math.sin(angle) * r2);
+  ticksGroup.appendChild(line);
+}
+
+function bow(p1, p2, amt = 0.16) {
+  const dx = p2.x - p1.x, dy = p2.y - p1.y;
+  const dist = Math.hypot(dx, dy);
+  const nx = -dy / dist, ny = dx / dist;
+  return {
+    mx: (p1.x + p2.x) / 2 + nx * dist * amt,
+    my: (p1.y + p2.y) / 2 + ny * dist * amt
+  };
+}
+
+const arcEls = {};
+const travelDots = {};
+
+Object.entries(ROUTES).forEach(([routeKey, route]) => {
+  const dest = POINTS[route.destination];
+  route.sources.forEach(srcKey => {
+    const src = POINTS[srcKey];
+    const { mx, my } = bow(src, dest);
+    const path = document.createElementNS(NS, 'path');
+    path.setAttribute('d', `M ${src.x} ${src.y} Q ${mx} ${my} ${dest.x} ${dest.y}`);
+    path.setAttribute('class', 'route-arc');
+    arcsLayer.appendChild(path);
+    arcEls[`${routeKey}|${srcKey}`] = path;
+
+    const dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('r', 3.2);
+    dot.setAttribute('class', 'travel-dot');
+    dotsLayer.appendChild(dot);
+    travelDots[`${routeKey}|${srcKey}`] = dot;
+  });
+});
+
+Object.entries(POINTS).forEach(([key, p]) => {
+  const g = document.createElementNS(NS, 'g');
+  g.setAttribute('class', 'marker ' + (p.isDest ? 'dest' : 'source'));
+  g.dataset.key = key;
+  const c = document.createElementNS(NS, 'circle');
+  c.setAttribute('cx', p.x);
+  c.setAttribute('cy', p.y);
+  c.setAttribute('r', p.isDest ? 7 : 4.5);
+  g.appendChild(c);
+  const t = document.createElementNS(NS, 'text');
+  t.setAttribute('x', p.x);
+  t.setAttribute('y', p.y + (p.isDest ? -16 : -11));
+  t.textContent = p.label;
+  g.appendChild(t);
+  markersLayer.appendChild(g);
+});
+
+function pointKeysForRoute(routeKey) {
+  const r = ROUTES[routeKey];
+  return [r.destination, ...r.sources];
+}
+
+function updateCaption(routeKey) {
+  const card = document.getElementById('caption');
+  gsap.to(card, {
+    opacity: 0, y: 6, duration: 0.18, onComplete: () => {
+      if (routeKey === 'all') {
+        card.querySelector('.meta').textContent = 'Three faiths · one shape';
+        card.querySelector('h3').textContent = 'Many roads, one destination';
+        card.querySelector('.fact').textContent = 'Centuries apart, with no contact between them, Islam, Christianity, and Zoroastrianism each produced the same structure: pilgrims from scattered cities, on different roads, converging on a single fixed point. Pick a path to trace it.';
+      } else {
+        const r = ROUTES[routeKey];
+        card.querySelector('.meta').textContent = r.era + ' · ' + r.cadence;
+        card.querySelector('h3').textContent = r.name;
+        card.querySelector('.fact').textContent = r.fact;
+      }
+      gsap.to(card, { opacity: 1, y: 0, duration: 0.3 });
+    }
+  });
+}
+
+function render(routeKey) {
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.key === routeKey);
+  });
+
+  const activeRoutes = routeKey === 'all' ? Object.keys(ROUTES) : [routeKey];
+
+  Object.entries(arcEls).forEach(([id, path]) => {
+    const rk = id.split('|')[0];
+    gsap.killTweensOf(path);
+    const len = path.getTotalLength();
+
+    if (routeKey === 'all') {
+      path.style.strokeDasharray = 'none';
+      gsap.to(path, { opacity: 0.3, duration: 0.5 });
+    } else if (activeRoutes.includes(rk)) {
+      path.style.strokeDasharray = len;
+      if (reduceMotion) {
+        path.style.strokeDashoffset = 0;
+        gsap.to(path, { opacity: 1, duration: 0.3 });
+      } else {
+        gsap.fromTo(path, { strokeDashoffset: len, opacity: 1 }, { strokeDashoffset: 0, duration: 1.3, ease: 'power2.inOut', delay: 0.15 });
+      }
+    } else {
+      gsap.to(path, { opacity: 0.04, duration: 0.4 });
+    }
+  });
+
+  Object.entries(travelDots).forEach(([id, dot]) => {
+    gsap.killTweensOf(dot);
+    const rk = id.split('|')[0];
+    if (routeKey !== 'all' && activeRoutes.includes(rk) && !reduceMotion) {
+      const path = arcEls[id];
+      const len = path.getTotalLength();
+      dot.style.opacity = 1;
+      const proxy = { p: 0 };
+      gsap.to(proxy, {
+        p: 1, duration: 1.6, delay: 0.3, ease: 'power1.inOut', onUpdate: () => {
+          const pt = path.getPointAtLength(proxy.p * len);
+          dot.setAttribute('cx', pt.x);
+          dot.setAttribute('cy', pt.y);
+        }
+      });
+    } else {
+      dot.style.opacity = 0;
+    }
+  });
+
+  const activePoints = routeKey === 'all' ? Object.keys(POINTS) : pointKeysForRoute(routeKey);
+  document.querySelectorAll('.marker').forEach(g => {
+    gsap.to(g, { opacity: activePoints.includes(g.dataset.key) ? 1 : 0.22, duration: 0.4 });
+  });
+
+  updateCaption(routeKey);
+}
+
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => render(btn.dataset.key));
+});
+
+if (!reduceMotion) {
+  gsap.to('#instrument-ring', { rotation: 360, duration: 200, repeat: -1, ease: 'none', transformOrigin: '50% 50%' });
+}
+
+render('all');
+</script>
+</body>
+</html>
