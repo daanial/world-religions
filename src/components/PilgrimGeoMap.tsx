@@ -85,6 +85,7 @@ function installMapboxTeardownGuard(map: MapboxMap) {
     } catch {
       // Known mapbox-gl bug during StrictMode / navigation teardown.
     }
+    return map;
   };
 
   const removeLayer = map.removeLayer.bind(map);
@@ -94,6 +95,7 @@ function installMapboxTeardownGuard(map: MapboxMap) {
     } catch {
       // Layer may already be gone during parallel teardown.
     }
+    return map;
   };
 }
 
