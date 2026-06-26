@@ -6,71 +6,51 @@ import { getAllRoutes } from "../src/lib/site";
 
 const DIST_DIR = resolve(process.cwd(), "dist");
 const PORT = 4173;
-const BASE_URL = `http://localhost:${PORT}`;
+const BASE_URL = `http://127.0.0.1:${PORT}`;
+
+function startPreviewServer(): ChildProcess {
+  return spawn(
+    process.execPath,
+    [
+      resolve(process.cwd(), "node_modules/vite/bin/vite.js"),
+      "preview",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      String(PORT),
+      "--strictPort",
+    ],
+    {
+      cwd: process.cwd(),
+      stdio: ["ignore", "pipe", "pipe"],
+      env: { ...process.env, NODE_ENV: "production" },
+    }
+  );
+}
 
 function routeToOutputPath(route: string): string {
   if (route === "/") return join(DIST_DIR, "index.html");
   return join(DIST_DIR, route.slice(1), "index.html");
 }
 
-function startPreviewServer(): Promise<ChildProcess> {
-  return new Promise((resolvePromise, reject) => {
-    const server = spawn(
-      process.execPath,
-      [
-        resolve(process.cwd(), "node_modules/vite/bin/vite.js"),
-        "preview",
-        "--port",
-        String(PORT),
-        "--strictPort",
-      ],
-      {
-        cwd: process.cwd(),
-        stdio: ["ignore", "pipe", "pipe"],
-        env: { ...process.env, NODE_ENV: "production" },
-      }
-    );
+async function waitForPreviewReady(server: ChildProcess): Promise<void> {
+  const deadline = Date.now() + 60000;
 
-    let settled = false;
-
-    const onReady = (chunk: Buffer) => {
-      const text = chunk.toString();
-      if (text.includes("Local:") || text.includes(`http://localhost:${PORT}`)) {
-        if (!settled) {
-          settled = true;
-          resolvePromise(server);
-        }
-      }
-    };
-
-    server.stdout?.on("data", onReady);
-    server.stderr?.on("data", onReady);
-
-    server.on("error", (error) => {
-      if (!settled) reject(error);
-    });
-
-    server.on("exit", (code) => {
-      if (!settled) reject(new Error(`Preview server exited early with code ${code ?? "unknown"}`));
-    });
-
-    setTimeout(() => {
-      if (!settled) reject(new Error("Timed out waiting for preview server"));
-    }, 30000);
-  });
-}
-
-async function waitForPreviewReady(): Promise<void> {
-  const deadline = Date.now() + 30000;
   while (Date.now() < deadline) {
+    if (server.exitCode !== null) {
+      throw new Error(`Preview server exited early with code ${server.exitCode}`);
+    }
+
     try {
       const response = await fetch(`${BASE_URL}/`);
       if (response.ok) return;
     } catch {
       // Preview still starting.
     }
-    await new Promise((resolveDelay) => setTimeout(resolveDelay, 250));
+
+    await new Promise((resolveDelay) => setTimeout(resolveDelay, 500));
   }
+
   throw new Error("Preview server health check failed");
 }
 
@@ -122,8 +102,8 @@ async function prerenderRoute(browser: Browser, route: string) {
 
 async function main() {
   const routes = getAllRoutes();
-  const server = await startPreviewServer();
-  await waitForPreviewReady();
+  const server = startPreviewServer();
+  await waitForPreviewReady(server);
   let browser: Browser | null = null;
 
   try {
