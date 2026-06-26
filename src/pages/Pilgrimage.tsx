@@ -12,6 +12,7 @@ import {
 } from "../data/pilgrimage-routes";
 import { RELIGIONS } from "../data/religions";
 import { usePageSeo } from "../lib/seo";
+import { getPilgrimageImageSrc } from "../lib/pilgrimageImages";
 import { pilgrimageNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
@@ -168,6 +169,17 @@ function RouteSection({ routeKey }: { routeKey: GeoRouteKey }) {
       </dl>
 
       <GeoMapBlock routeKey={routeKey} />
+
+      <figure className="pilgrim-photo">
+        <img
+          src={getPilgrimageImageSrc(routeKey)}
+          alt={`${caption.title} — pilgrimage illustration`}
+          width={1600}
+          height={900}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
 
       <div className={`pilgrim-prose card${content.videoId ? " pilgrim-prose--with-video" : ""}`}>
         <div className="pilgrim-prose__layout">

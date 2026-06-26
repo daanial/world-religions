@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Map, { Layer, Marker, Source } from "react-map-gl/mapbox";
 import type { MapRef } from "react-map-gl/mapbox";
 import type { Map as MapboxMap } from "mapbox-gl";
@@ -61,16 +61,40 @@ function disableMapTerrain(map: MapboxMap) {
   }
 }
 
-/** Must render last inside <Map> so terrain is cleared before geojson sources unmount. */
-function MapTerrainCleanup({ mapRef }: { mapRef: RefObject<MapRef | null> }) {
-  useEffect(() => {
-    const map = mapRef.current?.getMap();
-    return () => {
-      if (map) disableMapTerrain(map);
-    };
-  }, [mapRef]);
+type GuardedMap = MapboxMap & { __pilgrimTeardownGuard?: boolean };
 
-  return null;
+/**
+ * Mapbox crashes in removeSource → _updateTerrain when terrain state is stale.
+ * React StrictMode double-invokes Source useEffect cleanups without running
+ * layout-effect guards first, so we patch removeSource at map load.
+ */
+function installMapboxTeardownGuard(map: MapboxMap) {
+  const guarded = map as GuardedMap;
+  if (guarded.__pilgrimTeardownGuard) return;
+  guarded.__pilgrimTeardownGuard = true;
+
+  const keepTerrainOff = () => disableMapTerrain(map);
+  keepTerrainOff();
+  map.on("styledata", keepTerrainOff);
+
+  const removeSource = map.removeSource.bind(map);
+  map.removeSource = (id: string) => {
+    keepTerrainOff();
+    try {
+      if (map.getSource(id)) removeSource(id);
+    } catch {
+      // Known mapbox-gl bug during StrictMode / navigation teardown.
+    }
+  };
+
+  const removeLayer = map.removeLayer.bind(map);
+  map.removeLayer = (id: string) => {
+    try {
+      if (map.getLayer(id)) removeLayer(id);
+    } catch {
+      // Layer may already be gone during parallel teardown.
+    }
+  };
 }
 
 export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMapProps) {
@@ -173,7 +197,7 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
           zoom: 4,
         }}
         onLoad={(event) => {
-          disableMapTerrain(event.target);
+          installMapboxTeardownGuard(event.target);
           setMapReady(true);
         }}
         attributionControl={false}
@@ -181,7 +205,8 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
         pitchWithRotate={false}
         style={{ width: "100%", height: "100%" }}
       >
-        {legs.map((leg, index) => {
+        {mapReady &&
+          legs.map((leg, index) => {
           const color = legColor(routeKey, index);
           const data = animated[leg.id] ?? {
             type: "Feature",
@@ -215,7 +240,8 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
           );
         })}
 
-        {places.map((place) => (
+        {mapReady &&
+          places.map((place) => (
           <Marker key={place.id} longitude={place.lng} latitude={place.lat} anchor="center">
             <div className={`pilgrim-geo-marker ${place.isDest ? "pilgrim-geo-marker--dest" : ""}`}>
               <span className="pilgrim-geo-marker__dot" />
@@ -224,13 +250,12 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
           </Marker>
         ))}
 
-        {pilgrim && (
+        {mapReady && pilgrim && (
           <Marker longitude={pilgrim[0]} latitude={pilgrim[1]} anchor="center">
             <span className="pilgrim-geo-traveler" style={{ background: accent }} />
           </Marker>
         )}
 
-        <MapTerrainCleanup mapRef={mapRef} />
       </Map>
 
       {loading && (

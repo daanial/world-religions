@@ -116,6 +116,23 @@
   color: var(--text-muted);
 }
 
+.pilgrim-photo {
+  margin: 20px 0 0;
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent, var(--gold)) 22%, transparent);
+  box-shadow:
+    0 24px 64px -28px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent, var(--gold)) 6%, transparent);
+}
+
+.pilgrim-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .pilgrim-prose {
   margin-top: 20px;
   padding: 24px 28px;
