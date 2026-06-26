@@ -2,6 +2,7 @@ import { spawn, type ChildProcess } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import puppeteer, { type Browser } from "puppeteer";
+import puppeteerCore from "puppeteer-core";
 import { getAllRoutes } from "../src/lib/site";
 
 const DIST_DIR = resolve(process.cwd(), "dist");
@@ -52,6 +53,23 @@ async function waitForPreviewReady(server: ChildProcess): Promise<void> {
   }
 
   throw new Error("Preview server health check failed");
+}
+
+async function launchBrowser(): Promise<Browser> {
+  if (process.env.VERCEL) {
+    const chromium = await import("@sparticuz/chromium");
+    return puppeteerCore.launch({
+      args: [...chromium.default.args, "--no-sandbox", "--disable-setuid-sandbox"],
+      defaultViewport: { width: 1440, height: 900 },
+      executablePath: await chromium.default.executablePath(),
+      headless: true,
+    });
+  }
+
+  return puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
 }
 
 async function waitForPageContent(page: import("puppeteer").Page, route: string) {
@@ -107,10 +125,7 @@ async function main() {
   let browser: Browser | null = null;
 
   try {
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
+    browser = await launchBrowser();
 
     for (const route of routes) {
       await prerenderRoute(browser, route);
