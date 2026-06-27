@@ -15,6 +15,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const Timeline = lazy(() => import("./pages/Timeline"));
+const InwardPaths = lazy(() => import("./pages/InwardPaths"));
 const GlobeView = lazy(() => import("./pages/GlobeView"));
 
 import "./styles/tokens.css";
@@ -27,6 +28,7 @@ import "./styles/compare.css";
 import "./styles/concepts.css";
 import "./styles/pilgrimage.css";
 import "./styles/about.css";
+import "./styles/inward-paths.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -68,6 +70,7 @@ export default function App() {
               <Route path="/compare" element={<Compare />} />
               <Route path="/concepts" element={<Concepts />} />
               <Route path="/pilgrimage" element={<Pilgrimage />} />
+              <Route path="/inward-paths" element={<InwardPaths />} />
               <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

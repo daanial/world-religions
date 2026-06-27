@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import gsap from "gsap";
 import About3DCarousel from "../components/About3DCarousel";
 import { ABOUT_IMAGES } from "../lib/aboutImages";
@@ -10,9 +9,9 @@ export default function About() {
   const hintRef = useRef<HTMLParagraphElement>(null);
 
   usePageSeo({
-    title: "About Us",
+    title: "About / In Memory",
     description:
-      "Meet the team behind World Religions Explorer — an immersive study of belief across 6,000 years of human history.",
+      "Six thousand years of belief — timelines, sacred geography, concept networks, and side-by-side comparisons across thirty-four traditions. Built for curiosity, not certainty.",
     path: "/about",
     image: ABOUT_IMAGES[0]?.src,
   });
@@ -55,12 +54,29 @@ export default function About() {
 
         <div ref={overlayRef} className="about-hero__overlay glass" aria-live="polite">
           <div className="about-hero__overlay-inner">
-            <div className="eyebrow">About us</div>
-            <h1 className="about-hero__title">World Religions Explorer</h1>
+            <h1 className="about-hero__title">About / In Memory</h1>
             <p className="about-hero__lead">
-              An educational journey through 6,000 years of belief — timelines, sacred geography,
-              concept networks, and side-by-side comparisons across 34 traditions. Built for
-              curiosity, not certainty.
+              Six thousand years of belief. Timelines, sacred geography, concept networks,
+              side-by-side comparisons across thirty-four traditions — built for curiosity, not
+              certainty.
+            </p>
+            <p className="about-hero__body">
+              I met these questions young. First in the Bhagavad Gita, then in Sufi verses read in
+              secret as a teenager — the same question underneath every tradition I would later
+              study: what is this flame in the human chest that reaches for the unseen, that builds
+              temples and empires and laws around what it cannot see, and that sometimes, still,
+              burns for it. This project is an attempt to give that question room to breathe.
+            </p>
+            <p className="about-hero__body about-hero__body--memorial">
+              It is also, inseparably, dedicated to the dead of January 2026 — to the women and men
+              killed by their own government in Iran, in a massacre the world was made to watch in
+              the dark, the internet cut so the killing could not be witnessed. Among them, a woman
+              whose face was never given back her name — catalogued only as number 12760. She is one
+              of thousands. She stands here for all of them.
+            </p>
+            <p className="about-hero__body about-hero__body--memorial">
+              To the trees that fell, and to all the unnamed forests beside them: you are not lost to
+              memory. You are why this exists.
             </p>
             <p className="about-hero__credit">
               Created by{" "}
@@ -72,14 +88,6 @@ export default function About() {
                 Cubex
               </a>
             </p>
-            <div className="about-hero__actions">
-              <Link to="/timeline" className="btn btn--primary">
-                Start exploring
-              </Link>
-              <Link to="/globe" className="btn btn--ghost">
-                View the globe
-              </Link>
-            </div>
           </div>
         </div>
       </section>

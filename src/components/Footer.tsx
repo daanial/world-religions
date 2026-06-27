@@ -7,6 +7,7 @@ const exploreLinks = [
   { to: "/compare", label: "Compare" },
   { to: "/concepts", label: "Concepts" },
   { to: "/pilgrimage", label: "Pilgrimage" },
+  { to: "/inward-paths", label: "Inward Paths" },
   { to: "/about", label: "About" },
 ];
 

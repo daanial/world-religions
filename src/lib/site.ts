@@ -13,6 +13,7 @@ export const STATIC_ROUTES = [
   "/compare",
   "/concepts",
   "/pilgrimage",
+  "/inward-paths",
   "/about",
 ] as const;
 
