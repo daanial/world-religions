@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import PopulationChart from "../components/PopulationChart";
 import Starfield from "../components/Starfield";
 import TimelineChart from "../components/TimelineChart";
 import { RELIGIONS } from "../data/religions";
@@ -55,6 +56,8 @@ export default function Timeline() {
         <div className="tl-wrap card reveal">
           <TimelineChart accent="var(--gold)" filter={{ extinct: true, living: true }} />
         </div>
+
+        <PopulationChart />
 
         {/* directory */}
         <section className="tl-directory reveal">
