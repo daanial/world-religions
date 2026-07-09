@@ -178,6 +178,20 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* ---------- SIX GREAT CURRENTS VIDEO ---------- */}
+      <section className="families-video">
+        <div className="families-video__inner reveal">
+          <video
+            className="families-video__player"
+            src="/assets/six-great-currents-combined.mp4"
+            autoPlay
+            muted
+            playsInline
+            loop
+          />
+        </div>
+      </section>
+
       {/* ---------- FAMILIES ---------- */}
       <section className="families container">
         <div className="families__head reveal">

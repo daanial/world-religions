@@ -276,6 +276,32 @@
   }
 }
 
+/* ===================== Landing — Families video ===================== */
+
+.families-video {
+  padding: 40px 0 0;
+  position: relative;
+  z-index: 2;
+}
+.families-video__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.families-video__player {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+}
+
+@media (max-width: 720px) {
+  .families-video__inner {
+    padding: 0 18px;
+  }
+}
+
 /* ===================== Landing — Families ===================== */
 
 .families {
