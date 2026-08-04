@@ -220,4 +220,70 @@ export const ANCIENT_ESSAYS: Record<string, ReligionEssay> = {
       },
     ],
   },
+
+  gnosticism: {
+    paragraphs: [
+      "Gnosticism names a family of religious movements that emerged within early Christianity and Second Temple Judaism, flourishing across the Mediterranean and Near East from roughly the first through fourth centuries CE. Rather than a single organized church, it comprised diverse teachers and schools united by a shared cosmological instinct: a remote, unknowable supreme God (often called the Monad) stands apart from the flawed material cosmos, which was instead fashioned by a lesser, ignorant creator figure — the demiurge, sometimes named Yaldabaoth. Human beings carry a fragment of divine light trapped within matter, exiled from the pleroma, the true realm of fullness and light.",
+      "Salvation in Gnostic thought came not through faith or institutional sacrament but through gnosis — direct, experiential knowledge of one's true divine origin, transmitted by a redeemer figure (in Christian Gnostic systems, typically Jesus) who awakens the trapped spark to its source. Teachers such as Valentinus and Basilides, active in second-century Alexandria and Rome, developed elaborate systematic theologies mapping the emanation of divine beings (aeons) from the Monad down to the material world. This emphasis on esoteric knowledge over ecclesial authority put Gnostic Christians at odds with proto-orthodox bishops such as Irenaeus, who condemned them at length as heretics.",
+      "For centuries Gnosticism was known almost entirely through these hostile heresiological accounts, until the 1945 discovery of the Nag Hammadi library in Egypt — over fifty Coptic manuscripts including the Gospel of Thomas and the Apocryphon of John — gave scholars direct access to Gnostic voices for the first time. Proto-orthodox condemnation, the institutional consolidation of the church, and later the decline of late antiquity's religious pluralism combined to nearly extinguish organized Gnostic communities, though Mandaeism, a distinct Gnostic-influenced religion of Iraq and Iran, survives as a living tradition to this day.",
+    ],
+    sources: [
+      {
+        label: "Britannica — Gnosticism",
+        href: "https://www.britannica.com/topic/Gnosticism",
+      },
+      {
+        label: "Internet Encyclopedia of Philosophy — Gnosticism",
+        href: "https://iep.utm.edu/gnostic/",
+      },
+      {
+        label: "World History Encyclopedia — Gnosticism",
+        href: "https://www.worldhistory.org/Gnosticism/",
+      },
+    ],
+  },
+
+  mesoamerican: {
+    paragraphs: [
+      "Mesoamerican religion refers to the shared cosmological framework of the Aztec (Mexica), Maya, and neighboring civilizations of pre-Columbian Mexico and Central America. Both traditions envisioned a layered universe — commonly thirteen heavens above and nine underworld levels below — connected by a central world-tree (the Maya yaxche, or ceiba) at the axis of creation. Among the Aztec, the concept of teotl, a single dynamic, self-generating sacred force, underlay a populous pantheon including Huitzilopochtli (sun and war), Tlaloc (rain), and Quetzalcoatl (wind and knowledge); Maya religion centered figures such as Itzamna, the creator, Chaac, god of rain, and the Maize God, whose myth-cycle is preserved in the Popol Vuh's tale of the Hero Twins descending into the underworld Xibalba.",
+      "Sacrifice — of maize, animals, elite blood offered through ritual bloodletting, and at times human life — was understood as cosmologically necessary, sustaining a sun and world believed to be inherently fragile and cyclical. The Aztec 52-year New Fire ceremony renewed the cosmos against threatened destruction, while the Maya 260-day tzolkin calendar and Long Count structured ritual and divinatory life around recurring cycles of time. Temple pyramids such as Tenochtitlan's Templo Mayor and countless Maya ceremonial centers anchored public ritual, priestly bloodletting, and the periodic reenactment of these founding myths through festival and calendar-based ceremony.",
+      "Spanish conquest — Tenochtitlan's fall in 1521 and the last independent Maya polity's surrender in 1697 — dismantled the state-sponsored priesthoods and temple systems that had organized public Mesoamerican religion for centuries. Forced conversion followed, yet indigenous cosmology did not simply vanish: it persisted through syncretism, visible in the Virgin of Guadalupe's assimilation of Aztec religious geography, the Day of the Dead's blending with Catholic All Souls observance, and the Maya cargo system's fusion of ancestral mountain spirits with Catholic saints and religious brotherhoods that continue in indigenous communities today.",
+    ],
+    sources: [
+      {
+        label: "Britannica — Aztec religion",
+        href: "https://www.britannica.com/topic/Aztec-religion",
+      },
+      {
+        label: "Britannica — Maya religion",
+        href: "https://www.britannica.com/topic/Maya-religion",
+      },
+      {
+        label: "World History Encyclopedia — Maya Religion",
+        href: "https://www.worldhistory.org/Maya_Religion/",
+      },
+    ],
+  },
+
+  "slavic-baltic": {
+    paragraphs: [
+      "Slavic and Baltic paganism were the related pre-Christian religions of Eastern and Northeastern Europe, sharing an Indo-European inheritance of sky and thunder gods, animism, and ancestor veneration. Slavic tradition centered Perun, thunder god of law and war, honored beside Veles, ruler of livestock, wealth, and the underworld, with the pair representing complementary cosmic forces of sky and chthonic depth; Mokosh stood as the sole female deity in the official pantheon Prince Vladimir installed at Kyiv before his conversion. Baltic tradition, closely related linguistically, venerated Perkūnas (thunder), Dievas (sky), and Saulė (the sun goddess), with regional figures such as Lithuania's Gabija (fire) and Latvia's Māra appearing in local cult.",
+      "Ritual life centered on wooden temples and idols on hilltops for the Slavs, and sacred groves and shrines (alka) tended by priests called kriwe among the Balts. Volkhvs, Slavic priest-diviners, led seasonal festivals and banquets honoring ancestor-gods, while processions moved sunwise around sacred sites in both traditions. Neither culture left native written scripture; what is known comes almost entirely from outside witnesses — the Byzantine historian Procopius's sixth-century account of Slavic religion, German missionary chronicles describing Baltic grove-worship, and the Russian Primary Chronicle's description of Vladimir's pantheon before 988 — supplemented by later folklore and archaeology.",
+      "Christianization proceeded unevenly and slowly: South Slavs converted under Byzantine mission in the 860s–880s, East Slavs following Vladimir's baptism in 988, and West Slavic Poland from 966, intensifying through the twelfth-century Northern Crusades. The Baltic lands held out longest — Lithuania's official conversion in 1387 marked the last formal state-level paganism in Europe, with the process continuing into the sixteenth century in rural areas. In both regions, older practices persisted for generations alongside Christian observance in a pattern scholars call dvoeverie, or 'double faith,' leaving traces still visible in folk custom and seasonal festival today.",
+    ],
+    sources: [
+      {
+        label: "Britannica — Slavic religion",
+        href: "https://www.britannica.com/topic/Slavic-religion",
+      },
+      {
+        label: "Britannica — Baltic religion",
+        href: "https://www.britannica.com/topic/Baltic-religion",
+      },
+      {
+        label: "World History Encyclopedia — Slavic Mythology",
+        href: "https://www.worldhistory.org/Slavic_Mythology/",
+      },
+    ],
+  },
 };

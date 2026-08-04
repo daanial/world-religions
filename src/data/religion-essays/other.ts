@@ -48,4 +48,26 @@ export const OTHER_ESSAYS: Record<string, ReligionEssay> = {
       },
     ],
   },
+
+  rastafari: {
+    paragraphs: [
+      "Rastafari emerged in 1930s Jamaica among marginalized Afro-Jamaican communities as a spiritual and political response to British colonial rule, drawing heavily on the Ethiopianist current in Black religious thought and Marcus Garvey's Pan-African 'Back-to-Africa' movement. Early preachers, most notably Leonard Howell, proclaimed that the November 1930 coronation of Ras Tafari Makonnen as Emperor Haile Selassie I of Ethiopia fulfilled biblical prophecy, identifying the new emperor as a divine figure — for many adherents, the Second Coming of Christ in African form. The movement built its own reading of the Bible around this event, treating Western colonial society as 'Babylon' and Ethiopia, or Africa more broadly, as 'Zion,' the promised land of return.",
+      "Central to Rastafari life is the 'grounding' or 'reasoning' — informal communal gatherings for theological discussion — alongside larger Nyabinghi Assemblies marked by drumming, chanting, and dance on dates significant to Ethiopian and Selassie-related history. Adherents commonly follow Ital dietary principles emphasizing natural, minimally processed food, wear their hair in uncut dreadlocks as a mark of covenant and African identity, and regard cannabis ('ganja') as a sacrament supporting meditation and spiritual insight rather than recreational use. Rastafari has no central church hierarchy or canonical creed; belief and practice vary considerably across 'mansions' or branches such as the Nyabinghi Order, Bobo Ashanti, and the Twelve Tribes of Israel.",
+      "Haile Selassie's death in 1975 posed a theological challenge that the movement absorbed in varied ways, with some adherents reaffirming his spiritual divinity regardless of physical death and others reinterpreting his role more symbolically. From its Jamaican origins, Rastafari gained enormous international visibility through reggae music in the 1960s and 70s, particularly the work of Bob Marley, though scholars caution that musical popularity does not equate to religious adherence. Estimates place the global Rastafari community at roughly 700,000 to one million people, concentrated in Jamaica and the wider Caribbean diaspora but present worldwide.",
+    ],
+    sources: [
+      {
+        label: "Britannica — Rastafari",
+        href: "https://www.britannica.com/topic/Rastafarianism",
+      },
+      {
+        label: "BBC Religion — Rastafari",
+        href: "https://www.bbc.co.uk/religion/religions/rastafari/",
+      },
+      {
+        label: "Encyclopedia.com — Rastafarianism",
+        href: "https://www.encyclopedia.com/environment/encyclopedias-almanacs-transcripts-and-maps/rastafarianism",
+      },
+    ],
+  },
 };

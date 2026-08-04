@@ -83,4 +83,48 @@ export const ABRAHAMIC_ESSAYS: Record<string, ReligionEssay> = {
       { label: "Encyclopaedia Iranica: Yazidis", href: "https://www.iranicaonline.org/articles/yazidis" },
     ],
   },
+
+  mandaean: {
+    paragraphs: [
+      "Mandaeism is a Gnostic monotheistic religion whose adherents trace their origin to first-century followers of John the Baptist, whom they revere as their greatest prophet and final teacher — while explicitly rejecting Jesus and Muhammad. Mandaean texts such as the Haran Gawaita describe an early migration from Palestine through Haran to southern Mesopotamia to escape persecution, though scholars continue to debate whether the tradition's roots are ultimately Palestinian or native to Mesopotamia. What is clear is that by the Parthian and Sasanian periods, Mandaean communities were established in the marshlands of what is now southern Iraq and southwestern Iran, worshipping Hayyi Rabbi, 'the Great Life,' as their supreme, unknowable God.",
+      "Central to Mandaean practice is baptism (masbuta), performed repeatedly in flowing 'living water' rather than as a one-time rite of conversion, alongside the masiqta, a ceremony guiding the soul's ascent after death. Cosmology describes emanations from the divine, including angelic beings (uthras) such as Manda d-Hayyi, and a hierarchy of prophets from Adam and Seth through John the Baptist. Scripture — the Ginza Rabba, the Qulasta prayerbook, and the Book of John — survives in Mandaic, an Eastern Aramaic dialect, and is copied and guarded by a hereditary priesthood organized into three grades: tarmidia, ganzibra, and rishama.",
+      "Under Islamic rule Mandaeans were recognized as 'People of the Book,' identified with the Quranic Sabians, which afforded the community legal protection for centuries. That protection collapsed after the 2003 Iraq invasion: sectarian violence drove the Iraqi Mandaean population down from a substantial, centuries-old community to a small fraction of its former size within a few years, scattering most survivors into diaspora across Europe, Australia, and North America. Today an estimated 60,000–70,000 Mandaeans remain worldwide, making the preservation of Mandaic language, priestly ordination, and river-baptism ritual outside their ancestral marshlands an active and urgent concern for the community.",
+    ],
+    sources: [
+      {
+        label: "Britannica — Mandaeanism",
+        href: "https://www.britannica.com/topic/Mandaeanism",
+      },
+      {
+        label: "Encyclopaedia Iranica — Mandaeans",
+        href: "https://www.iranicaonline.org/articles/mandaeans-i-general",
+      },
+      {
+        label: "Minority Rights Group — Mandaeans",
+        href: "https://minorityrights.org/communities/mandaeans/",
+      },
+    ],
+  },
+
+  samaritan: {
+    paragraphs: [
+      "Samaritans are an ethno-religious community descended from the ancient Israelites of the northern Kingdom of Israel, centering their worship on Mount Gerizim rather than Jerusalem. Their own tradition claims unbroken descent from the tribes of Ephraim and Manasseh; Jewish sources instead trace their distinct identity to population changes following the Assyrian conquest of the eighth century BCE. Modern scholarship suggests neither a wholesale population replacement nor a simple continuity, but a gradual crystallization of separate Samaritan identity during the Persian and Hellenistic periods, as the northern Israelite community developed its own priesthood, calendar, and holy site independent of Jerusalem.",
+      "The decisive rupture with Judaism deepened over centuries and turned violent around 110 BCE, when the Hasmonean ruler John Hyrcanus destroyed the Samaritan temple atop Mount Gerizim. Samaritans accept only the Torah — in their own textual recension, the Samaritan Pentateuch, written in Paleo-Hebrew script and differing from the Jewish Masoretic text in thousands of details, most consequentially in identifying Gerizim as God's chosen sanctuary — and reject the later Prophets, Writings, and rabbinic tradition entirely. A hereditary high priesthood, currently numbering its leader as the 133rd since Aaron, oversees practices including strict Sabbath and dietary law and an annual Passover animal sacrifice performed on the mountain itself.",
+      "Centuries of pressure under successive empires reduced the community to the brink of disappearance: today roughly 900 Samaritans survive, split almost evenly between Kiryat Luza on Mount Gerizim in the West Bank and the city of Holon in Israel, making them one of the smallest continuously practicing religious communities in the world. Straddling the Israeli-Palestinian divide, Samaritans hold both Israeli and Palestinian citizenship in many cases and maintain relations with both communities. Scholars regard the Samaritans as a living witness to a form of Israelite religion that diverged from — rather than descended from — the Judaism that produced the Hebrew Bible's later books.",
+    ],
+    sources: [
+      {
+        label: "Britannica — Samaritan",
+        href: "https://www.britannica.com/topic/Samaritan",
+      },
+      {
+        label: "Jewish Virtual Library — The Samaritans",
+        href: "https://www.jewishvirtuallibrary.org/the-samaritans",
+      },
+      {
+        label: "Bible Odyssey (Society of Biblical Literature) — Samaritans",
+        href: "https://www.bibleodyssey.org/people/related-articles/samaritans",
+      },
+    ],
+  },
 };

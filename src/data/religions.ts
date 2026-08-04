@@ -434,6 +434,103 @@ export const RELIGIONS: Religion[] = [
     ],
     concepts: ["soul", "salvation", "sacrifice", "mysticism"],
   },
+  {
+    id: "gnosticism",
+    name: "Gnosticism",
+    family: "Abrahamic",
+    region: "Middle East",
+    origin: 100,
+    ended: 400,
+    extinct: true,
+    living: false,
+    followers: 0,
+    countries: 0,
+    accent: A.violet,
+    blurb: "Secret knowledge (gnosis) and a flawed material world.",
+    description:
+      "A constellation of early Christian-era movements teaching that the material cosmos was the flawed creation of a lesser being (the demiurge), and that salvation came through secret spiritual knowledge (gnosis) rather than faith or law alone. Gnostic teachers such as Valentinus and Basilides flourished alongside orthodox Christianity before being suppressed as heresy.",
+    sacredTexts: [
+      {
+        name: "Nag Hammadi library",
+        description:
+          "A cache of over 50 Coptic texts discovered near Nag Hammadi, Egypt in 1945, including the Gospel of Thomas and Gospel of Truth. Likely buried by monks around the fourth century to escape destruction after Gnosticism was condemned as heresy, its rediscovery transformed modern understanding of early Christian diversity.",
+      },
+      {
+        name: "Gospel of Thomas",
+        description:
+          "A collection of 114 sayings attributed to Jesus, lacking narrative or a crucifixion account, emphasizing self-knowledge as the path to the divine kingdom. Found among the Nag Hammadi texts, it preserves a strand of early Jesus tradition outside the canonical gospels.",
+      },
+    ],
+    practices: ["Study & contemplation", "Secret initiation", "Ascetic withdrawal"],
+    coreIdeas: [
+      { label: "Cosmos", value: "Material world as flawed creation of a lesser demiurge" },
+      { label: "Salvation", value: "Gnosis — direct spiritual knowledge, not faith alone" },
+    ],
+    concepts: ["mysticism", "soul", "liberation"],
+  },
+  {
+    id: "mesoamerican",
+    name: "Mesoamerican Religion",
+    family: "Indigenous",
+    region: "Americas",
+    origin: -1200,
+    ended: 1697,
+    extinct: true,
+    living: false,
+    followers: 0,
+    countries: 0,
+    accent: A.crimson,
+    blurb: "Aztec and Maya cosmology of cyclical time and cosmic sacrifice.",
+    description:
+      "The shared religious world of the Aztec (Mexica), Maya, and their Mesoamerican neighbors — a cosmos of layered heavens and underworlds, cyclical calendars, and deities demanding blood and maize in exchange for the sun's continued rising. Temple pyramids, ballcourt ritual, and painted codices recorded a worldview that survived in fragments after Spanish conquest.",
+    sacredTexts: [
+      {
+        name: "Popol Vuh",
+        description:
+          "The K'iche' Maya 'Book of Counsel,' recorded in the sixteenth century using Latin script to preserve oral tradition, narrating the creation of the world, the hero twins' defeat of the underworld lords, and the origin of humanity from maize. It is the most complete surviving account of Maya cosmology.",
+      },
+      {
+        name: "Florentine Codex",
+        description:
+          "A sixteenth-century bilingual (Nahuatl/Spanish) ethnographic compilation overseen by the friar Bernardino de Sahagún, drawing on interviews with Aztec elders to record deities, rituals, and cosmology before their suppression. It remains the single richest source on Aztec religious life.",
+      },
+    ],
+    practices: ["Human & blood sacrifice", "Ballgame ritual", "Calendar-based ceremony", "Temple pilgrimage"],
+    coreIdeas: [
+      { label: "Cosmos", value: "Cyclical ages sustained by sacrifice" },
+      { label: "Afterlife", value: "Destination determined by manner of death, not conduct" },
+    ],
+    concepts: ["polytheism", "sacrifice", "pilgrimage"],
+  },
+  {
+    id: "slavic-baltic",
+    name: "Slavic & Baltic Paganism",
+    family: "Indo-European",
+    region: "Europe",
+    origin: -500,
+    ended: 1387,
+    extinct: true,
+    living: false,
+    followers: 0,
+    countries: 0,
+    accent: A.teal,
+    blurb: "Perun's thunder and the last pagan holdout of Europe.",
+    description:
+      "The pre-Christian religions of the Slavic and Baltic peoples, centered on sky and thunder gods (Perun, Perkūnas), household and ancestor spirits, and sacred groves. Lithuania's official conversion in 1387 marked the end of the last state-level pagan religion in Europe, though folk customs persisted alongside Christianity for centuries.",
+    sacredTexts: [
+      {
+        name: "(Oral tradition — chronicled by Christian scribes)",
+        description:
+          "Slavic and Baltic paganism left no native scripture; what is known comes from outside accounts — the Russian Primary Chronicle's description of Perun's idols in Kyiv, and German missionary reports on Baltic grove-worship and priesthoods. Folk songs, festivals, and place names preserved fragments long after formal conversion.",
+      },
+    ],
+    practices: ["Sacred grove worship", "Ancestor & household spirits", "Seasonal fire festivals", "Divination"],
+    coreIdeas: [
+      { label: "Deity", value: "Perun/Perkūnas (thunder) and a wider pantheon" },
+      { label: "Afterlife", value: "Ancestral spirits (dziady) honored at seasonal rites" },
+    ],
+    concepts: ["polytheism", "sacrifice", "mysticism"],
+  },
 
   // ---- Living: Indian ----
   {
@@ -743,6 +840,66 @@ export const RELIGIONS: Religion[] = [
     concepts: ["monotheism", "soul", "prayer", "fasting", "mysticism"],
     splitsFrom: "islam",
   },
+  {
+    id: "mandaean",
+    name: "Mandaeism",
+    family: "Abrahamic",
+    region: "Middle East",
+    origin: 100,
+    living: true,
+    followers: 70000,
+    countries: 10,
+    accent: A.teal,
+    blurb: "Baptism in living water and the last Gnostics of the marshes.",
+    description:
+      "A Gnostic monotheistic religion originating in the Jordan Valley or southern Mesopotamia in the early centuries CE, venerating John the Baptist and practicing repeated ritual immersion in flowing water (masbuta) as its central rite. Mandaeans speak a distinct Aramaic dialect and today survive mainly in Iraqi and Iranian diaspora communities after decades of displacement.",
+    sacredTexts: [
+      {
+        name: "Ginza Rabba",
+        description:
+          "The 'Great Treasure,' Mandaeism's principal scripture, combining cosmological teaching, hymns, and moral instruction in the Mandaic Aramaic language. It describes the World of Light, the flawed material creation, and the soul's ascent after death. Priests guard and copy the text by hand as a sacred duty.",
+      },
+      {
+        name: "Book of John (Drasha d-Yahia)",
+        description:
+          "A scripture centered on John the Baptist, whom Mandaeans revere as the true prophet of their faith while rejecting Jesus and Muhammad. It recounts his birth, teaching, and baptismal ministry in the Jordan. It is recited during major Mandaean rituals and festivals.",
+      },
+    ],
+    practices: ["Ritual immersion (masbuta)", "Living-water baptism", "Priestly ordination", "Avoidance of intermarriage"],
+    coreIdeas: [
+      { label: "Cosmos", value: "World of Light vs. flawed material creation" },
+      { label: "Salvation", value: "Purification through repeated baptism in flowing water" },
+    ],
+    concepts: ["monotheism", "soul", "mysticism"],
+  },
+  {
+    id: "samaritan",
+    name: "Samaritanism",
+    family: "Abrahamic",
+    region: "Middle East",
+    origin: -450,
+    living: true,
+    followers: 900,
+    countries: 2,
+    accent: A.gold,
+    blurb: "The smallest living branch of ancient Israelite religion.",
+    description:
+      "A monotheistic tradition tracing itself to the ancient Israelites of the northern kingdom, centered on Mount Gerizim rather than Jerusalem as the chosen holy site. Long estranged from mainstream Judaism, the Samaritan community today numbers under a thousand, split between Kiryat Luza on Mount Gerizim and Holon, Israel.",
+    sacredTexts: [
+      {
+        name: "Samaritan Pentateuch",
+        description:
+          "The Samaritan community's version of the Torah, written in the ancient Hebrew (Paleo-Hebrew) script and differing from the Jewish Masoretic text in thousands of details — most significantly in naming Mount Gerizim, not Jerusalem, as God's chosen sanctuary. It is the sole scriptural canon of Samaritanism, without the later Prophets or Writings accepted in Judaism.",
+      },
+    ],
+    practices: ["Passover sacrifice on Mount Gerizim", "Sabbath observance", "Priestly (Cohen) lineage"],
+    coreIdeas: [
+      { label: "Monotheism", value: "One God, worshipped at Mount Gerizim" },
+      { label: "Scripture", value: "Torah alone, in its Samaritan textual form" },
+    ],
+    concepts: ["monotheism", "sacrifice", "prayer"],
+    splitsFrom: "judaism",
+  },
 
   // ---- East Asian ----
   {
@@ -885,6 +1042,87 @@ export const RELIGIONS: Religion[] = [
       { label: "Salvation", value: "Bringing heaven to earth" },
     ],
     concepts: ["monotheism", "prayer", "mysticism"],
+  },
+  {
+    id: "chinese-folk",
+    name: "Chinese Folk Religion",
+    family: "East Asian",
+    region: "East Asia",
+    origin: -1500,
+    living: true,
+    followers: 400000000,
+    countries: 30,
+    accent: A.rose,
+    blurb: "Ancestors, local gods, and the fabric of everyday Chinese life.",
+    description:
+      "The diffuse, non-institutional religious life of China — ancestor veneration, household and local deities, temple fairs, and divination — practiced alongside and interwoven with Buddhism, Taoism, and Confucianism rather than as a separate exclusive faith. It has no single founder, clergy, or canon, but persists as the most widely practiced belief system in China.",
+    sacredTexts: [
+      {
+        name: "(No single canon — almanacs, temple liturgies, local gazetteers)",
+        description:
+          "Chinese folk religion has no unified scripture; practice draws on the Tongshu (popular almanac) for auspicious timing, temple-specific liturgies for local deities and city gods, and orally transmitted ancestor-veneration customs. Its authority rests in community practice and lineage rather than a fixed text.",
+      },
+    ],
+    practices: ["Ancestor veneration", "Temple fairs & processions", "Incense offerings", "Fengshui & divination"],
+    coreIdeas: [
+      { label: "Deity", value: "Layered pantheon of ancestors, local gods, and celestial bureaucracy" },
+      { label: "Afterlife", value: "Ancestors sustained by descendants' offerings" },
+    ],
+    concepts: ["polytheism", "soul", "prayer", "mysticism"],
+  },
+  {
+    id: "caodai",
+    name: "Cao Đài",
+    family: "East Asian",
+    region: "East Asia",
+    origin: 1926,
+    living: true,
+    followers: 4500000,
+    countries: 20,
+    accent: A.saffron,
+    blurb: "Vietnam's 'Third Amnesty' — one God behind every faith.",
+    description:
+      "Founded in 1926 in Tây Ninh, Vietnam, Cao Đài teaches that God has revealed truth progressively through history — via Buddha, Confucius, Moses, Jesus, and Muhammad among others — and now offers a 'Third Amnesty' uniting these revelations. Its striking Holy See temple and all-seeing Divine Eye symbol reflect a deliberately syncretic theology.",
+    sacredTexts: [
+      {
+        name: "Compilation of Divine Messages (Thánh Ngôn Hiệp Tuyển)",
+        description:
+          "A collection of messages Cao Đài adherents believe were received through spirit-writing séances from God and a pantheon of saints — including Victor Hugo and Sun Yat-sen — during the religion's founding years. It forms the core scriptural basis for Cao Đài doctrine and ritual.",
+      },
+    ],
+    practices: ["Spirit-writing séances", "Vegetarian fasting days", "Ancestor veneration", "Temple worship at Tây Ninh Holy See"],
+    coreIdeas: [
+      { label: "Deity", value: "Cao Đài — the one God behind all revelations" },
+      { label: "Salvation", value: "Union of world religions in a final 'Third Amnesty'" },
+    ],
+    concepts: ["monotheism", "soul", "prayer", "mysticism"],
+  },
+  {
+    id: "bon",
+    name: "Bön",
+    family: "Indian",
+    region: "Central Asia",
+    origin: 1000,
+    living: true,
+    followers: 400000,
+    countries: 5,
+    accent: A.indigo,
+    blurb: "Tibet's pre-Buddhist religion of sky, spirits, and the Nine Ways.",
+    description:
+      "The indigenous religious tradition of Tibet, predating the arrival of Buddhism and later systematized into a literate monastic tradition with its own canon, monasteries, and lineages closely paralleling Tibetan Buddhism. Bönpo venerate the legendary founder Tonpa Shenrab and maintain distinct cosmology, deities, and ritual practice alongside centuries of mutual influence with Tibetan Buddhism.",
+    sacredTexts: [
+      {
+        name: "Bön Kangyur",
+        description:
+          "Bön's canonical scripture collection, paralleling the structure of the Tibetan Buddhist Kangyur, containing teachings attributed to Tonpa Shenrab across the tradition's 'Nine Ways' (vehicles) of practice. It covers cosmology, ritual, monastic discipline, and esoteric meditation.",
+      },
+    ],
+    practices: ["Monastic study", "Sky burial & death rites", "Divination & astrology", "Circumambulation (counter-clockwise)"],
+    coreIdeas: [
+      { label: "Founder", value: "Tonpa Shenrab, legendary founding teacher" },
+      { label: "Path", value: "Nine Ways (theg pa dgu) from shamanic ritual to monastic philosophy" },
+    ],
+    concepts: ["soul", "mysticism", "meditation"],
   },
 
   // ---- Iranian / Modern ----
@@ -1167,6 +1405,33 @@ export const RELIGIONS: Religion[] = [
     ],
     concepts: ["monotheism", "soul", "mysticism"],
   },
+  {
+    id: "candomble",
+    name: "Candomblé",
+    family: "African",
+    region: "Americas",
+    origin: 1800,
+    living: true,
+    followers: 2000000,
+    countries: 5,
+    accent: A.saffron,
+    blurb: "Orixá worship reborn in Brazil's terreiros.",
+    description:
+      "An Afro-Brazilian religion formed by enslaved Yoruba, Fon, and Bantu peoples in Bahia, centering on the worship of orixás (deities) through drumming, dance, and trance possession within community temples called terreiros. Distinct from the more Catholic-syncretized Santería, Candomblé has increasingly re-emphasized its African liturgical roots and Yoruba language in ritual.",
+    sacredTexts: [
+      {
+        name: "(Oral — itan & Ifá-related divination corpus)",
+        description:
+          "Candomblé transmits its theology orally through itan (myths of the orixás) and divination systems related to Ifá, taught within terreiro lineages under a mãe or pai de santo (priestess or priest). There is no single written scripture; authority rests in initiation and oral memory passed from generation to generation.",
+      },
+    ],
+    practices: ["Drumming & trance possession", "Orixá initiation", "Animal & food offerings", "Terreiro festivals"],
+    coreIdeas: [
+      { label: "Deity", value: "Olorun above; orixás as forces of nature and personality" },
+      { label: "Afterlife", value: "Return to ancestral and orixá realms" },
+    ],
+    concepts: ["polytheism", "soul", "sacrifice", "mysticism"],
+  },
 
   // ---- Philosophical / Modern ----
   {
@@ -1239,5 +1504,32 @@ export const RELIGIONS: Religion[] = [
       { label: "Afterlife", value: "Summerland between rebirths" },
     ],
     concepts: ["polytheism", "soul", "reincarnation", "mysticism", "nonviolence"],
+  },
+  {
+    id: "rastafari",
+    name: "Rastafari",
+    family: "Modern",
+    region: "Americas",
+    origin: 1930,
+    living: true,
+    followers: 1000000,
+    countries: 100,
+    accent: A.jade,
+    blurb: "Zion, Babylon, and the divinity of Haile Selassie.",
+    description:
+      "A religious and political movement that emerged in 1930s Jamaica following the coronation of Ethiopian Emperor Haile Selassie I, whom followers regard as a divine figure and the fulfillment of biblical prophecy. Rastafari combines a reinterpretation of the Bible, resistance to colonial 'Babylon' systems, and a call to spiritual and physical return to Africa ('Zion').",
+    sacredTexts: [
+      {
+        name: "The Bible (Rastafari reading)",
+        description:
+          "Rastafari does not produce a separate scripture but reinterprets the Christian Bible — particularly the Book of Revelation and Psalms — through an Afrocentric lens identifying Ethiopia as Zion and Haile Selassie as a messianic figure. The Kebra Nagast, an Ethiopian text on Solomon and Sheba, is also widely revered.",
+      },
+    ],
+    practices: ["Reasoning (communal discussion)", "Nyabinghi drumming & chanting", "Ital diet", "Ganja as sacrament"],
+    coreIdeas: [
+      { label: "Deity", value: "Haile Selassie I as divine, Jah manifest" },
+      { label: "Liberation", value: "Repatriation from 'Babylon' to Zion (Africa)" },
+    ],
+    concepts: ["monotheism", "liberation", "prayer"],
   },
 ];
