@@ -22,6 +22,10 @@ export type Family =
   | "African"
   | "Modern";
 
+export type TraditionType = "religion" | "philosophy" | "spirituality" | "historical complex";
+
+export type PresentStatus = "living" | "revived" | "historical" | "evidence-limited";
+
 export interface ConceptTag {
   soul?: boolean;
   salvation?: boolean;
@@ -53,8 +57,12 @@ export interface Religion {
   id: string;
   name: string;
   aliases?: string[]; // alternate names, translations, well-known exonyms (no pejoratives)
-  family: Family;
-  region: Region;
+  family: Family; // compatibility facet
+  region: Region; // primary region (single for now)
+  culturalRegion: string[]; // multi-valued cultural/geographic contexts
+  historicalLineage: string[]; // ancestral traditions, influences
+  traditionType: TraditionType;
+  presentStatus: PresentStatus;
   origin: number; // year founded (negative = BCE)
   ended?: number; // year effectively extinct (negative = BCE)
   extinct?: boolean;
@@ -94,6 +102,10 @@ export const RELIGIONS: Religion[] = [
     aliases: ["Mesopotamian Religion", "Sumerian Paganism"],
     family: "Indo-European",
     region: "Middle East",
+    culturalRegion: ["Mesopotamia", "Ancient Near East"],
+    historicalLineage: ["Proto-Mesopotamian polytheism"],
+    traditionType: "historical complex",
+    presentStatus: "evidence-limited",
     origin: -3500,
     ended: -500,
     extinct: true,
