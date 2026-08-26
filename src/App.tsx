@@ -13,6 +13,7 @@ import Concepts from "./pages/Concepts";
 import Pilgrimage from "./pages/Pilgrimage";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Traditions from "./pages/Traditions";
 
 const Timeline = lazy(() => import("./pages/Timeline"));
 const InwardPaths = lazy(() => import("./pages/InwardPaths"));
@@ -29,6 +30,7 @@ import "./styles/concepts.css";
 import "./styles/pilgrimage.css";
 import "./styles/about.css";
 import "./styles/inward-paths.css";
+import "./styles/traditions.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -66,6 +68,7 @@ export default function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/timeline" element={<Timeline />} />
               <Route path="/globe" element={<GlobeView />} />
+              <Route path="/traditions" element={<Traditions />} />
               <Route path="/religion/:id" element={<ReligionDetail />} />
               <Route path="/compare" element={<Compare />} />
               <Route path="/concepts" element={<Concepts />} />

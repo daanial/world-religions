@@ -4,6 +4,7 @@ const exploreLinks = [
   { to: "/", label: "Home", end: true },
   { to: "/timeline", label: "Timeline" },
   { to: "/globe", label: "Globe" },
+  { to: "/traditions", label: "Traditions" },
   { to: "/compare", label: "Compare" },
   { to: "/concepts", label: "Concepts" },
   { to: "/pilgrimage", label: "Pilgrimage" },
