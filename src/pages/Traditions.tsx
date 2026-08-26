@@ -1,11 +1,12 @@
 import { useMemo, useRef, useState } from "react";
-import { Link, useSearchParams, useLocation } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { RELIGIONS, type Religion, type Family, type Region } from "../data/religions";
 import { formatYear } from "../lib/format";
 import { getReligionImageSrc } from "../lib/religionImages";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
-import { getCurrentLocale, withLocale } from "../lib/locale";
+import { useLocale } from "../App";
+import { withLocale } from "../lib/locale";
 import Starfield from "../components/Starfield";
 
 type SortOption = "alphabetical" | "oldest" | "newest" | "followers";
@@ -314,8 +315,7 @@ interface TraditionCardProps {
 }
 
 function TraditionCard({ religion }: TraditionCardProps) {
-  const location = useLocation();
-  const locale = getCurrentLocale(location.pathname);
+  const locale = useLocale();
   const imageSrc = getReligionImageSrc(religion.id);
   const followersText = religion.living
     ? religion.followers >= 1000000

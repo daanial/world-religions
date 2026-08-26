@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import { NarrationProvider } from "./context/NarrationContext";
 import { useAmbientSound } from "./hooks/useAmbientSound";
+import { splitLocaleFromPath, type LocaleCode } from "./lib/locale";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Overlays from "./components/Overlays";
@@ -54,33 +55,63 @@ function RouteFallback() {
   );
 }
 
+// LocaleContext to provide current locale to all components
+import { createContext, useContext } from "react";
+
+const LocaleContext = createContext<LocaleCode>("en");
+
+export function useLocale(): LocaleCode {
+  return useContext(LocaleContext);
+}
+
 export default function App() {
   return (
     <AppProvider>
       <AmbientBootstrap />
       <BrowserRouter>
-        <NarrationProvider>
-          <ScrollToTop />
-          <NavBar />
-          <Overlays />
-          <Suspense fallback={<RouteFallback />}>
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/timeline" element={<Timeline />} />
-              <Route path="/globe" element={<GlobeView />} />
-              <Route path="/traditions" element={<Traditions />} />
-              <Route path="/religion/:id" element={<ReligionDetail />} />
-              <Route path="/compare" element={<Compare />} />
-              <Route path="/concepts" element={<Concepts />} />
-              <Route path="/pilgrimage" element={<Pilgrimage />} />
-              <Route path="/inward-paths" element={<InwardPaths />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-          <Footer />
-        </NarrationProvider>
+        <LocalizedApp />
       </BrowserRouter>
     </AppProvider>
+  );
+}
+
+function LocalizedApp() {
+  const location = useLocation();
+  const { locale } = splitLocaleFromPath(location.pathname);
+  
+  return (
+    <LocaleContext.Provider value={locale}>
+      <NarrationProvider>
+        <ScrollToTop />
+        <NavBar />
+        <Overlays />
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/fa" element={<Landing />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/fa/timeline" element={<Timeline />} />
+            <Route path="/globe" element={<GlobeView />} />
+            <Route path="/fa/globe" element={<GlobeView />} />
+            <Route path="/traditions" element={<Traditions />} />
+            <Route path="/fa/traditions" element={<Traditions />} />
+            <Route path="/religion/:id" element={<ReligionDetail />} />
+            <Route path="/fa/religion/:id" element={<ReligionDetail />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/fa/compare" element={<Compare />} />
+            <Route path="/concepts" element={<Concepts />} />
+            <Route path="/fa/concepts" element={<Concepts />} />
+            <Route path="/pilgrimage" element={<Pilgrimage />} />
+            <Route path="/fa/pilgrimage" element={<Pilgrimage />} />
+            <Route path="/inward-paths" element={<InwardPaths />} />
+            <Route path="/fa/inward-paths" element={<InwardPaths />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/fa/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+        <Footer />
+      </NarrationProvider>
+    </LocaleContext.Provider>
   );
 }

@@ -7,6 +7,8 @@ import HeroTimelineStrip from "../components/HeroTimelineStrip";
 import { RELIGIONS } from "../data/religions";
 import { buildWebsiteJsonLd, usePageSeo } from "../lib/seo";
 import { SITE_DESCRIPTION } from "../lib/site";
+import { useLocale } from "../App";
+import { withLocaleAndQuery, withLocale } from "../lib/locale";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,6 +49,7 @@ const features = [
 
 export default function Landing() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
 
   usePageSeo({
     title: "World Religions Explorer",
@@ -127,11 +130,11 @@ export default function Landing() {
             shaped human consciousness — from Sumer's ziggurats to the modern diaspora.
           </p>
           <div className="hero__cta">
-            <Link to="/timeline" className="btn btn--primary">
+            <Link to={withLocale(locale, "/timeline")} className="btn btn--primary">
               Enter the Timeline
               <ArrowRight />
             </Link>
-            <Link to="/globe" className="btn btn--ghost">
+            <Link to={withLocale(locale, "/globe")} className="btn btn--ghost">
               Explore the Globe
             </Link>
           </div>
@@ -202,12 +205,16 @@ export default function Landing() {
           {FAMILY_INFO.map((fam) => {
             const count = RELIGIONS.filter((r) => r.family === fam.id).length;
             return (
-              <div key={fam.id} className="family-card card">
+              <Link
+                key={fam.id}
+                to={withLocaleAndQuery(locale, "/traditions", `family=${encodeURIComponent(fam.id)}`)}
+                className="family-card card"
+              >
                 <div className="family-card__swatch" style={{ background: fam.accent }} />
                 <h3 className="family-card__name">{fam.name}</h3>
                 <p className="family-card__desc">{fam.desc}</p>
                 <div className="family-card__count">{count} traditions</div>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -283,6 +290,8 @@ const FAMILY_INFO: { id: string; name: string; desc: string; accent: string }[] 
   { id: "Indian", name: "Indian", desc: "Karma, rebirth, and liberation across the subcontinent.", accent: "var(--saffron)" },
   { id: "Iranian", name: "Iranian", desc: "Light and darkness, from Zarathustra to the Bahá'í.", accent: "var(--gold)" },
   { id: "East Asian", name: "East Asian", desc: "Tao, ritual, and the kami of the rising sun.", accent: "var(--jade)" },
+  { id: "Indo-European", name: "Indo-European", desc: "Bronze Age pantheons, from Sumer to the Nordic sagas.", accent: "var(--amber)" },
   { id: "African", name: "African & Diaspora", desc: "Orishas, lwa, and ancestors across the Black Atlantic.", accent: "var(--turquoise)" },
   { id: "Indigenous", name: "Indigenous", desc: "The Dreaming, the hózhó, the sacred land itself.", accent: "var(--violet)" },
+  { id: "Modern", name: "Modern", desc: "New religious movements born from 19th-century revelation and reform.", accent: "var(--periwinkle)" },
 ];

@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+import { useLocale } from "../App";
+import { withLocale } from "../lib/locale";
 
 const exploreLinks = [
   { to: "/", label: "Home", end: true },
@@ -15,13 +17,15 @@ const exploreLinks = [
 const stack = ["React", "TypeScript", "Vite", "Three.js", "D3", "GSAP", "Framer Motion"];
 
 export default function Footer() {
+  const locale = useLocale();
+  
   return (
     <footer className="site-footer">
       <div className="site-footer__glow" aria-hidden />
       <div className="container site-footer__inner">
         <div className="site-footer__top">
           <div className="site-footer__brand-col">
-            <Link to="/" className="site-footer__brand">
+            <Link to={withLocale(locale, "/")} className="site-footer__brand">
               World Religions
               <span className="site-footer__brand-sub">Explorer</span>
             </Link>
@@ -37,7 +41,7 @@ export default function Footer() {
               {exploreLinks.map((l) => (
                 <li key={l.to}>
                   <NavLink
-                    to={l.to}
+                    to={withLocale(locale, l.to)}
                     end={l.end}
                     className={({ isActive }) =>
                       `site-footer__link ${isActive ? "site-footer__link--active" : ""}`

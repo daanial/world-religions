@@ -7,6 +7,8 @@ import { useApp } from "../context/AppContext";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
+import { useLocale } from "../App";
+import { withLocale } from "../lib/locale";
 
 // Feature rows for the comparison matrix.
 // `get` returns true/false/·(partial) given a religion.
@@ -45,6 +47,7 @@ export default function Compare() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const addRequested = searchParams.get("add") === "1";
   const showPicker = pickerOpen || addRequested;
+  const locale = useLocale();
 
   const closePicker = () => {
     setPickerOpen(false);
@@ -135,7 +138,7 @@ export default function Compare() {
                     ✕
                   </button>
                   <div className="cmp-header__dot" style={{ background: r.accent }} />
-                  <Link to={`/religion/${r.id}`} className="cmp-header__name">
+                  <Link to={withLocale(locale, `/religion/${r.id}`)} className="cmp-header__name">
                     {r.name}
                   </Link>
                   <div className="cmp-header__meta">
@@ -266,6 +269,8 @@ function FactRow({ label, value }: { label: string; value: string }) {
 }
 
 function EmptyState({ onPick }: { onPick: () => void }) {
+  const locale = useLocale();
+  
   return (
     <div className="cmp-empty card">
       <div className="cmp-empty__icon">
@@ -282,7 +287,7 @@ function EmptyState({ onPick }: { onPick: () => void }) {
       <button className="btn btn--primary" onClick={onPick}>
         Choose religions
       </button>
-      <Link to="/timeline" className="cmp-empty__link">
+      <Link to={withLocale(locale, "/timeline")} className="cmp-empty__link">
         or browse the timeline →
       </Link>
     </div>

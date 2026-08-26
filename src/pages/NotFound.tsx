@@ -1,9 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import Starfield from "../components/Starfield";
 import { usePageSeo } from "../lib/seo";
+import { useLocale } from "../App";
+import { withLocale } from "../lib/locale";
 
 export default function NotFound() {
   const { pathname } = useLocation();
+  const locale = useLocale();
 
   usePageSeo({
     title: "Page not found",
@@ -21,7 +24,7 @@ export default function NotFound() {
         <p className="notfound__lead">
           This path leads nowhere — perhaps it was never drawn on the map.
         </p>
-        <Link to="/" className="btn btn--primary">
+        <Link to={withLocale(locale, "/")} className="btn btn--primary">
           Return home
         </Link>
       </div>

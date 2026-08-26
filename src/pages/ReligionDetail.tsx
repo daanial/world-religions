@@ -13,6 +13,8 @@ import { buildReligionArticleJsonLd, usePageSeo } from "../lib/seo";
 import { religionNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useApp } from "../context/AppContext";
+import { useLocale } from "../App";
+import { withLocale } from "../lib/locale";
 import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
 import NotFound from "./NotFound";
 
@@ -23,6 +25,7 @@ export default function ReligionDetail() {
   const religion = RELIGIONS.find((r) => r.id === id);
   const { visit, toggleCompare, isInCompare, compareIds } = useApp();
   const rootRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
 
   useEffect(() => {
     if (religion) visit(religion.id);
@@ -116,7 +119,7 @@ export default function ReligionDetail() {
       <header className="rd__hero">
         <div className="rd__hero-glow" aria-hidden />
         <div className="container rd__hero-content">
-          <Link to="/timeline" className="rd__back">
+          <Link to={withLocale(locale, "/timeline")} className="rd__back">
             ← Back to Timeline
           </Link>
           <div className="rd__eyebrow eyebrow">
@@ -151,7 +154,7 @@ export default function ReligionDetail() {
               {isInCompare(religion.id) ? "✓ In comparison" : compareFull ? "Compare full" : "+ Add to compare"}
             </button>
             {religion.cities && religion.cities.length > 0 && (
-              <Link to="/globe" className="btn btn--ghost">
+              <Link to={withLocale(locale, "/globe")} className="btn btn--ghost">
                 View on Globe
               </Link>
             )}
@@ -209,7 +212,7 @@ export default function ReligionDetail() {
           {religion.splitsFrom && (
             <p className="rd__lineage">
               <span className="rd__lineage-label">Emerges from</span>
-              <Link to={`/religion/${religion.splitsFrom}`} className="rd__lineage-link">
+              <Link to={withLocale(locale, `/religion/${religion.splitsFrom}`)} className="rd__lineage-link">
                 {RELIGIONS.find((r) => r.id === religion.splitsFrom)?.name} →
               </Link>
             </p>
@@ -270,7 +273,7 @@ export default function ReligionDetail() {
         <section className="container rd__section rd-reveal">
           <div className="rd__concepts-head">
             <h2 className="rd__section-title">Engaged concepts</h2>
-            <Link to="/concepts" className="rd__concepts-link">
+            <Link to={withLocale(locale, "/concepts")} className="rd__concepts-link">
               Open the concept network →
             </Link>
           </div>
@@ -291,7 +294,7 @@ export default function ReligionDetail() {
           <h2 className="rd__section-title">Related traditions</h2>
           <div className="rd__related-grid">
             {relatedCards.map((card) => (
-              <Link key={card!.targetId} to={`/religion/${card!.targetId}`} className="rd-rel-card card">
+              <Link key={card!.targetId} to={withLocale(locale, `/religion/${card!.targetId}`)} className="rd-rel-card card">
                 <div className="rd-rel-card__bar" style={{ background: card!.religion.accent }} />
                 <div className="rd-rel-card__header">
                   <h4>{card!.religion.name}</h4>

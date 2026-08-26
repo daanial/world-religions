@@ -23,7 +23,9 @@ export function getReligionRoutes(): string[] {
 }
 
 export function getAllRoutes(): string[] {
-  return [...STATIC_ROUTES, ...getReligionRoutes()];
+  const base = [...STATIC_ROUTES, ...getReligionRoutes()];
+  const withFa = base.map((p) => (p === "/" ? "/fa" : `/fa${p}`));
+  return [...base, ...withFa];
 }
 
 export function absoluteUrl(path: string): string {
