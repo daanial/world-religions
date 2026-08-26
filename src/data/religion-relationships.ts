@@ -141,6 +141,13 @@ export const RELIGION_RELATIONSHIPS: ReligionRelationship[] = [
     confidence: "high",
   },
   {
+    from: "judaism",
+    to: "canaanite",
+    kind: "Historical descent",
+    why: "Ancient Israelite religion developed from Canaanite polytheism, retaining El as a divine name while rejecting Baal and Asherah worship.",
+    confidence: "high",
+  },
+  {
     from: "canaanite",
     to: "greek-roman",
     kind: "Ritual/textual connections",
@@ -390,6 +397,20 @@ export const RELIGION_RELATIONSHIPS: ReligionRelationship[] = [
     kind: "Useful contrasts",
     why: "Both steppe and forest Indo-European paganisms with thunder gods, but Slavic-Baltic tradition was more agrarian and sedentary than Tengrist nomadic shamanism.",
     confidence: "medium",
+  },
+  {
+    from: "egyptian",
+    to: "sumerian",
+    kind: "Shared geography",
+    why: "Both ancient Near Eastern civilizations developed urban temple complexes, priesthoods, and polytheistic cosmologies in parallel during the Bronze Age.",
+    confidence: "medium",
+  },
+  {
+    from: "greek-roman",
+    to: "mesoamerican",
+    kind: "Useful contrasts",
+    why: "Both developed complex state religions with temple hierarchies and ritual sacrifice, but arose independently without contact.",
+    confidence: "high",
   },
 
   // ========== Living: Indian ==========
