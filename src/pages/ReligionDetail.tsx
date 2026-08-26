@@ -71,7 +71,7 @@ export default function ReligionDetail() {
     : [];
   
   const conceptNodes = religion
-    ? CONCEPTS.filter((c) => religion.concepts.includes(c.id))
+    ? CONCEPTS.filter((c) => religion.conceptPositions?.[c.id] === "affirmed")
     : [];
   const essay = religion ? getReligionEssay(religion.id) : undefined;
   const imageSrc = religion ? getReligionImageSrc(religion.id) : undefined;

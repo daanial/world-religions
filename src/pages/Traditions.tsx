@@ -111,7 +111,7 @@ export default function Traditions() {
           r.region,
           r.family,
           ...r.practices,
-          ...r.concepts,
+          ...Object.keys(r.conceptPositions || {}),
         ].join(" ").toLowerCase();
         return searchableText.includes(term);
       });

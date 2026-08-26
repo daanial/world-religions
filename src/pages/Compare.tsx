@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import gsap from "gsap";
 import Starfield from "../components/Starfield";
-import { RELIGIONS, type Religion } from "../data/religions";
+import { RELIGIONS, type Religion, type ConceptTag } from "../data/religions";
 import { useApp } from "../context/AppContext";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { usePageSeo } from "../lib/seo";
@@ -10,34 +10,31 @@ import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 import { useLocale, withLocale } from "../lib/locale";
 
 // Feature rows for the comparison matrix.
-// `get` returns true/false/·(partial) given a religion.
-type Tri = boolean | "partial";
 interface Feature {
-  key: string;
+  key: keyof ConceptTag;
   label: string;
-  get: (r: Religion) => Tri;
 }
 
 const FEATURES: Feature[] = [
-  { key: "monotheism", label: "One God (Monotheism)", get: (r) => r.concepts.includes("monotheism") },
-  { key: "polytheism", label: "Many Gods", get: (r) => r.concepts.includes("polytheism") },
-  { key: "heaven", label: "Heaven / Paradise", get: (r) => r.concepts.includes("heaven") },
-  { key: "hell", label: "Hell / Punishment", get: (r) => r.concepts.includes("hell") },
-  { key: "sin", label: "Concept of Sin", get: (r) => r.concepts.includes("sin") },
-  { key: "judgement", label: "Final Judgement", get: (r) => r.concepts.includes("judgement") },
-  { key: "soul", label: "Eternal Soul", get: (r) => r.concepts.includes("soul") },
-  { key: "reincarnation", label: "Reincarnation", get: (r) => r.concepts.includes("reincarnation") },
-  { key: "karma", label: "Karma", get: (r) => r.concepts.includes("karma") },
-  { key: "liberation", label: "Liberation / Moksha", get: (r) => r.concepts.includes("liberation") },
-  { key: "salvation", label: "Salvation", get: (r) => r.concepts.includes("salvation") },
-  { key: "enlightenment", label: "Enlightenment", get: (r) => r.concepts.includes("enlightenment") },
-  { key: "nonviolence", label: "Nonviolence (Ahimsa)", get: (r) => r.concepts.includes("nonviolence") },
-  { key: "mysticism", label: "Mystical Tradition", get: (r) => r.concepts.includes("mysticism") },
-  { key: "prayer", label: "Formal Prayer", get: (r) => r.concepts.includes("prayer") },
-  { key: "meditation", label: "Meditation", get: (r) => r.concepts.includes("meditation") },
-  { key: "fasting", label: "Fasting", get: (r) => r.concepts.includes("fasting") },
-  { key: "pilgrimage", label: "Pilgrimage", get: (r) => r.concepts.includes("pilgrimage") },
-  { key: "sacrifice", label: "Ritual Sacrifice", get: (r) => r.concepts.includes("sacrifice") },
+  { key: "monotheism", label: "One God (Monotheism)" },
+  { key: "polytheism", label: "Many Gods" },
+  { key: "heaven", label: "Heaven / Paradise" },
+  { key: "hell", label: "Hell / Punishment" },
+  { key: "sin", label: "Concept of Sin" },
+  { key: "judgement", label: "Final Judgement" },
+  { key: "soul", label: "Eternal Soul" },
+  { key: "reincarnation", label: "Reincarnation" },
+  { key: "karma", label: "Karma" },
+  { key: "liberation", label: "Liberation / Moksha" },
+  { key: "salvation", label: "Salvation" },
+  { key: "enlightenment", label: "Enlightenment" },
+  { key: "nonviolence", label: "Nonviolence (Ahimsa)" },
+  { key: "mysticism", label: "Mystical Tradition" },
+  { key: "prayer", label: "Formal Prayer" },
+  { key: "meditation", label: "Meditation" },
+  { key: "fasting", label: "Fasting" },
+  { key: "pilgrimage", label: "Pilgrimage" },
+  { key: "sacrifice", label: "Ritual Sacrifice" },
 ];
 
 export default function Compare() {
@@ -245,12 +242,37 @@ function FeatureRow({
         {feature.label}
       </div>
       {religions.map((r) => {
-        const v = feature.get(r);
+        const position = r.conceptPositions?.[feature.key];
+        const displayText = position
+          ? position === "affirmed"
+            ? "✓"
+            : position === "rejected"
+              ? "✗"
+              : position === "varies by school"
+                ? "Varies"
+                : position === "analogous"
+                  ? "~"
+                  : position === "not applicable"
+                    ? "N/A"
+                    : "?"
+          : "—";
+        
+        const cellClass = position
+          ? position === "affirmed"
+            ? "mx-cell mx-cell--affirmed"
+            : position === "rejected"
+              ? "mx-cell mx-cell--rejected"
+              : "mx-cell mx-cell--qualified"
+          : "mx-cell mx-cell--absent";
+        
         return (
-          <div key={r.id} className={`mx-cell mx-cell--${v}`} data-row={feature.key}>
-            {v === true && <CheckIcon />}
-            {v === false && <DashIcon />}
-            {v === "partial" && <span className="mx-cell__partial">~</span>}
+          <div
+            key={r.id}
+            className={cellClass}
+            data-row={feature.key}
+            title={position || "not addressed"}
+          >
+            <span className="mx-cell__text">{displayText}</span>
           </div>
         );
       })}
@@ -346,20 +368,5 @@ function ReligionPicker({
         </div>
       </div>
     </div>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-      <path d="M5 12l5 5 9-11" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-function DashIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-      <path d="M6 12h12" strokeLinecap="round" />
-    </svg>
   );
 }

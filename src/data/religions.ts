@@ -53,6 +53,14 @@ export interface SacredText {
   description: string;
 }
 
+export type ConceptPosition =
+  | "affirmed"
+  | "rejected"
+  | "varies by school"
+  | "analogous"
+  | "not applicable"
+  | "insufficient evidence";
+
 export interface Religion {
   id: string;
   name: string;
@@ -75,7 +83,7 @@ export interface Religion {
   sacredTexts: SacredText[];
   practices: string[];
   coreIdeas: { label: string; value: string }[];
-  concepts: (keyof ConceptTag)[]; // concept ids this faith engages
+  conceptPositions: Partial<Record<keyof ConceptTag, ConceptPosition>>; // qualified positions on concepts
   splitsFrom?: string; // parent religion id (for timeline splits)
   cities?: string[]; // sacred city ids
 }
@@ -139,7 +147,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Offense against cosmic order ordained by gods" },
       { label: "Deity", value: "Polytheistic pantheon with patron city-gods" },
     ],
-    concepts: ["polytheism", "sacrifice", "soul", "prayer"],
+    conceptPositions: {
+      "polytheism": "affirmed",
+      "prayer": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
     cities: ["babylon"],
   },
   {
@@ -185,7 +198,13 @@ export const RELIGIONS: Religion[] = [
       { label: "Judgement", value: "Heart weighed against maat" },
       { label: "Liberation", value: "Eternal union with the gods" },
     ],
-    concepts: ["soul", "judgement", "sacrifice", "heaven", "polytheism"],
+    conceptPositions: {
+      "heaven": "affirmed",
+      "judgement": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "zoroastrian",
@@ -228,7 +247,17 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Choosing the lie (druj) over truth (asha)" },
       { label: "Monotheism", value: "Ahura Mazda, uncreated Wise Lord" },
     ],
-    concepts: ["monotheism", "heaven", "hell", "judgement", "sin", "soul", "prayer", "mysticism"],
+    conceptPositions: {
+      "heaven": "affirmed",
+      "hell": "affirmed",
+      "judgement": "affirmed",
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "polytheism": "rejected",
+      "prayer": "affirmed",
+      "sin": "affirmed",
+      "soul": "affirmed"
+    },
     cities: ["persepolis"],
   },
   {
@@ -263,7 +292,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Council of gods (Elohim)" },
       { label: "Afterlife", value: "Shadowy realm of Mot" },
     ],
-    concepts: ["polytheism", "sacrifice", "soul"],
+    conceptPositions: {
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "greek-roman",
@@ -307,7 +340,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Afterlife", value: "Hades for most; Elysium for heroes" },
       { label: "Sin", value: "Hubris provoking divine retribution (nemesis)" },
     ],
-    concepts: ["polytheism", "sacrifice", "soul", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "norse",
@@ -346,7 +384,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Afterlife", value: "Valhalla, Hel, or the halls of other gods" },
       { label: "Fate", value: "Norns weave inescapable destiny" },
     ],
-    concepts: ["polytheism", "sacrifice", "soul", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "druidic",
@@ -380,7 +423,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Reincarnation", value: "Soul passes to new body" },
       { label: "Deity", value: "Many regional gods and goddesses" },
     ],
-    concepts: ["polytheism", "reincarnation", "sacrifice", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "reincarnation": "affirmed",
+      "sacrifice": "affirmed"
+    },
   },
   {
     id: "manichaean",
@@ -424,7 +472,13 @@ export const RELIGIONS: Religion[] = [
       { label: "Liberation", value: "Release of light-particles from matter" },
       { label: "Sin", value: "Feeding the body feeds darkness" },
     ],
-    concepts: ["monotheism", "soul", "judgement", "sin", "mysticism"],
+    conceptPositions: {
+      "judgement": "affirmed",
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "sin": "affirmed",
+      "soul": "affirmed"
+    },
     cities: ["babylon"],
   },
   {
@@ -457,7 +511,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Afterlife", value: "Ancestral spirit world" },
       { label: "Deity", value: "Tengri, the Eternal Blue Sky" },
     ],
-    concepts: ["polytheism", "soul", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "mithraism",
@@ -491,7 +549,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Salvation", value: "Liberated ascent of the soul through the planets" },
       { label: "Deity", value: "Mithras, a solar intermediary" },
     ],
-    concepts: ["soul", "salvation", "sacrifice", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "sacrifice": "affirmed",
+      "salvation": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "gnosticism",
@@ -530,7 +593,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Cosmos", value: "Material world as flawed creation of a lesser demiurge" },
       { label: "Salvation", value: "Gnosis — direct spiritual knowledge, not faith alone" },
     ],
-    concepts: ["mysticism", "soul", "liberation"],
+    conceptPositions: {
+      "liberation": "affirmed",
+      "mysticism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "mesoamerican",
@@ -569,7 +636,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Cosmos", value: "Cyclical ages sustained by sacrifice" },
       { label: "Afterlife", value: "Destination determined by manner of death, not conduct" },
     ],
-    concepts: ["polytheism", "sacrifice", "pilgrimage"],
+    conceptPositions: {
+      "pilgrimage": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed"
+    },
   },
   {
     id: "slavic-baltic",
@@ -603,7 +674,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Perun/Perkūnas (thunder) and a wider pantheon" },
       { label: "Afterlife", value: "Ancestral spirits (dziady) honored at seasonal rites" },
     ],
-    concepts: ["polytheism", "sacrifice", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed"
+    },
   },
 
   // ---- Living: Indian ----
@@ -658,7 +733,17 @@ export const RELIGIONS: Religion[] = [
       { label: "Karma", value: "Actions shape future rebirths" },
       { label: "Deity", value: "Brahman beneath many forms (Brahma, Vishnu, Shiva)" },
     ],
-    concepts: ["soul", "reincarnation", "karma", "liberation", "meditation", "nonviolence", "mysticism", "polytheism", "pilgrimage"],
+    conceptPositions: {
+      "karma": "affirmed",
+      "liberation": "affirmed",
+      "meditation": "affirmed",
+      "mysticism": "affirmed",
+      "nonviolence": "affirmed",
+      "pilgrimage": "affirmed",
+      "polytheism": "affirmed",
+      "reincarnation": "affirmed",
+      "soul": "affirmed"
+    },
     cities: ["varanasi"],
   },
   {
@@ -702,7 +787,18 @@ export const RELIGIONS: Religion[] = [
       { label: "Karma", value: "Intentional action conditions rebirth" },
       { label: "Afterlife", value: "Rebirth until liberation; no eternal soul" },
     ],
-    concepts: ["soul", "reincarnation", "karma", "liberation", "enlightenment", "meditation", "nonviolence", "mysticism"],
+    conceptPositions: {
+      "enlightenment": "affirmed",
+      "karma": "affirmed",
+      "liberation": "affirmed",
+      "meditation": "affirmed",
+      "monotheism": "rejected",
+      "mysticism": "affirmed",
+      "nonviolence": "affirmed",
+      "polytheism": "rejected",
+      "reincarnation": "affirmed",
+      "soul": "affirmed"
+    },
     cities: ["lhasa"],
     splitsFrom: "hinduism",
   },
@@ -747,7 +843,17 @@ export const RELIGIONS: Religion[] = [
       { label: "Liberation", value: "Kevala — the soul freed from karmic matter" },
       { label: "Soul", value: "Every being has an individual jiva" },
     ],
-    concepts: ["soul", "reincarnation", "karma", "liberation", "nonviolence", "meditation", "fasting"],
+    conceptPositions: {
+      "fasting": "affirmed",
+      "karma": "affirmed",
+      "liberation": "affirmed",
+      "meditation": "affirmed",
+      "monotheism": "rejected",
+      "nonviolence": "affirmed",
+      "polytheism": "rejected",
+      "reincarnation": "affirmed",
+      "soul": "affirmed"
+    },
     splitsFrom: "hinduism",
   },
   {
@@ -781,7 +887,14 @@ export const RELIGIONS: Religion[] = [
       { label: "Salvation", value: "Union with God through Nam and seva" },
       { label: "Equality", value: "No caste, no gender hierarchy" },
     ],
-    concepts: ["monotheism", "soul", "karma", "liberation", "prayer", "nonviolence"],
+    conceptPositions: {
+      "karma": "affirmed",
+      "liberation": "affirmed",
+      "monotheism": "affirmed",
+      "nonviolence": "affirmed",
+      "prayer": "affirmed",
+      "soul": "affirmed"
+    },
   },
 
   // ---- Living: Abrahamic ----
@@ -826,7 +939,17 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Violation of the covenant (mitzvot)" },
       { label: "Afterlife", value: "Varied — Olam Ha-Ba; resurrection debated" },
     ],
-    concepts: ["monotheism", "soul", "sin", "judgement", "prayer", "fasting", "pilgrimage"],
+    conceptPositions: {
+      "fasting": "affirmed",
+      "judgement": "affirmed",
+      "monotheism": "affirmed",
+      "pilgrimage": "affirmed",
+      "polytheism": "rejected",
+      "prayer": "affirmed",
+      "reincarnation": "rejected",
+      "sin": "affirmed",
+      "soul": "affirmed"
+    },
     cities: ["jerusalem"],
     splitsFrom: "canaanite",
   },
@@ -861,7 +984,22 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Original and personal sin, redeemed by Christ" },
       { label: "Afterlife", value: "Heaven, hell, (purgatory in Catholicism)" },
     ],
-    concepts: ["monotheism", "soul", "salvation", "sin", "judgement", "heaven", "hell", "prayer", "fasting", "mysticism", "pilgrimage"],
+    conceptPositions: {
+      "fasting": "affirmed",
+      "heaven": "affirmed",
+      "hell": "affirmed",
+      "judgement": "affirmed",
+      "karma": "rejected",
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "pilgrimage": "affirmed",
+      "polytheism": "rejected",
+      "prayer": "affirmed",
+      "reincarnation": "rejected",
+      "salvation": "affirmed",
+      "sin": "affirmed",
+      "soul": "affirmed"
+    },
     splitsFrom: "judaism",
     cities: ["jerusalem"],
   },
@@ -906,7 +1044,20 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Disobedience to Allah's will" },
       { label: "Afterlife", value: "Paradise (Jannah) or Hell (Jahannam)" },
     ],
-    concepts: ["monotheism", "soul", "judgement", "sin", "heaven", "hell", "prayer", "fasting", "pilgrimage", "mysticism"],
+    conceptPositions: {
+      "fasting": "affirmed",
+      "heaven": "affirmed",
+      "hell": "affirmed",
+      "judgement": "affirmed",
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "pilgrimage": "affirmed",
+      "polytheism": "rejected",
+      "prayer": "affirmed",
+      "reincarnation": "rejected",
+      "sin": "affirmed",
+      "soul": "affirmed"
+    },
     splitsFrom: "judaism",
     cities: ["mecca", "jerusalem"],
   },
@@ -951,7 +1102,13 @@ export const RELIGIONS: Religion[] = [
       { label: "Salvation", value: "Spiritual progress across eternity" },
       { label: "Unity", value: "All religions share one source" },
     ],
-    concepts: ["monotheism", "soul", "prayer", "fasting", "mysticism"],
+    conceptPositions: {
+      "fasting": "affirmed",
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "prayer": "affirmed",
+      "soul": "affirmed"
+    },
     splitsFrom: "islam",
   },
   {
@@ -989,7 +1146,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Cosmos", value: "World of Light vs. flawed material creation" },
       { label: "Salvation", value: "Purification through repeated baptism in flowing water" },
     ],
-    concepts: ["monotheism", "soul", "mysticism"],
+    conceptPositions: {
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "samaritan",
@@ -1021,7 +1182,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Monotheism", value: "One God, worshipped at Mount Gerizim" },
       { label: "Scripture", value: "Torah alone, in its Samaritan textual form" },
     ],
-    concepts: ["monotheism", "sacrifice", "prayer"],
+    conceptPositions: {
+      "monotheism": "affirmed",
+      "prayer": "affirmed",
+      "sacrifice": "affirmed"
+    },
     splitsFrom: "judaism",
   },
 
@@ -1067,7 +1232,13 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "The Tao, and a pantheon of immortals" },
       { label: "Afterlife", value: "Becoming a xian (immortal)" },
     ],
-    concepts: ["soul", "liberation", "meditation", "mysticism", "polytheism"],
+    conceptPositions: {
+      "liberation": "affirmed",
+      "meditation": "affirmed",
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "confucianism",
@@ -1110,7 +1281,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Failing in duty or ritual propriety" },
       { label: "Deity", value: "Heaven (Tian) as moral order, not a person" },
     ],
-    concepts: ["soul", "mysticism", "prayer"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "prayer": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "shinto",
@@ -1148,7 +1323,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Pollution (kegare), cleansed by ritual" },
       { label: "Afterlife", value: "Ancestral spirit realm" },
     ],
-    concepts: ["soul", "polytheism", "prayer", "pilgrimage"],
+    conceptPositions: {
+      "pilgrimage": "affirmed",
+      "polytheism": "affirmed",
+      "prayer": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "korean-shin",
@@ -1185,7 +1365,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Monotheism", value: "Haneullim — God within all humans" },
       { label: "Salvation", value: "Bringing heaven to earth" },
     ],
-    concepts: ["monotheism", "prayer", "mysticism"],
+    conceptPositions: {
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "prayer": "affirmed"
+    },
   },
   {
     id: "chinese-folk",
@@ -1217,7 +1401,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Layered pantheon of ancestors, local gods, and celestial bureaucracy" },
       { label: "Afterlife", value: "Ancestors sustained by descendants' offerings" },
     ],
-    concepts: ["polytheism", "soul", "prayer", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "prayer": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "caodai",
@@ -1249,7 +1438,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Cao Đài — the one God behind all revelations" },
       { label: "Salvation", value: "Union of world religions in a final 'Third Amnesty'" },
     ],
-    concepts: ["monotheism", "soul", "prayer", "mysticism"],
+    conceptPositions: {
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "prayer": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "bon",
@@ -1281,7 +1475,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Founder", value: "Tonpa Shenrab, legendary founding teacher" },
       { label: "Path", value: "Nine Ways (theg pa dgu) from shamanic ritual to monastic philosophy" },
     ],
-    concepts: ["soul", "mysticism", "meditation"],
+    conceptPositions: {
+      "meditation": "affirmed",
+      "mysticism": "affirmed",
+      "soul": "affirmed"
+    },
   },
 
   // ---- Iranian / Modern ----
@@ -1320,7 +1518,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Xwedê, served by seven angels incl. Melek Taus" },
       { label: "Sin", value: "Marriage outside caste; certain foods" },
     ],
-    concepts: ["monotheism", "soul", "pilgrimage"],
+    conceptPositions: {
+      "monotheism": "affirmed",
+      "pilgrimage": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "druse",
@@ -1353,7 +1555,13 @@ export const RELIGIONS: Religion[] = [
       { label: "Reincarnation", value: "Successive rebirths of the soul" },
       { label: "Judgement", value: "Final accounting at the end of cycles" },
     ],
-    concepts: ["monotheism", "soul", "reincarnation", "judgement", "mysticism"],
+    conceptPositions: {
+      "judgement": "affirmed",
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "reincarnation": "affirmed",
+      "soul": "affirmed"
+    },
     splitsFrom: "islam",
   },
 
@@ -1388,7 +1596,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Olodumare above; orishas as emanations" },
       { label: "Afterlife", value: "Ancestors reborn or with the orishas" },
     ],
-    concepts: ["polytheism", "soul", "sacrifice", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "yoruba",
@@ -1420,7 +1633,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Olodumare and hundreds of orishas" },
       { label: "Afterlife", value: "Ancestors (egun) guide the living" },
     ],
-    concepts: ["polytheism", "soul", "sacrifice", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "vodou",
@@ -1452,7 +1670,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Bondye above; the lwa as intermediaries" },
       { label: "Soul", value: "Two souls — gros-bon-ange and ti-bon-ange" },
     ],
-    concepts: ["polytheism", "soul", "sacrifice", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "inuit",
@@ -1484,7 +1707,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Soul", value: "Animals and humans share souls (inua)" },
       { label: "Sin", value: "Breaking taboos angers Sedna" },
     ],
-    concepts: ["polytheism", "soul", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "navajo",
@@ -1516,7 +1743,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Disharmony (hóchxó) requiring restoration" },
       { label: "Deity", value: "Holy People (Diyin Diné'é)" },
     ],
-    concepts: ["polytheism", "soul", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "maori",
@@ -1548,7 +1779,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Io supreme; gods of nature" },
       { label: "Soul", value: "Wairua continues among ancestors" },
     ],
-    concepts: ["polytheism", "soul", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "dreamtime",
@@ -1580,7 +1815,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Cosmos", value: "Eternal Dreaming — past, present, future at once" },
       { label: "Soul", value: "Reincarnation of ancestral spirits" },
     ],
-    concepts: ["soul", "reincarnation", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "reincarnation": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "ifa",
@@ -1612,7 +1851,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Olodumare; Orunmila as wisdom-keeper" },
       { label: "Destiny", value: "Each soul chooses its fate (ayanmo)" },
     ],
-    concepts: ["monotheism", "soul", "mysticism"],
+    conceptPositions: {
+      "monotheism": "affirmed",
+      "mysticism": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "candomble",
@@ -1644,7 +1887,12 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Olorun above; orixás as forces of nature and personality" },
       { label: "Afterlife", value: "Return to ancestral and orixá realms" },
     ],
-    concepts: ["polytheism", "soul", "sacrifice", "mysticism"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "polytheism": "affirmed",
+      "sacrifice": "affirmed",
+      "soul": "affirmed"
+    },
   },
 
   // ---- Philosophical / Modern ----
@@ -1689,7 +1937,11 @@ export const RELIGIONS: Religion[] = [
       { label: "Liberation", value: "Apatheia — freedom from destructive passions" },
       { label: "Deity", value: "Logos — divine reason pervading all" },
     ],
-    concepts: ["soul", "liberation", "meditation"],
+    conceptPositions: {
+      "liberation": "affirmed",
+      "meditation": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "wicca",
@@ -1727,7 +1979,13 @@ export const RELIGIONS: Religion[] = [
       { label: "Sin", value: "Threefold return of harm done" },
       { label: "Afterlife", value: "Summerland between rebirths" },
     ],
-    concepts: ["polytheism", "soul", "reincarnation", "mysticism", "nonviolence"],
+    conceptPositions: {
+      "mysticism": "affirmed",
+      "nonviolence": "affirmed",
+      "polytheism": "affirmed",
+      "reincarnation": "affirmed",
+      "soul": "affirmed"
+    },
   },
   {
     id: "rastafari",
@@ -1759,6 +2017,10 @@ export const RELIGIONS: Religion[] = [
       { label: "Deity", value: "Haile Selassie I as divine, Jah manifest" },
       { label: "Liberation", value: "Repatriation from 'Babylon' to Zion (Africa)" },
     ],
-    concepts: ["monotheism", "liberation", "prayer"],
+    conceptPositions: {
+      "liberation": "affirmed",
+      "monotheism": "affirmed",
+      "prayer": "affirmed"
+    },
   },
 ];
