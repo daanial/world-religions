@@ -27,10 +27,10 @@ export default function Sky() {
     mouse: THREE.Vector2;
     traditions: Array<{ position: THREE.Vector3; religion: typeof RELIGIONS[0]; sprite: THREE.Sprite }>;
   } | null>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const [hoveredTradition, setHoveredTradition] = useState<(typeof RELIGIONS)[0] | null>(null);
   const [webglSupported, setWebglSupported] = useState(true);
-  const reducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reducedMotion = typeof window !== "undefined" ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false;
   const locale = useLocale();
 
   usePageSeo({
