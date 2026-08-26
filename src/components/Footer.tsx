@@ -85,16 +85,6 @@ export default function Footer() {
           <p className="site-footer__fine">
             © {new Date().getFullYear()} World Religions Explorer · For educational use
           </p>
-          <div className="site-footer__alt-homepages">
-            <span className="site-footer__alt-label">Alternative views:</span>
-            <Link to={withLocale(locale, "/sky")} className="site-footer__alt-link">
-              Sky
-            </Link>
-            <span aria-hidden>·</span>
-            <Link to={withLocale(locale, "/chronicle")} className="site-footer__alt-link">
-              Chronicle
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

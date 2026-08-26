@@ -19,8 +19,7 @@ import Traditions from "./pages/Traditions";
 const Timeline = lazy(() => import("./pages/Timeline"));
 const InwardPaths = lazy(() => import("./pages/InwardPaths"));
 const GlobeView = lazy(() => import("./pages/GlobeView"));
-const Sky = lazy(() => import("./pages/Sky"));
-const Chronicle = lazy(() => import("./pages/Chronicle"));
+const HomeAlt = lazy(() => import("./pages/HomeAlt"));
 
 import "./styles/tokens.css";
 import "./styles/components.css";
@@ -34,8 +33,7 @@ import "./styles/pilgrimage.css";
 import "./styles/about.css";
 import "./styles/inward-paths.css";
 import "./styles/traditions.css";
-import "./styles/sky.css";
-import "./styles/chronicle.css";
+import "./styles/home-alt.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -88,10 +86,8 @@ function LocalizedApp() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/fa" element={<Landing />} />
-            <Route path="/sky" element={<Sky />} />
-            <Route path="/fa/sky" element={<Sky />} />
-            <Route path="/chronicle" element={<Chronicle />} />
-            <Route path="/fa/chronicle" element={<Chronicle />} />
+            <Route path="/home-alt" element={<HomeAlt />} />
+            <Route path="/fa/home-alt" element={<HomeAlt />} />
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/fa/timeline" element={<Timeline />} />
             <Route path="/globe" element={<GlobeView />} />
