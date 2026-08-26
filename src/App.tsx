@@ -19,6 +19,8 @@ import Traditions from "./pages/Traditions";
 const Timeline = lazy(() => import("./pages/Timeline"));
 const InwardPaths = lazy(() => import("./pages/InwardPaths"));
 const GlobeView = lazy(() => import("./pages/GlobeView"));
+const Sky = lazy(() => import("./pages/Sky"));
+const Chronicle = lazy(() => import("./pages/Chronicle"));
 
 import "./styles/tokens.css";
 import "./styles/components.css";
@@ -32,6 +34,8 @@ import "./styles/pilgrimage.css";
 import "./styles/about.css";
 import "./styles/inward-paths.css";
 import "./styles/traditions.css";
+import "./styles/sky.css";
+import "./styles/chronicle.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -81,29 +85,33 @@ function LocalizedApp() {
         <Overlays />
         <main id="main-content">
           <Suspense fallback={<RouteFallback />}>
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/fa" element={<Landing />} />
-              <Route path="/timeline" element={<Timeline />} />
-              <Route path="/fa/timeline" element={<Timeline />} />
-              <Route path="/globe" element={<GlobeView />} />
-              <Route path="/fa/globe" element={<GlobeView />} />
-              <Route path="/traditions" element={<Traditions />} />
-              <Route path="/fa/traditions" element={<Traditions />} />
-              <Route path="/religion/:id" element={<ReligionDetail />} />
-              <Route path="/fa/religion/:id" element={<ReligionDetail />} />
-              <Route path="/compare" element={<Compare />} />
-              <Route path="/fa/compare" element={<Compare />} />
-              <Route path="/concepts" element={<Concepts />} />
-              <Route path="/fa/concepts" element={<Concepts />} />
-              <Route path="/pilgrimage" element={<Pilgrimage />} />
-              <Route path="/fa/pilgrimage" element={<Pilgrimage />} />
-              <Route path="/inward-paths" element={<InwardPaths />} />
-              <Route path="/fa/inward-paths" element={<InwardPaths />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/fa/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/fa" element={<Landing />} />
+            <Route path="/sky" element={<Sky />} />
+            <Route path="/fa/sky" element={<Sky />} />
+            <Route path="/chronicle" element={<Chronicle />} />
+            <Route path="/fa/chronicle" element={<Chronicle />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/fa/timeline" element={<Timeline />} />
+            <Route path="/globe" element={<GlobeView />} />
+            <Route path="/fa/globe" element={<GlobeView />} />
+            <Route path="/traditions" element={<Traditions />} />
+            <Route path="/fa/traditions" element={<Traditions />} />
+            <Route path="/religion/:id" element={<ReligionDetail />} />
+            <Route path="/fa/religion/:id" element={<ReligionDetail />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/fa/compare" element={<Compare />} />
+            <Route path="/concepts" element={<Concepts />} />
+            <Route path="/fa/concepts" element={<Concepts />} />
+            <Route path="/pilgrimage" element={<Pilgrimage />} />
+            <Route path="/fa/pilgrimage" element={<Pilgrimage />} />
+            <Route path="/inward-paths" element={<InwardPaths />} />
+            <Route path="/fa/inward-paths" element={<InwardPaths />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/fa/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
           </Suspense>
         </main>
         <Footer />
