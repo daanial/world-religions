@@ -1,10 +1,11 @@
 import { useMemo, useRef, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { RELIGIONS, type Religion, type Family, type Region } from "../data/religions";
 import { formatYear } from "../lib/format";
 import { getReligionImageSrc } from "../lib/religionImages";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
+import { getCurrentLocale, withLocale } from "../lib/locale";
 import Starfield from "../components/Starfield";
 
 type SortOption = "alphabetical" | "oldest" | "newest" | "followers";
@@ -98,12 +99,13 @@ export default function Traditions() {
       }
     }
 
-    // Search filter
+    // Search filter - now includes aliases
     if (searchTerm.trim()) {
       const term = searchTerm.toLowerCase();
       result = result.filter((r) => {
         const searchableText = [
           r.name,
+          ...(r.aliases || []),
           r.blurb,
           r.description,
           r.region,
@@ -312,6 +314,8 @@ interface TraditionCardProps {
 }
 
 function TraditionCard({ religion }: TraditionCardProps) {
+  const location = useLocation();
+  const locale = getCurrentLocale(location.pathname);
   const imageSrc = getReligionImageSrc(religion.id);
   const followersText = religion.living
     ? religion.followers >= 1000000
@@ -322,7 +326,7 @@ function TraditionCard({ religion }: TraditionCardProps) {
     : null;
 
   return (
-    <Link to={`/religion/${religion.id}`} className="tradition-card card">
+    <Link to={withLocale(locale, `/religion/${religion.id}`)} className="tradition-card card">
       {imageSrc && (
         <div className="tradition-card__image">
           <img src={imageSrc} alt={`${religion.name} hero`} loading="lazy" />

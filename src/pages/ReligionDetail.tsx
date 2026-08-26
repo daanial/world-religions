@@ -13,6 +13,7 @@ import { buildReligionArticleJsonLd, usePageSeo } from "../lib/seo";
 import { religionNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useApp } from "../context/AppContext";
+import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
 import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,9 +58,16 @@ export default function ReligionDetail() {
 
   const accent = religion?.accent ?? "#E6B450";
   const compareFull = religion ? compareIds.length >= 4 && !isInCompare(religion.id) : false;
-  const related = religion
-    ? RELIGIONS.filter((r) => r.id !== religion.id && r.family === religion.family).slice(0, 3)
+  
+  const relationships = religion ? getRelationshipsFor(religion.id) : [];
+  const relatedCards = religion
+    ? relationships.map((rel) => {
+        const dir = getDirectionalRelationship(religion.id, rel);
+        const targetReligion = RELIGIONS.find((r) => r.id === dir.targetId);
+        return targetReligion ? { ...dir, religion: targetReligion } : null;
+      }).filter(Boolean)
     : [];
+  
   const conceptNodes = religion
     ? CONCEPTS.filter((c) => religion.concepts.includes(c.id))
     : [];
@@ -278,16 +286,26 @@ export default function ReligionDetail() {
       )}
 
       {/* ---------- RELATED ---------- */}
-      {related.length > 0 && (
+      {relatedCards.length > 0 && (
         <section className="container rd__related rd-reveal">
-          <h2 className="rd__section-title">Other {religion.family} traditions</h2>
+          <h2 className="rd__section-title">Related traditions</h2>
           <div className="rd__related-grid">
-            {related.map((r) => (
-              <Link key={r.id} to={`/religion/${r.id}`} className="rd-card card">
-                <div className="rd-card__bar" style={{ background: r.accent }} />
-                <h4>{r.name}</h4>
-                <p>{r.blurb}</p>
-                <span className="rd-card__go" style={{ color: r.accent }}>Explore →</span>
+            {relatedCards.map((card) => (
+              <Link key={card!.targetId} to={`/religion/${card!.targetId}`} className="rd-rel-card card">
+                <div className="rd-rel-card__bar" style={{ background: card!.religion.accent }} />
+                <div className="rd-rel-card__header">
+                  <h4>{card!.religion.name}</h4>
+                  <span className="rd-rel-card__kind" style={{ borderColor: card!.religion.accent }}>
+                    {card!.kind}
+                  </span>
+                </div>
+                <p className="rd-rel-card__why">{card!.why}</p>
+                <div className="rd-rel-card__footer">
+                  <span className="rd-rel-card__confidence" data-confidence={card!.confidence}>
+                    Confidence: {card!.confidence}
+                  </span>
+                  <span className="rd-rel-card__go" style={{ color: card!.religion.accent }}>Explore →</span>
+                </div>
               </Link>
             ))}
           </div>

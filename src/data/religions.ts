@@ -52,6 +52,7 @@ export interface SacredText {
 export interface Religion {
   id: string;
   name: string;
+  aliases?: string[]; // alternate names, translations, well-known exonyms (no pejoratives)
   family: Family;
   region: Region;
   origin: number; // year founded (negative = BCE)
@@ -90,6 +91,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "sumerian",
     name: "Sumerian Religion",
+    aliases: ["Mesopotamian Religion", "Sumerian Paganism"],
     family: "Indo-European",
     region: "Middle East",
     origin: -3500,
@@ -131,6 +133,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "egyptian",
     name: "Ancient Egyptian Religion",
+    aliases: ["Egyptian Paganism", "Kemetic Religion", "Religion of Ancient Egypt"],
     family: "African",
     region: "Africa",
     origin: -3000,
@@ -171,6 +174,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "zoroastrian",
     name: "Zoroastrianism",
+    aliases: ["Mazdayasna", "Mazdaism", "Zarathustrian", "Parsi Religion"],
     family: "Iranian",
     region: "Middle East",
     origin: -1500,
@@ -210,6 +214,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "canaanite",
     name: "Canaanite Religion",
+    aliases: ["Phoenician Religion", "Ugaritic Religion", "Levantine Paganism"],
     family: "Indo-European",
     region: "Middle East",
     origin: -2000,
@@ -239,6 +244,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "greek-roman",
     name: "Greco-Roman Religion",
+    aliases: ["Classical Paganism", "Hellenistic Religion", "Roman Religion", "Olympic Religion"],
     family: "Indo-European",
     region: "Europe",
     origin: -800,
@@ -278,6 +284,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "norse",
     name: "Norse Paganism",
+    aliases: ["Nordic Religion", "Germanic Paganism", "Heathenry", "Ásatrú"],
     family: "Indo-European",
     region: "Europe",
     origin: -500,
@@ -312,6 +319,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "druidic",
     name: "Celtic Druidism",
+    aliases: ["Druidry", "Celtic Paganism", "Gaulish Religion"],
     family: "Indo-European",
     region: "Europe",
     origin: -400,
@@ -341,6 +349,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "manichaean",
     name: "Manichaeism",
+    aliases: ["Manicheism", "Religion of Light"],
     family: "Iranian",
     region: "Middle East",
     origin: 240,
@@ -381,6 +390,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "tengrism",
     name: "Tengrism",
+    aliases: ["Tengriism", "Tengrianism", "Eternal Blue Sky"],
     family: "Indo-European",
     region: "Central Asia",
     origin: -1000,
@@ -408,6 +418,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "mithraism",
     name: "Mithraism",
+    aliases: ["Cult of Mithras", "Mithraic Mysteries", "Roman Mithraism"],
     family: "Iranian",
     region: "Europe",
     origin: 100,
@@ -437,6 +448,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "gnosticism",
     name: "Gnosticism",
+    aliases: ["Gnostic Christianity", "Gnostic Religions"],
     family: "Abrahamic",
     region: "Middle East",
     origin: 100,
@@ -471,6 +483,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "mesoamerican",
     name: "Mesoamerican Religion",
+    aliases: ["Aztec Religion", "Maya Religion", "Mexica Religion"],
     family: "Indigenous",
     region: "Americas",
     origin: -1200,
@@ -505,6 +518,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "slavic-baltic",
     name: "Slavic & Baltic Paganism",
+    aliases: ["Slavic Paganism", "Baltic Paganism", "Rodnovery"],
     family: "Indo-European",
     region: "Europe",
     origin: -500,
@@ -536,6 +550,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "hinduism",
     name: "Hinduism",
+    aliases: ["Sanatana Dharma", "Hindu Dharma", "Vedic Religion"],
     family: "Indian",
     region: "South Asia",
     origin: -2000,
@@ -585,6 +600,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "buddhism",
     name: "Buddhism",
+    aliases: ["Buddha Dharma", "Buddhist Religion"],
     family: "Indian",
     region: "South Asia",
     origin: -500,
@@ -625,6 +641,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "jainism",
     name: "Jainism",
+    aliases: ["Jain Dharma", "Jain Religion"],
     family: "Indian",
     region: "South Asia",
     origin: -600,
@@ -664,6 +681,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "sikhism",
     name: "Sikhism",
+    aliases: ["Sikh Dharma", "Sikhi"],
     family: "Indian",
     region: "South Asia",
     origin: 1500,
@@ -694,6 +712,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "judaism",
     name: "Judaism",
+    aliases: ["Jewish Religion", "Hebrew Religion"],
     family: "Abrahamic",
     region: "Middle East",
     origin: -1800,
@@ -734,6 +753,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "christianity",
     name: "Christianity",
+    aliases: ["Christian Faith", "Christian Religion"],
     family: "Abrahamic",
     region: "Middle East",
     origin: 30,
@@ -764,6 +784,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "islam",
     name: "Islam",
+    aliases: ["Islamic Faith", "Muslim Religion"],
     family: "Abrahamic",
     region: "Middle East",
     origin: 610,
@@ -804,6 +825,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "bahai",
     name: "Bahá'í Faith",
+    aliases: ["Baháʼí Faith", "Bahaism", "Baha'i"],
     family: "Abrahamic",
     region: "Middle East",
     origin: 1863,
@@ -843,6 +865,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "mandaean",
     name: "Mandaeism",
+    aliases: ["Mandean Religion", "Sabians"],
     family: "Abrahamic",
     region: "Middle East",
     origin: 100,
@@ -875,6 +898,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "samaritan",
     name: "Samaritanism",
+    aliases: ["Samaritan Religion", "Shamerim"],
     family: "Abrahamic",
     region: "Middle East",
     origin: -450,
@@ -905,6 +929,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "taoism",
     name: "Taoism",
+    aliases: ["Daoism", "Dao Religion", "Taoist Religion"],
     family: "East Asian",
     region: "East Asia",
     origin: -500,
@@ -943,6 +968,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "confucianism",
     name: "Confucianism",
+    aliases: ["Ruism", "Confucian Religion", "Rujiao"],
     family: "East Asian",
     region: "East Asia",
     origin: -500,
@@ -981,6 +1007,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "shinto",
     name: "Shinto",
+    aliases: ["Shintoism", "Kami no Michi", "Way of the Kami"],
     family: "East Asian",
     region: "East Asia",
     origin: -300,
@@ -1014,6 +1041,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "korean-shin",
     name: "Cheondogyo",
+    aliases: ["Chondogyo", "Chŏndogyo", "Religion of the Heavenly Way"],
     family: "East Asian",
     region: "East Asia",
     origin: 1860,
@@ -1046,6 +1074,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "chinese-folk",
     name: "Chinese Folk Religion",
+    aliases: ["Shenism", "Chinese Popular Religion", "Chinese Traditional Religion"],
     family: "East Asian",
     region: "East Asia",
     origin: -1500,
@@ -1073,6 +1102,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "caodai",
     name: "Cao Đài",
+    aliases: ["Caodaism", "Cao Dai", "Đạo Cao Đài"],
     family: "East Asian",
     region: "East Asia",
     origin: 1926,
@@ -1100,6 +1130,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "bon",
     name: "Bön",
+    aliases: ["Bon", "Bon Religion", "Yungdrung Bon"],
     family: "Indian",
     region: "Central Asia",
     origin: 1000,
@@ -1129,6 +1160,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "yazidi",
     name: "Yazidism",
+    aliases: ["Yazidism", "Yezidi", "Êzidî"],
     family: "Iranian",
     region: "Middle East",
     origin: 1100,
@@ -1161,6 +1193,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "druse",
     name: "Druze",
+    aliases: ["Druzism", "Druze Faith", "Muwaḥḥidūn"],
     family: "Abrahamic",
     region: "Middle East",
     origin: 1000,
@@ -1192,6 +1225,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "santeria",
     name: "Santería",
+    aliases: ["Santeria", "Regla de Ocha", "Lucumí"],
     family: "African",
     region: "Americas",
     origin: 1700,
@@ -1219,6 +1253,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "yoruba",
     name: "Yoruba Religion",
+    aliases: ["Òrìṣà", "Isese", "Yoruba Traditional Religion"],
     family: "African",
     region: "Africa",
     origin: -200,
@@ -1246,6 +1281,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "vodou",
     name: "Haitian Vodou",
+    aliases: ["Vodou", "Voodoo", "Vodun"],
     family: "African",
     region: "Americas",
     origin: 1700,
@@ -1273,6 +1309,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "inuit",
     name: "Inuit Religion",
+    aliases: ["Inuit Spirituality", "Inuit Traditional Religion"],
     family: "Indigenous",
     region: "Americas",
     origin: -1000,
@@ -1300,6 +1337,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "navajo",
     name: "Navajo (Diné) Spirituality",
+    aliases: ["Diné Spirituality", "Navajo Religion", "Diné Bahaneʼ"],
     family: "Indigenous",
     region: "Americas",
     origin: 1300,
@@ -1327,6 +1365,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "maori",
     name: "Māori Religion",
+    aliases: ["Maori Religion", "Māori Spirituality", "Māoritanga"],
     family: "Indigenous",
     region: "Oceania",
     origin: 1300,
@@ -1354,6 +1393,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "dreamtime",
     name: "Aboriginal Dreaming",
+    aliases: ["Australian Aboriginal Religion", "Dreamtime", "The Dreaming", "Tjukurrpa"],
     family: "Indigenous",
     region: "Oceania",
     origin: -40000,
@@ -1381,6 +1421,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "ifa",
     name: "Ifá (Yoruba Divination)",
+    aliases: ["Ifa", "Ifá Divination", "Ifa Oracle"],
     family: "African",
     region: "Africa",
     origin: -300,
@@ -1408,6 +1449,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "candomble",
     name: "Candomblé",
+    aliases: ["Candomble", "Candomblé Religion"],
     family: "African",
     region: "Americas",
     origin: 1800,
@@ -1437,6 +1479,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "stoicism",
     name: "Stoicism",
+    aliases: ["Stoic Philosophy", "Stoic School"],
     family: "Modern",
     region: "Europe",
     origin: -300,
@@ -1475,6 +1518,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "wicca",
     name: "Wicca",
+    aliases: ["Wiccan Religion", "Modern Witchcraft"],
     family: "Modern",
     region: "Europe",
     origin: 1950,
@@ -1508,6 +1552,7 @@ export const RELIGIONS: Religion[] = [
   {
     id: "rastafari",
     name: "Rastafari",
+    aliases: ["Rastafarianism", "Rasta"],
     family: "Modern",
     region: "Americas",
     origin: 1930,
