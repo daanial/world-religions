@@ -6,7 +6,7 @@ import Starfield from "../components/Starfield";
 import NarrationButton from "../components/NarrationButton";
 import { RELIGIONS } from "../data/religions";
 import { CONCEPTS } from "../data/concepts";
-import { getReligionEssay } from "../data/religion-essays";
+import { getReligionArticle } from "../data/religion-articles";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { getReligionImageSrc } from "../lib/religionImages";
 import { buildReligionArticleJsonLd, usePageSeo } from "../lib/seo";
@@ -73,7 +73,7 @@ export default function ReligionDetail() {
   const conceptNodes = religion
     ? CONCEPTS.filter((c) => religion.conceptPositions?.[c.id] === "affirmed")
     : [];
-  const essay = religion ? getReligionEssay(religion.id) : undefined;
+  const article = religion ? getReligionArticle(religion.id) : null;
   const imageSrc = religion ? getReligionImageSrc(religion.id) : undefined;
 
   useRegisterNarration(
@@ -174,28 +174,165 @@ export default function ReligionDetail() {
         <StatCard label="Countries" value={religion.countries > 0 ? religion.countries.toString() : "—"} icon={GlobeSmallIcon} />
       </section>
 
-      {/* ---------- DESCRIPTION ---------- */}
-      <section className="container rd__section rd-reveal">
-        <div className="rd__prose">
-          <div className="rd__section-head">
-            <h2 className="rd__section-title">Origins & essence</h2>
-            <NarrationButton
-              id={religionNarrationId(religion.id)}
-              label={religion.name}
-              variant="prominent"
-            />
-          </div>
-          {essay ? (
-            <>
-              {essay.paragraphs.map((paragraph, index) => (
+      {/* ---------- ARTICLE CONTENT ---------- */}
+      {article && (
+        <>
+          {/* Overview Section */}
+          <section className="container rd__section rd-reveal">
+            <div className="rd__prose">
+              <div className="rd__section-head">
+                <h2 className="rd__section-title">Overview</h2>
+                <NarrationButton
+                  id={religionNarrationId(religion.id)}
+                  label={religion.name}
+                  variant="prominent"
+                />
+              </div>
+              {article.overview.map((paragraph, index) => (
                 <p key={index} className={index === 0 ? "rd__lead" : "rd__body"}>
                   {paragraph}
                 </p>
               ))}
-              <aside className="rd__sources" aria-label="Sources">
-                <h3 className="rd__sources-title">Sources</h3>
+              {religion.splitsFrom && (
+                <p className="rd__lineage">
+                  <span className="rd__lineage-label">Emerges from</span>
+                  <Link to={withLocale(locale, `/religion/${religion.splitsFrom}`)} className="rd__lineage-link">
+                    {RELIGIONS.find((r) => r.id === religion.splitsFrom)?.name} →
+                  </Link>
+                </p>
+              )}
+            </div>
+          </section>
+
+          {/* Optional structured sections */}
+          {article.history && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.history.title}</h2>
+                {article.history.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.worldview && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.worldview.title}</h2>
+                {article.worldview.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.texts && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.texts.title}</h2>
+                {article.texts.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.practice && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.practice.title}</h2>
+                {article.practice.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.diversity && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.diversity.title}</h2>
+                {article.diversity.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.communities && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.communities.title}</h2>
+                {article.communities.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.places && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.places.title}</h2>
+                {article.places.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.debates && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.debates.title}</h2>
+                {article.debates.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Key Terms */}
+          {article.keyTerms && article.keyTerms.length > 0 && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">Key Terms</h2>
+                <dl className="rd__terms">
+                  {article.keyTerms.map((term, index) => (
+                    <div key={index} className="rd__term-item">
+                      <dt className="rd__term-name">{term.term}</dt>
+                      <dd className="rd__term-def">{term.definition}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </section>
+          )}
+
+          {/* Sources */}
+          {article.sources.length > 0 && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">Further Reading</h2>
                 <ul className="rd__sources-list">
-                  {essay.sources.map((source) => (
+                  {article.sources.map((source) => (
                     <li key={source.href}>
                       <a href={source.href} target="_blank" rel="noopener noreferrer">
                         {source.label}
@@ -203,21 +340,11 @@ export default function ReligionDetail() {
                     </li>
                   ))}
                 </ul>
-              </aside>
-            </>
-          ) : (
-            <p className="rd__lead">{religion.description}</p>
+              </div>
+            </section>
           )}
-          {religion.splitsFrom && (
-            <p className="rd__lineage">
-              <span className="rd__lineage-label">Emerges from</span>
-              <Link to={withLocale(locale, `/religion/${religion.splitsFrom}`)} className="rd__lineage-link">
-                {RELIGIONS.find((r) => r.id === religion.splitsFrom)?.name} →
-              </Link>
-            </p>
-          )}
-        </div>
-      </section>
+        </>
+      )}
 
       {/* ---------- PRACTICES + CORE IDEAS ---------- */}
       <section className="container rd__two-col rd-reveal">
