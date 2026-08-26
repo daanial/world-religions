@@ -7,8 +7,7 @@ import HeroTimelineStrip from "../components/HeroTimelineStrip";
 import { RELIGIONS } from "../data/religions";
 import { buildWebsiteJsonLd, usePageSeo } from "../lib/seo";
 import { SITE_DESCRIPTION } from "../lib/site";
-import { useLocale } from "../App";
-import { withLocaleAndQuery, withLocale } from "../lib/locale";
+import { useLocale, withLocaleAndQuery, withLocale } from "../lib/locale";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -7,8 +7,7 @@ import { useApp } from "../context/AppContext";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
-import { useLocale } from "../App";
-import { withLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 
 // Feature rows for the comparison matrix.
 // `get` returns true/false/·(partial) given a religion.

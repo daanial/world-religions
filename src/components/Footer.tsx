@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { useLocale } from "../App";
-import { withLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 
 const exploreLinks = [
   { to: "/", label: "Home", end: true },

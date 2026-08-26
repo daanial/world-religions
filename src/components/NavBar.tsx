@@ -2,8 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useApp } from "../context/AppContext";
 import { useNarration } from "../context/NarrationContext";
-import { useLocale } from "../App";
-import { withLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 import NarrationButton from "./NarrationButton";
 
 const links = [

@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import Starfield from "../components/Starfield";
 import { usePageSeo } from "../lib/seo";
-import { useLocale } from "../App";
-import { withLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 
 export default function NotFound() {
   const { pathname } = useLocation();

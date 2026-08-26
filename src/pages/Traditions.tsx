@@ -5,8 +5,7 @@ import { formatYear } from "../lib/format";
 import { getReligionImageSrc } from "../lib/religionImages";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
-import { useLocale } from "../App";
-import { withLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 import Starfield from "../components/Starfield";
 
 type SortOption = "alphabetical" | "oldest" | "newest" | "followers";

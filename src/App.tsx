@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import { NarrationProvider } from "./context/NarrationContext";
 import { useAmbientSound } from "./hooks/useAmbientSound";
-import { splitLocaleFromPath, type LocaleCode } from "./lib/locale";
+import { splitLocaleFromPath, LocaleContext } from "./lib/locale";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Overlays from "./components/Overlays";
@@ -53,15 +53,6 @@ function RouteFallback() {
       <span className="route-fallback__label">Loading…</span>
     </div>
   );
-}
-
-// LocaleContext to provide current locale to all components
-import { createContext, useContext } from "react";
-
-const LocaleContext = createContext<LocaleCode>("en");
-
-export function useLocale(): LocaleCode {
-  return useContext(LocaleContext);
 }
 
 export default function App() {

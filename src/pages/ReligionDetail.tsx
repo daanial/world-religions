@@ -13,8 +13,7 @@ import { buildReligionArticleJsonLd, usePageSeo } from "../lib/seo";
 import { religionNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useApp } from "../context/AppContext";
-import { useLocale } from "../App";
-import { withLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
 import NotFound from "./NotFound";
 
@@ -294,7 +293,7 @@ export default function ReligionDetail() {
           <h2 className="rd__section-title">Related traditions</h2>
           <div className="rd__related-grid">
             {relatedCards.map((card) => (
-              <Link key={card!.targetId} to={withLocale(locale, `/religion/${card!.targetId}`)} className="rd-rel-card card">
+              <Link key={`${card!.kind}-${card!.targetId}`} to={withLocale(locale, `/religion/${card!.targetId}`)} className="rd-rel-card card">
                 <div className="rd-rel-card__bar" style={{ background: card!.religion.accent }} />
                 <div className="rd-rel-card__header">
                   <h4>{card!.religion.name}</h4>

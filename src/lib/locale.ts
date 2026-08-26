@@ -1,10 +1,21 @@
 // Locale routing utilities for English (unprefixed) and Persian (/fa) paths
 
+import { createContext, useContext } from "react";
+
 export type LocaleCode = "en" | "fa";
 
 export const DEFAULT_LOCALE: LocaleCode = "en";
 
 export const SUPPORTED_LOCALES: LocaleCode[] = ["en", "fa"];
+
+// LocaleContext to provide current locale to all components
+const LocaleContext = createContext<LocaleCode>("en");
+
+export function useLocale(): LocaleCode {
+  return useContext(LocaleContext);
+}
+
+export { LocaleContext };
 
 export function localePrefix(code: LocaleCode): string {
   return code === DEFAULT_LOCALE ? "" : `/${code}`;
