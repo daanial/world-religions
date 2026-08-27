@@ -157,7 +157,7 @@ export const hinduismArticle: ReligionArticle = {
     },
     {
       label: "Gavin Flood, An Introduction to Hinduism (Cambridge University Press, 1996)",
-      href: "https://www.cambridge.org/core/books/an-introduction-to-hinduism/13BB8E5F8E1E0F7E7E7E7E7E7E7E7E7E"
+      href: "https://www.cambridge.org/ca/universitypress/subjects/religion/buddhism-and-eastern-religions/introduction-hinduism"
     },
     {
       label: "Gavin Flood (ed.), The Blackwell Companion to Hinduism (Blackwell, 2003)",

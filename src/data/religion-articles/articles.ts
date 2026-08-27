@@ -1,6 +1,7 @@
 import type { ReligionArticle } from "./types";
 import { buddhismArticle } from "./buddhism";
 import { hinduismArticle } from "./hinduism";
+import { jainismArticle } from "./jainism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -556,42 +557,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Pew Research Center: The Future of World Religions", href: "https://www.pewresearch.org/religion/2015/04/02/religious-projections-2010-2050/" },
     ],
   },
-  "jainism": {
-    overview: [
-      "Jainism is an ancient Indian tradition that teaches every living being possesses an eternal soul (jiva) weighed down by karmic matter accumulated through harmful action. Liberation (moksha or kevala, omniscient freedom) requires purifying the soul by rigorous ethical discipline, especially ahimsa, nonviolence toward all life. Tradition holds that twenty-four tirthankaras, spiritual ford-makers, have revealed this path across vast cosmic cycles; the historical teacher Mahavira, a contemporary of the Buddha in the sixth or fifth century BCE, is regarded as the most recent. Jains reject Vedic animal sacrifice and emphasize ascetic renunciation alongside lay vows that limit harm in daily life.",
-      "Monastic Jains observe vows so strict that monks and nuns sweep paths before walking, filter water, and restrict travel during the rainy season to avoid injuring insects. Lay Jains support the monastic community, practice vegetarianism, and observe periodic fasting. Canonical scriptures in Ardhamagadhi Prakrit, notably the Agamas and philosophical works such as the Tattvartha Sutra, articulate a realist metaphysics of souls, matter, space, and time. Temple worship before images of tirthankaras, pilgrimage to sacred sites such as Mount Shatrunjaya, and the festival of Paryushana mark the ritual calendar.",
-      "Today roughly four to five million Jains live mainly in India, with growing communities in East Africa, Britain, and North America. Their emphasis on nonviolence has influenced Indian legal protections for animals and vegetarian culture, while Jain merchants and professionals sustain charitable institutions, schools, and hospitals. Scholars note that Jain metaphysics and ethics offer distinctive resources for contemporary debates about environmental responsibility and the moral status of nonhuman life."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Jains pursue ahimsa (nonviolence) to its logical extreme, holding every living being possesses a soul (jiva) that can attain kevala - omniscient liberation. The monastic vow sweeps the path before walking, lest one harm an insect.\", sacredTexts: [ { name: \"Agamas\", descript"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Nonviolence: Ahimsa toward all jiva",
-      "Liberation: Kevala - the soul freed from karmic matter",
-      "Soul: Every being has an individual jiva"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Agamas: The canonical scriptures of Jainism, believed to preserve the teachings of Mahavira and earlier Tirthankaras as memorized by his disciples. They cover cosmology, ethics, and the path to kevala (omniscient liberation). Digambara and Svetambara Jains recognize different Agama collections, reflecting a centuries-old schism.",
-      "Tattvartha Sutra: A systematic philosophical text by Umasvati (c. 2nd-5th century CE) accepted by both major Jain sects. It defines the seven (or nine) fundamental truths (tattvas), including soul, karma, and liberation. It is the only Jain scripture universally recognized across traditions.",
-      "Kalpa Sutra: A Svetambara text recounting the lives of the Tirthankaras, especially Parshvanatha and Mahavira, and prescribing monastic rules. It is read aloud during Paryushana, Jainism's most important festival of repentance and renewal. Its biographical sections inspire lay and monastic devotion alike."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Extreme ahimsa, Fasting (sallekhana), Meditation, Five vows."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia of Philosophy - Jainism", href: "https://plato.stanford.edu/entries/jainism/" },
-      { label: "Encyclopaedia Britannica - Jainism", href: "https://www.britannica.com/topic/Jainism" },
-      { label: "BBC Religion - Jainism", href: "https://www.bbc.co.uk/religion/religions/jainism/" },
-    ],
-  },
+  "jainism": jainismArticle,
   "judaism": {
     overview: [
       "Judaism is the religion of the Jewish people, rooted in a covenant between God and Israel as narrated in the Hebrew Bible. Scholars trace its formation through centuries of Israelite history, from early Iron Age communities in the Levant to the consolidation of monotheistic worship centered on YHWH. The destruction of the First and Second Temples in Jerusalem (586 BCE and 70 CE) reshaped Jewish life, shifting emphasis from sacrificial worship toward Torah study, prayer, and observance of mitzvot. Rabbinic Judaism, articulated in the Mishnah and Talmud, became the dominant form after late antiquity and continues to guide Orthodox, Conservative, and Reform communities worldwide.",
