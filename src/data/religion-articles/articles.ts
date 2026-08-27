@@ -40,6 +40,7 @@ import { tengrismArticle } from "./tengrism";
 import { mithraismArticle } from "./mithraism";
 import { gnosticismArticle } from "./gnosticism";
 import { mesoamericanArticle } from "./mesoamerican";
+import { slavicBalticArticle } from "./slavic-baltic";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -76,29 +77,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "santeria": santeriaArticle,
   "shinto": shintoArticle,
   "sikhism": sikhismArticle,
-  "slavic-baltic": {
-    overview: ["The pre-Christian religions of the Slavic and Baltic peoples, centered on sky and thunder gods (Perun, Perkūnas), household and ancestor spirits, and sacred groves. Lithuania's official conversion in 1387 marked the end of the last state-level pagan religion in Europe, though folk customs persisted alongside Christianity for centuries.\", sacredTexts: [ { name: \"(Oral tradition - chronicled by Christian scribes)\", description: \"Slavic and Baltic paganism left no native scripture; what is known comes from outside accounts - the Russian Primary Chronicle's description of Perun's idols in Kyiv, and German missionary reports on Baltic grove-worship and priesthoods. Folk songs, festivals, and place names preserved fragments long after formal conversion.\", }, ], practices: [\"Sacred grove worship\", \"Ancestor & household spirits\", \"Seasonal fire festivals\", \"Divination\"], coreIdeas: [ { label: \"Deity\", value: \"Perun/Perkūnas (thunder) and a wider pantheon\" }, { label: \"Afterlife\", value: \"Ancestral spirits (dziady) honored at seasonal rites\" }, ], conceptPositions: { \"mysticism\": \"affirmed\", \"polytheism\": \"affirmed\", \"sacrifice\": \"affirmed"],
-    history: {
-      title: "Historical Development",
-      content: ["The pre-Christian religions of the Slavic and Baltic peoples, centered on sky and thunder gods (Perun, Perkūnas), household and ancestor spirits, and sacred groves. Lithuania's official conversion in 1387 marked the end of the last state-level pagan religion in Europe, though folk customs persisted"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Perun/Perkūnas (thunder) and a wider pantheon",
-      "Afterlife: Ancestral spirits (dziady) honored at seasonal rites"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral tradition - chronicled by Christian scribes): Slavic and Baltic paganism left no native scripture; what is known comes from outside accounts - the Russian Primary Chronicle's description of Perun's idols in Kyiv, and German missionary reports on Baltic grove-worship and priesthoods. Folk songs, festivals, and place names preserved fragments long after formal conversion."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Sacred grove worship, Ancestor & household spirits, Seasonal fire festivals, Divination."],
-    },
-    sources: [],
-  },
+  "slavic-baltic": slavicBalticArticle,
   "stoicism": {
     overview: [
       "Stoicism is a Hellenistic school of philosophy founded in Athens around 300 BCE by Zeno of Citium. It takes its name from the Stoa Poikile, the painted colonnade where Zeno taught. Unlike purely theoretical inquiry, Stoicism was conceived as a practical philosophy aimed at living well through reason and moral discipline. Early Stoics such as Cleanthes and Chrysippus developed a systematic worldview spanning logic, physics, and ethics, while later Roman Stoics including Seneca, Epictetus, and Marcus Aurelius emphasized personal conduct, resilience, and civic duty. Although not a religion in the conventional sense, Stoicism functioned for many adherents as a comprehensive guide to character, fate, and the human place within nature.",
