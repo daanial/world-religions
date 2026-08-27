@@ -39,6 +39,7 @@ import { manichaeanArticle } from "./manichaean";
 import { tengrismArticle } from "./tengrism";
 import { mithraismArticle } from "./mithraism";
 import { gnosticismArticle } from "./gnosticism";
+import { mesoamericanArticle } from "./mesoamerican";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -66,40 +67,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "mandaean": mandaeanArticle,
   "manichaean": manichaeanArticle,
   "maori": maoriArticle,
-  "mesoamerican": {
-    overview: [
-      "Mesoamerican religion refers to the shared cosmological framework of the Aztec (Mexica), Maya, and neighboring civilizations of pre-Columbian Mexico and Central America. Both traditions envisioned a layered universe - commonly thirteen heavens above and nine underworld levels below - connected by a central world-tree (the Maya yaxche, or ceiba) at the axis of creation. Among the Aztec, the concept of teotl, a single dynamic, self-generating sacred force, underlay a populous pantheon including Huitzilopochtli (sun and war), Tlaloc (rain), and Quetzalcoatl (wind and knowledge); Maya religion centered figures such as Itzamna, the creator, Chaac, god of rain, and the Maize God, whose myth-cycle is preserved in the Popol Vuh's tale of the Hero Twins descending into the underworld Xibalba.",
-      "Sacrifice - of maize, animals, elite blood offered through ritual bloodletting, and at times human life - was understood as cosmologically necessary, sustaining a sun and world believed to be inherently fragile and cyclical. The Aztec 52-year New Fire ceremony renewed the cosmos against threatened destruction, while the Maya 260-day tzolkin calendar and Long Count structured ritual and divinatory life around recurring cycles of time. Temple pyramids such as Tenochtitlan's Templo Mayor and countless Maya ceremonial centers anchored public ritual, priestly bloodletting, and the periodic reenactment of these founding myths through festival and calendar-based ceremony.",
-      "Spanish conquest - Tenochtitlan's fall in 1521 and the last independent Maya polity's surrender in 1697 - dismantled the state-sponsored priesthoods and temple systems that had organized public Mesoamerican religion for centuries. Forced conversion followed, yet indigenous cosmology did not simply vanish: it persisted through syncretism, visible in the Virgin of Guadalupe's assimilation of Aztec religious geography, the Day of the Dead's blending with Catholic All Souls observance, and the Maya cargo system's fusion of ancestral mountain spirits with Catholic saints and religious brotherhoods that continue in indigenous communities today."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The shared religious world of the Aztec (Mexica), Maya, and their Mesoamerican neighbors - a cosmos of layered heavens and underworlds, cyclical calendars, and deities demanding blood and maize in exchange for the sun's continued rising. Temple pyramids, ballcourt ritual, and painted codices recorde"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Cosmos: Cyclical ages sustained by sacrifice",
-      "Afterlife: Destination determined by manner of death, not conduct"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Popol Vuh: The K'iche' Maya 'Book of Counsel,' recorded in the sixteenth century using Latin script to preserve oral tradition, narrating the creation of the world, the hero twins' defeat of the underworld lords, and the origin of humanity from maize. It is the most complete surviving account of Maya cosmology.",
-      "Florentine Codex: A sixteenth-century bilingual (Nahuatl/Spanish) ethnographic compilation overseen by the friar Bernardino de Sahagún, drawing on interviews with Aztec elders to record deities, rituals, and cosmology before their suppression. It remains the single richest source on Aztec religious life."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Human & blood sacrifice, Ballgame ritual, Calendar-based ceremony, Temple pilgrimage."],
-    },
-    sources: [
-      { label: "Britannica - Aztec religion", href: "https://www.britannica.com/topic/Aztec-religion" },
-      { label: "Britannica - Maya religion", href: "https://www.britannica.com/topic/Maya-religion" },
-      { label: "World History Encyclopedia - Maya Religion", href: "https://www.worldhistory.org/Maya_Religion/" },
-    ],
-  },
+  "mesoamerican": mesoamericanArticle,
   "mithraism": mithraismArticle,
   "navajo": navajoArticle,
   "norse": norseArticle,
