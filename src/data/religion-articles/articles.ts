@@ -38,6 +38,11 @@ import { druidicArticle } from "./druidic";
 import { manichaeanArticle } from "./manichaean";
 import { tengrismArticle } from "./tengrism";
 import { mithraismArticle } from "./mithraism";
+import { gnosticismArticle } from "./gnosticism";
+import { mesoamericanArticle } from "./mesoamerican";
+import { slavicBalticArticle } from "./slavic-baltic";
+import { stoicismArticle } from "./stoicism";
+import { wiccaArticle } from "./wicca";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -53,40 +58,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "druidic": druidicArticle,
   "druse": druseArticle,
   "egyptian": egyptianArticle,
-  "gnosticism": {
-    overview: [
-      "Gnosticism names a family of religious movements that emerged within early Christianity and Second Temple Judaism, flourishing across the Mediterranean and Near East from roughly the first through fourth centuries CE. Rather than a single organized church, it comprised diverse teachers and schools united by a shared cosmological instinct: a remote, unknowable supreme God (often called the Monad) stands apart from the flawed material cosmos, which was instead fashioned by a lesser, ignorant creator figure - the demiurge, sometimes named Yaldabaoth. Human beings carry a fragment of divine light trapped within matter, exiled from the pleroma, the true realm of fullness and light.",
-      "Salvation in Gnostic thought came not through faith or institutional sacrament but through gnosis - direct, experiential knowledge of one's true divine origin, transmitted by a redeemer figure (in Christian Gnostic systems, typically Jesus) who awakens the trapped spark to its source. Teachers such as Valentinus and Basilides, active in second-century Alexandria and Rome, developed elaborate systematic theologies mapping the emanation of divine beings (aeons) from the Monad down to the material world. This emphasis on esoteric knowledge over ecclesial authority put Gnostic Christians at odds with proto-orthodox bishops such as Irenaeus, who condemned them at length as heretics.",
-      "For centuries Gnosticism was known almost entirely through these hostile heresiological accounts, until the 1945 discovery of the Nag Hammadi library in Egypt - over fifty Coptic manuscripts including the Gospel of Thomas and the Apocryphon of John - gave scholars direct access to Gnostic voices for the first time. Proto-orthodox condemnation, the institutional consolidation of the church, and later the decline of late antiquity's religious pluralism combined to nearly extinguish organized Gnostic communities, though Mandaeism, a distinct Gnostic-influenced religion of Iraq and Iran, survives as a living tradition to this day."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A constellation of early Christian-era movements teaching that the material cosmos was the flawed creation of a lesser being (the demiurge), and that salvation came through secret spiritual knowledge (gnosis) rather than faith or law alone. Gnostic teachers such as Valentinus and Basilides flourishe"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Cosmos: Material world as flawed creation of a lesser demiurge",
-      "Salvation: Gnosis - direct spiritual knowledge, not faith alone"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Nag Hammadi library: A cache of over 50 Coptic texts discovered near Nag Hammadi, Egypt in 1945, including the Gospel of Thomas and Gospel of Truth. Likely buried by monks around the fourth century to escape destruction after Gnosticism was condemned as heresy, its rediscovery transformed modern understanding of early Christian diversity.",
-      "Gospel of Thomas: A collection of 114 sayings attributed to Jesus, lacking narrative or a crucifixion account, emphasizing self-knowledge as the path to the divine kingdom. Found among the Nag Hammadi texts, it preserves a strand of early Jesus tradition outside the canonical gospels."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Study & contemplation, Secret initiation, Ascetic withdrawal."],
-    },
-    sources: [
-      { label: "Britannica - Gnosticism", href: "https://www.britannica.com/topic/Gnosticism" },
-      { label: "Internet Encyclopedia of Philosophy - Gnosticism", href: "https://iep.utm.edu/gnostic/" },
-      { label: "World History Encyclopedia - Gnosticism", href: "https://www.worldhistory.org/Gnosticism/" },
-    ],
-  },
+  "gnosticism": gnosticismArticle,
   "greek-roman": greekRomanArticle,
   "hinduism": hinduismArticle,
   "ifa": ifaArticle,
@@ -98,40 +70,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "mandaean": mandaeanArticle,
   "manichaean": manichaeanArticle,
   "maori": maoriArticle,
-  "mesoamerican": {
-    overview: [
-      "Mesoamerican religion refers to the shared cosmological framework of the Aztec (Mexica), Maya, and neighboring civilizations of pre-Columbian Mexico and Central America. Both traditions envisioned a layered universe - commonly thirteen heavens above and nine underworld levels below - connected by a central world-tree (the Maya yaxche, or ceiba) at the axis of creation. Among the Aztec, the concept of teotl, a single dynamic, self-generating sacred force, underlay a populous pantheon including Huitzilopochtli (sun and war), Tlaloc (rain), and Quetzalcoatl (wind and knowledge); Maya religion centered figures such as Itzamna, the creator, Chaac, god of rain, and the Maize God, whose myth-cycle is preserved in the Popol Vuh's tale of the Hero Twins descending into the underworld Xibalba.",
-      "Sacrifice - of maize, animals, elite blood offered through ritual bloodletting, and at times human life - was understood as cosmologically necessary, sustaining a sun and world believed to be inherently fragile and cyclical. The Aztec 52-year New Fire ceremony renewed the cosmos against threatened destruction, while the Maya 260-day tzolkin calendar and Long Count structured ritual and divinatory life around recurring cycles of time. Temple pyramids such as Tenochtitlan's Templo Mayor and countless Maya ceremonial centers anchored public ritual, priestly bloodletting, and the periodic reenactment of these founding myths through festival and calendar-based ceremony.",
-      "Spanish conquest - Tenochtitlan's fall in 1521 and the last independent Maya polity's surrender in 1697 - dismantled the state-sponsored priesthoods and temple systems that had organized public Mesoamerican religion for centuries. Forced conversion followed, yet indigenous cosmology did not simply vanish: it persisted through syncretism, visible in the Virgin of Guadalupe's assimilation of Aztec religious geography, the Day of the Dead's blending with Catholic All Souls observance, and the Maya cargo system's fusion of ancestral mountain spirits with Catholic saints and religious brotherhoods that continue in indigenous communities today."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The shared religious world of the Aztec (Mexica), Maya, and their Mesoamerican neighbors - a cosmos of layered heavens and underworlds, cyclical calendars, and deities demanding blood and maize in exchange for the sun's continued rising. Temple pyramids, ballcourt ritual, and painted codices recorde"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Cosmos: Cyclical ages sustained by sacrifice",
-      "Afterlife: Destination determined by manner of death, not conduct"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Popol Vuh: The K'iche' Maya 'Book of Counsel,' recorded in the sixteenth century using Latin script to preserve oral tradition, narrating the creation of the world, the hero twins' defeat of the underworld lords, and the origin of humanity from maize. It is the most complete surviving account of Maya cosmology.",
-      "Florentine Codex: A sixteenth-century bilingual (Nahuatl/Spanish) ethnographic compilation overseen by the friar Bernardino de Sahagún, drawing on interviews with Aztec elders to record deities, rituals, and cosmology before their suppression. It remains the single richest source on Aztec religious life."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Human & blood sacrifice, Ballgame ritual, Calendar-based ceremony, Temple pilgrimage."],
-    },
-    sources: [
-      { label: "Britannica - Aztec religion", href: "https://www.britannica.com/topic/Aztec-religion" },
-      { label: "Britannica - Maya religion", href: "https://www.britannica.com/topic/Maya-religion" },
-      { label: "World History Encyclopedia - Maya Religion", href: "https://www.worldhistory.org/Maya_Religion/" },
-    ],
-  },
+  "mesoamerican": mesoamericanArticle,
   "mithraism": mithraismArticle,
   "navajo": navajoArticle,
   "norse": norseArticle,
@@ -140,105 +79,13 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "santeria": santeriaArticle,
   "shinto": shintoArticle,
   "sikhism": sikhismArticle,
-  "slavic-baltic": {
-    overview: ["The pre-Christian religions of the Slavic and Baltic peoples, centered on sky and thunder gods (Perun, Perkūnas), household and ancestor spirits, and sacred groves. Lithuania's official conversion in 1387 marked the end of the last state-level pagan religion in Europe, though folk customs persisted alongside Christianity for centuries.\", sacredTexts: [ { name: \"(Oral tradition - chronicled by Christian scribes)\", description: \"Slavic and Baltic paganism left no native scripture; what is known comes from outside accounts - the Russian Primary Chronicle's description of Perun's idols in Kyiv, and German missionary reports on Baltic grove-worship and priesthoods. Folk songs, festivals, and place names preserved fragments long after formal conversion.\", }, ], practices: [\"Sacred grove worship\", \"Ancestor & household spirits\", \"Seasonal fire festivals\", \"Divination\"], coreIdeas: [ { label: \"Deity\", value: \"Perun/Perkūnas (thunder) and a wider pantheon\" }, { label: \"Afterlife\", value: \"Ancestral spirits (dziady) honored at seasonal rites\" }, ], conceptPositions: { \"mysticism\": \"affirmed\", \"polytheism\": \"affirmed\", \"sacrifice\": \"affirmed"],
-    history: {
-      title: "Historical Development",
-      content: ["The pre-Christian religions of the Slavic and Baltic peoples, centered on sky and thunder gods (Perun, Perkūnas), household and ancestor spirits, and sacred groves. Lithuania's official conversion in 1387 marked the end of the last state-level pagan religion in Europe, though folk customs persisted"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Perun/Perkūnas (thunder) and a wider pantheon",
-      "Afterlife: Ancestral spirits (dziady) honored at seasonal rites"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral tradition - chronicled by Christian scribes): Slavic and Baltic paganism left no native scripture; what is known comes from outside accounts - the Russian Primary Chronicle's description of Perun's idols in Kyiv, and German missionary reports on Baltic grove-worship and priesthoods. Folk songs, festivals, and place names preserved fragments long after formal conversion."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Sacred grove worship, Ancestor & household spirits, Seasonal fire festivals, Divination."],
-    },
-    sources: [],
-  },
-  "stoicism": {
-    overview: [
-      "Stoicism is a Hellenistic school of philosophy founded in Athens around 300 BCE by Zeno of Citium. It takes its name from the Stoa Poikile, the painted colonnade where Zeno taught. Unlike purely theoretical inquiry, Stoicism was conceived as a practical philosophy aimed at living well through reason and moral discipline. Early Stoics such as Cleanthes and Chrysippus developed a systematic worldview spanning logic, physics, and ethics, while later Roman Stoics including Seneca, Epictetus, and Marcus Aurelius emphasized personal conduct, resilience, and civic duty. Although not a religion in the conventional sense, Stoicism functioned for many adherents as a comprehensive guide to character, fate, and the human place within nature.",
-      "Central to Stoic ethics is the claim that virtue-understood as wisdom, justice, courage, and moderation-is the only true good, while externals such as wealth, reputation, and even health are indifferent to happiness. The Stoics taught that the cosmos is governed by logos, a rational divine principle, and that human beings share in this reason. Emotional disturbance arises from mistaken judgments about what matters; the ideal Stoic sage responds to events with equanimity rather than destructive passion. Epictetus famously distinguished between what is within our control and what is not, urging attention to intention and character rather than outcomes. This framework offered a way to endure political instability, personal loss, and social inequality without abandoning moral responsibility.",
-      "Stoicism influenced Roman law, early Christian thought, and later philosophical traditions, even as its institutional school declined in late antiquity. Its ideas reappeared in Renaissance humanism, early modern ethics, and contemporary popular philosophy focused on mindfulness and resilience. Modern scholarship treats Stoicism as a major source for ancient psychology, political theory, and cosmopolitan ethics. Whether read through the Meditations of Marcus Aurelius, the Discourses of Epictetus, or the letters of Seneca, the tradition continues to attract readers seeking a disciplined, rational approach to life's uncertainties."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded in Athens by Zeno, Stoicism taught that virtue - wisdom, courage, justice, temperance - is the only true good, and that peace comes from distinguishing what we control from what we don't. It shaped Roman law, Christian ethics, and modern cognitive therapy.\", sacredTexts: [ {"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Sin: Error of judgment, not evil essence",
-      "Liberation: Apatheia - freedom from destructive passions",
-      "Deity: Logos - divine reason pervading all"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Meditations (Marcus Aurelius): Private philosophical notes written by the Roman emperor Marcus Aurelius during military campaigns in the second century CE. He reflects on virtue, duty, mortality, and aligning the mind with nature's rational order. Never intended for publication, it became one of the most widely read works of Stoic practice.",
-      "Enchiridion (Epictetus): A concise handbook compiled by Epictetus's student Arrian from the philosopher's classroom teachings. It distills Stoic ethics into practical rules: distinguish what is in your control from what is not, and guard your judgments. The Enchiridion served as a daily manual for Stoic living for centuries.",
-      "Letters (Seneca): Moral letters from the Roman statesman Seneca to his friend Lucilius, covering grief, anger, wealth, friendship, and death. Written in elegant prose, they apply Stoic principles to the dilemmas of everyday life. Seneca's letters bridge philosophy and literature, making Stoicism accessible beyond the lecture hall."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Morning meditation, Negative visualization, Journaling, Self-examination."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia - Stoicism", href: "https://plato.stanford.edu/entries/stoicism/" },
-      { label: "Britannica - Stoicism", href: "https://www.britannica.com/topic/Stoicism" },
-      { label: "Internet Encyclopedia of Philosophy - Stoicism", href: "https://iep.utm.edu/stoicism/" },
-    ],
-  },
+  "slavic-baltic": slavicBalticArticle,
+  "stoicism": stoicismArticle,
   "sumerian": sumerianArticle,
   "taoism": taoismArticle,
   "tengrism": tengrismArticle,
   "vodou": vodouArticle,
-  "wicca": {
-    overview: [
-      "Wicca is a modern religious movement that emerged in mid-twentieth-century Britain and is often classified under contemporary Paganism. Its public form is commonly traced to Gerald Gardner, who published works in the 1950s describing witchcraft as a surviving nature religion. Scholars debate how much Gardner drew on folklore, ceremonial magic, and literary sources rather than an unbroken ancient lineage, but Wicca quickly developed into a self-conscious tradition with ritual structures, initiatory groups, and published liturgy. From Britain it spread to North America and beyond, adapting to local cultures while retaining a shared emphasis on seasonal cycles, personal experience, and ritual practice.",
-      "Most Wiccan groups honor a pair of deities, often described as the Goddess and the God, whose relationship mirrors natural cycles of birth, growth, decline, and renewal. Worship typically centers on the Wheel of the Year, eight seasonal festivals known as sabbats, alongside esbats tied to lunar phases. Rituals may include casting a circle, invoking deities, sharing food and drink, and symbolic acts of magic understood as focused intention rather than supernatural coercion. Ethical guidance is often summarized in the Wiccan Rede, commonly rendered as an injunction to harm none, though interpretations vary across traditions. Some initiatory paths, such as Gardnerian and Alexandrian Wicca, maintain formal degrees and coven structure, while eclectic and solitary practitioners compose their own rites from published materials and personal inspiration.",
-      "Today Wicca encompasses diverse lineages, from structured covens to solitary practitioners, and enjoys legal recognition as a religion in several countries. Contemporary Wiccans engage questions of gender, environmental responsibility, and interfaith relations while drawing on both historical research and living ritual innovation. Academic studies treat Wicca as a significant example of modern Pagan identity formation, illustrating how new religious movements reconstruct ancient motifs for present spiritual needs."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Introduced by Gerald Gardner, Wicca is a nature-revering paganism honoring a Goddess and God, the Wheel of the Year, and ethical magic. Its Wiccan Rede - 'harm none, do what ye will' - centers its ethics.\", sacredTexts: [ { name: \"Book of Shadows\", description: \"A"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Goddess and God; immanent in nature",
-      "Sin: Threefold return of harm done",
-      "Afterlife: Summerland between rebirths"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Book of Shadows: A personal or coven journal of rituals, spells, invocations, and seasonal rites, traditionally copied by hand from teacher to student. Gerald Gardner's version, published in the 1950s, helped standardize modern Wiccan practice. Each practitioner or coven maintains their own, making it a living rather than fixed scripture.",
-      "Charge of the Goddess: A prose poem attributed to Doreen Valiente, spoken in the voice of the Goddess to her worshippers. It declares 'harm none, do what ye will' and invites devotees to seek the divine within nature. Recited at many Wiccan rituals, it is the tradition's best-known declaration of ethics and theology."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Coven or solitary ritual, Sabbats (8/year), Magic (spellcraft), Esbat (moon rites)."],
-    },
-    sources: [
-      { label: "Britannica - Wicca", href: "https://www.britannica.com/topic/Wicca" },
-      { label: "BBC Religion - Wicca", href: "https://www.bbc.co.uk/religion/religions/paganism/subdivisions/wicca.shtml" },
-      { label: "Pew Research Center - Modern Paganism", href: "https://www.pewresearch.org/religion/2021/12/07/what-we-know-about-religious-neopagans-in-the-u-s/" },
-      { label: "Oxford Research Encyclopedia - Contemporary Paganism", href: "https://oxfordre.com/religion/display/10.1093/acrefore/9780199340378.001.0001/acrefore-9780199340378-e-255" },
-    ],
-  },
+  "wicca": wiccaArticle,
   "yazidi": yazidiArticle,
   "yoruba": yorubaArticle,
   "zoroastrian": zoroastrianArticle,
