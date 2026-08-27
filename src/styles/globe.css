@@ -59,6 +59,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   pointer-events: none;
+  white-space: nowrap;
+  max-width: calc(100% - 24px);
 }
 .globe-stage__hint-dot {
   width: 6px;
@@ -225,5 +227,21 @@
   }
   .globe-stage {
     height: min(70vh, 640px);
+  }
+}
+@media (max-width: 720px) {
+  .globe-stage {
+    min-height: 280px;
+    height: min(52vh, 420px);
+  }
+  .site-panel__close {
+    width: 44px;
+    height: 44px;
+  }
+  .site-chip {
+    min-height: 44px;
+  }
+  .globe-sites__grid {
+    grid-template-columns: 1fr;
   }
 }

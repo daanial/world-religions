@@ -94,6 +94,14 @@
   transition: all 0.25s var(--ease);
   white-space: nowrap;
 }
+@media (max-width: 899px) {
+  .filter-chip {
+    min-height: 44px;
+  }
+  .traditions-select {
+    min-height: 44px;
+  }
+}
 
 .filter-chip:hover {
   background: rgba(255, 255, 255, 0.06);
@@ -355,6 +363,7 @@
 
   .traditions-search {
     padding: 12px 14px;
+    min-height: 44px;
   }
 
   .traditions-active-filters {
@@ -364,5 +373,10 @@
 
   .tradition-card__content {
     padding: 16px;
+  }
+
+  .traditions-results__header {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
