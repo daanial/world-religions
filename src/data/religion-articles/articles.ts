@@ -3,6 +3,7 @@ import { buddhismArticle } from "./buddhism";
 import { hinduismArticle } from "./hinduism";
 import { jainismArticle } from "./jainism";
 import { sikhismArticle } from "./sikhism";
+import { christianityArticle } from "./christianity";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -190,43 +191,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     },
     sources: [],
   },
-  "christianity": {
-    overview: [
-      "Christianity emerged in first-century Roman Palestine among followers of Jesus of Nazareth, a Jewish teacher executed by Roman authorities. Early believers proclaimed that God had raised Jesus from the dead and that he was the Messiah (Christ) foretold in Hebrew scripture. The movement spread through the Mediterranean via apostles, missionaries such as Paul, and urban networks, gradually distinguishing itself from Judaism while retaining the Hebrew Bible as the Old Testament. By the fourth century, Christianity became the favored religion of the Roman Empire; councils at Nicaea (325) and Chalcedon (451) helped define orthodox doctrine concerning the Trinity and the nature of Christ.",
-      "Christians hold the Bible as sacred scripture, comprising the Old and New Testaments. Central teachings include the incarnation, atonement through Christ's death and resurrection, grace, and the call to love God and neighbor. Sacramental life varies by tradition but commonly includes baptism and Eucharist. Major branches include Roman Catholicism, Eastern Orthodoxy, and Protestantism, which further divides into denominations shaped by Reformation debates over authority, salvation, and scripture. Monasticism, missionary activity, and engagement with philosophy and science have marked Christian history, as have schisms, crusades, and reform movements.",
-      "With roughly two billion adherents, Christianity is the world's largest religion, present in nearly every country. Its cultural influence extends to art, law, education, and ethics, while global South growth has shifted demographic centers away from Europe. Contemporary Christianity grapples with secularism, ecumenism, social justice, and internal diversity on issues from biblical interpretation to gender and sexuality. Scholars study Christianity as a historical movement, a theological system, and a global cultural force shaped by local languages and societies."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Christianity proclaims that God became human in Jesus of Nazareth, whose death and resurrection opened salvation to all. It split into Catholic, Orthodox, and Protestant branches, becoming the world's largest religion.\", sacredTexts: [ { name: \"The Bible (Old & New Testaments)\","],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Salvation: Grace through faith in Christ",
-      "Sin: Original and personal sin, redeemed by Christ",
-      "Afterlife: Heaven, hell, (purgatory in Catholicism)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["The Bible (Old & New Testaments): Christianity's single sacred library, comprising the Hebrew Scriptures (Old Testament) and writings about Jesus and the early Church (New Testament). The Gospels narrate the life, death, and resurrection of Jesus; the Epistles and Acts spread his teachings across the Mediterranean world. Catholic, Orthodox, and Protestant canons differ slightly, but all center on Christ as God's definitive revelation."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Baptism, Eucharist, Prayer, Lent fasting, Pilgrimage."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: jerusalem."],
-    },
-    sources: [
-      { label: "Britannica: Christianity", href: "https://www.britannica.com/topic/Christianity" },
-      { label: "BBC Religion: Christianity", href: "https://www.bbc.co.uk/religion/religions/christianity/" },
-      { label: "Stanford Encyclopedia of Philosophy: Christianity", href: "https://plato.stanford.edu/entries/christianity/" },
-      { label: "Pew Research Center: Global Christianity", href: "https://www.pewresearch.org/religion/2011/12/19/global-christianity-excerpts-from-the-full-report/" },
-    ],
-  },
+  "christianity": christianityArticle,
   "confucianism": {
     overview: [
       "Confucianism derives from Kong Qiu (551-479 BCE), known in the West as Confucius, who sought to restore social harmony through moral cultivation rather than punitive law alone. The Lunyu (Analects), compiled by disciples, records his teachings on ren (benevolence), li (ritual propriety), yi (righteousness), and xiao (filial piety). Confucianism presents a this-worldly ethical system focused on character, reciprocal obligations among ruler, minister, parent, and child, and the belief that virtuous leadership inspires virtuous subjects. Heaven (Tian) appears not as a personal deity but as a moral order that responds to human conduct, rewarding sincerity and condemning cruelty or neglect of duty. Education, ritual performance, and self-examination were central means by which individuals and communities cultivated lasting virtue.",
