@@ -9,6 +9,7 @@ import { judaismArticle } from "./judaism";
 import { zoroastrianArticle } from "./zoroastrian";
 import { taoismArticle } from "./taoism";
 import { confucianismArticle } from "./confucianism";
+import { shintoArticle } from "./shinto";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -808,40 +809,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "UNESCO - Intangible Cultural Heritage", href: "https://ich.unesco.org/en/home" },
     ],
   },
-  "shinto": {
-    overview: [
-      "Shinto, literally the way of the kami, is Japan's indigenous religious tradition centered on kami, spirits or sacred presences associated with natural features, ancestors, and notable historical figures. Early myths recorded in the Kojiki and Nihon Shoki describe the origin of the archipelago and the descent of imperial lineage from Amaterasu, the sun goddess and chief kami. Shinto emphasizes purity (harae), gratitude, seasonal celebration, and respect for place rather than systematic theology, founder doctrine, or fixed scripture in the manner of many world religions. Kami are not omnipotent gods but localized powers to be approached with reverence, often through offerings of rice, sake, and symbolic objects. Pollution (kegare), understood as contact with death or disorder, is removed through ritual cleansing rather than moral guilt in a Western theological sense.",
-      "Shrines (jinja), marked by torii gates, serve as sites for offerings, prayer, and community festivals (matsuri). Priests (kannushi) perform purifications and rites; worshipers often clap and bow to honor kami. Since the introduction of Buddhism in the sixth century, Shinto has coexisted with and sometimes merged into syncretic forms (shinbutsu-shugo), though the Meiji-era policy of shinbutsu bunri formally separated institutions. State Shinto of the early twentieth century politicized shrine worship, a chapter scholars treat with critical attention when discussing religion and nationalism. Contemporary Shinto ranges from household god-shelves (kamidana) to national shrine complexes, remaining integral to Japanese life-cycle ceremonies, agriculture, and cultural identity while adapting to modern civic life. Scholars note that Shinto's diffuse character resists narrow doctrinal definition yet remains central to Japanese senses of belonging and landscape."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Shinto venerates the kami - spirits of nature, ancestors, and places. It emphasizes purity, ritual, and harmony with the land. Shrines, torii gates, and seasonal matsuri anchor Japanese spiritual life alongside Buddhism.\", sacredTexts: [ { name: \"Kojiki\", description:"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Myriad kami inhabiting nature",
-      "Sin: Pollution (kegare), cleansed by ritual",
-      "Afterlife: Ancestral spirit realm"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Kojiki: Japan's oldest chronicle, compiled in 712 CE, recording myths of the kami from creation through the age of the emperors. It tells of Izanagi and Izanami creating the islands, Amaterasu hiding in a cave, and the divine descent of Japan's imperial line. Written in a mix of Chinese characters and phonetic Japanese, it anchors Shinto ritual and national identity.",
-      "Nihon Shoki: The 'Chronicles of Japan,' completed in 720 CE as a more formal, Chinese-style history parallel to the Kojiki. It includes alternate versions of creation myths and extensive genealogies of gods and emperors. Together with the Kojiki, it provides the mythological framework for shrine worship and imperial ceremony."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Purification (harae), Shrine offerings, Matsuri festivals, Ancestor rites."],
-    },
-    sources: [
-      { label: "Encyclopaedia Britannica - Shinto", href: "https://www.britannica.com/topic/Shinto" },
-      { label: "Asian Art Museum - Introduction to Shinto", href: "https://education.asianart.org/resources/introduction-to-shinto/" },
-      { label: "World History Encyclopedia - Shinto", href: "https://www.worldhistory.org/Shinto/" },
-    ],
-  },
+  "shinto": shintoArticle,
   "sikhism": sikhismArticle,
   "slavic-baltic": {
     overview: ["The pre-Christian religions of the Slavic and Baltic peoples, centered on sky and thunder gods (Perun, Perkūnas), household and ancestor spirits, and sacred groves. Lithuania's official conversion in 1387 marked the end of the last state-level pagan religion in Europe, though folk customs persisted alongside Christianity for centuries.\", sacredTexts: [ { name: \"(Oral tradition - chronicled by Christian scribes)\", description: \"Slavic and Baltic paganism left no native scripture; what is known comes from outside accounts - the Russian Primary Chronicle's description of Perun's idols in Kyiv, and German missionary reports on Baltic grove-worship and priesthoods. Folk songs, festivals, and place names preserved fragments long after formal conversion.\", }, ], practices: [\"Sacred grove worship\", \"Ancestor & household spirits\", \"Seasonal fire festivals\", \"Divination\"], coreIdeas: [ { label: \"Deity\", value: \"Perun/Perkūnas (thunder) and a wider pantheon\" }, { label: \"Afterlife\", value: \"Ancestral spirits (dziady) honored at seasonal rites\" }, ], conceptPositions: { \"mysticism\": \"affirmed\", \"polytheism\": \"affirmed\", \"sacrifice\": \"affirmed"],
