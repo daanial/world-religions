@@ -49,6 +49,12 @@
   line-height: 1;
   transition: all 0.2s var(--ease);
 }
+@media (max-width: 899px) {
+  .cmp-header__remove {
+    width: 44px;
+    height: 44px;
+  }
+}
 .cmp-header__remove:hover {
   color: var(--crimson);
   border-color: var(--crimson);
@@ -399,4 +405,23 @@
   text-align: center;
   color: var(--text-dim);
   font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .picker {
+    padding: 12vh 12px 16px;
+  }
+  .picker__close {
+    width: 44px;
+    height: 44px;
+  }
+  .picker__item {
+    min-height: 44px;
+  }
+  .cmp-facts__grid {
+    grid-template-columns: 1fr;
+  }
+  .cmp-header {
+    padding-right: 56px;
+  }
 }

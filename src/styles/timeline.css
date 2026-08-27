@@ -21,6 +21,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 .tl-toolbar__label {
   font-size: 0.78rem;
@@ -527,5 +528,26 @@
   font-size: 0.78rem;
   color: var(--text-dim);
   max-width: 70ch;
+}
+
+@media (max-width: 720px) {
+  .tl-toolbar {
+    padding: 12px 14px;
+  }
+  .tl-filter {
+    min-height: 44px;
+  }
+  .tl-directory__grid {
+    grid-template-columns: 1fr;
+  }
+  .pop-toggle-btn,
+  .pop-play-btn {
+    min-height: 44px;
+  }
+  .tl__tooltip {
+    right: 12px;
+    left: 12px;
+    min-width: 0;
+  }
 }
 

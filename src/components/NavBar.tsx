@@ -1,9 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useApp } from "../context/AppContext";
 import { useNarration } from "../context/NarrationContext";
 import { useLocale, withLocale } from "../lib/locale";
 import NarrationButton from "./NarrationButton";
+
+const DESKTOP_NAV_MQ = "(min-width: 900px)";
 
 const links = [
   { to: "/", label: "Home" },
@@ -21,8 +23,24 @@ export default function NavBar() {
   const { compareIds, ambientOn, toggleAmbient, achievements } = useApp();
   const { registration } = useNarration();
   const [scrolled, setScrolled] = useState(false);
+  const [openedPath, setOpenedPath] = useState<string | null>(null);
   const loc = useLocation();
   const locale = useLocale();
+  const menuId = useId();
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
+
+  if (openedPath !== null && openedPath !== loc.pathname) {
+    setOpenedPath(null);
+  }
+
+  const menuOpen = openedPath !== null;
+  const closeMenu = useCallback((restoreFocus = false) => {
+    setOpenedPath(null);
+    if (restoreFocus) {
+      queueMicrotask(() => menuBtnRef.current?.focus());
+    }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -31,8 +49,105 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia(DESKTOP_NAV_MQ);
+    const onChange = () => {
+      if (mq.matches) setOpenedPath(null);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const openedAtPath = loc.pathname;
+    const scrollY = window.scrollY;
+    const { html, body } = { html: document.documentElement, body: document.body };
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBody = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+    };
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+
+    const main = document.getElementById("main-content");
+    const footer = document.querySelector("footer");
+    main?.setAttribute("inert", "");
+    footer?.setAttribute("inert", "");
+
+    const focusables = () => {
+      const items: HTMLElement[] = [];
+      if (menuBtnRef.current) items.push(menuBtnRef.current);
+      panelRef.current
+        ?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")
+        .forEach((el) => items.push(el));
+      return items;
+    };
+
+    const firstLink = panelRef.current?.querySelector<HTMLElement>("a[href]");
+    firstLink?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeMenu(true);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = focusables();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBody.overflow;
+      body.style.position = prevBody.position;
+      body.style.top = prevBody.top;
+      body.style.left = prevBody.left;
+      body.style.right = prevBody.right;
+      body.style.width = prevBody.width;
+      if (window.location.pathname === openedAtPath) {
+        window.scrollTo(0, scrollY);
+      }
+      main?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
+    };
+  }, [menuOpen, closeMenu, loc.pathname]);
+
+  const navClass = [
+    "nav",
+    scrolled ? "nav--scrolled" : "",
+    menuOpen ? "nav--open" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
+    <>
+    <header className={navClass}>
       <div className="nav__inner container">
         <NavLink to={withLocale(locale, "/")} className="nav__brand" aria-label="World Religions Explorer home">
           <span className="nav__logo" aria-hidden>
@@ -50,7 +165,7 @@ export default function NavBar() {
           </span>
         </NavLink>
 
-        <nav className="nav__links" key={loc.pathname}>
+        <nav className="nav__links" aria-label="Primary" key={loc.pathname}>
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -75,6 +190,7 @@ export default function NavBar() {
             />
           )}
           <button
+            type="button"
             className="icon-btn"
             onClick={toggleAmbient}
             title={ambientOn ? "Mute ambient soundscape" : "Play ambient soundscape"}
@@ -87,9 +203,56 @@ export default function NavBar() {
             <TrophyIcon />
             <span>{achievements.length}</span>
           </div>
+          <button
+            ref={menuBtnRef}
+            type="button"
+            className={`icon-btn nav__menu-btn ${menuOpen ? "nav__menu-btn--open" : ""}`}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls={menuId}
+            onClick={() => (menuOpen ? closeMenu(false) : setOpenedPath(loc.pathname))}
+          >
+            <span className="nav__menu-icon" aria-hidden>
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
         </div>
       </div>
     </header>
+
+      <div
+        className="nav-menu"
+        hidden={!menuOpen}
+        id={menuId}
+        onClick={() => closeMenu(true)}
+      >
+        <div className="nav-menu__backdrop" aria-hidden />
+        <nav
+          ref={panelRef}
+          className="nav-menu__panel"
+          aria-label="Primary"
+          onClick={(event) => event.stopPropagation()}
+        >
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={withLocale(locale, l.to)}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `nav-menu__link ${isActive ? "nav-menu__link--active" : ""}`
+              }
+            >
+              {l.label}
+              {l.to === "/compare" && compareIds.length > 0 && (
+                <span className="nav__badge">{compareIds.length}</span>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+      </div>
+    </>
   );
 }
 

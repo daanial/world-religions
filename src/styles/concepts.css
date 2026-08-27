@@ -211,3 +211,22 @@
   color: var(--text-dim);
   font-style: italic;
 }
+
+@media (max-width: 720px) {
+  .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+  .concept-detail {
+    padding: 20px 16px;
+  }
+  .concept-detail__close {
+    width: 44px;
+    height: 44px;
+  }
+  .concept-chip {
+    min-height: 44px;
+  }
+  .concept-detail__title {
+    font-size: 1.55rem;
+  }
+}

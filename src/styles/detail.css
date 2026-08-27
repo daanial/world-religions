@@ -142,6 +142,19 @@
   .rd__stats {
     grid-template-columns: repeat(2, 1fr);
   }
+  .rd__infographic {
+    width: calc(100% - 32px);
+  }
+  .rd__texts {
+    grid-template-columns: 1fr;
+  }
+  .rd-stat {
+    padding: 18px 14px;
+  }
+  .rd-stat__value {
+    font-size: 1.35rem;
+    overflow-wrap: anywhere;
+  }
 }
 
 /* sections */
