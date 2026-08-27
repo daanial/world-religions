@@ -38,6 +38,7 @@ import { druidicArticle } from "./druidic";
 import { manichaeanArticle } from "./manichaean";
 import { tengrismArticle } from "./tengrism";
 import { mithraismArticle } from "./mithraism";
+import { gnosticismArticle } from "./gnosticism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -53,40 +54,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "druidic": druidicArticle,
   "druse": druseArticle,
   "egyptian": egyptianArticle,
-  "gnosticism": {
-    overview: [
-      "Gnosticism names a family of religious movements that emerged within early Christianity and Second Temple Judaism, flourishing across the Mediterranean and Near East from roughly the first through fourth centuries CE. Rather than a single organized church, it comprised diverse teachers and schools united by a shared cosmological instinct: a remote, unknowable supreme God (often called the Monad) stands apart from the flawed material cosmos, which was instead fashioned by a lesser, ignorant creator figure - the demiurge, sometimes named Yaldabaoth. Human beings carry a fragment of divine light trapped within matter, exiled from the pleroma, the true realm of fullness and light.",
-      "Salvation in Gnostic thought came not through faith or institutional sacrament but through gnosis - direct, experiential knowledge of one's true divine origin, transmitted by a redeemer figure (in Christian Gnostic systems, typically Jesus) who awakens the trapped spark to its source. Teachers such as Valentinus and Basilides, active in second-century Alexandria and Rome, developed elaborate systematic theologies mapping the emanation of divine beings (aeons) from the Monad down to the material world. This emphasis on esoteric knowledge over ecclesial authority put Gnostic Christians at odds with proto-orthodox bishops such as Irenaeus, who condemned them at length as heretics.",
-      "For centuries Gnosticism was known almost entirely through these hostile heresiological accounts, until the 1945 discovery of the Nag Hammadi library in Egypt - over fifty Coptic manuscripts including the Gospel of Thomas and the Apocryphon of John - gave scholars direct access to Gnostic voices for the first time. Proto-orthodox condemnation, the institutional consolidation of the church, and later the decline of late antiquity's religious pluralism combined to nearly extinguish organized Gnostic communities, though Mandaeism, a distinct Gnostic-influenced religion of Iraq and Iran, survives as a living tradition to this day."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A constellation of early Christian-era movements teaching that the material cosmos was the flawed creation of a lesser being (the demiurge), and that salvation came through secret spiritual knowledge (gnosis) rather than faith or law alone. Gnostic teachers such as Valentinus and Basilides flourishe"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Cosmos: Material world as flawed creation of a lesser demiurge",
-      "Salvation: Gnosis - direct spiritual knowledge, not faith alone"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Nag Hammadi library: A cache of over 50 Coptic texts discovered near Nag Hammadi, Egypt in 1945, including the Gospel of Thomas and Gospel of Truth. Likely buried by monks around the fourth century to escape destruction after Gnosticism was condemned as heresy, its rediscovery transformed modern understanding of early Christian diversity.",
-      "Gospel of Thomas: A collection of 114 sayings attributed to Jesus, lacking narrative or a crucifixion account, emphasizing self-knowledge as the path to the divine kingdom. Found among the Nag Hammadi texts, it preserves a strand of early Jesus tradition outside the canonical gospels."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Study & contemplation, Secret initiation, Ascetic withdrawal."],
-    },
-    sources: [
-      { label: "Britannica - Gnosticism", href: "https://www.britannica.com/topic/Gnosticism" },
-      { label: "Internet Encyclopedia of Philosophy - Gnosticism", href: "https://iep.utm.edu/gnostic/" },
-      { label: "World History Encyclopedia - Gnosticism", href: "https://www.worldhistory.org/Gnosticism/" },
-    ],
-  },
+  "gnosticism": gnosticismArticle,
   "greek-roman": greekRomanArticle,
   "hinduism": hinduismArticle,
   "ifa": ifaArticle,
