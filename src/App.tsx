@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import { NarrationProvider } from "./context/NarrationContext";
 import { useAmbientSound } from "./hooks/useAmbientSound";
+import { splitLocaleFromPath, LocaleContext } from "./lib/locale";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Overlays from "./components/Overlays";
@@ -13,6 +14,7 @@ import Concepts from "./pages/Concepts";
 import Pilgrimage from "./pages/Pilgrimage";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Traditions from "./pages/Traditions";
 
 const Timeline = lazy(() => import("./pages/Timeline"));
 const InwardPaths = lazy(() => import("./pages/InwardPaths"));
@@ -29,6 +31,7 @@ import "./styles/concepts.css";
 import "./styles/pilgrimage.css";
 import "./styles/about.css";
 import "./styles/inward-paths.css";
+import "./styles/traditions.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -57,27 +60,44 @@ export default function App() {
     <AppProvider>
       <AmbientBootstrap />
       <BrowserRouter>
-        <NarrationProvider>
-          <ScrollToTop />
-          <NavBar />
-          <Overlays />
-          <Suspense fallback={<RouteFallback />}>
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/timeline" element={<Timeline />} />
-              <Route path="/globe" element={<GlobeView />} />
-              <Route path="/religion/:id" element={<ReligionDetail />} />
-              <Route path="/compare" element={<Compare />} />
-              <Route path="/concepts" element={<Concepts />} />
-              <Route path="/pilgrimage" element={<Pilgrimage />} />
-              <Route path="/inward-paths" element={<InwardPaths />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-          <Footer />
-        </NarrationProvider>
+        <LocalizedApp />
       </BrowserRouter>
     </AppProvider>
+  );
+}
+
+function LocalizedApp() {
+  const location = useLocation();
+  const { locale } = splitLocaleFromPath(location.pathname);
+  
+  return (
+    <LocaleContext.Provider value={locale}>
+      <NarrationProvider>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        <ScrollToTop />
+        <NavBar />
+        <Overlays />
+        <main id="main-content">
+          <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/globe" element={<GlobeView />} />
+            <Route path="/traditions" element={<Traditions />} />
+            <Route path="/religion/:id" element={<ReligionDetail />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/concepts" element={<Concepts />} />
+            <Route path="/pilgrimage" element={<Pilgrimage />} />
+            <Route path="/inward-paths" element={<InwardPaths />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </NarrationProvider>
+    </LocaleContext.Provider>
   );
 }

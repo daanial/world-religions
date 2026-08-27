@@ -38,7 +38,7 @@ export default function Concepts() {
   const conceptReligions = useMemo(() => {
     const map: Record<string, typeof RELIGIONS> = {};
     CONCEPTS.forEach((c) => {
-      map[c.id] = RELIGIONS.filter((r) => (r.concepts as string[]).includes(c.id));
+      map[c.id] = RELIGIONS.filter((r) => r.conceptPositions?.[c.id] === "affirmed");
     });
     return map;
   }, []);

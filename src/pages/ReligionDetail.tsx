@@ -6,13 +6,15 @@ import Starfield from "../components/Starfield";
 import NarrationButton from "../components/NarrationButton";
 import { RELIGIONS } from "../data/religions";
 import { CONCEPTS } from "../data/concepts";
-import { getReligionEssay } from "../data/religion-essays";
+import { getReligionArticle } from "../data/religion-articles";
 import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { getReligionImageSrc } from "../lib/religionImages";
 import { buildReligionArticleJsonLd, usePageSeo } from "../lib/seo";
 import { religionNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useApp } from "../context/AppContext";
+import { useLocale, withLocale } from "../lib/locale";
+import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
 import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +24,7 @@ export default function ReligionDetail() {
   const religion = RELIGIONS.find((r) => r.id === id);
   const { visit, toggleCompare, isInCompare, compareIds } = useApp();
   const rootRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
 
   useEffect(() => {
     if (religion) visit(religion.id);
@@ -57,13 +60,20 @@ export default function ReligionDetail() {
 
   const accent = religion?.accent ?? "#E6B450";
   const compareFull = religion ? compareIds.length >= 4 && !isInCompare(religion.id) : false;
-  const related = religion
-    ? RELIGIONS.filter((r) => r.id !== religion.id && r.family === religion.family).slice(0, 3)
+  
+  const relationships = religion ? getRelationshipsFor(religion.id) : [];
+  const relatedCards = religion
+    ? relationships.map((rel) => {
+        const dir = getDirectionalRelationship(religion.id, rel);
+        const targetReligion = RELIGIONS.find((r) => r.id === dir.targetId);
+        return targetReligion ? { ...dir, religion: targetReligion } : null;
+      }).filter(Boolean)
     : [];
+  
   const conceptNodes = religion
-    ? CONCEPTS.filter((c) => religion.concepts.includes(c.id))
+    ? CONCEPTS.filter((c) => religion.conceptPositions?.[c.id] === "affirmed")
     : [];
-  const essay = religion ? getReligionEssay(religion.id) : undefined;
+  const article = religion ? getReligionArticle(religion.id) : null;
   const imageSrc = religion ? getReligionImageSrc(religion.id) : undefined;
 
   useRegisterNarration(
@@ -108,7 +118,7 @@ export default function ReligionDetail() {
       <header className="rd__hero">
         <div className="rd__hero-glow" aria-hidden />
         <div className="container rd__hero-content">
-          <Link to="/timeline" className="rd__back">
+          <Link to={withLocale(locale, "/timeline")} className="rd__back">
             ← Back to Timeline
           </Link>
           <div className="rd__eyebrow eyebrow">
@@ -143,7 +153,7 @@ export default function ReligionDetail() {
               {isInCompare(religion.id) ? "✓ In comparison" : compareFull ? "Compare full" : "+ Add to compare"}
             </button>
             {religion.cities && religion.cities.length > 0 && (
-              <Link to="/globe" className="btn btn--ghost">
+              <Link to={withLocale(locale, "/globe")} className="btn btn--ghost">
                 View on Globe
               </Link>
             )}
@@ -164,28 +174,165 @@ export default function ReligionDetail() {
         <StatCard label="Countries" value={religion.countries > 0 ? religion.countries.toString() : "—"} icon={GlobeSmallIcon} />
       </section>
 
-      {/* ---------- DESCRIPTION ---------- */}
-      <section className="container rd__section rd-reveal">
-        <div className="rd__prose">
-          <div className="rd__section-head">
-            <h2 className="rd__section-title">Origins & essence</h2>
-            <NarrationButton
-              id={religionNarrationId(religion.id)}
-              label={religion.name}
-              variant="prominent"
-            />
-          </div>
-          {essay ? (
-            <>
-              {essay.paragraphs.map((paragraph, index) => (
+      {/* ---------- ARTICLE CONTENT ---------- */}
+      {article && (
+        <>
+          {/* Overview Section */}
+          <section className="container rd__section rd-reveal">
+            <div className="rd__prose">
+              <div className="rd__section-head">
+                <h2 className="rd__section-title">Overview</h2>
+                <NarrationButton
+                  id={religionNarrationId(religion.id)}
+                  label={religion.name}
+                  variant="prominent"
+                />
+              </div>
+              {article.overview.map((paragraph, index) => (
                 <p key={index} className={index === 0 ? "rd__lead" : "rd__body"}>
                   {paragraph}
                 </p>
               ))}
-              <aside className="rd__sources" aria-label="Sources">
-                <h3 className="rd__sources-title">Sources</h3>
+              {religion.splitsFrom && (
+                <p className="rd__lineage">
+                  <span className="rd__lineage-label">Emerges from</span>
+                  <Link to={withLocale(locale, `/religion/${religion.splitsFrom}`)} className="rd__lineage-link">
+                    {RELIGIONS.find((r) => r.id === religion.splitsFrom)?.name} →
+                  </Link>
+                </p>
+              )}
+            </div>
+          </section>
+
+          {/* Optional structured sections */}
+          {article.history && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.history.title}</h2>
+                {article.history.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.worldview && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.worldview.title}</h2>
+                {article.worldview.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.texts && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.texts.title}</h2>
+                {article.texts.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.practice && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.practice.title}</h2>
+                {article.practice.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.diversity && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.diversity.title}</h2>
+                {article.diversity.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.communities && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.communities.title}</h2>
+                {article.communities.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.places && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.places.title}</h2>
+                {article.places.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {article.debates && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">{article.debates.title}</h2>
+                {article.debates.content.map((paragraph, index) => (
+                  <p key={index} className="rd__body">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Key Terms */}
+          {article.keyTerms && article.keyTerms.length > 0 && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">Key Terms</h2>
+                <dl className="rd__terms">
+                  {article.keyTerms.map((term, index) => (
+                    <div key={index} className="rd__term-item">
+                      <dt className="rd__term-name">{term.term}</dt>
+                      <dd className="rd__term-def">{term.definition}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </section>
+          )}
+
+          {/* Sources */}
+          {article.sources.length > 0 && (
+            <section className="container rd__section rd-reveal">
+              <div className="rd__prose">
+                <h2 className="rd__section-title">Further Reading</h2>
                 <ul className="rd__sources-list">
-                  {essay.sources.map((source) => (
+                  {article.sources.map((source) => (
                     <li key={source.href}>
                       <a href={source.href} target="_blank" rel="noopener noreferrer">
                         {source.label}
@@ -193,21 +340,11 @@ export default function ReligionDetail() {
                     </li>
                   ))}
                 </ul>
-              </aside>
-            </>
-          ) : (
-            <p className="rd__lead">{religion.description}</p>
+              </div>
+            </section>
           )}
-          {religion.splitsFrom && (
-            <p className="rd__lineage">
-              <span className="rd__lineage-label">Emerges from</span>
-              <Link to={`/religion/${religion.splitsFrom}`} className="rd__lineage-link">
-                {RELIGIONS.find((r) => r.id === religion.splitsFrom)?.name} →
-              </Link>
-            </p>
-          )}
-        </div>
-      </section>
+        </>
+      )}
 
       {/* ---------- PRACTICES + CORE IDEAS ---------- */}
       <section className="container rd__two-col rd-reveal">
@@ -262,7 +399,7 @@ export default function ReligionDetail() {
         <section className="container rd__section rd-reveal">
           <div className="rd__concepts-head">
             <h2 className="rd__section-title">Engaged concepts</h2>
-            <Link to="/concepts" className="rd__concepts-link">
+            <Link to={withLocale(locale, "/concepts")} className="rd__concepts-link">
               Open the concept network →
             </Link>
           </div>
@@ -278,16 +415,26 @@ export default function ReligionDetail() {
       )}
 
       {/* ---------- RELATED ---------- */}
-      {related.length > 0 && (
+      {relatedCards.length > 0 && (
         <section className="container rd__related rd-reveal">
-          <h2 className="rd__section-title">Other {religion.family} traditions</h2>
+          <h2 className="rd__section-title">Related traditions</h2>
           <div className="rd__related-grid">
-            {related.map((r) => (
-              <Link key={r.id} to={`/religion/${r.id}`} className="rd-card card">
-                <div className="rd-card__bar" style={{ background: r.accent }} />
-                <h4>{r.name}</h4>
-                <p>{r.blurb}</p>
-                <span className="rd-card__go" style={{ color: r.accent }}>Explore →</span>
+            {relatedCards.map((card) => (
+              <Link key={`${card!.kind}-${card!.targetId}`} to={withLocale(locale, `/religion/${card!.targetId}`)} className="rd-rel-card card">
+                <div className="rd-rel-card__bar" style={{ background: card!.religion.accent }} />
+                <div className="rd-rel-card__header">
+                  <h4>{card!.religion.name}</h4>
+                  <span className="rd-rel-card__kind" style={{ borderColor: card!.religion.accent }}>
+                    {card!.kind}
+                  </span>
+                </div>
+                <p className="rd-rel-card__why">{card!.why}</p>
+                <div className="rd-rel-card__footer">
+                  <span className="rd-rel-card__confidence" data-confidence={card!.confidence}>
+                    Confidence: {card!.confidence}
+                  </span>
+                  <span className="rd-rel-card__go" style={{ color: card!.religion.accent }}>Explore →</span>
+                </div>
               </Link>
             ))}
           </div>

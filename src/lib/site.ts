@@ -10,6 +10,7 @@ export const STATIC_ROUTES = [
   "/",
   "/timeline",
   "/globe",
+  "/traditions",
   "/compare",
   "/concepts",
   "/pilgrimage",

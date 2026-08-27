@@ -2,12 +2,14 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useApp } from "../context/AppContext";
 import { useNarration } from "../context/NarrationContext";
+import { useLocale, withLocale } from "../lib/locale";
 import NarrationButton from "./NarrationButton";
 
 const links = [
   { to: "/", label: "Home" },
   { to: "/timeline", label: "Timeline" },
   { to: "/globe", label: "Globe" },
+  { to: "/traditions", label: "Traditions" },
   { to: "/compare", label: "Compare" },
   { to: "/concepts", label: "Concepts" },
   { to: "/pilgrimage", label: "Pilgrimage" },
@@ -20,6 +22,7 @@ export default function NavBar() {
   const { registration } = useNarration();
   const [scrolled, setScrolled] = useState(false);
   const loc = useLocation();
+  const locale = useLocale();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -31,7 +34,7 @@ export default function NavBar() {
   return (
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="nav__inner container">
-        <NavLink to="/" className="nav__brand" aria-label="World Religions Explorer home">
+        <NavLink to={withLocale(locale, "/")} className="nav__brand" aria-label="World Religions Explorer home">
           <span className="nav__logo" aria-hidden>
             <svg viewBox="0 0 32 32" width="26" height="26">
               <circle cx="16" cy="16" r="9" fill="none" stroke="var(--gold)" strokeWidth="1.4" />
@@ -51,7 +54,7 @@ export default function NavBar() {
           {links.map((l) => (
             <NavLink
               key={l.to}
-              to={l.to}
+              to={withLocale(locale, l.to)}
               end={l.to === "/"}
               className={({ isActive }) => `nav__link ${isActive ? "nav__link--active" : ""}`}
             >

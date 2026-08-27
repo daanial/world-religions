@@ -1,0 +1,368 @@
+/* ===================== Traditions page ===================== */
+
+.traditions-page {
+  position: relative;
+}
+
+.traditions-page__head {
+  padding-bottom: 24px;
+}
+
+/* Controls & Search */
+.traditions-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.traditions-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.traditions-search:focus-within {
+  border-color: var(--card-border-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.traditions-search svg {
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.traditions-search__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.traditions-search__input::placeholder {
+  color: var(--text-dim);
+}
+
+/* Filters */
+.traditions-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.traditions-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.traditions-filter-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.traditions-filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  white-space: nowrap;
+}
+
+.filter-chip:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--card-border-strong);
+  color: var(--text);
+}
+
+.filter-chip--active {
+  background: linear-gradient(120deg, rgba(230, 180, 80, 0.15), rgba(240, 147, 59, 0.1));
+  border-color: rgba(230, 180, 80, 0.4);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.traditions-select {
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  outline: none;
+}
+
+.traditions-select:hover {
+  border-color: var(--card-border-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.traditions-select:focus {
+  border-color: var(--gold);
+  background: rgba(230, 180, 80, 0.05);
+}
+
+.traditions-select option {
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+.traditions-active-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(230, 180, 80, 0.08);
+  border: 1px solid rgba(230, 180, 80, 0.2);
+}
+
+.traditions-active-filters__label {
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.btn--sm {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  border-radius: 8px;
+}
+
+/* Results */
+.traditions-results {
+  margin-bottom: 80px;
+}
+
+.traditions-results__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.traditions-results__count {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.traditions-empty {
+  padding: 48px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.traditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Tradition Card */
+.tradition-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease),
+    background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.tradition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.4);
+}
+
+.tradition-card__image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: var(--bg-deep);
+  position: relative;
+}
+
+.tradition-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, var(--bg) 100%);
+  pointer-events: none;
+}
+
+.tradition-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease);
+}
+
+.tradition-card:hover .tradition-card__image img {
+  transform: scale(1.05);
+}
+
+.tradition-card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.tradition-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tradition-card__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.tradition-card__extinct {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--card-border);
+}
+
+.tradition-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.tradition-card__date {
+  font-weight: 500;
+}
+
+.tradition-card__followers {
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgba(95, 191, 143, 0.12);
+  color: var(--jade);
+  font-weight: 600;
+  font-size: 0.76rem;
+  border: 1px solid rgba(95, 191, 143, 0.25);
+}
+
+.tradition-card__blurb {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.tradition-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.tradition-card__footer .tag {
+  font-size: 0.72rem;
+}
+
+.tradition-card__arrow {
+  margin-left: auto;
+  font-size: 1.4rem;
+  font-weight: 300;
+  transition: transform 0.3s var(--ease);
+}
+
+.tradition-card:hover .tradition-card__arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .traditions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .traditions-controls {
+    padding: 20px;
+  }
+
+  .traditions-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .traditions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tradition-card__image {
+    height: 160px;
+  }
+}
+
+@media (max-width: 560px) {
+  .traditions-controls {
+    padding: 16px;
+  }
+
+  .traditions-search {
+    padding: 12px 14px;
+  }
+
+  .traditions-active-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tradition-card__content {
+    padding: 16px;
+  }
+}
