@@ -27,6 +27,7 @@ import { candombleArticle } from "./candomble";
 import { rastafariArticle } from "./rastafari";
 import { navajoArticle } from "./navajo";
 import { inuitArticle } from "./inuit";
+import { maoriArticle } from "./maori";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -275,37 +276,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "World History Encyclopedia - Manichaeism", href: "https://www.worldhistory.org/Manichaeism/" },
     ],
   },
-  "maori": {
-    overview: [
-      "Māori religion describes the spiritual traditions of the indigenous Polynesian people of Aotearoa New Zealand. Cosmogonic narratives tell of Ranginui, the sky father, and Papatūānuku, the earth mother, whose separation by their children opened the world to light and human life. Whakapapa, or genealogy, links people to gods, ancestors, landforms, and living communities in a single relational order. Concepts of tapu, noa, and mana regulate sacred restriction, release, and spiritual authority across social, political, and environmental relationships.",
-      "Māori spirituality is not monolithic; iwi and hapū maintain distinct histories, deities of local importance, and ceremonial protocols on marae. Karakia, or incantations, accompany daily tasks, meetings, and rites of passage. Seasonal observances and tribal histories shape which narratives and protocols take precedence in each region. Ancestors remain active in moral guidance and collective identity, while tā moko and other practices encode lineage and status. Contact with Christianity from the nineteenth century produced diverse outcomes, including syncretic forms, prophetic movements such as Pai Mārire, and ongoing debate over faith and tradition.",
-      "Today many Māori identify across a spectrum of religious affiliation while asserting tino rangatiratanga, or self-determination, over sacred knowledge and land. Revitalization of te reo Māori and customary law has renewed ceremonial life and environmental ethics grounded in kaitiakitanga, guardianship of place. Treaty settlements and co-governance arrangements increasingly embed Māori spiritual values in resource management. Scholars and Māori communities alike caution against treating Māori belief as static folklore. Respectful account recognizes iwi authority, the living marae as theological center, and diversity among urban and rural Māori experience."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Māori cosmology traces whakapapa (genealogy) linking all life to Ranginui (sky) and Papatūānuku (earth). Tapu (sacred restriction) and mana (spiritual power) order relationships between people, ancestors, and land.\", sacredTexts: [ { name: \"(Oral - whakapapa, karakia)\", des"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Io supreme; gods of nature",
-      "Soul: Wairua continues among ancestors"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral - whakapapa, karakia): Māori sacred knowledge is carried in whakapapa (genealogical chants linking all beings to Ranginui and Papatūānuku) and karakia (incantations for every occasion from birth to harvest). These are recited on the marae and taught within iwi (tribal) communities. Written collections exist, but oral performance on ancestral land remains the authoritative form."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Karakia (incantations), Marae gatherings, Tā moko, Ancestor veneration."],
-    },
-    sources: [
-      { label: "Te Ara - Māori Religion", href: "https://teara.govt.nz/en/maori-religion-and-belief" },
-      { label: "Britannica - Māori", href: "https://www.britannica.com/topic/Maori" },
-      { label: "UNESCO - Māori Cultural Heritage", href: "https://ich.unesco.org/en/state/aotearoa-new-zealand-NZ" },
-    ],
-  },
+  "maori": maoriArticle,
   "mesoamerican": {
     overview: [
       "Mesoamerican religion refers to the shared cosmological framework of the Aztec (Mexica), Maya, and neighboring civilizations of pre-Columbian Mexico and Central America. Both traditions envisioned a layered universe - commonly thirteen heavens above and nine underworld levels below - connected by a central world-tree (the Maya yaxche, or ceiba) at the axis of creation. Among the Aztec, the concept of teotl, a single dynamic, self-generating sacred force, underlay a populous pantheon including Huitzilopochtli (sun and war), Tlaloc (rain), and Quetzalcoatl (wind and knowledge); Maya religion centered figures such as Itzamna, the creator, Chaac, god of rain, and the Maize God, whose myth-cycle is preserved in the Popol Vuh's tale of the Hero Twins descending into the underworld Xibalba.",
