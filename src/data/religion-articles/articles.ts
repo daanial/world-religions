@@ -13,9 +13,11 @@ import { shintoArticle } from "./shinto";
 import { koreanShinArticle } from "./korean-shin";
 import { chineseFolkArticle } from "./chinese-folk";
 import { bahaiArticle } from "./bahai";
+import { caodaiArticle } from "./caodai";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
+  "caodai": caodaiArticle,
   "bon": {
     overview: [
       "Bön is the indigenous religious tradition of Tibet, with roots that predate the arrival of Buddhism. Early Bön involved priests called kushen who conducted rituals - including animal sacrifice and death rites - for the kings of the Yarlung dynasty; scholars remain divided on whether its deepest origins lie in local Tibetan practice, in the neighboring Zhangzhung culture, or in outside influences such as Zoroastrianism. Bön's own tradition holds that it was taught by Tonpa Shenrab (Shenrab Miwo), a figure said to have attained enlightenment centuries before the historical Buddha in a land called Olmo Lungring, west of Tibet - though his historicity is not established by outside evidence.",
@@ -108,37 +110,6 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Britannica - Candomblé", href: "https://www.britannica.com/topic/Candomble" },
       { label: "Harvard Divinity School Religious Literacy Project - Candomblé", href: "https://rlp.hds.harvard.edu/faq/candomble" },
       { label: "Smithsonian Folklife - Afro-Brazilian Religion", href: "https://festival.si.edu/" },
-    ],
-  },
-  "caodai": {
-    overview: [
-      "Cao Đài was formally established on October 7, 1926, in Tây Ninh, southern Vietnam, growing out of a spiritualist circle that had begun meeting in Saigon the previous year. Its founders - including Cao Quỳnh Cư, Cao Hoài Sang, Lê Văn Trung, and Phạm Công Tắc - presented the new faith as a deliberate synthesis: Confucian ethical precepts, Taoist ritual practice, Buddhist teachings on karma and rebirth, and an organizational hierarchy modeled on Roman Catholicism, unified under the worship of a single God, Cao Đài. Adherents refer to their faith as the 'Third Universal Redemption' - a final revelation completing two earlier eras of divine communication with humanity through history's great prophets.",
-      "Cao Đài's most recognizable symbol, the Divine Eye, appears throughout its temples to represent God's all-seeing presence. Its founding scriptures - the Tân Luật (Canonical Codes) and Pháp Chánh Truyền (Religious Constitution) - were composed in part through spirit-writing séances, a mediumistic practice influenced by the French spiritist Allan Kardec, through which adherents believe they received guidance from God and a pantheon of spirits that includes historical and literary figures such as Victor Hugo and Sun Yat-sen. Core practices include prayer, ancestor veneration, vegetarianism on set days, and a commitment to nonviolence.",
-      "The Tây Ninh Holy See, with its ornately colorful cathedral, remains Cao Đài's spiritual center and a major site of Vietnamese religious tourism. Estimates of the faith's following vary considerably depending on source and methodology - Vietnamese government figures place adherents at 4.4 to 6 million, while United Nations estimates from 2015 suggest a smaller figure near 2.5 million - but by any measure Cao Đài ranks among Vietnam's largest indigenous new religious movements, with additional communities in the Vietnamese diaspora in the United States, France, and Cambodia."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded in 1926 in Tây Ninh, Vietnam, Cao Đài teaches that God has revealed truth progressively through history - via Buddha, Confucius, Moses, Jesus, and Muhammad among others - and now offers a 'Third Amnesty' uniting these revelations. Its striking Holy See temple and all-seeing Divine Eye symbol"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Cao Đài - the one God behind all revelations",
-      "Salvation: Union of world religions in a final 'Third Amnesty'"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Compilation of Divine Messages (Thánh Ngôn Hiệp Tuyển): A collection of messages Cao Đài adherents believe were received through spirit-writing séances from God and a pantheon of saints - including Victor Hugo and Sun Yat-sen - during the religion's founding years. It forms the core scriptural basis for Cao Đài doctrine and ritual."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Spirit-writing séances, Vegetarian fasting days, Ancestor veneration, Temple worship at Tây Ninh Holy See."],
-    },
-    sources: [
-      { label: "Britannica - Cao Dai", href: "https://www.britannica.com/topic/Cao-Dai" },
-      { label: "Harvard Divinity School Religious Literacy Project - Caodaism", href: "https://rlp.hds.harvard.edu/" },
-      { label: "Pluralism Project, Harvard University - Caodaism", href: "https://pluralism.org/caodaism" },
     ],
   },
   "chinese-folk": chineseFolkArticle,
