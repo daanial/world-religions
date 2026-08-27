@@ -21,6 +21,7 @@ import { mandaeanArticle } from "./mandaean";
 import { samaritanArticle } from "./samaritan";
 import { yorubaArticle } from "./yoruba";
 import { ifaArticle } from "./ifa";
+import { santeriaArticle } from "./santeria";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -522,6 +523,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     ],
   },
   "samaritan": samaritanArticle,
+  "santeria": santeriaArticle,
   "shinto": shintoArticle,
   "sikhism": sikhismArticle,
   "slavic-baltic": {
