@@ -1,67 +1,42 @@
 import type { ReligionArticle } from "./types";
 
 export const dreamtimeArticle: ReligionArticle = {
-  id: "dreamtime",
-  overview: {
-    title: "Overview",
+  overview: [
+    "Aboriginal Dreaming—often discussed in English under terms such as 'The Dreaming,' 'Dreamtime,' or 'Tjukurrpa'—comprises the living spiritual and legal traditions of the First Nations peoples of the Australian continent. These are not a single, unified belief system but rather hundreds of distinct, Country-based traditions maintained by separate language groups, each with their own songlines, ceremonies, and custodial responsibilities. The English term 'Dreaming' is itself a translation that inadequately captures the complexity of Aboriginal concepts such as Tjukurrpa (in Western Desert languages), Alcheringa (in Arrernte), Ngarranggarni (in the Kimberley), and other language-specific names that convey not a mythic past but an eternal, ongoing reality.",
+    "The Dreaming refers to the foundational era when Ancestor Beings traveled across the land, shaping its physical features—mountains, rivers, waterholes, and rock formations—while simultaneously establishing Law, kinship systems, languages, and ceremonies. These Ancestor Beings, combining attributes of humans, animals, and elements, remain present in the land as spiritual forces. Country—the English term for ancestral territory—is thus not property to be owned but a living, sentient entity with which Aboriginal people maintain reciprocal relationships. Country is family, teacher, and lawgiver; it is both the context of life and the emergent result of life being lived. Songlines (paths of creation) encode the journeys of Ancestor Beings in song, dance, and story, traversing vast distances and linking separate language groups in complex webs of obligation and exchange.",
+    "Aboriginal religions are living traditions, practiced through ceremony, songline performance, rock art, and the ongoing care of Country. These traditions have endured more than 65,000 years of continuous habitation, making Aboriginal cultures the world's oldest living cultures. Colonization, missions, frontier violence, the Stolen Generations, and assimilation policies have caused profound trauma and loss, yet Aboriginal peoples continue to practice, adapt, and assert custodial authority over sacred sites and knowledge. This article examines the diversity of Aboriginal religious traditions, the role of Law and ceremony, the significance of Country and songlines, and the ongoing struggles for recognition, land rights, and cultural survival in contemporary Australia."
+  ],
+
+  history: {
+    title: "Tens of Thousands of Years: Continuity and Adaptation",
     content: [
-      "Aboriginal Dreaming—often discussed in English under terms such as 'The Dreaming,' 'Dreamtime,' or 'Tjukurrpa'—comprises the living spiritual and legal traditions of the First Nations peoples of the Australian continent. These are not a single, unified belief system but rather hundreds of distinct, Country-based traditions maintained by separate language groups, each with their own songlines, ceremonies, and custodial responsibilities. The English term 'Dreaming' is itself a translation that inadequately captures the complexity of Aboriginal concepts such as Tjukurrpa (in Western Desert languages), Alcheringa (in Arrernte), Ngarranggarni (in the Kimberley), and other language-specific names that convey not a mythic past but an eternal, ongoing reality.",
-      "The Dreaming refers to the foundational era when Ancestor Beings traveled across the land, shaping its physical features—mountains, rivers, waterholes, and rock formations—while simultaneously establishing Law, kinship systems, languages, and ceremonies. These Ancestor Beings, combining attributes of humans, animals, and elements, remain present in the land as spiritual forces. Country—the English term for ancestral territory—is thus not property to be owned but a living, sentient entity with which Aboriginal people maintain reciprocal relationships. Country is family, teacher, and lawgiver; it is both the context of life and the emergent result of life being lived. Songlines (paths of creation) encode the journeys of Ancestor Beings in song, dance, and story, traversing vast distances and linking separate language groups in complex webs of obligation and exchange.",
-      "Aboriginal religions are living traditions, practiced through ceremony, songline performance, rock art, and the ongoing care of Country. These traditions have endured more than 65,000 years of continuous habitation, making Aboriginal cultures the world's oldest living cultures. Colonization, missions, frontier violence, the Stolen Generations, and assimilation policies have caused profound trauma and loss, yet Aboriginal peoples continue to practice, adapt, and assert custodial authority over sacred sites and knowledge. This article examines the diversity of Aboriginal religious traditions, the role of Law and ceremony, the significance of Country and songlines, and the ongoing struggles for recognition, land rights, and cultural survival in contemporary Australia."
+      "Archaeological and genetic evidence confirms that Aboriginal peoples have inhabited the Australian continent for at least 65,000 years, with some sites suggesting even earlier occupation. This deep time is reflected in oral traditions, rock art sequences, and the continuity of ceremonial practices tied to specific places. The Dreaming is not a relic of the past but an 'everywhen'—a term coined by anthropologist W.E.H. Stanner to convey that the Dreaming exists simultaneously in past, present, and future, a temporal reality distinct from Western linear time.",
+      "Aboriginal societies before European contact were diverse and complex, organized around hundreds of distinct language groups and nations. Each nation maintained its own Country, Law (often capitalized to distinguish it from Australian state law), and ceremonial cycles. Trade networks, songline pathways, and ceremonial alliances connected groups across vast distances, from the tropical north to the temperate southeast, from desert interiors to coastal regions. Environmental management practices—including fire-stick farming—shaped the landscape for tens of thousands of years, demonstrating sophisticated ecological knowledge embedded in religious practice.",
+      "Dreamtime narratives recount the actions of Ancestor Beings who created landforms and established the moral order. These stories are not allegories or myths in the Western sense but accounts of real events that continue to unfold. A waterhole is not merely a geographical feature but the place where a particular Ancestor emerged or rested, and that place remains charged with ancestral presence. Knowledge of these narratives is restricted by gender, age, and initiation status, with some aspects public and others reserved for initiated men or women. Elders determine what knowledge may be shared with outsiders and under what conditions.",
+      "The arrival of British colonizers in 1788 initiated a catastrophic disruption of Aboriginal life. Frontier violence, introduced diseases, and land dispossession decimated Aboriginal populations and severed connections to Country. Aboriginal people were denied legal recognition as owners of land under the doctrine of terra nullius (land belonging to no one), and their spiritual relationships to Country were dismissed as primitive superstition. Massacres, poisonings, and forced removals characterized the colonial frontier throughout the 19th century.",
+      "From the late 19th century onward, government and church missions became instruments of assimilation policy. Missions confined Aboriginal people to reserves, imposed Christianity, and forbade the practice of traditional ceremonies, languages, and Law. Many missions functioned as sites of forced labor, where Aboriginal people worked without fair wages. The separation of children from families—now known as the Stolen Generations—was systematic and legally sanctioned from the early 1900s to the 1970s. Mixed-descent children were removed to missions and institutions, denied their Aboriginal identity, and subjected to policies designed to 'breed out' Aboriginal culture.",
+      "Despite these assaults, Aboriginal people resisted. Ceremonies were conducted in secret, songlines were kept alive, and knowledge was passed on despite prohibitions. Some Aboriginal Christians integrated Dreaming concepts with Christian narratives, creating syncretic traditions. Others maintained traditional Law alongside or in opposition to mission Christianity. The resilience of Aboriginal religious life is testament to the strength of connection to Country and the enduring power of the Dreaming.",
+      "The 20th century saw growing Aboriginal political activism. The 1967 referendum granted Aboriginal people citizenship and enabled the federal government to make laws for Aboriginal affairs. The Aboriginal Land Rights (Northern Territory) Act 1976 recognized Aboriginal land ownership for the first time, though only in the Northern Territory and only on the basis of continuous connection to Country. The landmark Mabo v Queensland (No 2) decision in 1992 overturned the doctrine of terra nullius, recognizing that native title had survived colonization where Aboriginal people maintained continuous connection to their lands.",
+      "The Native Title Act 1993 established a framework for Aboriginal people to claim native title, but the threshold for proof is high: claimants must demonstrate continuous connection to Country despite the disruptions of colonization. Songlines, ceremonial knowledge, and Law are now presented as legal evidence in native title claims, placing Aboriginal religious traditions at the center of Australian jurisprudence. However, many Aboriginal people—especially in southeastern Australia, where dispossession was most severe—cannot meet the legal test for native title, creating ongoing inequities.",
+      "Cultural resurgence in recent decades has seen a revitalization of ceremony, language, and connection to Country. Rock art sites are managed through co-governance arrangements, with Aboriginal Traditional Owners and Parks Australia working together. Sacred sites are protected under state and federal heritage laws, though enforcement remains contested. Aboriginal people continue to assert custodial authority over knowledge, challenging non-Aboriginal appropriation and demanding respect for protocols around sacred sites, restricted knowledge, and the ethics of representation."
     ]
   },
-  history: [
-    {
-      title: "Tens of Thousands of Years: Continuity and Adaptation",
-      content: [
-        "Archaeological and genetic evidence confirms that Aboriginal peoples have inhabited the Australian continent for at least 65,000 years, with some sites suggesting even earlier occupation. This deep time is reflected in oral traditions, rock art sequences, and the continuity of ceremonial practices tied to specific places. The Dreaming is not a relic of the past but an 'everywhen'—a term coined by anthropologist W.E.H. Stanner to convey that the Dreaming exists simultaneously in past, present, and future, a temporal reality distinct from Western linear time.",
-        "Aboriginal societies before European contact were diverse and complex, organized around hundreds of distinct language groups and nations. Each nation maintained its own Country, Law (often capitalized to distinguish it from Australian state law), and ceremonial cycles. Trade networks, songline pathways, and ceremonial alliances connected groups across vast distances, from the tropical north to the temperate southeast, from desert interiors to coastal regions. Environmental management practices—including fire-stick farming—shaped the landscape for tens of thousands of years, demonstrating sophisticated ecological knowledge embedded in religious practice.",
-        "Dreamtime narratives recount the actions of Ancestor Beings who created landforms and established the moral order. These stories are not allegories or myths in the Western sense but accounts of real events that continue to unfold. A waterhole is not merely a geographical feature but the place where a particular Ancestor emerged or rested, and that place remains charged with ancestral presence. Knowledge of these narratives is restricted by gender, age, and initiation status, with some aspects public and others reserved for initiated men or women. Elders determine what knowledge may be shared with outsiders and under what conditions."
-      ]
-    },
-    {
-      title: "Colonization, Missions, and the Stolen Generations",
-      content: [
-        "The arrival of British colonizers in 1788 initiated a catastrophic disruption of Aboriginal life. Frontier violence, introduced diseases, and land dispossession decimated Aboriginal populations and severed connections to Country. Aboriginal people were denied legal recognition as owners of land under the doctrine of terra nullius (land belonging to no one), and their spiritual relationships to Country were dismissed as primitive superstition. Massacres, poisonings, and forced removals characterized the colonial frontier throughout the 19th century.",
-        "From the late 19th century onward, government and church missions became instruments of assimilation policy. Missions confined Aboriginal people to reserves, imposed Christianity, and forbade the practice of traditional ceremonies, languages, and Law. Many missions functioned as sites of forced labor, where Aboriginal people worked without fair wages. The separation of children from families—now known as the Stolen Generations—was systematic and legally sanctioned from the early 1900s to the 1970s. Mixed-descent children were removed to missions and institutions, denied their Aboriginal identity, and subjected to policies designed to 'breed out' Aboriginal culture.",
-        "Despite these assaults, Aboriginal people resisted. Ceremonies were conducted in secret, songlines were kept alive, and knowledge was passed on despite prohibitions. Some Aboriginal Christians integrated Dreaming concepts with Christian narratives, creating syncretic traditions. Others maintained traditional Law alongside or in opposition to mission Christianity. The resilience of Aboriginal religious life is testament to the strength of connection to Country and the enduring power of the Dreaming."
-      ]
-    },
-    {
-      title: "Land Rights, Native Title, and Cultural Resurgence",
-      content: [
-        "The 20th century saw growing Aboriginal political activism. The 1967 referendum granted Aboriginal people citizenship and enabled the federal government to make laws for Aboriginal affairs. The Aboriginal Land Rights (Northern Territory) Act 1976 recognized Aboriginal land ownership for the first time, though only in the Northern Territory and only on the basis of continuous connection to Country. The landmark Mabo v Queensland (No 2) decision in 1992 overturned the doctrine of terra nullius, recognizing that native title had survived colonization where Aboriginal people maintained continuous connection to their lands.",
-        "The Native Title Act 1993 established a framework for Aboriginal people to claim native title, but the threshold for proof is high: claimants must demonstrate continuous connection to Country despite the disruptions of colonization. Songlines, ceremonial knowledge, and Law are now presented as legal evidence in native title claims, placing Aboriginal religious traditions at the center of Australian jurisprudence. However, many Aboriginal people—especially in southeastern Australia, where dispossession was most severe—cannot meet the legal test for native title, creating ongoing inequities.",
-        "Cultural resurgence in recent decades has seen a revitalization of ceremony, language, and connection to Country. Rock art sites are managed through co-governance arrangements, with Aboriginal Traditional Owners and Parks Australia working together. Sacred sites are protected under state and federal heritage laws, though enforcement remains contested. Aboriginal people continue to assert custodial authority over knowledge, challenging non-Aboriginal appropriation and demanding respect for protocols around sacred sites, restricted knowledge, and the ethics of representation."
-      ]
-    }
-  ],
-  worldview: [
-    {
-      title: "The Dreaming: Everywhen and Eternal Law",
-      content: [
-        "The Dreaming is the ontological foundation of Aboriginal life, a concept that resists simple translation. W.E.H. Stanner described it as 'everywhen'—not a time long ago, but a dimension of reality that is simultaneously past, present, and future. The Dreaming encompasses the creative acts of Ancestor Beings, the Law those beings established, and the ongoing presence of those beings in the landscape and in ceremonial life. It is both cosmogony (an account of creation) and cosmology (a framework for understanding existence).",
-        "Each language group has its own terminology and narratives. In Western Desert languages, Tjukurpa (or Jukurrpa) refers to the Dreaming and also to the Law that governs all relationships. In Arrernte, Alcheringa conveys similar meanings. In the Kimberley, Ngarranggarni describes the creative era and the Law that emerged from it. These terms are not interchangeable but reflect the specificity of place and tradition. What is universal across Aboriginal traditions is the understanding that the Dreaming is alive, that Ancestor Beings continue to inhabit Country, and that humans are responsible for maintaining the relationships those beings established.",
-        "The Dreaming is not a belief system that one accepts or rejects; it is a reality one lives within. To know the Dreaming is to know one's whakapapa (genealogy, though the term is Māori; Aboriginal English uses 'mob' or 'skin'), one's responsibilities to kin and Country, and one's place in the moral order. The Dreaming is learned through initiation, ceremony, and lifelong engagement with Elders and Country. Some knowledge is public, shared in stories told to children or visitors. Other knowledge is restricted, revealed only to initiated men or women, and some knowledge is so sacred that it is kept by a single custodian or a small group of Elders."
-      ]
-    },
-    {
-      title: "Ancestor Beings and Country",
-      content: [
-        "Ancestor Beings (also called Creator Beings or Ancestral Beings) are the protagonists of Dreaming narratives. These beings—such as the Rainbow Serpent, Wandjina, Baiame, Yhi, Tiddalik, and countless others—shaped the land through their travels, conflicts, and transformations. They created waterholes by digging, mountains by sleeping, rivers by their movement. They established the boundaries of language groups, the rules of kinship, and the protocols of ceremony. When their work was complete, many entered the land itself, becoming rocks, trees, or water sources, where they remain as sources of spiritual power.",
-        "Country is the English term for ancestral land, but it signifies far more than territory. As anthropologist Deborah Bird Rose explains, Country is 'a living entity with a yesterday, today and tomorrow, with a consciousness, and a will toward life.' People talk about Country in the same way they talk about a person: Country knows, hears, smells, takes notice, takes care, is sorry or happy. Country is not a passive backdrop to human activity but an active participant in relationships. Humans are not masters of Country but co-participants in its life, responsible for 'looking after Country' through ceremony, fire management, and the observance of Law.",
-        "The relationship between people and Country is one of consubstantiality: people are born of Country, and Country is sustained by people. When Aboriginal people say 'I am Warlpiri' or 'I am Yolngu,' they are not merely identifying with a language group but asserting a relationship to specific Country. This relationship is inherited through patrilineal, matrilineal, or cognatic descent, depending on the tradition, and it imposes obligations to care for sacred sites, perform ceremonies, and transmit knowledge to the next generation. To be disconnected from Country is to be disconnected from identity, from Law, and from the Dreaming itself."
-      ]
-    },
-    {
-      title: "Songlines and Law",
-      content: [
-        "Songlines (also called song cycles, song-paths, or Dreaming tracks) are the pathways Ancestor Beings traveled across the land, encoded in song, dance, and story. A songline can span hundreds of kilometers, crossing multiple language groups, and each segment is owned by the group whose Country it traverses. To sing a songline is to retrace the Ancestor's journey, naming the places they created, recounting their deeds, and renewing the life force (often called 'mauri' in Māori contexts, though Aboriginal English uses terms like 'spirit' or 'power') of those places.",
-        "Songlines function as oral maps, legal documents, and historical records simultaneously. They encode knowledge of water sources, food plants, seasonal patterns, and safe routes through difficult terrain. They also establish ownership and custodial responsibilities: the people who sing a particular segment of a songline are the rightful custodians of that Country. In native title claims, songline knowledge is presented as evidence of continuous connection to land, demonstrating that Aboriginal people have maintained Law despite colonization.",
-        "Law—often capitalized to distinguish it from Australian state law—is the system of rules, obligations, and values established by Ancestor Beings in the Dreaming. Law governs kinship (who one may marry, how one relates to relatives), resource management (when and how to hunt, fish, or gather), ceremony (who participates, what knowledge is revealed), and conflict resolution. Law is not written but enacted through ceremony, sung through songlines, and painted on bodies, rocks, and bark. To break Law is to disrupt the cosmic order, bringing misfortune not only to the individual but to the community and Country itself."
-      ]
-    }
-  ],
+
+  worldview: {
+    title: "The Dreaming: Everywhen and Eternal Law",
+    content: [
+      "The Dreaming is the ontological foundation of Aboriginal life, a concept that resists simple translation. W.E.H. Stanner described it as 'everywhen'—not a time long ago, but a dimension of reality that is simultaneously past, present, and future. The Dreaming encompasses the creative acts of Ancestor Beings, the Law those beings established, and the ongoing presence of those beings in the landscape and in ceremonial life. It is both cosmogony (an account of creation) and cosmology (a framework for understanding existence).",
+      "Each language group has its own terminology and narratives. In Western Desert languages, Tjukurpa (or Jukurrpa) refers to the Dreaming and also to the Law that governs all relationships. In Arrernte, Alcheringa conveys similar meanings. In the Kimberley, Ngarranggarni describes the creative era and the Law that emerged from it. These terms are not interchangeable but reflect the specificity of place and tradition. What is universal across Aboriginal traditions is the understanding that the Dreaming is alive, that Ancestor Beings continue to inhabit Country, and that humans are responsible for maintaining the relationships those beings established.",
+      "The Dreaming is not a belief system that one accepts or rejects; it is a reality one lives within. To know the Dreaming is to know one's whakapapa (genealogy, though the term is Māori; Aboriginal English uses 'mob' or 'skin'), one's responsibilities to kin and Country, and one's place in the moral order. The Dreaming is learned through initiation, ceremony, and lifelong engagement with Elders and Country. Some knowledge is public, shared in stories told to children or visitors. Other knowledge is restricted, revealed only to initiated men or women, and some knowledge is so sacred that it is kept by a single custodian or a small group of Elders.",
+      "Ancestor Beings (also called Creator Beings or Ancestral Beings) are the protagonists of Dreaming narratives. These beings—such as the Rainbow Serpent, Wandjina, Baiame, Yhi, Tiddalik, and countless others—shaped the land through their travels, conflicts, and transformations. They created waterholes by digging, mountains by sleeping, rivers by their movement. They established the boundaries of language groups, the rules of kinship, and the protocols of ceremony. When their work was complete, many entered the land itself, becoming rocks, trees, or water sources, where they remain as sources of spiritual power.",
+      "Country is the English term for ancestral land, but it signifies far more than territory. As anthropologist Deborah Bird Rose explains, Country is 'a living entity with a yesterday, today and tomorrow, with a consciousness, and a will toward life.' People talk about Country in the same way they talk about a person: Country knows, hears, smells, takes notice, takes care, is sorry or happy. Country is not a passive backdrop to human activity but an active participant in relationships. Humans are not masters of Country but co-participants in its life, responsible for 'looking after Country' through ceremony, fire management, and the observance of Law.",
+      "The relationship between people and Country is one of consubstantiality: people are born of Country, and Country is sustained by people. When Aboriginal people say 'I am Warlpiri' or 'I am Yolngu,' they are not merely identifying with a language group but asserting a relationship to specific Country. This relationship is inherited through patrilineal, matrilineal, or cognatic descent, depending on the tradition, and it imposes obligations to care for sacred sites, perform ceremonies, and transmit knowledge to the next generation. To be disconnected from Country is to be disconnected from identity, from Law, and from the Dreaming itself.",
+      "Songlines (also called song cycles, song-paths, or Dreaming tracks) are the pathways Ancestor Beings traveled across the land, encoded in song, dance, and story. A songline can span hundreds of kilometers, crossing multiple language groups, and each segment is owned by the group whose Country it traverses. To sing a songline is to retrace the Ancestor's journey, naming the places they created, recounting their deeds, and renewing the life force (often called 'mauri' in Māori contexts, though Aboriginal English uses terms like 'spirit' or 'power') of those places.",
+      "Songlines function as oral maps, legal documents, and historical records simultaneously. They encode knowledge of water sources, food plants, seasonal patterns, and safe routes through difficult terrain. They also establish ownership and custodial responsibilities: the people who sing a particular segment of a songline are the rightful custodians of that Country. In native title claims, songline knowledge is presented as evidence of continuous connection to land, demonstrating that Aboriginal people have maintained Law despite colonization.",
+      "Law—often capitalized to distinguish it from Australian state law—is the system of rules, obligations, and values established by Ancestor Beings in the Dreaming. Law governs kinship (who one may marry, how one relates to relatives), resource management (when and how to hunt, fish, or gather), ceremony (who participates, what knowledge is revealed), and conflict resolution. Law is not written but enacted through ceremony, sung through songlines, and painted on bodies, rocks, and bark. To break Law is to disrupt the cosmic order, bringing misfortune not only to the individual but to the community and Country itself."
+    ]
+  },
+
   texts: {
     title: "Oral Tradition, Rock Art, and Restricted Knowledge",
     content: [
@@ -71,31 +46,21 @@ export const dreamtimeArticle: ReligionArticle = {
       "The ethics of representation are contested. Aboriginal communities have long resisted the publication of sacred knowledge by anthropologists, filmmakers, and writers. The work of T.G.H. Strehlow, a Lutheran missionary's son who was initiated into Arrernte ceremonies, remains controversial because he recorded and published restricted knowledge without proper authorization. Contemporary Aboriginal scholars and organizations such as AIATSIS (Australian Institute of Aboriginal and Torres Strait Islander Studies) advocate for Aboriginal control over how their religious traditions are documented, interpreted, and shared."
     ]
   },
-  practice: [
-    {
-      title: "Ceremony and Initiation",
-      content: [
-        "Ceremony is the primary means by which Aboriginal people enact the Dreaming, renew Country, and transmit Law. Ceremonies range from public corroborees (performances of song and dance) to restricted initiation rites that may last weeks or months. Each language group maintains its own ceremonial cycles, tied to seasonal rhythms, life stages, and the needs of Country. Some ceremonies are performed annually, others only when Elders determine the time is right.",
-        "Initiation ceremonies mark the transition from childhood to adulthood and the revelation of sacred knowledge. For young men, initiation often involves physical ordeals, seclusion, and instruction by senior Law men. During initiation, young men learn songlines, are shown sacred objects, and are taught their responsibilities to Country and kin. Women's initiation is less documented in anthropological literature (due to gender restrictions on observation), but it is equally important, involving the transmission of women's Law, knowledge of women's sites, and instruction in women's ceremonies.",
-        "The Kurdiji ceremony of the Warlpiri, for example, is a male initiation ceremony held each summer over several weeks. Mothers ceremonially give their sons to senior men, who guide them into adulthood through song, ritual, and instruction. The ceremony follows a central songline known only to a small group of senior men, and its performance maintains core aspects of Warlpiri identity across generations. Similar initiation ceremonies—known by different names in different regions (Bora in southeastern Australia, for example)—serve analogous functions, binding individuals to Country, teaching Law, and affirming alliances between groups."
-      ]
-    },
-    {
-      title: "Looking After Country",
-      content: [
-        "'Looking after Country' (also called 'caring for Country' or 'burning Country') refers to the active, ongoing responsibilities Aboriginal people have to maintain the health and life force of their lands. This includes fire management (controlled burns to promote plant growth and prevent catastrophic wildfires), protection of sacred sites, maintenance of waterholes, and the observance of seasonal restrictions on hunting and gathering. These practices are not secular resource management but religious obligations rooted in the Dreaming.",
-        "Fire management, for example, is both an ecological practice and a ceremonial act. The timing, pattern, and extent of burns are determined by seasonal cues, ecological knowledge, and ceremonial requirements. Fire clears underbrush, promotes the growth of certain plants, and maintains habitat for animals. It is also a way of 'calling Country,' renewing the presence of Ancestor Beings, and asserting custodial authority. Aboriginal people who are prevented from burning Country—due to land tenure restrictions or government regulations—experience this as a spiritual as well as ecological loss.",
-        "Contemporary land management partnerships, such as those in **Kakadu National Park** and **Uluru-Kata Tjuta National Park**, involve co-governance arrangements in which Aboriginal Traditional Owners and government agencies work together. Aboriginal rangers, guided by Elders and Law, manage sacred sites, conduct cultural burns, and monitor the health of Country. These partnerships recognize that Aboriginal religious knowledge is essential to effective land management and that Aboriginal people are the rightful custodians of their lands."
-      ]
-    },
-    {
-      title: "Death and the Afterlife",
-      content: [
-        "Death is understood as a transition rather than an end. When a person dies, their spirit (often called 'spirit' in English, though language-specific terms vary) returns to Country, often to a specific sacred site associated with their Dreaming or clan. In some traditions, the spirit undertakes a journey back to the place of origin; in others, it remains in Country, joining the Ancestor Beings. Funerary practices vary widely across language groups, but common elements include smoking ceremonies to cleanse the body and living spaces, mourning rituals involving wailing and self-injury, and restrictions on speaking the name of the deceased.",
-        "In some traditions, particularly in Arnhem Land, the deceased's bones are exhumed after a period of time, cleaned, and placed in hollow log coffins (dupun) or stone chambers. These secondary burial practices affirm the connection between the deceased and their Country. In other regions, cremation or direct burial is practiced. The location of burial is often a sacred site, and access to these sites is restricted. Photographs or recordings of deceased persons may be considered distressing or taboo, and many Aboriginal communities request that such images be removed from public view."
-      ]
-    }
-  ],
+
+  practice: {
+    title: "Ceremony and Initiation",
+    content: [
+      "Ceremony is the primary means by which Aboriginal people enact the Dreaming, renew Country, and transmit Law. Ceremonies range from public corroborees (performances of song and dance) to restricted initiation rites that may last weeks or months. Each language group maintains its own ceremonial cycles, tied to seasonal rhythms, life stages, and the needs of Country. Some ceremonies are performed annually, others only when Elders determine the time is right.",
+      "Initiation ceremonies mark the transition from childhood to adulthood and the revelation of sacred knowledge. For young men, initiation often involves physical ordeals, seclusion, and instruction by senior Law men. During initiation, young men learn songlines, are shown sacred objects, and are taught their responsibilities to Country and kin. Women's initiation is less documented in anthropological literature (due to gender restrictions on observation), but it is equally important, involving the transmission of women's Law, knowledge of women's sites, and instruction in women's ceremonies.",
+      "The Kurdiji ceremony of the Warlpiri, for example, is a male initiation ceremony held each summer over several weeks. Mothers ceremonially give their sons to senior men, who guide them into adulthood through song, ritual, and instruction. The ceremony follows a central songline known only to a small group of senior men, and its performance maintains core aspects of Warlpiri identity across generations. Similar initiation ceremonies—known by different names in different regions (Bora in southeastern Australia, for example)—serve analogous functions, binding individuals to Country, teaching Law, and affirming alliances between groups.",
+      "'Looking after Country' (also called 'caring for Country' or 'burning Country') refers to the active, ongoing responsibilities Aboriginal people have to maintain the health and life force of their lands. This includes fire management (controlled burns to promote plant growth and prevent catastrophic wildfires), protection of sacred sites, maintenance of waterholes, and the observance of seasonal restrictions on hunting and gathering. These practices are not secular resource management but religious obligations rooted in the Dreaming.",
+      "Fire management, for example, is both an ecological practice and a ceremonial act. The timing, pattern, and extent of burns are determined by seasonal cues, ecological knowledge, and ceremonial requirements. Fire clears underbrush, promotes the growth of certain plants, and maintains habitat for animals. It is also a way of 'calling Country,' renewing the presence of Ancestor Beings, and asserting custodial authority. Aboriginal people who are prevented from burning Country—due to land tenure restrictions or government regulations—experience this as a spiritual as well as ecological loss.",
+      "Contemporary land management partnerships, such as those in **Kakadu National Park** and **Uluru-Kata Tjuta National Park**, involve co-governance arrangements in which Aboriginal Traditional Owners and government agencies work together. Aboriginal rangers, guided by Elders and Law, manage sacred sites, conduct cultural burns, and monitor the health of Country. These partnerships recognize that Aboriginal religious knowledge is essential to effective land management and that Aboriginal people are the rightful custodians of their lands.",
+      "Death is understood as a transition rather than an end. When a person dies, their spirit (often called 'spirit' in English, though language-specific terms vary) returns to Country, often to a specific sacred site associated with their Dreaming or clan. In some traditions, the spirit undertakes a journey back to the place of origin; in others, it remains in Country, joining the Ancestor Beings. Funerary practices vary widely across language groups, but common elements include smoking ceremonies to cleanse the body and living spaces, mourning rituals involving wailing and self-injury, and restrictions on speaking the name of the deceased.",
+      "In some traditions, particularly in Arnhem Land, the deceased's bones are exhumed after a period of time, cleaned, and placed in hollow log coffins (dupun) or stone chambers. These secondary burial practices affirm the connection between the deceased and their Country. In other regions, cremation or direct burial is practiced. The location of burial is often a sacred site, and access to these sites is restricted. Photographs or recordings of deceased persons may be considered distressing or taboo, and many Aboriginal communities request that such images be removed from public view."
+    ]
+  },
+
   diversity: {
     title: "Hundreds of Distinct Traditions",
     content: [
@@ -105,6 +70,7 @@ export const dreamtimeArticle: ReligionArticle = {
       "Aboriginal Christians integrate Dreaming concepts with Christianity in diverse ways. Some see the Christian God as analogous to a supreme Ancestor Being (such as Baiame or Altjira), while others maintain a dual framework, observing Christian practices alongside traditional Law. The encounter with missions has produced complex legacies: trauma and loss, but also resilience and adaptation. Many Aboriginal people reject the notion that they must choose between Christianity and the Dreaming, asserting that both can coexist."
     ]
   },
+
   communities: {
     title: "Aboriginal Communities Today",
     content: [
@@ -114,6 +80,7 @@ export const dreamtimeArticle: ReligionArticle = {
       "Aboriginal people continue to face systemic discrimination, over-incarceration, health disparities, and ongoing struggles for land rights and self-determination. The 2008 National Apology to the Stolen Generations, delivered by Prime Minister Kevin Rudd, acknowledged the injustices of past policies but did not result in comprehensive compensation or treaty. The 2017 Uluru Statement from the Heart called for constitutional recognition of Aboriginal people, a First Nations Voice to Parliament, and a truth-telling process, though these proposals remain contested in Australian politics."
     ]
   },
+
   places: {
     title: "Sacred Geography of the Continent",
     content: [
@@ -123,6 +90,7 @@ export const dreamtimeArticle: ReligionArticle = {
       "**Country as Primary Sacred Geography**: While specific sites like Uluru and Kakadu are internationally recognized, it is essential to understand that **all of Australia is sacred Country**. Every waterhole, mountain, tree, and rock outcrop has a place in the Dreaming, linked to Ancestor Beings and songlines. For Aboriginal people, there is no separation between sacred and profane space; all Country is imbued with ancestral presence and subject to Law. This understanding challenges non-Aboriginal concepts of wilderness, nature, and property, asserting instead that Country is family, teacher, and home."
     ]
   },
+
   debates: {
     title: "Contemporary Issues and Debates",
     content: [
@@ -132,27 +100,74 @@ export const dreamtimeArticle: ReligionArticle = {
       "Climate change and environmental destruction pose existential threats to Country. Mining, logging, and agricultural development desecrate sacred sites and disrupt ecological systems that Aboriginal people have managed for millennia. The destruction of the Juukan Gorge rock shelters in 2020 by Rio Tinto—a site with 46,000 years of continuous occupation—sparked national outrage and highlighted the inadequacy of heritage protections. Aboriginal people assert that looking after Country is not only a religious obligation but essential to addressing climate change and ecological crisis."
     ]
   },
-  keyTerms: {
-    title: "Key Terms",
-    content: [
-      "**Ancestor Beings (Creator Beings)**: The beings who traveled across the land in the Dreaming, shaping its features and establishing Law.",
-      "**Country**: Ancestral land, understood as a living, sentient entity with which people maintain reciprocal relationships.",
-      "**Corroboree**: A public ceremony involving song, dance, and storytelling.",
-      "**Dreaming (The Dreaming)**: The foundational era of creation and the ongoing spiritual reality established by Ancestor Beings; also refers to the Law and knowledge arising from that era. Language-specific terms include Tjukurpa, Alcheringa, Ngarranggarni, and others.",
-      "**Dreamtime**: A term sometimes used interchangeably with 'The Dreaming,' though it can imply a mythic past rather than an ongoing reality. Many Aboriginal people prefer 'The Dreaming' or language-specific terms.",
-      "**Elder**: A person of seniority and authority who holds knowledge and is responsible for teaching and decision-making.",
-      "**Everywhen**: A term coined by W.E.H. Stanner to convey that the Dreaming exists simultaneously in past, present, and future.",
-      "**Initiation**: Ceremonies marking the transition to adulthood and the revelation of sacred knowledge, often gender-specific.",
-      "**Law**: The system of rules, obligations, and values established by Ancestor Beings; governs kinship, resource management, ceremony, and social relations.",
-      "**Looking After Country**: The active practice of caring for land through fire management, protection of sacred sites, and observance of seasonal restrictions.",
-      "**Mob**: Colloquial Aboriginal English term for one's kin or language group.",
-      "**Songline (Dreaming track, song cycle)**: The pathway an Ancestor Being traveled, encoded in song, dance, and story; functions as oral map, legal document, and historical record.",
-      "**Stolen Generations**: Aboriginal and Torres Strait Islander children forcibly removed from their families by government and church agencies from the early 1900s to the 1970s, as part of assimilation policies.",
-      "**Tjukurpa (Jukurrpa)**: Western Desert term for the Dreaming and the Law; encompasses creation narratives, ancestral presence, and moral order.",
-      "**Traditional Owner**: A person recognized as having custodial authority over specific Country, derived from descent, Law, and knowledge.",
-      "**Wandjina**: Ancestor Beings in the Kimberley, depicted in rock art as large figures without mouths; associated with rain and fertility."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Ancestor Beings (Creator Beings)",
+      definition: "The beings who traveled across the land in the Dreaming, shaping its features and establishing Law."
+    },
+    {
+      term: "Country",
+      definition: "Ancestral land, understood as a living, sentient entity with which people maintain reciprocal relationships."
+    },
+    {
+      term: "Corroboree",
+      definition: "A public ceremony involving song, dance, and storytelling."
+    },
+    {
+      term: "Dreaming (The Dreaming)",
+      definition: "The foundational era of creation and the ongoing spiritual reality established by Ancestor Beings; also refers to the Law and knowledge arising from that era. Language-specific terms include Tjukurpa, Alcheringa, Ngarranggarni, and others."
+    },
+    {
+      term: "Dreamtime",
+      definition: "A term sometimes used interchangeably with 'The Dreaming,' though it can imply a mythic past rather than an ongoing reality. Many Aboriginal people prefer 'The Dreaming' or language-specific terms."
+    },
+    {
+      term: "Elder",
+      definition: "A person of seniority and authority who holds knowledge and is responsible for teaching and decision-making."
+    },
+    {
+      term: "Everywhen",
+      definition: "A term coined by W.E.H. Stanner to convey that the Dreaming exists simultaneously in past, present, and future."
+    },
+    {
+      term: "Initiation",
+      definition: "Ceremonies marking the transition to adulthood and the revelation of sacred knowledge, often gender-specific."
+    },
+    {
+      term: "Law",
+      definition: "The system of rules, obligations, and values established by Ancestor Beings; governs kinship, resource management, ceremony, and social relations."
+    },
+    {
+      term: "Looking After Country",
+      definition: "The active practice of caring for land through fire management, protection of sacred sites, and observance of seasonal restrictions."
+    },
+    {
+      term: "Mob",
+      definition: "Colloquial Aboriginal English term for one's kin or language group."
+    },
+    {
+      term: "Songline (Dreaming track, song cycle)",
+      definition: "The pathway an Ancestor Being traveled, encoded in song, dance, and story; functions as oral map, legal document, and historical record."
+    },
+    {
+      term: "Stolen Generations",
+      definition: "Aboriginal and Torres Strait Islander children forcibly removed from their families by government and church agencies from the early 1900s to the 1970s, as part of assimilation policies."
+    },
+    {
+      term: "Tjukurpa (Jukurrpa)",
+      definition: "Western Desert term for the Dreaming and the Law; encompasses creation narratives, ancestral presence, and moral order."
+    },
+    {
+      term: "Traditional Owner",
+      definition: "A person recognized as having custodial authority over specific Country, derived from descent, Law, and knowledge."
+    },
+    {
+      term: "Wandjina",
+      definition: "Ancestor Beings in the Kimberley, depicted in rock art as large figures without mouths; associated with rain and fertility."
+    }
+  ],
+
   sources: [
     {
       label: "W.E.H. Stanner, On Aboriginal Religion (Oceania Monograph, 1963; reprinted 2014)",

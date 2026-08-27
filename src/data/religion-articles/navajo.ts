@@ -1,15 +1,13 @@
 import type { ReligionArticle } from "./types";
 
 export const navajoArticle: ReligionArticle = {
-  overview: {
-    title: "Overview",
-    content: [
-      "Navajo (Diné) spirituality is the living religious tradition of the Diné people—'the People,' as they call themselves—whose ancestral homeland, Dinétah, lies between the four sacred mountains in what is now the southwestern United States (primarily northeastern Arizona, northwestern New Mexico, southeastern Utah, and southwestern Colorado). The Navajo Nation is the largest federally recognized Native American tribe in the United States, with over 300,000 enrolled members, most living on or near the 27,000-square-mile reservation. Diné spirituality is not a 'religion' in the Western sense of a bounded belief system separate from daily life; rather, it permeates all aspects of Diné existence—language, kinship, agriculture, art, healing, ethics, and relationship with the land. The tradition is grounded in the Diné Bahaneʼ (Navajo creation narrative), which recounts the People's emergence through successive underworlds into the present Glittering World, and in an intricate ceremonial system designed to maintain or restore hózhó—harmony, balance, beauty, and right relationship with all beings.",
-      "Central to Diné spirituality is the concept of **hózhó** (often translated as 'beauty,' 'harmony,' 'balance,' or 'order'), which represents the ideal state of the universe and the goal of human life. Hózhó encompasses aesthetic beauty, moral goodness, health, prosperity, happiness, and proper relationality—it is simultaneously physical, spiritual, moral, and social well-being. Its opposite, **hóchxǫ́** (disharmony, disorder, evil, ugliness), arises when things are out of balance, displaced, or improperly related. Diné ceremonialism is fundamentally about restoring hózhó when it has been disrupted by illness, misfortune, or transgression. The central ceremonial complex is Blessingway (Hózhǫ́ǫ́jí), which establishes and maintains hózhó, and is considered the 'main stalk' from which all other ceremonies branch. Other major ceremonial systems—including Enemyway, Nightway, Mountainway, and many others—address specific forms of disharmony caused by contact with dangerous forces (lightning, snakes, bears, enemy ghosts, witchcraft) and work to restore balance through elaborate multi-day rituals involving prayers, songs, sandpaintings, and the invocation of Holy People.",
-      "The **Holy People** (Diyin Dineʼé) are powerful, immortal beings who inhabit the sacred landscape and participate in Diné ceremonial life when properly invoked. They are not 'gods' in the monotheistic sense but rather personifications of natural forces, landscape features, and cosmic principles—simultaneously transcendent and immanent, dangerous and beneficent, depending on how they are approached. Major Holy People include Changing Woman (Asdzą́ą́ Nádleehé, the most beloved deity, associated with growth, renewal, seasons, and the earth's generative power), the Sun Bearer (Jóhonaaʼéí), Monster Slayer and Born for Water (the Hero Twins who made the world safe for humans), Spider Woman, First Man and First Woman, and the holy beings associated with each of the four sacred mountains. The Holy People taught the Diné the ceremonies and gave them the sacred knowledge necessary for survival and hózhó. Diné ceremonialism requires specialized practitioners—**hatałii** (chanters, singers, ceremonial practitioners), often translated as 'medicine men' or 'medicine women'—who undergo years of apprenticeship to learn the intricate songs, prayers, sandpaintings, and ritual procedures of specific ceremonial complexes.",
-      "Diné spirituality is inseparable from place. The four sacred mountains—**Sisnaajiní** (Blanca Peak, Colorado) in the east, **Tsoodził** (Mount Taylor, New Mexico) in the south, **Dookʼoʼoosłííd** (San Francisco Peaks, Arizona) in the west, and **Dibé Nitsaa** (Hesperus Mountain, Colorado) in the north—are not merely symbolic; they are living, holy beings with inner forms (spiritual essences) who provide protection, resources, and identity to the Diné. First Man and First Woman placed these mountains at the time of creation, fastening them to the earth with lightning, sunbeam, rainbow, and stone knives, and adorning them with sacred stones (white shell, turquoise, abalone, jet/obsidian) and the plants and animals that sustain Diné life. The mountains embody the boundaries of Dinétah, the sacred homeland, and their presence orients Diné cosmology, ethics, and daily practice. Beyond the four sacred mountains, numerous other peaks, springs, rock formations, and landscape features are recognized as sacred—homes of Holy People, sites of mythic events, sources of medicinal plants and ceremonial materials, and places where prayers are offered."
-    ]
-  },
+  overview: [
+    "Navajo (Diné) spirituality is the living religious tradition of the Diné people—'the People,' as they call themselves—whose ancestral homeland, Dinétah, lies between the four sacred mountains in what is now the southwestern United States (primarily northeastern Arizona, northwestern New Mexico, southeastern Utah, and southwestern Colorado). The Navajo Nation is the largest federally recognized Native American tribe in the United States, with over 300,000 enrolled members, most living on or near the 27,000-square-mile reservation. Diné spirituality is not a 'religion' in the Western sense of a bounded belief system separate from daily life; rather, it permeates all aspects of Diné existence—language, kinship, agriculture, art, healing, ethics, and relationship with the land. The tradition is grounded in the Diné Bahaneʼ (Navajo creation narrative), which recounts the People's emergence through successive underworlds into the present Glittering World, and in an intricate ceremonial system designed to maintain or restore hózhó—harmony, balance, beauty, and right relationship with all beings.",
+    "Central to Diné spirituality is the concept of **hózhó** (often translated as 'beauty,' 'harmony,' 'balance,' or 'order'), which represents the ideal state of the universe and the goal of human life. Hózhó encompasses aesthetic beauty, moral goodness, health, prosperity, happiness, and proper relationality—it is simultaneously physical, spiritual, moral, and social well-being. Its opposite, **hóchxǫ́** (disharmony, disorder, evil, ugliness), arises when things are out of balance, displaced, or improperly related. Diné ceremonialism is fundamentally about restoring hózhó when it has been disrupted by illness, misfortune, or transgression. The central ceremonial complex is Blessingway (Hózhǫ́ǫ́jí), which establishes and maintains hózhó, and is considered the 'main stalk' from which all other ceremonies branch. Other major ceremonial systems—including Enemyway, Nightway, Mountainway, and many others—address specific forms of disharmony caused by contact with dangerous forces (lightning, snakes, bears, enemy ghosts, witchcraft) and work to restore balance through elaborate multi-day rituals involving prayers, songs, sandpaintings, and the invocation of Holy People.",
+    "The **Holy People** (Diyin Dineʼé) are powerful, immortal beings who inhabit the sacred landscape and participate in Diné ceremonial life when properly invoked. They are not 'gods' in the monotheistic sense but rather personifications of natural forces, landscape features, and cosmic principles—simultaneously transcendent and immanent, dangerous and beneficent, depending on how they are approached. Major Holy People include Changing Woman (Asdzą́ą́ Nádleehé, the most beloved deity, associated with growth, renewal, seasons, and the earth's generative power), the Sun Bearer (Jóhonaaʼéí), Monster Slayer and Born for Water (the Hero Twins who made the world safe for humans), Spider Woman, First Man and First Woman, and the holy beings associated with each of the four sacred mountains. The Holy People taught the Diné the ceremonies and gave them the sacred knowledge necessary for survival and hózhó. Diné ceremonialism requires specialized practitioners—**hatałii** (chanters, singers, ceremonial practitioners), often translated as 'medicine men' or 'medicine women'—who undergo years of apprenticeship to learn the intricate songs, prayers, sandpaintings, and ritual procedures of specific ceremonial complexes.",
+    "Diné spirituality is inseparable from place. The four sacred mountains—**Sisnaajiní** (Blanca Peak, Colorado) in the east, **Tsoodził** (Mount Taylor, New Mexico) in the south, **Dookʼoʼoosłííd** (San Francisco Peaks, Arizona) in the west, and **Dibé Nitsaa** (Hesperus Mountain, Colorado) in the north—are not merely symbolic; they are living, holy beings with inner forms (spiritual essences) who provide protection, resources, and identity to the Diné. First Man and First Woman placed these mountains at the time of creation, fastening them to the earth with lightning, sunbeam, rainbow, and stone knives, and adorning them with sacred stones (white shell, turquoise, abalone, jet/obsidian) and the plants and animals that sustain Diné life. The mountains embody the boundaries of Dinétah, the sacred homeland, and their presence orients Diné cosmology, ethics, and daily practice. Beyond the four sacred mountains, numerous other peaks, springs, rock formations, and landscape features are recognized as sacred—homes of Holy People, sites of mythic events, sources of medicinal plants and ceremonial materials, and places where prayers are offered."
+  ],
+
   history: {
     title: "Historical Development",
     content: [
@@ -21,6 +19,7 @@ export const navajoArticle: ReligionArticle = {
       "Contemporary Diné spirituality exists in a complex landscape: many Diné practice traditional ceremonialism, consulting hatałii for healing and life-cycle rituals; others are Christian (often Pentecostal or Catholic) or blend Christianity with traditional practices; still others are secular but maintain cultural identity through language, kinship, and land connection. Environmental and sovereignty struggles continue—uranium mining on Diné land (legacy of Cold War extraction) has caused severe health and environmental damage; coal mining and power plants have similarly harmed land, water, and health; and sacred sites, including the San Francisco Peaks (Dookʼoʼoosłííd), face threats from development, tourism, and recreational use (e.g., use of reclaimed wastewater for ski resort snowmaking, which Diné and other tribes vigorously opposed). Diné spiritual leaders and activists frame these struggles in terms of hózhó—maintaining sacred relationship with land, resisting desecration, and asserting Indigenous sovereignty and stewardship."
     ]
   },
+
   worldview: {
     title: "Worldview and Philosophy",
     content: [
@@ -32,6 +31,7 @@ export const navajoArticle: ReligionArticle = {
       "Diné philosophy also emphasizes **saʼah naagháí bikʼeh hózhǫ́ǫ́** (often abbreviated SNBH), a complex phrase central to Blessingway and Diné life goals. Translations vary—'long life and happiness,' 'the ideal of life,' 'one's life journey in harmony,' 'the path to old age in beauty'—but the phrase encapsulates the goal of living a full, harmonious, productive, and beautiful life, aging gracefully, and dying peacefully after contributing to community continuity. SNBH is invoked in prayers and songs, and is understood as the ultimate expression of hózhó—a life lived in right relationship with all beings, fulfilling one's potential, and participating in the renewal of the world."
     ]
   },
+
   texts: {
     title: "Sacred Narratives and Oral Tradition",
     content: [
@@ -43,6 +43,7 @@ export const navajoArticle: ReligionArticle = {
       "Much Diné sacred knowledge is deliberately restricted. Certain songs, prayers, sandpainting designs, ceremonial procedures, and narratives are not shared publicly—they are owned by specific ceremonial practitioners or families, considered too powerful or dangerous for casual telling, or restricted to protect against misuse (including by witches, who invert sacred knowledge for harmful purposes). Outsiders (anthropologists, tourists, even Diné who are not initiated into specific ceremonial knowledge) are told partial or generalized versions, or redirected away from restricted topics. This is not secrecy for secrecy's sake but responsible stewardship of potent knowledge that requires proper context, training, and intent to handle safely. Diné elders have repeatedly expressed frustration with anthropologists who published restricted knowledge without permission, violating trust and endangering ceremonial efficacy."
     ]
   },
+
   practice: {
     title: "Ceremonial Practices",
     content: [
@@ -55,6 +56,7 @@ export const navajoArticle: ReligionArticle = {
       "It is crucial to note that much ceremonial knowledge is restricted and should not be publicly described in detail. Diné elders and practitioners emphasize that ceremonies are powerful, potentially dangerous if misused, and require proper training, authorization, and intent. Sandpainting designs, specific songs, prayers, herbal formulas, and ritual procedures are intellectual and spiritual property, not public domain. Non-Diné observers are generally welcome at public portions of ceremonies (such as the final night of Nightway), but many ritual actions occur privately, and photography, recording, or detailed note-taking are often prohibited. This article provides only a high-level overview consistent with published scholarship and respects the boundaries Diné teachers have established."
     ]
   },
+
   diversity: {
     title: "Contemporary Diversity and Change",
     content: [
@@ -66,6 +68,7 @@ export const navajoArticle: ReligionArticle = {
       "**Environmental and sovereignty struggles** are framed in spiritual terms. The ongoing impacts of uranium mining (conducted on Diné land from the 1940s to 1980s without adequate regulation, leaving over 500 abandoned mines and widespread contamination of water, soil, and communities), coal mining and power plants, and threats to sacred sites are understood by many Diné as violations of hózhó and the sacred covenant between the Diné and the land. Activists invoke traditional teachings about k'é (kinship with the land), the sacredness of water, and the responsibilities of stewardship to oppose extraction, demand cleanup, and advocate for renewable energy and sustainable development. The struggle over the San Francisco Peaks (Dookʼoʼoosłííd), where a ski resort's use of reclaimed wastewater for snowmaking was opposed by Diné and other tribes as desecration of a sacred mountain, exemplifies how contemporary political and environmental struggles are inseparable from spiritual commitments."
     ]
   },
+
   communities: {
     title: "Demographics and Contemporary Practice",
     content: [
@@ -77,6 +80,7 @@ export const navajoArticle: ReligionArticle = {
       "Cultural tourism and commodification present ongoing tensions. Diné weaving, jewelry (silver and turquoise), and sandpainting-inspired art are internationally recognized and economically important, providing income for many families. However, commercialization also raises concerns: sandpainting designs, which are sacred and ceremonially potent, are reproduced on commercial textiles, paintings, and souvenirs without proper context or authorization; non-Diné manufacturers produce 'Navajo-style' crafts, undercutting authentic Diné artisans; and tourists visit sacred sites (such as Canyon de Chelly or Monument Valley) without understanding or respecting their spiritual significance. Some Diné welcome tourism as economic opportunity and cultural exchange, while others oppose it as commodification and desecration. The Navajo Nation has enacted some protections (e.g., tribal laws against photographing ceremonies without permission), though enforcement is difficult."
     ]
   },
+
   places: {
     title: "Sacred Geography",
     content: [
@@ -88,6 +92,7 @@ export const navajoArticle: ReligionArticle = {
       "The sacredness of these places is not abstract but lived. Diné families visit the sacred mountains to gather plants, hunt (with proper ritual sanction), pray, and renew spiritual connections. Threats to sacred sites—uranium and coal mining, development, recreational overuse, desecration—are resisted through activism, litigation, and appeals to religious freedom and treaty rights. The Diné assert that their religious practices require access to sacred sites and protection of those sites from harm, invoking U.S. legal protections for Indigenous sacred places (though these protections are often inadequate and inconsistently enforced). For the Diné, the land is not property or resource but kin, teacher, and source of identity—to lose the land or allow its desecration is to lose not only material resources but spiritual grounding and the possibility of maintaining hózhó."
     ]
   },
+
   debates: {
     title: "Contemporary Challenges and Debates",
     content: [
@@ -100,36 +105,110 @@ export const navajoArticle: ReligionArticle = {
       "**Authenticity and Identity Politics**: Who counts as 'authentically' Diné, and who has authority to speak for Diné culture? Enrollment in the Navajo Nation requires documented blood quantum (at least one-quarter Navajo ancestry), but cultural and spiritual identity is not reducible to blood. Diné who grew up off-reservation, speak only English, and have limited ceremonial knowledge may still claim Diné identity, but face accusations of being 'not really Navajo' from those who live on-reservation and maintain traditional practices. Conversely, non-enrolled individuals with Diné ancestry, or non-Diné adopted or married into Diné families, may participate deeply in Diné cultural life but lack formal recognition. These debates reflect historical trauma (federal blood quantum policies were tools of assimilation and erasure), ongoing identity politics, and questions about the relationship between culture, biology, law, and lived experience."
     ]
   },
-  keyTerms: {
-    title: "Key Terms and Concepts",
-    content: [
-      "**Diné**: 'The People'; the Navajo people's name for themselves in Diné bizaad (Navajo language).",
-      "**Dinétah**: 'Among the People'; the traditional homeland of the Diné, bounded by the four sacred mountains.",
-      "**Hózhó (hózhǫ́)**: Harmony, balance, beauty, order, health, well-being, right relationship; the central value and goal of Diné life and ceremonialism.",
-      "**Hóchxǫ́**: Disharmony, disorder, ugliness, evil; the opposite of hózhó.",
-      "**Saʼah naagháí bikʼeh hózhǫ́ǫ́ (SNBH)**: 'Long life and happiness'; 'the ideal of life'; a phrase encapsulating the goal of living a full, harmonious life in beauty.",
-      "**K'é**: Kinship, solidarity, love, compassion; the ethical principle of treating others as kin.",
-      "**K'éí**: Clanship; the matrilineal clan system that structures Diné social organization.",
-      "**Diyin Dineʼé**: Holy People; powerful, immortal beings who inhabit the sacred landscape and participate in ceremonial life.",
-      "**Changing Woman (Asdzą́ą́ Nádleehé)**: The most beloved Holy Person, associated with growth, renewal, seasons, earth's generative power, and the origin of the Diné clans.",
-      "**Hero Twins**: Monster Slayer (Naayééʼ Neezghání) and Born for Water (Tóbájíshchíní); sons of Changing Woman and the Sun Bearer, who slayed monsters and made the world safe for the Diné.",
-      "**Nilchʼi**: Wind, breath, air-in-motion; the animating life force that enters beings at birth, sustains thought and speech, and departs at death.",
-      "**Diné Bahaneʼ**: Navajo creation narrative; the story of the Diné's emergence through underworlds into the present Glittering World.",
-      "**Hatałii (hatałii)**: Singer, chanter, ceremonial practitioner; often translated as 'medicine man' or 'medicine woman.'",
-      "**Blessingway (Hózhǫ́ǫ́jí)**: The foundational ceremonial complex that establishes and maintains hózhó; considered the 'main stalk' from which other ceremonies branch.",
-      "**Chantway (hataał)**: Multi-day healing ceremonial addressing specific forms of disharmony; includes Nightway, Mountainway, Beautyway, Enemyway, etc.",
-      "**Iikááh**: Sandpainting; intricate designs created on the hogan floor using colored sands, depicting Holy People and cosmic symbols.",
-      "**Kinaalda (Kinaaldá)**: Girl's puberty ceremony, identifying the initiate with Changing Woman and marking her transition to womanhood.",
-      "**Hogan (hooghan)**: Traditional octagonal dwelling with door facing east; structured as microcosm of the universe and site of ceremonies.",
-      "**Sisnaajiní**: Blanca Peak, Colorado; sacred mountain of the east, associated with white shell, dawn, and birth.",
-      "**Tsoodził**: Mount Taylor, New Mexico; sacred mountain of the south, associated with turquoise, midday, and growth.",
-      "**Dookʼoʼoosłííd**: San Francisco Peaks, Arizona; sacred mountain of the west, associated with abalone, sunset, and maturity.",
-      "**Dibé Nitsaa**: Hesperus Mountain, Colorado; sacred mountain of the north, associated with obsidian, night, and wisdom.",
-      "**Tádídíín**: Corn pollen; sacred substance used extensively in prayers, offerings, and ceremonial blessings.",
-      "**Hwéeldi**: Bosque Redondo; the site of Diné internment (1864–1868) following the Long Walk; a traumatic event in Diné collective memory.",
-      "**Yéʼii (Yeiʼii)**: Powerful Holy People impersonated by masked dancers in Nightway and other ceremonies."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Diné",
+      definition: "'The People'; the Navajo people's name for themselves in Diné bizaad (Navajo language)."
+    },
+    {
+      term: "Dinétah",
+      definition: "'Among the People'; the traditional homeland of the Diné, bounded by the four sacred mountains."
+    },
+    {
+      term: "Hózhó (hózhǫ́)",
+      definition: "Harmony, balance, beauty, order, health, well-being, right relationship; the central value and goal of Diné life and ceremonialism."
+    },
+    {
+      term: "Hóchxǫ́",
+      definition: "Disharmony, disorder, ugliness, evil; the opposite of hózhó."
+    },
+    {
+      term: "Saʼah naagháí bikʼeh hózhǫ́ǫ́ (SNBH)",
+      definition: "'Long life and happiness'; 'the ideal of life'; a phrase encapsulating the goal of living a full, harmonious life in beauty."
+    },
+    {
+      term: "K'é",
+      definition: "Kinship, solidarity, love, compassion; the ethical principle of treating others as kin."
+    },
+    {
+      term: "K'éí",
+      definition: "Clanship; the matrilineal clan system that structures Diné social organization."
+    },
+    {
+      term: "Diyin Dineʼé",
+      definition: "Holy People; powerful, immortal beings who inhabit the sacred landscape and participate in ceremonial life."
+    },
+    {
+      term: "Changing Woman (Asdzą́ą́ Nádleehé)",
+      definition: "The most beloved Holy Person, associated with growth, renewal, seasons, earth's generative power, and the origin of the Diné clans."
+    },
+    {
+      term: "Hero Twins",
+      definition: "Monster Slayer (Naayééʼ Neezghání) and Born for Water (Tóbájíshchíní); sons of Changing Woman and the Sun Bearer, who slayed monsters and made the world safe for the Diné."
+    },
+    {
+      term: "Nilchʼi",
+      definition: "Wind, breath, air-in-motion; the animating life force that enters beings at birth, sustains thought and speech, and departs at death."
+    },
+    {
+      term: "Diné Bahaneʼ",
+      definition: "Navajo creation narrative; the story of the Diné's emergence through underworlds into the present Glittering World."
+    },
+    {
+      term: "Hatałii (hatałii)",
+      definition: "Singer, chanter, ceremonial practitioner; often translated as 'medicine man' or 'medicine woman.'"
+    },
+    {
+      term: "Blessingway (Hózhǫ́ǫ́jí)",
+      definition: "The foundational ceremonial complex that establishes and maintains hózhó; considered the 'main stalk' from which other ceremonies branch."
+    },
+    {
+      term: "Chantway (hataał)",
+      definition: "Multi-day healing ceremonial addressing specific forms of disharmony; includes Nightway, Mountainway, Beautyway, Enemyway, etc."
+    },
+    {
+      term: "Iikááh",
+      definition: "Sandpainting; intricate designs created on the hogan floor using colored sands, depicting Holy People and cosmic symbols."
+    },
+    {
+      term: "Kinaalda (Kinaaldá)",
+      definition: "Girl's puberty ceremony, identifying the initiate with Changing Woman and marking her transition to womanhood."
+    },
+    {
+      term: "Hogan (hooghan)",
+      definition: "Traditional octagonal dwelling with door facing east; structured as microcosm of the universe and site of ceremonies."
+    },
+    {
+      term: "Sisnaajiní",
+      definition: "Blanca Peak, Colorado; sacred mountain of the east, associated with white shell, dawn, and birth."
+    },
+    {
+      term: "Tsoodził",
+      definition: "Mount Taylor, New Mexico; sacred mountain of the south, associated with turquoise, midday, and growth."
+    },
+    {
+      term: "Dookʼoʼoosłííd",
+      definition: "San Francisco Peaks, Arizona; sacred mountain of the west, associated with abalone, sunset, and maturity."
+    },
+    {
+      term: "Dibé Nitsaa",
+      definition: "Hesperus Mountain, Colorado; sacred mountain of the north, associated with obsidian, night, and wisdom."
+    },
+    {
+      term: "Tádídíín",
+      definition: "Corn pollen; sacred substance used extensively in prayers, offerings, and ceremonial blessings."
+    },
+    {
+      term: "Hwéeldi",
+      definition: "Bosque Redondo; the site of Diné internment (1864–1868) following the Long Walk; a traumatic event in Diné collective memory."
+    },
+    {
+      term: "Yéʼii (Yeiʼii)",
+      definition: "Powerful Holy People impersonated by masked dancers in Nightway and other ceremonies."
+    }
+  ],
+
   sources: [
     {
       label: "Gary Witherspoon, Language and Art in the Navajo Universe (University of Michigan Press, 1977)",

@@ -1,15 +1,13 @@
 import type { ReligionArticle } from "./types";
 
 export const ifaArticle: ReligionArticle = {
-  overview: {
-    title: "Overview",
-    content: [
-      "Ifá is a comprehensive system of divination rooted in the Yoruba cultural tradition of southwestern Nigeria, built upon an oral literary corpus of extraordinary scope and sophistication. Often called the Odu Ifá, this body of knowledge comprises 256 primary figures (Odù), each subdivided into hundreds of verses (ese), together forming what UNESCO has recognized as a Masterpiece of the Oral and Intangible Heritage of Humanity (proclaimed 2005, inscribed 2008). The system centers on the interpretation of geometric patterns produced by casting sacred palm nuts or divination chains, patterns which correspond to specific textual passages recited by a trained diviner known as a babaláwo (literally 'father of secrets').",
-      "While Ifá divination is intimately connected to Yoruba orisha religion, it operates as a distinct tradition with its own protocols, training, and epistemology. Ọ̀rúnmìlà—also called Ifá—is the deity associated with this knowledge, understood as the witness of human destiny before birth and the repository of all wisdom concerning individual life paths. Ifá is not primarily a religion in the sense of congregational worship, but rather a knowledge system and hermeneutic practice: a way of accessing divine counsel through a formal, literary, and mathematical process. The babaláwo functions not as a medium or spirit-possessed oracle, but as a skilled interpreter of a fixed textual tradition, selecting and chanting appropriate verses based on the divination configuration.",
-      "The Ifá corpus is oral literature of staggering scope. Conservative estimates suggest at least 4,096 major ese (256 Odù × 16 core verses), though the actual total is far higher—some authorities count between 40,000 and 100,000 verses, and the corpus remains open, with new ese continuously composed and transmitted. A fully trained babaláwo commits thousands of these verses to memory over years of intensive apprenticeship, creating a living archive that rivals the scale of any written scripture. This oral literary achievement has attracted scholarly attention from anthropology, linguistics, philosophy, and religious studies, and Ifá is now practiced not only in Nigeria but across West Africa (Benin, Togo, Ghana), the African diaspora (Cuba, Brazil, Haiti, Trinidad, the United States), and beyond.",
-      "Historically, Ifá divination likely emerged in the Yoruba region by the first millennium CE, though oral traditions trace its origin to the legendary sage Ọ̀rúnmìlà, said to have lived many centuries earlier. The system's spread followed Yoruba political and cultural expansion—particularly during the Oyo Empire's height (16th–18th centuries)—and later, through the transatlantic slave trade and subsequent diasporic adaptations. In the 21st century, Ifá continues to thrive as both a traditional practice embedded in African communities and a global spiritual resource, sustained by UNESCO safeguarding initiatives, academic scholarship, and transnational networks of practitioners."
-    ]
-  },
+  overview: [
+    "Ifá is a comprehensive system of divination rooted in the Yoruba cultural tradition of southwestern Nigeria, built upon an oral literary corpus of extraordinary scope and sophistication. Often called the Odu Ifá, this body of knowledge comprises 256 primary figures (Odù), each subdivided into hundreds of verses (ese), together forming what UNESCO has recognized as a Masterpiece of the Oral and Intangible Heritage of Humanity (proclaimed 2005, inscribed 2008). The system centers on the interpretation of geometric patterns produced by casting sacred palm nuts or divination chains, patterns which correspond to specific textual passages recited by a trained diviner known as a babaláwo (literally 'father of secrets').",
+    "While Ifá divination is intimately connected to Yoruba orisha religion, it operates as a distinct tradition with its own protocols, training, and epistemology. Ọ̀rúnmìlà—also called Ifá—is the deity associated with this knowledge, understood as the witness of human destiny before birth and the repository of all wisdom concerning individual life paths. Ifá is not primarily a religion in the sense of congregational worship, but rather a knowledge system and hermeneutic practice: a way of accessing divine counsel through a formal, literary, and mathematical process. The babaláwo functions not as a medium or spirit-possessed oracle, but as a skilled interpreter of a fixed textual tradition, selecting and chanting appropriate verses based on the divination configuration.",
+    "The Ifá corpus is oral literature of staggering scope. Conservative estimates suggest at least 4,096 major ese (256 Odù × 16 core verses), though the actual total is far higher—some authorities count between 40,000 and 100,000 verses, and the corpus remains open, with new ese continuously composed and transmitted. A fully trained babaláwo commits thousands of these verses to memory over years of intensive apprenticeship, creating a living archive that rivals the scale of any written scripture. This oral literary achievement has attracted scholarly attention from anthropology, linguistics, philosophy, and religious studies, and Ifá is now practiced not only in Nigeria but across West Africa (Benin, Togo, Ghana), the African diaspora (Cuba, Brazil, Haiti, Trinidad, the United States), and beyond.",
+    "Historically, Ifá divination likely emerged in the Yoruba region by the first millennium CE, though oral traditions trace its origin to the legendary sage Ọ̀rúnmìlà, said to have lived many centuries earlier. The system's spread followed Yoruba political and cultural expansion—particularly during the Oyo Empire's height (16th–18th centuries)—and later, through the transatlantic slave trade and subsequent diasporic adaptations. In the 21st century, Ifá continues to thrive as both a traditional practice embedded in African communities and a global spiritual resource, sustained by UNESCO safeguarding initiatives, academic scholarship, and transnational networks of practitioners."
+  ],
+
   history: {
     title: "Historical Development",
     content: [
@@ -20,6 +18,7 @@ export const ifaArticle: ReligionArticle = {
       "In the 21st century, Ifá divination exists in multiple registers: as an indigenous West African practice centered on Yoruba communities; as a globalized spiritual technology accessible via diaspora networks and digital media; and as an object of academic study in fields from philosophy to performance studies. Debates continue over authenticity, authority, and the transmission of secret knowledge—particularly as Ifá appears online, in published translations, and among non-African practitioners. The tradition's resilience lies in its dual nature: rigidly structured (the 256 Odù are fixed) yet infinitely interpretable (each ese can be applied to new circumstances), allowing Ifá to remain both ancient and contemporary."
     ]
   },
+
   worldview: {
     title: "Worldview and Philosophy",
     content: [
@@ -31,6 +30,7 @@ export const ifaArticle: ReligionArticle = {
       "Contemporary philosophers, notably Kọ́lá Abímbọ́lá, argue that Ifá constitutes a complete philosophical system comparable to classical Western traditions, articulating metaphysics, ethics, logic, and epistemology through oral narrative. This challenges earlier anthropological models that treated divination as 'primitive magic' rather than rational inquiry. Ifá divination, in this view, is a technology of knowledge production: a formal method for diagnosing uncertainty, a communal archive of historical and moral precedent, and a dialogic performance in which meaning is co-created by diviner, text, and client."
     ]
   },
+
   texts: {
     title: "Sacred Texts and Oral Literature",
     content: [
@@ -42,6 +42,7 @@ export const ifaArticle: ReligionArticle = {
       "UNESCO's 2005 proclamation of Ifá as Intangible Cultural Heritage recognized the corpus as endangered: aging babaláwo, declining apprenticeships, Christian and Islamic missionary pressure, and youth disinterest threatened transmission. The safeguarding project funded the Ifá Heritage Institute in Ọ̀yọ́ (opened 2008), a two-year residential program where students learn the corpus in Yoruba language, plus associated rituals, herbal medicine, and philosophical exegesis. Digital projects have also emerged: audio recordings, YouTube channels, and apps that facilitate memorization, though these remain controversial within traditionalist circles who argue that Ifá knowledge requires initiation and embodied practice, not mere textual access."
     ]
   },
+
   practice: {
     title: "Divination Practice and Ritual",
     content: [
@@ -54,6 +55,7 @@ export const ifaArticle: ReligionArticle = {
       "Ifá divination extends beyond individual consultation to communal and calendar rituals. Annual Ifá festivals occur in Yoruba towns, featuring processions, collective divinations for the community's coming year, and renewal of the babaláwo's spiritual authority. The Odù Ifá Agbáyé—a global divination for the entire world—is performed each June in Ilé-Ifẹ̀, with results announced publicly, addressing issues from climate to politics to health. In diaspora contexts, Ifá has adapted: Cuban Ifá divination (called 'registro') follows similar logic but may use Spanish-language ese or different sacrificial protocols; Brazilian babaláwo often work within Candomblé houses alongside other priesthoods. Digital divination—automated Odù generation via apps—exists but is widely rejected as spiritually invalid, lacking the necessary invocation of Ọ̀rúnmìlà and face-to-face hermeneutic dialogue."
     ]
   },
+
   diversity: {
     title: "Internal Diversity and Diasporic Expressions",
     content: [
@@ -65,6 +67,7 @@ export const ifaArticle: ReligionArticle = {
       "Gender and Ifá authority also vary by context. In Nigeria, most lineages historically excluded women from becoming babaláwo (though women could and did become priestesses of orisha like Ọ̀ṣun, Ọya, or Yemọja, and some held significant religious authority as ìyálóde or ìyálàṣẹ). Since the late 20th century, a few Nigerian women have been initiated as ìyánífá (female Ifá priests), but this remains controversial. In contrast, Cuban and diaspora Ifá have more frequently initiated women, though debates continue. Kola Abimbola and other scholars argue that Ifá philosophy itself does not exclude women; the exclusion was a historical-social pattern, not a theological necessity. This debate exemplifies how Ifá's 'tradition' is both stable (the 256 Odù remain fixed) and negotiable (ritual practice adapts to social change)."
     ]
   },
+
   communities: {
     title: "Global Communities and Contemporary Practice",
     content: [
@@ -77,6 +80,7 @@ export const ifaArticle: ReligionArticle = {
       "Demographically, Ifá practitioners (both babaláwo and clients) span social classes, from rural farmers to urban professionals, and religious backgrounds (Christians, Muslims, and traditionalists all consult Ifá). Gender dynamics are shifting: while the babaláwo priesthood has been male-dominated, women increasingly participate as ìyánífá (in diaspora and reform-minded Nigerian lineages), orisha priestesses, ritual assistants, and clients. Youth engagement is a concern: the intensive memorization and traditional protocols of Ifá training compete with formal education and economic opportunities, leading UNESCO and Nigerian cultural ministries to fund preservation initiatives aimed at attracting younger apprentices."
     ]
   },
+
   places: {
     title: "Sacred Sites and Centers of Practice",
     content: [
@@ -91,6 +95,7 @@ export const ifaArticle: ReligionArticle = {
       "**Miami, New York, and Los Angeles** (United States) host significant Ifá communities. Miami's Little Havana and Hialeah neighborhoods contain Cuban-descended Ifá houses; New York's Harlem and the Bronx host both Caribbean and African-lineage temples; Los Angeles has temples serving West African diaspora and spiritual seeker communities. These urban centers function as nodes in a transnational Ifá network, facilitating pilgrimages, festivals, and exchanges. Virtual sacred spaces—YouTube channels, Zoom shrines—have also emerged, though their legitimacy is debated."
     ]
   },
+
   debates: {
     title: "Debates and Contested Questions",
     content: [
@@ -103,29 +108,82 @@ export const ifaArticle: ReligionArticle = {
       "**Philosophical Status**: Is Ifá a religion, a philosophy, or something else? Western academic categories struggle to classify it. Anthropologists often treat Ifá as 'divination' (a sub-category of 'magic' or 'religion'), while philosophers like Kọ́lá Abímbọ́lá and Barry Hallen argue it is a complete philosophical system deserving comparison with Plato or Confucius. This debate has political stakes: categorizing Ifá as 'philosophy' grants it intellectual legitimacy in academic and UNESCO contexts, countering colonial-era dismissals of African thought as 'pre-philosophical.' However, some practitioners reject the 'philosophy' label as reductive, insisting Ifá is a living spiritual practice, not an abstract idea-system. The question is whether Ifá can be both—simultaneously a communal ritual technology and a theoretical framework for ethics and epistemology."
     ]
   },
-  keyTerms: {
-    title: "Key Terms and Concepts",
-    content: [
-      "**Odù**: The 256 primary figures or 'signs' generated through divination, each corresponding to a corpus of ese (verses). The sixteen senior Odù (Mejì) are considered foundational; the 240 junior Odù (Amọ̀lù) are combinations of the Mejì. Each Odù has its own name (e.g., Èjì Ogbè, Ọ̀yẹ̀kú Méjì), personality, associated orisha, taboos, and philosophical themes.",
-      "**Ese**: The verses, poems, or narratives associated with each Odù. Each ese tells a story (ìtàn) featuring a protagonist, a dilemma, a divination consultation, prescribed sacrifice, and outcome. Ese are the textual units babaláwo recite during divination, applying them analogically to clients' situations.",
-      "**Ọ̀rúnmìlà (Ifá)**: The deity of wisdom, divination, and destiny, also called Ifá. Ọ̀rúnmìlà is understood as the witness of destiny—present when each human chose their oriẹ (destiny) before birth—and the one who remembers and reveals these choices through divination. He is depicted as a patient, wise teacher rather than a commanding ruler.",
-      "**Babaláwo**: 'Father of secrets,' the title for an initiated Ifá priest. Babaláwo undergo years of training, memorizing thousands of ese, learning ritual procedures, and mastering hermeneutic skills. They are the human agents through whom Ọ̀rúnmìlà speaks during divination.",
-      "**Ikin Ifá**: The sixteen sacred palm nuts used for divination. These nuts come from the Ọpẹ Ifá tree (oil palm) and are distinguished by having four eyelets (rather than the usual three). They are consecrated, treated as sacred objects, and housed in an agere Ifá (carved bowl).",
-      "**Ọpẹlẹ**: The divination chain, an alternative instrument to ikin. It consists of eight half-shells (or metal discs) attached to a chain. The babaláwo casts the ọpẹlẹ, and the pattern of concave and convex faces reveals one of the 256 Odù. Ọpẹlẹ is faster than ikin divination but considered slightly less authoritative.",
-      "**Opón Ifá**: The divination tray, a round or rectangular wooden board with a raised border often carved with images (especially Ẹṣù's face). The babaláwo spreads ìyẹ̀rọ̀sùn (wood dust) on the tray's smooth inner surface and marks the results of each cast of ikin, recording the Odù.",
-      "**Ìyẹ̀rọ̀sùn**: The fine wood powder (produced by termites eating iroko or other hardwood) spread on the opón Ifá. The babaláwo marks lines in this powder during divination, creating the visual record of the Odù.",
-      "**Ìròkè Ifá**: A tapper, usually made of ivory or wood, used by the babaláwo to strike the edge of the opón Ifá during divination. The tapping calls Ọ̀rúnmìlà's attention and punctuates the recitation of ese.",
-      "**Ẹbọ**: Sacrifice or offering prescribed by Ifá to address a problem. Ẹbọ may include animal sacrifices (chickens, goats, pigeons), plant offerings (kola nuts, yams, palm oil), cloth, cowrie shells, or behavioral changes. The logic is reciprocal exchange: the client gives something of value to rebalance spiritual accounts and align their path with destiny.",
-      "**Ẹṣù**: The trickster orisha who mediates between human and divine realms. Ẹṣù controls crossroads, communication, and the delivery of sacrifices. Without feeding Ẹṣù, divination is blocked and ẹbọ do not reach their intended recipients. Ẹṣù is morally neutral—enforcing cosmic justice but not evil—though colonial misinterpretations conflated him with the Christian Devil.",
-      "**Àṣẹ**: Spiritual power, life force, or authoritative agency. Àṣẹ flows through all beings and can be accumulated, lost, or redirected through ritual action. Ifá divination aims to restore or enhance àṣẹ, aligning individual will with cosmic order.",
-      "**Orí**: The 'head' or personal destiny. In Yoruba cosmology, each person's orí carries the memory of their pre-birth choices and determines their life trajectory. Ifá divination addresses orí, revealing its intentions and recommending actions to fulfill one's destiny.",
-      "**Àyànmọ́ / Ìpín**: Destiny or fate, the life plan chosen before birth. Àyànmọ́ is neither wholly fixed nor wholly open—human agency and sacrifice can modify outcomes within the framework of destiny. Ifá functions to reveal àyànmọ́ and guide actions that fulfill it.",
-      "**Ìwà**: Character or moral comportment. Ìwà is central to Yoruba ethics and recurs throughout the Ifá corpus as the foundation of a good life. Traits like honesty, patience, generosity, and humility are praised; greed, arrogance, and deceit are condemned.",
-      "**Ìtàn**: A story, narrative, or historical account. Each ese contains an ìtàn about a protagonist's encounter with Ifá, serving as an analogical precedent for the client's situation.",
-      "**Olódùmarè**: The supreme divinity in Yoruba cosmology, distant and non-anthropomorphic. Olódùmarè is the creator but does not intervene directly in human affairs; instead, orisha and Ifá mediate between Olódùmarè and humanity.",
-      "**Ìtẹ̀fá / Itẹ̀lọdù**: The initiation ceremony that makes someone a babaláwo. It involves ritual seclusion, head-shaving, receiving consecrated ikin Ifá, revelation of one's birth Odù, and oaths of secrecy and responsibility."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Odù",
+      definition: "The 256 primary figures or 'signs' generated through divination, each corresponding to a corpus of ese (verses). The sixteen senior Odù (Mejì) are considered foundational; the 240 junior Odù (Amọ̀lù) are combinations of the Mejì. Each Odù has its own name (e.g., Èjì Ogbè, Ọ̀yẹ̀kú Méjì), personality, associated orisha, taboos, and philosophical themes."
+    },
+    {
+      term: "Ese",
+      definition: "The verses, poems, or narratives associated with each Odù. Each ese tells a story (ìtàn) featuring a protagonist, a dilemma, a divination consultation, prescribed sacrifice, and outcome. Ese are the textual units babaláwo recite during divination, applying them analogically to clients' situations."
+    },
+    {
+      term: "Ọ̀rúnmìlà (Ifá)",
+      definition: "The deity of wisdom, divination, and destiny, also called Ifá. Ọ̀rúnmìlà is understood as the witness of destiny—present when each human chose their oriẹ (destiny) before birth—and the one who remembers and reveals these choices through divination. He is depicted as a patient, wise teacher rather than a commanding ruler."
+    },
+    {
+      term: "Babaláwo",
+      definition: "'Father of secrets,' the title for an initiated Ifá priest. Babaláwo undergo years of training, memorizing thousands of ese, learning ritual procedures, and mastering hermeneutic skills. They are the human agents through whom Ọ̀rúnmìlà speaks during divination."
+    },
+    {
+      term: "Ikin Ifá",
+      definition: "The sixteen sacred palm nuts used for divination. These nuts come from the Ọpẹ Ifá tree (oil palm) and are distinguished by having four eyelets (rather than the usual three). They are consecrated, treated as sacred objects, and housed in an agere Ifá (carved bowl)."
+    },
+    {
+      term: "Ọpẹlẹ",
+      definition: "The divination chain, an alternative instrument to ikin. It consists of eight half-shells (or metal discs) attached to a chain. The babaláwo casts the ọpẹlẹ, and the pattern of concave and convex faces reveals one of the 256 Odù. Ọpẹlẹ is faster than ikin divination but considered slightly less authoritative."
+    },
+    {
+      term: "Opón Ifá",
+      definition: "The divination tray, a round or rectangular wooden board with a raised border often carved with images (especially Ẹṣù's face). The babaláwo spreads ìyẹ̀rọ̀sùn (wood dust) on the tray's smooth inner surface and marks the results of each cast of ikin, recording the Odù."
+    },
+    {
+      term: "Ìyẹ̀rọ̀sùn",
+      definition: "The fine wood powder (produced by termites eating iroko or other hardwood) spread on the opón Ifá. The babaláwo marks lines in this powder during divination, creating the visual record of the Odù."
+    },
+    {
+      term: "Ìròkè Ifá",
+      definition: "A tapper, usually made of ivory or wood, used by the babaláwo to strike the edge of the opón Ifá during divination. The tapping calls Ọ̀rúnmìlà's attention and punctuates the recitation of ese."
+    },
+    {
+      term: "Ẹbọ",
+      definition: "Sacrifice or offering prescribed by Ifá to address a problem. Ẹbọ may include animal sacrifices (chickens, goats, pigeons), plant offerings (kola nuts, yams, palm oil), cloth, cowrie shells, or behavioral changes. The logic is reciprocal exchange: the client gives something of value to rebalance spiritual accounts and align their path with destiny."
+    },
+    {
+      term: "Ẹṣù",
+      definition: "The trickster orisha who mediates between human and divine realms. Ẹṣù controls crossroads, communication, and the delivery of sacrifices. Without feeding Ẹṣù, divination is blocked and ẹbọ do not reach their intended recipients. Ẹṣù is morally neutral—enforcing cosmic justice but not evil—though colonial misinterpretations conflated him with the Christian Devil."
+    },
+    {
+      term: "Àṣẹ",
+      definition: "Spiritual power, life force, or authoritative agency. Àṣẹ flows through all beings and can be accumulated, lost, or redirected through ritual action. Ifá divination aims to restore or enhance àṣẹ, aligning individual will with cosmic order."
+    },
+    {
+      term: "Orí",
+      definition: "The 'head' or personal destiny. In Yoruba cosmology, each person's orí carries the memory of their pre-birth choices and determines their life trajectory. Ifá divination addresses orí, revealing its intentions and recommending actions to fulfill one's destiny."
+    },
+    {
+      term: "Àyànmọ́ / Ìpín",
+      definition: "Destiny or fate, the life plan chosen before birth. Àyànmọ́ is neither wholly fixed nor wholly open—human agency and sacrifice can modify outcomes within the framework of destiny. Ifá functions to reveal àyànmọ́ and guide actions that fulfill it."
+    },
+    {
+      term: "Ìwà",
+      definition: "Character or moral comportment. Ìwà is central to Yoruba ethics and recurs throughout the Ifá corpus as the foundation of a good life. Traits like honesty, patience, generosity, and humility are praised; greed, arrogance, and deceit are condemned."
+    },
+    {
+      term: "Ìtàn",
+      definition: "A story, narrative, or historical account. Each ese contains an ìtàn about a protagonist's encounter with Ifá, serving as an analogical precedent for the client's situation."
+    },
+    {
+      term: "Olódùmarè",
+      definition: "The supreme divinity in Yoruba cosmology, distant and non-anthropomorphic. Olódùmarè is the creator but does not intervene directly in human affairs; instead, orisha and Ifá mediate between Olódùmarè and humanity."
+    },
+    {
+      term: "Ìtẹ̀fá / Itẹ̀lọdù",
+      definition: "The initiation ceremony that makes someone a babaláwo. It involves ritual seclusion, head-shaving, receiving consecrated ikin Ifá, revelation of one's birth Odù, and oaths of secrecy and responsibility."
+    }
+  ],
+
   sources: [
     {
       label: "UNESCO: Ifa Divination System",

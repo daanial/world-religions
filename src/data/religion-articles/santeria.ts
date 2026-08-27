@@ -1,14 +1,12 @@
 import type { ReligionArticle } from "./types";
 
 export const santeriaArticle: ReligionArticle = {
-  overview: {
-    title: "Overview",
-    content: [
-      "Santería—also known as Regla de Ocha (the Rule of Orisha) or La Religión Lucumí—is an African diaspora religion that developed in colonial Cuba during the 19th century through the forced encounter of enslaved Yoruba peoples with Spanish Catholicism and, later, Spiritism. The name 'Santería' (literally 'way of the saints') arose from the practice of correlating Yoruba orisha (deities) with Catholic saints, a strategy that allowed enslaved Africans to maintain their religious traditions under the guise of Catholic devotion. Many contemporary practitioners prefer 'Regla de Ocha' or 'Lucumí' to avoid the term's colonial connotations and to emphasize the religion's African roots and autonomy from Catholicism.",
-      "At the heart of Santería is the worship of orisha—spiritual forces who govern natural phenomena, human endeavors, and moral qualities. Each orisha possesses distinct attributes, sacred colors, ritual foods, drum rhythms, and dance movements. Practitioners (creyentes or santeros/santeras when initiated) cultivate personal relationships with orisha through divination, sacrifice, possession trance, and the maintenance of altars (soperas containing sacred stones, or otanes). Unlike hierarchical world religions, Santería has no central authority, scripture, or standardized doctrine; instead, knowledge is transmitted through initiation lineages (ramas) under the guidance of godparents (padrinos/madrinas) within house-temples (ilés or casas de santo).",
-      "Santería emerged primarily in western Cuba—especially Havana, Matanzas, and the town of Regla—where concentrations of enslaved Yoruba speakers (called Lucumí in Cuba) formed mutual-aid societies known as cabildos de nación. These cabildos preserved language, ritual knowledge, drumming traditions, and collective memory despite slavery's ruptures. Following Cuban independence (1898) and the Revolution (1959), Santería spread throughout the island and, via emigration, to the United States (especially Florida, New York, New Jersey, California), Mexico, Venezuela, Puerto Rico, and Europe. Today, Santería is practiced by Cubans and non-Cubans, Afro-descendants and converts of diverse backgrounds, in configurations that range from Cuban-centered orthodoxy to syncretic innovations. Its flexible, non-dogmatic structure has enabled both continuity and adaptation across nearly two centuries."
-    ]
-  },
+  overview: [
+    "Santería—also known as Regla de Ocha (the Rule of Orisha) or La Religión Lucumí—is an African diaspora religion that developed in colonial Cuba during the 19th century through the forced encounter of enslaved Yoruba peoples with Spanish Catholicism and, later, Spiritism. The name 'Santería' (literally 'way of the saints') arose from the practice of correlating Yoruba orisha (deities) with Catholic saints, a strategy that allowed enslaved Africans to maintain their religious traditions under the guise of Catholic devotion. Many contemporary practitioners prefer 'Regla de Ocha' or 'Lucumí' to avoid the term's colonial connotations and to emphasize the religion's African roots and autonomy from Catholicism.",
+    "At the heart of Santería is the worship of orisha—spiritual forces who govern natural phenomena, human endeavors, and moral qualities. Each orisha possesses distinct attributes, sacred colors, ritual foods, drum rhythms, and dance movements. Practitioners (creyentes or santeros/santeras when initiated) cultivate personal relationships with orisha through divination, sacrifice, possession trance, and the maintenance of altars (soperas containing sacred stones, or otanes). Unlike hierarchical world religions, Santería has no central authority, scripture, or standardized doctrine; instead, knowledge is transmitted through initiation lineages (ramas) under the guidance of godparents (padrinos/madrinas) within house-temples (ilés or casas de santo).",
+    "Santería emerged primarily in western Cuba—especially Havana, Matanzas, and the town of Regla—where concentrations of enslaved Yoruba speakers (called Lucumí in Cuba) formed mutual-aid societies known as cabildos de nación. These cabildos preserved language, ritual knowledge, drumming traditions, and collective memory despite slavery's ruptures. Following Cuban independence (1898) and the Revolution (1959), Santería spread throughout the island and, via emigration, to the United States (especially Florida, New York, New Jersey, California), Mexico, Venezuela, Puerto Rico, and Europe. Today, Santería is practiced by Cubans and non-Cubans, Afro-descendants and converts of diverse backgrounds, in configurations that range from Cuban-centered orthodoxy to syncretic innovations. Its flexible, non-dogmatic structure has enabled both continuity and adaptation across nearly two centuries."
+  ],
+
   history: {
     title: "Historical Development",
     content: [
@@ -20,6 +18,7 @@ export const santeriaArticle: ReligionArticle = {
       "Emigration, especially after the 1959 Revolution and the 1980 Mariel boatlift, carried Santería to the United States, where it took root in Cuban exile communities in Miami, Union City (New Jersey), New York, and Los Angeles. In these diaspora contexts, Santería encountered new challenges and opportunities: religious freedom allowed public practice, but cultural dislocation, generational transmission gaps, and commercialization (botánicas selling ritual goods, paid divinations for non-initiates) altered traditional structures. Transnational networks emerged, with U.S.-based priests traveling to Cuba for initiations and Cuban priests visiting diaspora communities. Since the 1990s, Santería has attracted non-Cuban converts—African Americans seeking ancestral connection, Latinos from non-Cuban backgrounds, and even white Americans drawn to its earth-centered spirituality—prompting debates over cultural ownership, authenticity, and the boundaries of tradition. Today, Santería exists as a global, multi-sited phenomenon, simultaneously rooted in Cuban history and evolving in response to contemporary contexts."
     ]
   },
+
   worldview: {
     title: "Worldview and Philosophy",
     content: [
@@ -31,6 +30,7 @@ export const santeriaArticle: ReligionArticle = {
       "Death in Santería is a transition, not an ending. The deceased become eggun, joining the ranks of ancestors who continue to influence the living. Proper funerary rituals (ituto for initiates) ensure the spirit's peaceful transition and prevent it from 'walking' (causing trouble). Ancestors are honored at a boveda (altar with water glasses) and consulted through Spiritist practices (often integrated into Santería despite coming from a different tradition). Initiates believe their orisha accompanies them through life and, at death, returns to the divine realm while the eggun remains as ancestral presence. Reincarnation is acknowledged but not emphasized; the focus is on this life and maintaining balance with spiritual forces."
     ]
   },
+
   texts: {
     title: "Sacred Texts and Oral Literature",
     content: [
@@ -42,6 +42,7 @@ export const santeriaArticle: ReligionArticle = {
       "Recent decades have seen a shift toward documentation. Scholarly works by David Brown, Stephan Palmié, Joseph Murphy, and others have published aspects of Santería theology and practice, sparking debates within the community: some practitioners welcome academic engagement as validation and preservation; others view it as profanation of secrets meant only for initiates. Similarly, the internet has made ritual knowledge widely accessible—YouTube videos of ceremonies, online forums, digital libraries of patakines—disrupting traditional gatekeeping. Younger practitioners navigate between respect for secrecy and pragmatic need for accessible resources, especially in diaspora contexts where godparents may be geographically distant."
     ]
   },
+
   practice: {
     title: "Practices and Rituals",
     content: [
@@ -54,6 +55,7 @@ export const santeriaArticle: ReligionArticle = {
       "Festivals (fiestas de santo) mark an orisha's feast day or a santero's initiation anniversary. These multi-hour events feature food, music, dance, and communal worship. Major dates include: September 7–8 for Yemayá (aligned with Our Lady of Regla); December 4 for Changó (Santa Bárbara); September 8 for Oshún (Our Lady of Charity); September 24 for Obatalá (Our Lady of Mercy). In Cuba, public processions and street parties blend Catholic and Lucumí elements; in the U.S., celebrations are often more private, held in homes or rented halls. These festivals reinforce community identity, transmit tradition to younger generations, and perform cultural continuity despite geographic and political displacement."
     ]
   },
+
   diversity: {
     title: "Internal Diversity and Variations",
     content: [
@@ -64,6 +66,7 @@ export const santeriaArticle: ReligionArticle = {
       "Commercialization and commodification are sources of internal debate. Botánicas (shops selling ritual supplies—candles, herbs, statues, beads) make Santería accessible but also visible to law enforcement and stigmatization. Online divination services, YouTube initiations, and 'pay-for-blessings' models challenge traditional gift-exchange reciprocity. Some elders lament loss of secrecy and ritual integrity; younger practitioners counter that adaptation is survival, especially for diaspora communities lacking direct access to Cuban godparents. Scholarship has also commodified Santería—academic conferences, museum exhibits, films, and books reduce complex traditions to consumable knowledge, though some practitioners engage strategically to correct stereotypes and assert legitimacy."
     ]
   },
+
   communities: {
     title: "Global Communities and Contemporary Practice",
     content: [
@@ -75,6 +78,7 @@ export const santeriaArticle: ReligionArticle = {
       "Contemporary Santería demographics are difficult to quantify precisely. The 2001 American Religious Identification Survey estimated 22,000 U.S. practitioners, but scholars like Joseph Murphy suggest hundreds of thousands engage with Santería in some capacity (clients, aleyo, occasional participants). In Cuba, where census data on religion is limited, estimates range from 500,000 to several million, depending on definitions (initiated priests vs. broader participation). Santería's non-proselytizing nature, emphasis on secrecy, and decentralization make accurate counts elusive. What is clear is that the religion continues to grow, adapt, and circulate globally while maintaining Cuban cultural roots and African spiritual foundations."
     ]
   },
+
   places: {
     title: "Sacred Sites and Ceremonial Centers",
     content: [
@@ -88,6 +92,7 @@ export const santeriaArticle: ReligionArticle = {
       "**Oyotunji Village** (Sheldon, South Carolina, United States) is a unique case: an African-inspired intentional community founded in 1970 by Walter Eugene King (Oba Oseijeman Adefunmi I), an African American initiated in Cuba. Oyotunji bills itself as a Yoruba kingdom, practicing Santería and Ifá without Catholic syncretism and emphasizing African cultural revival, Yoruba language, and Pan-African identity. The village hosts initiations, festivals, and cultural education programs, attracting African American practitioners seeking 'de-syncretized' African religion. However, its authority is contested within Cuban Santería communities, some of whom view Oyotunji as Afrocentric invention rather than legitimate tradition. Nonetheless, it represents an important node of Santería's diversification and African American reclamation."
     ]
   },
+
   debates: {
     title: "Debates and Contested Questions",
     content: [
@@ -100,43 +105,138 @@ export const santeriaArticle: ReligionArticle = {
       "**Animal Sacrifice and Public Perception**: Sacrifice remains Santería's most controversial practice. Practitioners view it as humane (animals are treated respectfully, killed swiftly, and eaten, unlike industrial slaughter) and theologically necessary (feeding orisha maintains cosmic balance). Critics—animal rights activists, Christian fundamentalists, secular humanists—call it cruel, primitive, or Satanic. Media sensationalism (lurid stories of 'voodoo killings') perpetuates stigma. The 1993 Supreme Court case Church of Lukumi Babalu Aye v. City of Hialeah established legal protection, but social prejudice persists. Santeros navigate this by practicing discreetly, educating sympathetic outsiders, and asserting First Amendment rights. The debate is unlikely to be resolved, reflecting deep cultural divides over human-animal relations, religious freedom, and whose norms govern public space."
     ]
   },
-  keyTerms: {
-    title: "Key Terms and Concepts",
-    content: [
-      "**Santería**: Popular name for the Cuban Yoruba-derived religion; means 'way of the saints' but considered pejorative by some practitioners who prefer Regla de Ocha or Lucumí.",
-      "**Regla de Ocha**: 'Rule of Orisha,' the practitioners' preferred term emphasizing orisha worship over saint syncretism.",
-      "**Lucumí**: Ethnic label for Yoruba-descended Cubans; also the religion's name and the liturgical language (archaic Yoruba mixed with Spanish).",
-      "**Orisha (oricha)**: Divine spirits governing natural forces and human domains; central to Santería worship. Major orisha include Changó, Yemayá, Oshún, Obatalá, Elegguá, Oggún, Oyá, and others.",
-      "**Olodumare (Olorun, Olofi)**: Supreme creator deity, remote and rarely invoked directly; delegates interaction with creation to orisha.",
-      "**Aché (ashé)**: Spiritual power, life force, the capacity to make things happen; flows from Olodumare through orisha to humans and objects.",
-      "**Ilé (casa de santo)**: House-temple where rituals occur; the community of practitioners centered on a godparent.",
-      "**Padrino/Madrina**: Godfather/godmother, the initiated priest/priestess who initiates and guides godchildren (ahijados).",
-      "**Rama**: Lineage or branch, tracing initiation through generations back to founding priests like Adeshina or Oba Tero.",
-      "**Asiento (hacer santo, coronación)**: Initiation ceremony, 'seating' or 'crowning' an individual with their orisha; transforms aleyo into santero/santera.",
-      "**Iyawó**: Newly initiated priest/priestess in their first year post-asiento; must wear white and observe strict taboos.",
-      "**Aleyo**: Non-initiated participant; someone who attends ceremonies, receives divination, but has not undergone asiento.",
-      "**Dilogun**: Cowrie shell divination; sixteen shells cast to produce odu (signs) interpreted by the diviner.",
-      "**Odu**: Divination signs or figures; dilogun has sixteen odu, each with associated patakines and orisha.",
-      "**Patakín (patakine)**: Sacred narrative, myth, or story about the orisha; used in divination to interpret odu and prescribe ritual action.",
-      "**Ebo (ebó)**: Offering or sacrifice prescribed by divination to restore balance, feed orisha, or resolve spiritual problems.",
-      "**Sopera**: Porcelain tureen (often a soup tureen) housing an orisha's otanes and ritual objects; placed on altars.",
-      "**Otán (otanes)**: Sacred stones representing and embodying the orisha; believed to contain aché.",
-      "**Elegguá (Elewá, Eshu-Elegba)**: Trickster orisha who controls crossroads, communication, and fate; must be propitiated first in all ceremonies.",
-      "**Changó (Shangó)**: Orisha of thunder, kingship, drums, and male virility; syncretized with Santa Bárbara.",
-      "**Yemayá (Yemoja)**: Orisha of the ocean, motherhood, and nurturing; syncretized with Our Lady of Regla.",
-      "**Oshún (Osun)**: Orisha of rivers, love, fertility, beauty, and wealth; syncretized with Our Lady of Charity.",
-      "**Obatalá (Obatala)**: Orisha of purity, wisdom, creation, and mountains; syncretized with Our Lady of Mercy.",
-      "**Oyá (Oya)**: Orisha of wind, cemeteries, and transformation; governs female power and change.",
-      "**Oggún (Ogun)**: Orisha of iron, war, labor, and technology; patron of blacksmiths, surgeons, and warriors.",
-      "**Tambor (toque, bembé)**: Drumming ceremony honoring orisha; features batá drums, singing, dancing, and often possession trance.",
-      "**Batá**: Sacred hourglass-shaped double-headed drums (iyá, itótele, okónkolo) used in ceremonies; consecrated batá contain añá (drum spirit).",
-      "**Añá**: The spirit of the batá drum; consecrated drums are 'of añá' and restricted to male initiates of the Añá fraternity.",
-      "**Possession (montar, subir el santo)**: Trance state in which an orisha 'mounts' (possesses) a devotee, who becomes the orisha's 'horse' (caballo).",
-      "**Eggun (muertos)**: Ancestors, deceased spirits; honored at boveda altars and consulted through Spiritist practices.",
-      "**Boveda**: Spiritist ancestor altar with white cloth and glasses of water representing spirits; common in Cuban Santería.",
-      "**Botánica**: Shop selling ritual supplies (candles, herbs, statues, oils, amulets); serves Santería, Spiritist, and other Afro-Caribbean practitioners."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Santería",
+      definition: "Popular name for the Cuban Yoruba-derived religion; means 'way of the saints' but considered pejorative by some practitioners who prefer Regla de Ocha or Lucumí."
+    },
+    {
+      term: "Regla de Ocha",
+      definition: "'Rule of Orisha,' the practitioners' preferred term emphasizing orisha worship over saint syncretism."
+    },
+    {
+      term: "Lucumí",
+      definition: "Ethnic label for Yoruba-descended Cubans; also the religion's name and the liturgical language (archaic Yoruba mixed with Spanish)."
+    },
+    {
+      term: "Orisha (oricha)",
+      definition: "Divine spirits governing natural forces and human domains; central to Santería worship. Major orisha include Changó, Yemayá, Oshún, Obatalá, Elegguá, Oggún, Oyá, and others."
+    },
+    {
+      term: "Olodumare (Olorun, Olofi)",
+      definition: "Supreme creator deity, remote and rarely invoked directly; delegates interaction with creation to orisha."
+    },
+    {
+      term: "Aché (ashé)",
+      definition: "Spiritual power, life force, the capacity to make things happen; flows from Olodumare through orisha to humans and objects."
+    },
+    {
+      term: "Ilé (casa de santo)",
+      definition: "House-temple where rituals occur; the community of practitioners centered on a godparent."
+    },
+    {
+      term: "Padrino/Madrina",
+      definition: "Godfather/godmother, the initiated priest/priestess who initiates and guides godchildren (ahijados)."
+    },
+    {
+      term: "Rama",
+      definition: "Lineage or branch, tracing initiation through generations back to founding priests like Adeshina or Oba Tero."
+    },
+    {
+      term: "Asiento (hacer santo, coronación)",
+      definition: "Initiation ceremony, 'seating' or 'crowning' an individual with their orisha; transforms aleyo into santero/santera."
+    },
+    {
+      term: "Iyawó",
+      definition: "Newly initiated priest/priestess in their first year post-asiento; must wear white and observe strict taboos."
+    },
+    {
+      term: "Aleyo",
+      definition: "Non-initiated participant; someone who attends ceremonies, receives divination, but has not undergone asiento."
+    },
+    {
+      term: "Dilogun",
+      definition: "Cowrie shell divination; sixteen shells cast to produce odu (signs) interpreted by the diviner."
+    },
+    {
+      term: "Odu",
+      definition: "Divination signs or figures; dilogun has sixteen odu, each with associated patakines and orisha."
+    },
+    {
+      term: "Patakín (patakine)",
+      definition: "Sacred narrative, myth, or story about the orisha; used in divination to interpret odu and prescribe ritual action."
+    },
+    {
+      term: "Ebo (ebó)",
+      definition: "Offering or sacrifice prescribed by divination to restore balance, feed orisha, or resolve spiritual problems."
+    },
+    {
+      term: "Sopera",
+      definition: "Porcelain tureen (often a soup tureen) housing an orisha's otanes and ritual objects; placed on altars."
+    },
+    {
+      term: "Otán (otanes)",
+      definition: "Sacred stones representing and embodying the orisha; believed to contain aché."
+    },
+    {
+      term: "Elegguá (Elewá, Eshu-Elegba)",
+      definition: "Trickster orisha who controls crossroads, communication, and fate; must be propitiated first in all ceremonies."
+    },
+    {
+      term: "Changó (Shangó)",
+      definition: "Orisha of thunder, kingship, drums, and male virility; syncretized with Santa Bárbara."
+    },
+    {
+      term: "Yemayá (Yemoja)",
+      definition: "Orisha of the ocean, motherhood, and nurturing; syncretized with Our Lady of Regla."
+    },
+    {
+      term: "Oshún (Osun)",
+      definition: "Orisha of rivers, love, fertility, beauty, and wealth; syncretized with Our Lady of Charity."
+    },
+    {
+      term: "Obatalá (Obatala)",
+      definition: "Orisha of purity, wisdom, creation, and mountains; syncretized with Our Lady of Mercy."
+    },
+    {
+      term: "Oyá (Oya)",
+      definition: "Orisha of wind, cemeteries, and transformation; governs female power and change."
+    },
+    {
+      term: "Oggún (Ogun)",
+      definition: "Orisha of iron, war, labor, and technology; patron of blacksmiths, surgeons, and warriors."
+    },
+    {
+      term: "Tambor (toque, bembé)",
+      definition: "Drumming ceremony honoring orisha; features batá drums, singing, dancing, and often possession trance."
+    },
+    {
+      term: "Batá",
+      definition: "Sacred hourglass-shaped double-headed drums (iyá, itótele, okónkolo) used in ceremonies; consecrated batá contain añá (drum spirit)."
+    },
+    {
+      term: "Añá",
+      definition: "The spirit of the batá drum; consecrated drums are 'of añá' and restricted to male initiates of the Añá fraternity."
+    },
+    {
+      term: "Possession (montar, subir el santo)",
+      definition: "Trance state in which an orisha 'mounts' (possesses) a devotee, who becomes the orisha's 'horse' (caballo)."
+    },
+    {
+      term: "Eggun (muertos)",
+      definition: "Ancestors, deceased spirits; honored at boveda altars and consulted through Spiritist practices."
+    },
+    {
+      term: "Boveda",
+      definition: "Spiritist ancestor altar with white cloth and glasses of water representing spirits; common in Cuban Santería."
+    },
+    {
+      term: "Botánica",
+      definition: "Shop selling ritual supplies (candles, herbs, statues, oils, amulets); serves Santería, Spiritist, and other Afro-Caribbean practitioners."
+    }
+  ],
+
   sources: [
     {
       label: "David H. Brown, Santería Enthroned: Art, Ritual, and Innovation in an Afro-Cuban Religion (University of Chicago Press, 2003)",

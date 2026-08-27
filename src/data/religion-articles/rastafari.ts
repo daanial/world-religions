@@ -1,15 +1,13 @@
 import type { ReligionArticle } from "./types";
 
 export const rastafariArticle: ReligionArticle = {
-  overview: {
-    title: "Overview",
-    content: [
-      "Rastafari is an Afro-Caribbean religious and cultural movement that emerged in 1930s Jamaica, rooted in black consciousness, Pan-Africanism, biblical interpretation, and resistance to colonial oppression. The movement centers on the divinity of Emperor Haile Selassie I of Ethiopia (1892–1975, reigned 1930–1974), whom Rastafari believe to be the returned Messiah, the fulfillment of biblical prophecy, and the living embodiment of Jah (God). Rastafari rejects 'Babylon'—a comprehensive symbol for Western colonial society, white supremacy, political-economic exploitation, and spiritual corruption—and proclaims Africa, specifically Ethiopia, as Zion, the promised land and ancestral homeland to which the African diaspora must return, either physically through repatriation or spiritually through consciousness and identity. The movement developed among Jamaica's dispossessed urban poor and rural peasantry in the context of economic devastation, racial oppression, and the unfulfilled promises of post-emancipation (1838) and post-independence (1962) Jamaica.",
-      "Rastafari is not a centralized church with unified doctrine but a decentralized movement organized into 'houses' (small informal groups around individual leaders) and 'mansions' (larger quasi-denominational branches with distinct emphases). The three major mansions are: **Nyahbinghi** (or Nyabinghi, the oldest, emphasizing African repatriation, ritual drumming ceremonies, and militant resistance to Babylon); **Bobo Ashanti** (or Bobo Shanti, founded by Prince Emmanuel Charles Edwards, emphasizing strict adherence to Old Testament law, dreadlocks, turbans, and hierarchical priestly structure); and **Twelve Tribes of Israel** (founded by Vernon Carrington/'Prophet Gad,' more inclusive, allowing members to attend Christian churches, emphasizing monthly Bible reading cycles). Despite differences, Rastafari share core principles: the divinity of Haile Selassie; Africa/Ethiopia as spiritual homeland; repatriation as ultimate goal; rejection of Babylon; veneration of cannabis (ganja) as sacred herb for meditation and spiritual insight; livity (righteous living according to natural, Ital principles); and dreadlocks as covenant symbol and rejection of Babylonian aesthetic norms.",
-      "Historically, Rastafari faced severe repression: Jamaican authorities criminalized the movement in the 1930s–1960s, conducting police raids, arresting leaders, forcibly shaving dreadlocks, and portraying Rastafari as dangerous subversives. The 1963 Coral Gardens incident—a violent confrontation between Rastafari and police that resulted in deaths and mass arrests—epitomized state persecution. However, from the late 1960s onward, Rastafari gained cultural legitimacy through reggae music, especially Bob Marley's global success, which introduced Rastafari symbols, language ('dread talk'), and philosophy to international audiences. Reggae became the sonic vehicle for Rastafari's anti-Babylon message, spreading the movement far beyond Jamaica to the Caribbean, Africa, Europe, North America, and globally. Contemporary Rastafari is practiced by an estimated 700,000–1 million adherents worldwide, concentrated in Jamaica but with significant communities in other Caribbean islands, the United States, United Kingdom, Canada, and Africa (especially Ethiopia).",
-      "Rastafari occupies a complex religious-political space: it is simultaneously a religion (with theology, ritual, spiritual practices), a social movement (advocating black liberation, Pan-Africanism, anti-imperialism), and a cultural phenomenon (music, art, language, aesthetics). Scholars debate whether Rastafari is a new religious movement, a millenarian movement, a cultural resistance movement, or all three. Rastafari challenges conventional categorization, blending Afrocentric biblical interpretation, Ethiopian Orthodox Christianity influences, Garveyite Pan-Africanism, Jamaican folk religion, and countercultural critique of modernity. The movement has been both celebrated as prophetic voice for the oppressed and criticized for patriarchy, homophobia, and rigid gender norms. In 21st-century Jamaica and the diaspora, Rastafari continues to evolve, grappling with generational change, commercialization (Rastafari aesthetics marketed as lifestyle brand), tensions between orthodoxy and innovation, and the legacy of Haile Selassie's death (1975), which some Rastafari still reject as Babylon propaganda."
-    ]
-  },
+  overview: [
+    "Rastafari is an Afro-Caribbean religious and cultural movement that emerged in 1930s Jamaica, rooted in black consciousness, Pan-Africanism, biblical interpretation, and resistance to colonial oppression. The movement centers on the divinity of Emperor Haile Selassie I of Ethiopia (1892–1975, reigned 1930–1974), whom Rastafari believe to be the returned Messiah, the fulfillment of biblical prophecy, and the living embodiment of Jah (God). Rastafari rejects 'Babylon'—a comprehensive symbol for Western colonial society, white supremacy, political-economic exploitation, and spiritual corruption—and proclaims Africa, specifically Ethiopia, as Zion, the promised land and ancestral homeland to which the African diaspora must return, either physically through repatriation or spiritually through consciousness and identity. The movement developed among Jamaica's dispossessed urban poor and rural peasantry in the context of economic devastation, racial oppression, and the unfulfilled promises of post-emancipation (1838) and post-independence (1962) Jamaica.",
+    "Rastafari is not a centralized church with unified doctrine but a decentralized movement organized into 'houses' (small informal groups around individual leaders) and 'mansions' (larger quasi-denominational branches with distinct emphases). The three major mansions are: **Nyahbinghi** (or Nyabinghi, the oldest, emphasizing African repatriation, ritual drumming ceremonies, and militant resistance to Babylon); **Bobo Ashanti** (or Bobo Shanti, founded by Prince Emmanuel Charles Edwards, emphasizing strict adherence to Old Testament law, dreadlocks, turbans, and hierarchical priestly structure); and **Twelve Tribes of Israel** (founded by Vernon Carrington/'Prophet Gad,' more inclusive, allowing members to attend Christian churches, emphasizing monthly Bible reading cycles). Despite differences, Rastafari share core principles: the divinity of Haile Selassie; Africa/Ethiopia as spiritual homeland; repatriation as ultimate goal; rejection of Babylon; veneration of cannabis (ganja) as sacred herb for meditation and spiritual insight; livity (righteous living according to natural, Ital principles); and dreadlocks as covenant symbol and rejection of Babylonian aesthetic norms.",
+    "Historically, Rastafari faced severe repression: Jamaican authorities criminalized the movement in the 1930s–1960s, conducting police raids, arresting leaders, forcibly shaving dreadlocks, and portraying Rastafari as dangerous subversives. The 1963 Coral Gardens incident—a violent confrontation between Rastafari and police that resulted in deaths and mass arrests—epitomized state persecution. However, from the late 1960s onward, Rastafari gained cultural legitimacy through reggae music, especially Bob Marley's global success, which introduced Rastafari symbols, language ('dread talk'), and philosophy to international audiences. Reggae became the sonic vehicle for Rastafari's anti-Babylon message, spreading the movement far beyond Jamaica to the Caribbean, Africa, Europe, North America, and globally. Contemporary Rastafari is practiced by an estimated 700,000–1 million adherents worldwide, concentrated in Jamaica but with significant communities in other Caribbean islands, the United States, United Kingdom, Canada, and Africa (especially Ethiopia).",
+    "Rastafari occupies a complex religious-political space: it is simultaneously a religion (with theology, ritual, spiritual practices), a social movement (advocating black liberation, Pan-Africanism, anti-imperialism), and a cultural phenomenon (music, art, language, aesthetics). Scholars debate whether Rastafari is a new religious movement, a millenarian movement, a cultural resistance movement, or all three. Rastafari challenges conventional categorization, blending Afrocentric biblical interpretation, Ethiopian Orthodox Christianity influences, Garveyite Pan-Africanism, Jamaican folk religion, and countercultural critique of modernity. The movement has been both celebrated as prophetic voice for the oppressed and criticized for patriarchy, homophobia, and rigid gender norms. In 21st-century Jamaica and the diaspora, Rastafari continues to evolve, grappling with generational change, commercialization (Rastafari aesthetics marketed as lifestyle brand), tensions between orthodoxy and innovation, and the legacy of Haile Selassie's death (1975), which some Rastafari still reject as Babylon propaganda."
+  ],
+
   history: {
     title: "Historical Development",
     content: [
@@ -24,6 +22,7 @@ export const rastafariArticle: ReligionArticle = {
       "Contemporary Rastafari navigates tensions: commercialization (Rastafari aesthetics commodified in fashion, tourism, and 'Rasta lifestyle' branding) versus spiritual authenticity; orthodoxy (maintaining strict livity, dietary laws, gender norms) versus innovation (feminist Rastafari critiquing patriarchy, LGBTQ+ inclusion debates); repatriation ideal versus diaspora realities (most Rastafari remain in Jamaica or diaspora, not Ethiopia); and generational change (younger Rastafari negotiate between elders' teachings and modern contexts). Nonetheless, Rastafari persists as vibrant movement, adapting while maintaining core principles."
     ]
   },
+
   worldview: {
     title: "Worldview and Theology",
     content: [
@@ -36,6 +35,7 @@ export const rastafariArticle: ReligionArticle = {
       "Rastafari eschatology is this-worldly and realized rather than otherworldly. There is no focus on heaven after death; the goal is liberation and repatriation now, in this life, through consciousness transformation and social-political change. Some Rastafari hold that Haile Selassie will orchestrate final repatriation; others see repatriation as ongoing process. Death is not emphasized; some Rastafari believe the righteous don't die but 'pass over' or that true Rastafari achieve immortality through consciousness. The millennium is already here or imminent—signaled by Selassie's coronation—and Rastafari are living in the 'last days' when Babylon falls and Zion rises."
     ]
   },
+
   texts: {
     title: "Sacred Texts and Oral Traditions",
     content: [
@@ -46,6 +46,7 @@ export const rastafariArticle: ReligionArticle = {
       "Since the 1970s, Rastafari have produced written texts: theological treatises, autobiographies, histories, and cultural studies, often by Rastafari scholars or sympathetic academics. Key works include: Barry Chevannes' *Rastafari: Roots and Ideology* (1994), combining ethnography and history; Horace Campbell's *Rasta and Resistance* (1987), analyzing Rastafari as political movement; Ennis Edmonds' *Rastafari: From Outcasts to Culture Bearers* (2003), tracing social integration; and the anthology *Chanting Down Babylon: The Rastafari Reader* (1998), collecting scholarly and Rastafari voices. These academic texts now circulate within Rastafari communities alongside oral traditions, creating hybrid textual culture. Younger Rastafari access information through YouTube lectures, blogs, and social media, blending traditional reasoning with digital resources, though elders worry about loss of oral intimacy and Babylon-corrupted online content."
     ]
   },
+
   practice: {
     title: "Ritual Practices and Livity",
     content: [
@@ -58,6 +59,7 @@ export const rastafariArticle: ReligionArticle = {
       "**Repatriation efforts**, while not ritual per se, are central practice. Rastafari have petitioned Jamaican and Ethiopian governments for repatriation assistance, organized fundraising for travel, and established settlement in Shashamane, Ethiopia. Repatriation is both eschatological hope (ultimate goal of returning to Zion) and practical project (some Rastafari have emigrated to Ethiopia, Ghana, and other African nations). However, repatriation faces obstacles: cost (most Rastafari are economically marginalized), Ethiopian government reluctance to grant land titles or citizenship, and cultural adjustment challenges (Ethiopians often view Rastafari as foreign, eccentric, or heretical for deifying Selassie). Most Rastafari remain in diaspora, living spiritual repatriation through African consciousness, rejecting Babylon mentally, and preparing for eventual physical return."
     ]
   },
+
   diversity: {
     title: "Mansions, Houses, and Internal Diversity",
     content: [
@@ -70,6 +72,7 @@ export const rastafariArticle: ReligionArticle = {
       "Commercial **'lifestyle Rastafari'** or 'Rasta fashion' exists: people who adopt dreadlocks, wear red-gold-green, listen to reggae, and claim Rastafari identity without theological commitment, livity, or community participation. Authentic Rastafari critique this as appropriation, commodification, and 'Wolf in sheep clothing' (fake Rastas exploiting movement's cultural capital). Discerning authentic from 'fashion Rasta' is contested—some Rastafari emphasize outward signs (dreads, Ital diet, ganja use), others emphasize consciousness and livity, still others say only Jah knows one's heart. This reflects broader tension between Rastafari's decentralized, non-creedal character and desire for boundary maintenance against dilution."
     ]
   },
+
   communities: {
     title: "Contemporary Practice and Demographics",
     content: [
@@ -81,6 +84,7 @@ export const rastafariArticle: ReligionArticle = {
       "Contemporary Rastafari faces challenges: commercialization (Rastafari symbols commodified, divorced from spirituality), criminalization (ganja remains illegal in many contexts, though Jamaica decriminalized small amounts in 2015), generational change (youth attracted to Rastafari aesthetics but less committed to livity), and theological crisis (Haile Selassie's death, Ethiopian government ambivalence toward Rastafari). Nonetheless, Rastafari persists, adapting through reggae's continued global influence, digital media enabling transnational community, and ongoing relevance of anti-Babylon critique (Rastafari's analysis of oppression, racism, and exploitation resonates amid global inequality, police violence, and climate crisis). Rastafari's decentralization and non-dogmatic character allow flexibility, enabling diverse expressions while maintaining core identity."
     ]
   },
+
   places: {
     title: "Sacred Sites and Significant Locations",
     content: [
@@ -93,6 +97,7 @@ export const rastafariArticle: ReligionArticle = {
       "**Jamaica itself** is sacred as 'Babylonian captivity' site where Rastafari emerged, proving that even in oppression, Jah's truth survives. Rastafari honor Jamaica's resistance traditions—maroon wars, slave rebellions, Garveyism—as precursors to Rastafari consciousness. However, Jamaica is also Babylon—a colonial, corrupt, violent society Rastafari must escape through repatriation or transform through consciousness. This ambivalence (Jamaica as both sacred homeland and Babylon prison) pervades Rastafari thought."
     ]
   },
+
   debates: {
     title: "Contested Questions and Contemporary Challenges",
     content: [
@@ -105,43 +110,138 @@ export const rastafariArticle: ReligionArticle = {
       "**Ethiopian Ambivalence and African Relations**: Rastafari revere Ethiopia, but Ethiopians largely do not reciprocate. Ethiopian Orthodox Christianity views Haile Selassie's deification as blasphemy; Ethiopian government has not honored the Shashamane land grant; and Ethiopians sometimes mock or ostracize Rastafari. This is painful for Rastafari, who see themselves as Africa's spiritual vanguard. Similarly, other Africans often perceive Rastafari as foreign Jamaican oddity, not authentic African spirituality. This raises identity questions: are Rastafari African or Caribbean? Is Rastafari African spirituality or creolized hybrid? How should Rastafari relate to Africa when Africa doesn't claim them? No easy answers exist, and Rastafari navigate these tensions through faith, persistence, and redefining Africa as spiritual concept, not merely geographic-political entity."
     ]
   },
-  keyTerms: {
-    title: "Key Terms and Concepts",
-    content: [
-      "**Rastafari (Rastafarianism, Rasta)**: Afro-Caribbean religious-cultural movement centered on Haile Selassie's divinity, African redemption, and rejection of Babylon; emerged in 1930s Jamaica.",
-      "**Jah**: Rastafari name for God, derived from shortened form of Jehovah (Yahweh); used in Psalm 68:4.",
-      "**Haile Selassie I**: Emperor of Ethiopia (1930–1974), born Ras Tafari Makonnen (1892–1975); Rastafari believe him to be Jah incarnate, returned Christ, King of Kings, Lord of Lords.",
-      "**Babylon**: Comprehensive Rastafari symbol for Western colonial society, white supremacy, capitalism, political-economic oppression, false Christianity, materialistic culture—any system enslaving or corrupting humanity.",
-      "**Zion (Ethiopia, Africa)**: Promised land, ancestral homeland, spiritual liberation site; Babylon's opposite; goal of repatriation.",
-      "**Repatriation**: Physical and/or spiritual return to Africa/Ethiopia; Rastafari eschatological hope and practical goal.",
-      "**Marcus Garvey**: Jamaican Pan-Africanist leader (1887–1940), founder of UNIA; intellectual precursor to Rastafari, whose alleged prophecy about African king prefigured Selassie's coronation.",
-      "**Livity**: Righteous, natural living aligned with Jah's law; encompasses Ital diet, ganja use, dreadlocks, moral-spiritual discipline, and communal solidarity.",
-      "**Ital (I-tal)**: Natural, pure, organic food and lifestyle; Rastafari dietary practice emphasizing raw or minimally cooked vegetables, fruits, grains, no meat, no salt, no processed foods; from 'vital' pronounced with I-emphasis.",
-      "**Ganja (herb, cannabis, holy weed)**: Sacred plant used sacramentally for meditation, wisdom, spiritual insight; based on Genesis 1:29, Psalm 104:14, Revelation 22:2.",
-      "**Dreadlocks (dreads)**: Unshorn, matted hair worn as Nazarite covenant (Numbers 6:5), rejection of Babylon grooming, and symbol of 'dread' (awesome, fearsome) identity.",
-      "**I and I**: Distinctive Rastafari pronoun replacing 'I and you' or 'we,' signifying unity, equality, and shared divinity in Jah.",
-      "**Reasoning**: Communal discussion, debate, and meditation session, often facilitated by passing chalice (ganja pipe); primary Rastafari ritual and pedagogical practice.",
-      "**Chalice**: Water pipe (bong) for smoking cannabis sacramentally during reasoning.",
-      "**Nyahbinghi (Nyabinghi, Niyabinghi)**: Oldest Rastafari mansion, emphasizing African repatriation and militant resistance; also ceremonial drumming gatherings with chanting, dancing, and ganja smoking.",
-      "**Bobo Ashanti (Bobo Shanti, Bobo)**: Hierarchical Rastafari mansion founded by Prince Emmanuel Charles Edwards, emphasizing Old Testament law, turbans, robes, strict livity, and priestly structure; headquartered at Bull Bay, Jamaica.",
-      "**Twelve Tribes of Israel**: Inclusive Rastafari mansion founded by Vernon Carrington (Prophet Gad) in 1968, organizing members into twelve birth-month tribes, allowing members to attend Christian churches, and practicing less strict livity.",
-      "**House**: Small informal Rastafari group around a leader or family; unit below mansion level.",
-      "**Mansion**: Large, quasi-denominational Rastafari branch (Nyahbinghi, Bobo Ashanti, Twelve Tribes).",
-      "**Pinnacle**: Historic communal settlement founded by Leonard Howell in 1940 near Sligoville, Jamaica; organizational center of early Rastafari, destroyed by authorities in 1954.",
-      "**Leonard Percival Howell**: Jamaican preacher (1898–1981), widely considered 'first Rasta' for systematizing theology and founding Pinnacle.",
-      "**Shashamane**: Town in Ethiopia where Haile Selassie granted land to Ethiopian World Federation (1948/1955) for black diaspora repatriation; primary Rastafari settlement in Africa.",
-      "**Coral Gardens**: 1963 violent confrontation in Montego Bay, Jamaica, between Rastafari and police; resulted in mass arrests, detention, and intensified state repression of Rastafari.",
-      "**Reggae**: Jamaican music genre that became sonic vehicle for Rastafari philosophy, spreading movement globally; Bob Marley most famous reggae-Rastafari ambassador.",
-      "**Bob Marley**: Jamaican reggae musician (1945–1981), Twelve Tribes member; most famous Rastafari globally, whose music introduced millions to Rastafari consciousness.",
-      "**Overstand**: Rastafari term replacing 'understand,' emphasizing rising above (over-) rather than submitting under (under-) Babylon; reflects dread talk/Iyaric linguistic innovation.",
-      "**Dread talk (Iyaric)**: Rastafari creolized language, blending Jamaican patois, African-derived words, biblical language, and neologisms emphasizing 'I' (divinity) and positive meanings.",
-      "**Groundation**: Reasoning session combined with Ital cooking and communal eating; sacred meal fellowship.",
-      "**Empress/Queen**: Honorific for Rastafari woman, though often confined to domestic/supportive roles due to patriarchy.",
-      "**Bredren/Sistren**: Brother/sister; fellow Rastafari.",
-      "**Selah**: Biblical term (Psalm refrain) used by Rastafari to affirm truth or pause for meditation; roughly equivalent to 'Amen.'",
-      "**Red, gold (yellow), green**: Rastafari sacred colors, from Ethiopian flag; symbolize blood of martyrs (red), wealth of Africa/promised land (gold), vegetation/land of Africa (green)."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Rastafari (Rastafarianism, Rasta)",
+      definition: "Afro-Caribbean religious-cultural movement centered on Haile Selassie's divinity, African redemption, and rejection of Babylon; emerged in 1930s Jamaica."
+    },
+    {
+      term: "Jah",
+      definition: "Rastafari name for God, derived from shortened form of Jehovah (Yahweh); used in Psalm 68:4."
+    },
+    {
+      term: "Haile Selassie I",
+      definition: "Emperor of Ethiopia (1930–1974), born Ras Tafari Makonnen (1892–1975); Rastafari believe him to be Jah incarnate, returned Christ, King of Kings, Lord of Lords."
+    },
+    {
+      term: "Babylon",
+      definition: "Comprehensive Rastafari symbol for Western colonial society, white supremacy, capitalism, political-economic oppression, false Christianity, materialistic culture—any system enslaving or corrupting humanity."
+    },
+    {
+      term: "Zion (Ethiopia, Africa)",
+      definition: "Promised land, ancestral homeland, spiritual liberation site; Babylon's opposite; goal of repatriation."
+    },
+    {
+      term: "Repatriation",
+      definition: "Physical and/or spiritual return to Africa/Ethiopia; Rastafari eschatological hope and practical goal."
+    },
+    {
+      term: "Marcus Garvey",
+      definition: "Jamaican Pan-Africanist leader (1887–1940), founder of UNIA; intellectual precursor to Rastafari, whose alleged prophecy about African king prefigured Selassie's coronation."
+    },
+    {
+      term: "Livity",
+      definition: "Righteous, natural living aligned with Jah's law; encompasses Ital diet, ganja use, dreadlocks, moral-spiritual discipline, and communal solidarity."
+    },
+    {
+      term: "Ital (I-tal)",
+      definition: "Natural, pure, organic food and lifestyle; Rastafari dietary practice emphasizing raw or minimally cooked vegetables, fruits, grains, no meat, no salt, no processed foods; from 'vital' pronounced with I-emphasis."
+    },
+    {
+      term: "Ganja (herb, cannabis, holy weed)",
+      definition: "Sacred plant used sacramentally for meditation, wisdom, spiritual insight; based on Genesis 1:29, Psalm 104:14, Revelation 22:2."
+    },
+    {
+      term: "Dreadlocks (dreads)",
+      definition: "Unshorn, matted hair worn as Nazarite covenant (Numbers 6:5), rejection of Babylon grooming, and symbol of 'dread' (awesome, fearsome) identity."
+    },
+    {
+      term: "I and I",
+      definition: "Distinctive Rastafari pronoun replacing 'I and you' or 'we,' signifying unity, equality, and shared divinity in Jah."
+    },
+    {
+      term: "Reasoning",
+      definition: "Communal discussion, debate, and meditation session, often facilitated by passing chalice (ganja pipe); primary Rastafari ritual and pedagogical practice."
+    },
+    {
+      term: "Chalice",
+      definition: "Water pipe (bong) for smoking cannabis sacramentally during reasoning."
+    },
+    {
+      term: "Nyahbinghi (Nyabinghi, Niyabinghi)",
+      definition: "Oldest Rastafari mansion, emphasizing African repatriation and militant resistance; also ceremonial drumming gatherings with chanting, dancing, and ganja smoking."
+    },
+    {
+      term: "Bobo Ashanti (Bobo Shanti, Bobo)",
+      definition: "Hierarchical Rastafari mansion founded by Prince Emmanuel Charles Edwards, emphasizing Old Testament law, turbans, robes, strict livity, and priestly structure; headquartered at Bull Bay, Jamaica."
+    },
+    {
+      term: "Twelve Tribes of Israel",
+      definition: "Inclusive Rastafari mansion founded by Vernon Carrington (Prophet Gad) in 1968, organizing members into twelve birth-month tribes, allowing members to attend Christian churches, and practicing less strict livity."
+    },
+    {
+      term: "House",
+      definition: "Small informal Rastafari group around a leader or family; unit below mansion level."
+    },
+    {
+      term: "Mansion",
+      definition: "Large, quasi-denominational Rastafari branch (Nyahbinghi, Bobo Ashanti, Twelve Tribes)."
+    },
+    {
+      term: "Pinnacle",
+      definition: "Historic communal settlement founded by Leonard Howell in 1940 near Sligoville, Jamaica; organizational center of early Rastafari, destroyed by authorities in 1954."
+    },
+    {
+      term: "Leonard Percival Howell",
+      definition: "Jamaican preacher (1898–1981), widely considered 'first Rasta' for systematizing theology and founding Pinnacle."
+    },
+    {
+      term: "Shashamane",
+      definition: "Town in Ethiopia where Haile Selassie granted land to Ethiopian World Federation (1948/1955) for black diaspora repatriation; primary Rastafari settlement in Africa."
+    },
+    {
+      term: "Coral Gardens",
+      definition: "1963 violent confrontation in Montego Bay, Jamaica, between Rastafari and police; resulted in mass arrests, detention, and intensified state repression of Rastafari."
+    },
+    {
+      term: "Reggae",
+      definition: "Jamaican music genre that became sonic vehicle for Rastafari philosophy, spreading movement globally; Bob Marley most famous reggae-Rastafari ambassador."
+    },
+    {
+      term: "Bob Marley",
+      definition: "Jamaican reggae musician (1945–1981), Twelve Tribes member; most famous Rastafari globally, whose music introduced millions to Rastafari consciousness."
+    },
+    {
+      term: "Overstand",
+      definition: "Rastafari term replacing 'understand,' emphasizing rising above (over-) rather than submitting under (under-) Babylon; reflects dread talk/Iyaric linguistic innovation."
+    },
+    {
+      term: "Dread talk (Iyaric)",
+      definition: "Rastafari creolized language, blending Jamaican patois, African-derived words, biblical language, and neologisms emphasizing 'I' (divinity) and positive meanings."
+    },
+    {
+      term: "Groundation",
+      definition: "Reasoning session combined with Ital cooking and communal eating; sacred meal fellowship."
+    },
+    {
+      term: "Empress/Queen",
+      definition: "Honorific for Rastafari woman, though often confined to domestic/supportive roles due to patriarchy."
+    },
+    {
+      term: "Bredren/Sistren",
+      definition: "Brother/sister; fellow Rastafari."
+    },
+    {
+      term: "Selah",
+      definition: "Biblical term (Psalm refrain) used by Rastafari to affirm truth or pause for meditation; roughly equivalent to 'Amen.'"
+    },
+    {
+      term: "Red, gold (yellow), green",
+      definition: "Rastafari sacred colors, from Ethiopian flag; symbolize blood of martyrs (red), wealth of Africa/promised land (gold), vegetation/land of Africa (green)."
+    }
+  ],
+
   sources: [
     {
       label: "Barry Chevannes, Rastafari: Roots and Ideology (Syracuse University Press, 1994)",
