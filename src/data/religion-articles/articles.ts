@@ -34,6 +34,7 @@ import { egyptianArticle } from "./egyptian";
 import { canaaniteArticle } from "./canaanite";
 import { greekRomanArticle } from "./greek-roman";
 import { norseArticle } from "./norse";
+import { druidicArticle } from "./druidic";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -46,37 +47,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "christianity": christianityArticle,
   "confucianism": confucianismArticle,
   "dreamtime": dreamtimeArticle,
-  "druidic": {
-    overview: [
-      "Celtic druidism refers to the priestly and learned traditions of ancient Celtic societies in Gaul, Britain, and Ireland before and during early Christianization. Druids appear in Greco-Roman accounts-especially Julius Caesar's Gallic Wars-as judges, advisors, teachers, and ritual specialists who transmitted lore orally. They reportedly oversaw sacrifices, calendar rites, and legal disputes, exercising significant authority within tribal structures. No druidic texts survive from the pre-Roman period, leaving their beliefs and rituals largely indirect and open to scholarly debate.",
-      "Direct evidence from druids themselves is absent; reconstruction relies on external descriptions, later Irish and Welsh medieval texts (which may blend pre-Christian and Christian elements), and archaeology. Caesar claimed Celts believed in reincarnation and the soul's immortality, though such reports may reflect Roman interpretive frameworks. Seasonal festivals such as Samhain and Beltane, sacred groves, and veneration of natural landmarks are commonly associated with Celtic religious life, supported in part by later Irish tradition and archaeological sites such as ritual enclosures and votive deposits.",
-      "The druidic class was largely suppressed under Roman rule in Gaul and Britain and declined as Christianity spread across the former Celtic world. Irish and Welsh sagas later preserved figures such as the filid and bards, whose roles may echo druidic functions, though continuity is debated by historians. Modern neo-druid movements draw inspiration from ancient sources but are new religious constructions rather than survivals of ancient practice. Scholars therefore distinguish carefully between historically attested ancient Celtic religion and contemporary revivalist traditions, acknowledging substantial gaps in the evidence and limits of Roman eyewitness accounts."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The priestly traditions of the ancient Celts. Druids were judges, poets, and ritual specialists who transmitted cosmology orally. Sacred groves, seasonal fire-festivals (Samhain, Beltane), and a belief in reincarnation shaped Celtic life.\", sacredTexts: [ { name: \"(Oral tradition -"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Reincarnation: Soul passes to new body",
-      "Deity: Many regional gods and goddesses"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral tradition - recorded by Caesar & Irish monks): Celtic druids transmitted theology, law, and ritual through memorized verse over generations, forbidding written records of their deepest teachings. Roman writers like Julius Caesar and later Irish Christian monks preserved fragments of this oral corpus in Latin and Gaelic manuscripts. What survives describes a cosmos of many gods, sacred groves, and the soul's passage between lives."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Seasonal fire festivals, Oak & mistletoe rites, Oral bardic training."],
-    },
-    sources: [
-      { label: "Britannica - Druid", href: "https://www.britannica.com/topic/Druid" },
-      { label: "World History Encyclopedia - Druid", href: "https://www.worldhistory.org/Druid/" },
-      { label: "National Museum of Ireland - Celtic religion", href: "https://www.museum.ie/en-IE/Collections-Research/Research/Research-Guides/Celtic-Religion" },
-    ],
-  },
+  "druidic": druidicArticle,
   "druse": druseArticle,
   "egyptian": egyptianArticle,
   "gnosticism": {
