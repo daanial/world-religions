@@ -1,15 +1,13 @@
 import type { ReligionArticle } from "./types";
 
 export const inuitArticle: ReligionArticle = {
-  overview: {
-    title: "Overview",
-    content: [
-      "Inuit religion is the traditional spiritual system of the Inuit peoples, whose homeland spans the Arctic regions of Alaska (Iñupiat), Canada (Inuit of Nunavut, Nunavik, Nunatsiavut, and Inuvialuit), and Greenland (Kalaallit). Numbering approximately 180,000 people across these circumpolar regions, the Inuit have maintained cultural and spiritual traditions adapted to one of Earth's most challenging environments for at least three millennia. Inuit religion is fundamentally relational—centered on reciprocal relationships with animal persons, landscape beings, weather forces, and the pervasive spiritual essence called **sila** (cosmic breath, weather, intelligence, consciousness). The tradition is not organized around temples, sacred texts, or centralized institutions, but rather emerges from daily hunting practices, seasonal rhythms, oral narratives (unikkaaqtuq), community rituals, and the specialized knowledge of **angakkuit** (shamans, singular: angakkuq), who mediate between human and non-human worlds.",
-      "Central to Inuit cosmology is the understanding that animals, humans, and other beings possess **anirniq** (breath-soul, life force; also called **inua** or 'person-essence')—a shared animacy that makes all beings persons capable of thought, intentionality, and relationship. Seals, caribou, whales, polar bears, and other hunted animals are not mere resources but sentient persons who must be respected, thanked, and treated properly if they are to continue offering themselves to hunters. Hunting is therefore a moral and spiritual act requiring observance of **maligait** (customs, taboos, rules of conduct) to maintain right relationship with animal persons and ensure their willingness to return. Violations of taboos—failing to offer water to a seal's soul, mixing sea and land animal products, menstruating women touching hunting equipment—can offend animal spirits, cause illness, disrupt weather, or drive away game. The **Sea Woman** (known by many names: Takannaaluk, Nuliajuk, Sedna, Arnakuagsak, depending on region), a powerful female being who controls marine mammals, is a central figure—shamans journey to her underwater realm to comb her hair and petition for the release of seals when hunting fails or taboos have been broken.",
-      "Inuit religion has undergone profound transformations since sustained contact with Europeans, beginning with whalers and explorers in the 18th–19th centuries and intensifying with missionaries (primarily Anglican, Catholic, and Moravian) in the late 19th–early 20th centuries. By the mid-20th century, most Inuit had nominally converted to Christianity, and shamanic practices were suppressed, driven underground, or ceased. However, as anthropologists Frédéric Laugrand and Jarich Oosten have documented through extensive oral testimony from elders in Nunavut, the transition to Christianity was not a simple replacement but a complex negotiation—many Inuit integrated Christian beliefs with traditional cosmology, understanding Jesus as a powerful helping spirit, God as akin to Sila, and church rituals as analogous to shamanic ceremonies. Contemporary Inuit spiritual life is diverse: many practice Christianity (often with Pentecostal or evangelical influences), some have revitalized traditional practices, and most navigate between multiple frameworks while maintaining core values of respect for animals, elders, and land.",
-      "Inuit Qaujimajatuqangit (IQ)—'Inuit traditional knowledge' or more accurately 'Inuit ways of knowing and doing'—is a contemporary term encompassing traditional ecological knowledge, ethical principles, social practices, and spiritual understandings. IQ has been officially adopted by the Government of Nunavut (established 1999) as a guiding framework for policy, education, and resource management, representing an Indigenous governance approach that honors elder knowledge and traditional values. The **Interviewing Inuit Elders** series, published by Nunavut Arctic College and edited by Laugrand and Oosten, documents oral testimonies from elders across Nunavut on cosmology, shamanism, hunting, childrearing, law, and health, preserving knowledge threatened by the passing of the last generation who lived fully nomadic, pre-settlement lives. These publications, along with ongoing community-based transmission through land camps, language programs, and cultural centers, sustain Inuit spiritual and cultural continuity amid rapid social change, climate crisis, and ongoing colonial pressures."
-    ]
-  },
+  overview: [
+    "Inuit religion is the traditional spiritual system of the Inuit peoples, whose homeland spans the Arctic regions of Alaska (Iñupiat), Canada (Inuit of Nunavut, Nunavik, Nunatsiavut, and Inuvialuit), and Greenland (Kalaallit). Numbering approximately 180,000 people across these circumpolar regions, the Inuit have maintained cultural and spiritual traditions adapted to one of Earth's most challenging environments for at least three millennia. Inuit religion is fundamentally relational—centered on reciprocal relationships with animal persons, landscape beings, weather forces, and the pervasive spiritual essence called **sila** (cosmic breath, weather, intelligence, consciousness). The tradition is not organized around temples, sacred texts, or centralized institutions, but rather emerges from daily hunting practices, seasonal rhythms, oral narratives (unikkaaqtuq), community rituals, and the specialized knowledge of **angakkuit** (shamans, singular: angakkuq), who mediate between human and non-human worlds.",
+    "Central to Inuit cosmology is the understanding that animals, humans, and other beings possess **anirniq** (breath-soul, life force; also called **inua** or 'person-essence')—a shared animacy that makes all beings persons capable of thought, intentionality, and relationship. Seals, caribou, whales, polar bears, and other hunted animals are not mere resources but sentient persons who must be respected, thanked, and treated properly if they are to continue offering themselves to hunters. Hunting is therefore a moral and spiritual act requiring observance of **maligait** (customs, taboos, rules of conduct) to maintain right relationship with animal persons and ensure their willingness to return. Violations of taboos—failing to offer water to a seal's soul, mixing sea and land animal products, menstruating women touching hunting equipment—can offend animal spirits, cause illness, disrupt weather, or drive away game. The **Sea Woman** (known by many names: Takannaaluk, Nuliajuk, Sedna, Arnakuagsak, depending on region), a powerful female being who controls marine mammals, is a central figure—shamans journey to her underwater realm to comb her hair and petition for the release of seals when hunting fails or taboos have been broken.",
+    "Inuit religion has undergone profound transformations since sustained contact with Europeans, beginning with whalers and explorers in the 18th–19th centuries and intensifying with missionaries (primarily Anglican, Catholic, and Moravian) in the late 19th–early 20th centuries. By the mid-20th century, most Inuit had nominally converted to Christianity, and shamanic practices were suppressed, driven underground, or ceased. However, as anthropologists Frédéric Laugrand and Jarich Oosten have documented through extensive oral testimony from elders in Nunavut, the transition to Christianity was not a simple replacement but a complex negotiation—many Inuit integrated Christian beliefs with traditional cosmology, understanding Jesus as a powerful helping spirit, God as akin to Sila, and church rituals as analogous to shamanic ceremonies. Contemporary Inuit spiritual life is diverse: many practice Christianity (often with Pentecostal or evangelical influences), some have revitalized traditional practices, and most navigate between multiple frameworks while maintaining core values of respect for animals, elders, and land.",
+    "Inuit Qaujimajatuqangit (IQ)—'Inuit traditional knowledge' or more accurately 'Inuit ways of knowing and doing'—is a contemporary term encompassing traditional ecological knowledge, ethical principles, social practices, and spiritual understandings. IQ has been officially adopted by the Government of Nunavut (established 1999) as a guiding framework for policy, education, and resource management, representing an Indigenous governance approach that honors elder knowledge and traditional values. The **Interviewing Inuit Elders** series, published by Nunavut Arctic College and edited by Laugrand and Oosten, documents oral testimonies from elders across Nunavut on cosmology, shamanism, hunting, childrearing, law, and health, preserving knowledge threatened by the passing of the last generation who lived fully nomadic, pre-settlement lives. These publications, along with ongoing community-based transmission through land camps, language programs, and cultural centers, sustain Inuit spiritual and cultural continuity amid rapid social change, climate crisis, and ongoing colonial pressures."
+  ],
+
   history: {
     title: "Historical Development",
     content: [
@@ -21,6 +19,7 @@ export const inuitArticle: ReligionArticle = {
       "Contemporary Inuit spiritual life reflects this history: Christianity is widespread (especially Anglicanism in the Canadian Eastern Arctic, Catholicism in parts of Quebec and Greenland, Pentecostalism increasingly popular), but many Inuit describe their faith as syncretic, blending Christian theology with traditional respect for animals, land, and elder wisdom. Some communities have revitalized drum dancing, throat singing (katajjaq), and storytelling as cultural-spiritual practices. Shamanic practices are not widely practiced publicly—the last generation of practicing angakkuit largely passed away by the late 20th century—though some individuals claim shamanic abilities, and elders continue to share knowledge about shamanism in educational contexts. The relationship with Christianity is complex: some Inuit fully embrace Christianity and view traditional shamanism as dangerous or outdated; others critique Christianity as a tool of colonization and seek to reclaim traditional spirituality; many navigate between both, finding value in Christian community and ethics while honoring traditional relationships with land and animals."
     ]
   },
+
   worldview: {
     title: "Cosmology and Philosophy",
     content: [
@@ -33,6 +32,7 @@ export const inuitArticle: ReligionArticle = {
       "There is no concept of omnipotent creator deity in traditional Inuit cosmology—the world and its beings have always existed, undergoing transformations but not created ex nihilo. Origin stories explain how current conditions arose (why seals have the shape they do, why sun and moon move as they do, how death entered the world), but these are narratives of transformation, not creation from nothing. The integration of Christianity introduced creator theology, which some Inuit adopted fully, while others interpreted God as analogous to sila or as the most powerful tuurngaq."
     ]
   },
+
   texts: {
     title: "Oral Traditions and Contemporary Documentation",
     content: [
@@ -44,6 +44,7 @@ export const inuitArticle: ReligionArticle = {
       "Contemporary Inuit authors have also written novels, memoirs, and cultural studies incorporating traditional spiritual themes. **Mitiarjuk Nappaaluk**'s *Sanaaq* (originally written in Inuktitut syllabics in the 1950s, published 1984), the first Inuktitut novel, depicts mid-20th-century Inuit life navigating tradition and change, including references to shamanism and Christianity. Inuit filmmakers, artists, and musicians engage traditional narratives and spiritual themes—the film *Atanarjuat: The Fast Runner* (2001), directed by Zacharias Kunuk and produced by Inuit filmmakers, is based on an Igloolik legend involving shamanism, revenge, and transformation, and was created with elder consultation to ensure cultural accuracy. Such contemporary works demonstrate that Inuit oral traditions are not frozen in the past but actively reinterpreted and retold in new media."
     ]
   },
+
   practice: {
     title: "Ritual Practices and Daily Observances",
     content: [
@@ -56,6 +57,7 @@ export const inuitArticle: ReligionArticle = {
       "Contemporary practice varies widely. Most Inuit attend Christian churches (Anglican, Catholic, Pentecostal), where services are often conducted in Inuktitut and blend hymn-singing, Bible readings, and communal prayer with Inuit cultural values (sharing, respect for elders, connection to land). Some communities have revitalized drum dancing, throat singing, and storytelling as cultural-spiritual practices, though often framed as 'cultural heritage' rather than 'religion' to avoid conflict with Christian identity. Shamanic practices are largely not practiced publicly—elders share knowledge about angakkuit in educational contexts (workshops, books, films) but emphasize that true shamanic power is rare and dangerous, requiring proper training and calling. A few individuals claim shamanic abilities, though this is controversial and not widely recognized."
     ]
   },
+
   diversity: {
     title: "Regional and Contemporary Diversity",
     content: [
@@ -67,6 +69,7 @@ export const inuitArticle: ReligionArticle = {
       "Contemporary cultural revitalization includes **land-based education programs** (taking youth on the land to learn hunting, camping, and traditional skills from elders), **Inuktitut language immersion**, **cultural festivals** (Nunavut Arts Festival, Alianait Festival, Greenlandic National Day), and **artistic production** (Inuit sculpture, printmaking, throat singing performances, films) that engage traditional spiritual themes. These efforts are framed as 'cultural' rather than 'religious' to avoid conflict with Christian identity, though elders emphasize that culture and spirituality are inseparable—hunting is spiritual, language carries cosmology, and stories teach ethical relationships with land and animals. Climate change poses existential threats—melting sea ice disrupts hunting, wildlife patterns shift, and traditional ecological knowledge becomes less reliable, raising spiritual and practical crises about maintaining relationships with land and animals in a rapidly transforming Arctic."
     ]
   },
+
   communities: {
     title: "Contemporary Practice and Demographics",
     content: [
@@ -78,6 +81,7 @@ export const inuitArticle: ReligionArticle = {
       "Contemporary Inuit navigate multiple identity frameworks—Christian faith, traditional cultural values, modern Canadian/Greenlandic/Alaskan citizenship, global Indigenous solidarity, and transnational Inuit identity (through the Inuit Circumpolar Council). Most would not describe themselves as practicing 'Inuit traditional religion' as a distinct, organized faith, but many maintain traditional values (respect for elders, sharing, connection to land, ethical hunting) and participate in cultural practices (drum dancing, throat singing, storytelling, land camps) that have spiritual dimensions. The question of whether these practices are 'religious' or 'cultural' is itself contested—elders often emphasize that Inuit cosmology is inseparable from daily life, so hunting, sewing, storytelling, and land-based living *are* spiritual practices, not secular culture. Christianity is also Inuit for many—it has been practiced for generations, is expressed in Inuktitut, and shapes Inuit moral frameworks and community life, even as some Inuit critique its colonial origins and seek to decolonize their spirituality."
     ]
   },
+
   places: {
     title: "Sacred Geography and Significant Locations",
     content: [
@@ -91,6 +95,7 @@ export const inuitArticle: ReligionArticle = {
       "Contemporary Inuit continue to experience the land as spiritually alive—hunters speak of sensing when animals will appear, feeling the presence of ancestors in certain places, or interpreting landscape features and weather as communication from sila. However, climate change is transforming Arctic geography—melting permafrost, disappearing sea ice, shifting wildlife patterns, coastal erosion—disrupting traditional relationships with place and raising spiritual-practical questions about how to maintain traditional knowledge and respect in a rapidly changing environment."
     ]
   },
+
   debates: {
     title: "Contemporary Challenges and Debates",
     content: [
@@ -103,34 +108,102 @@ export const inuitArticle: ReligionArticle = {
       "**Mental Health and Suicide Crisis**: Inuit communities face epidemic rates of suicide, especially among youth. Root causes include colonial trauma (residential schools, forced relocation, cultural suppression), poverty, substance abuse, overcrowding, and disconnection from land and traditional ways of living. Addressing this crisis requires both Western mental health services and culturally grounded healing—reconnecting youth to elders, land, language, and traditional knowledge. Some argue that revitalizing Inuit spirituality (whether Christian, traditional, or both) can provide meaning, identity, and resilience, while others emphasize that spiritual approaches alone are insufficient without addressing structural poverty, housing, and access to services."
     ]
   },
-  keyTerms: {
-    title: "Key Terms and Concepts",
-    content: [
-      "**Inuit**: 'The people'; collective term for Indigenous peoples of the Arctic (Alaska, Canada, Greenland).",
-      "**Sila**: Weather, breath, air, consciousness, cosmic intelligence; the pervasive force animating life and governing cosmos.",
-      "**Anirniq (anirniit, plural)**: Breath-soul, life force possessed by all beings; survives death and may reincarnate.",
-      "**Inua (inuat, plural)**: Person-essence, inner personhood; similar to anirniq, emphasizing the sentience and agency of beings.",
-      "**Angakkuq (angakkuit, plural)**: Shaman; religious specialist who mediates between human and non-human worlds, heals, divines, and journeys in trance.",
-      "**Tuurngaq (tuurngait, plural)**: Spirit, non-human being; includes helping spirits, ghosts, monsters, and ambiguous entities.",
-      "**Sea Woman**: Powerful female being controlling marine mammals; known by many names (Takannaaluk, Nuliajuk, Sedna, Arnakuagsak) depending on region.",
-      "**Maligait**: Customs, taboos, rules of conduct; observing maligait maintains right relationship with animals and spirits.",
-      "**Piquhiq**: Pollution, contamination caused by taboo violations; offends animals and spirits, requires confession and purification.",
-      "**Unikkaaqtuaq (unikkaaqtuat, plural)**: Stories, oral narratives; include myths, legends, and personal accounts.",
-      "**Pisiq (pisit, plural)**: Songs; spiritually potent, often received in dreams or visions.",
-      "**Qilaut**: Frame drum used in drum dancing; spiritual instrument connecting to ancestors and spirits.",
-      "**Katajjaq**: Throat singing; women's rhythmic vocal practice with playful and spiritual dimensions.",
-      "**Qaumaniq**: Enlightenment, spiritual sight; shamanic ability to see spirits and hidden causes.",
-      "**Inuit Qaujimajatuqangit (IQ)**: 'Inuit traditional knowledge' or 'Inuit ways of knowing'; contemporary term for traditional knowledge, values, and practices.",
-      "**Nuna**: Land, earth; the human world.",
-      "**Inuksuk (inuksuit, plural)**: Stone cairn, often in human-like form; marks trails, fishing spots, and memorials.",
-      "**Igloolik (Iglulik)**: Community in Nunavut, Canada; ethnographically important site for Rasmussen's research and ongoing cultural preservation.",
-      "**Iqaluit**: Capital of Nunavut; contemporary center for cultural documentation and Inuit governance.",
-      "**Nunavut**: Canadian territory with Inuit majority and self-government (established 1999).",
-      "**Kalaallit**: Greenlandic Inuit.",
-      "**Iñupiat**: Alaska Inuit.",
-      "**Fifth Thule Expedition**: Knud Rasmussen's ethnographic expedition (1921–1924) documenting Inuit cultures across Arctic Canada and Alaska."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Inuit",
+      definition: "'The people'; collective term for Indigenous peoples of the Arctic (Alaska, Canada, Greenland)."
+    },
+    {
+      term: "Sila",
+      definition: "Weather, breath, air, consciousness, cosmic intelligence; the pervasive force animating life and governing cosmos."
+    },
+    {
+      term: "Anirniq (anirniit, plural)",
+      definition: "Breath-soul, life force possessed by all beings; survives death and may reincarnate."
+    },
+    {
+      term: "Inua (inuat, plural)",
+      definition: "Person-essence, inner personhood; similar to anirniq, emphasizing the sentience and agency of beings."
+    },
+    {
+      term: "Angakkuq (angakkuit, plural)",
+      definition: "Shaman; religious specialist who mediates between human and non-human worlds, heals, divines, and journeys in trance."
+    },
+    {
+      term: "Tuurngaq (tuurngait, plural)",
+      definition: "Spirit, non-human being; includes helping spirits, ghosts, monsters, and ambiguous entities."
+    },
+    {
+      term: "Sea Woman",
+      definition: "Powerful female being controlling marine mammals; known by many names (Takannaaluk, Nuliajuk, Sedna, Arnakuagsak) depending on region."
+    },
+    {
+      term: "Maligait",
+      definition: "Customs, taboos, rules of conduct; observing maligait maintains right relationship with animals and spirits."
+    },
+    {
+      term: "Piquhiq",
+      definition: "Pollution, contamination caused by taboo violations; offends animals and spirits, requires confession and purification."
+    },
+    {
+      term: "Unikkaaqtuaq (unikkaaqtuat, plural)",
+      definition: "Stories, oral narratives; include myths, legends, and personal accounts."
+    },
+    {
+      term: "Pisiq (pisit, plural)",
+      definition: "Songs; spiritually potent, often received in dreams or visions."
+    },
+    {
+      term: "Qilaut",
+      definition: "Frame drum used in drum dancing; spiritual instrument connecting to ancestors and spirits."
+    },
+    {
+      term: "Katajjaq",
+      definition: "Throat singing; women's rhythmic vocal practice with playful and spiritual dimensions."
+    },
+    {
+      term: "Qaumaniq",
+      definition: "Enlightenment, spiritual sight; shamanic ability to see spirits and hidden causes."
+    },
+    {
+      term: "Inuit Qaujimajatuqangit (IQ)",
+      definition: "'Inuit traditional knowledge' or 'Inuit ways of knowing'; contemporary term for traditional knowledge, values, and practices."
+    },
+    {
+      term: "Nuna",
+      definition: "Land, earth; the human world."
+    },
+    {
+      term: "Inuksuk (inuksuit, plural)",
+      definition: "Stone cairn, often in human-like form; marks trails, fishing spots, and memorials."
+    },
+    {
+      term: "Igloolik (Iglulik)",
+      definition: "Community in Nunavut, Canada; ethnographically important site for Rasmussen's research and ongoing cultural preservation."
+    },
+    {
+      term: "Iqaluit",
+      definition: "Capital of Nunavut; contemporary center for cultural documentation and Inuit governance."
+    },
+    {
+      term: "Nunavut",
+      definition: "Canadian territory with Inuit majority and self-government (established 1999)."
+    },
+    {
+      term: "Kalaallit",
+      definition: "Greenlandic Inuit."
+    },
+    {
+      term: "Iñupiat",
+      definition: "Alaska Inuit."
+    },
+    {
+      term: "Fifth Thule Expedition",
+      definition: "Knud Rasmussen's ethnographic expedition (1921–1924) documenting Inuit cultures across Arctic Canada and Alaska."
+    }
+  ],
+
   sources: [
     {
       label: "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos, Report of the Fifth Thule Expedition (1929)",

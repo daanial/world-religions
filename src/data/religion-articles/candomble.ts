@@ -1,15 +1,13 @@
 import type { ReligionArticle } from "./types";
 
 export const candombleArticle: ReligionArticle = {
-  overview: {
-    title: "Overview",
-    content: [
-      "Candomblé is an Afro-Brazilian religion that crystallized in nineteenth-century Bahia, emerging from the forced encounter of enslaved West and Central Africans—primarily Yoruba, Fon, and Bantu peoples—with Brazilian slave society, Portuguese Catholicism, and indigenous influences. Unlike a singular, unified tradition, Candomblé comprises multiple nações (nations), ritual lineages identified with African ethnic origins: Ketu (Yoruba/Nagô), Jeje (Fon/Ewe from Dahomey), Angola and Congo (Bantu), and smaller groupings. Each nação preserves distinct liturgical languages, drum rhythms, deity pantheons (orixás in Ketu, voduns in Jeje, inkices in Angola), and ritual protocols, though they share common structural elements—spirit possession, animal sacrifice, initiation hierarchies, and the cultivation of axé (vital spiritual force).",
-      "At the heart of Candomblé practice is the terreiro (also called ilê, roça, or casa de santo)—a sacred compound, typically a residential property in urban or peri-urban Bahia, containing shrines, ritual rooms, sacred trees, and communal spaces. Each terreiro is led by a mãe-de-santo (mother-of-saint, also iyalorixá in Ketu terminology) or pai-de-santo (father-of-saint, babalorixá), initiated priests who oversee rituals, train godchildren (filhos and filhas-de-santo), and maintain relationships with the deities. Terreiros function as autonomous religious units without centralized hierarchy or scripture; knowledge is transmitted through initiation, apprenticeship, and embodied practice. Authority derives from seniority, initiatory lineage, demonstrated spiritual power, and community recognition.",
-      "Candomblé developed in conditions of extreme oppression—slavery, colonial racism, Catholic hegemony, and post-abolition marginalization. Enslaved Africans created Candomblé as what historian Rachel Harding calls 'alternative spaces of Blackness,' zones of relative autonomy where they cultivated African-derived identities, healed bodies and spirits, and resisted cultural erasure. Throughout the colonial, imperial (1822–1889), and early republican periods (1889–1930s), Candomblé was persecuted by police, criminalized as 'witchcraft' (feitiçaria), and subjected to raids, arrests, and destruction of ritual objects. Only in the mid-20th century did Brazilian state attitudes shift toward tolerance and, eventually, official recognition as part of national cultural heritage.",
-      "Today, Candomblé is practiced primarily in Bahia (especially Salvador and the Recôncavo region), with significant communities in Rio de Janeiro, São Paulo, and other Brazilian states. Since the 1980s, it has also spread internationally to Portugal, Argentina, Uruguay, and other countries through Brazilian migration and global spiritual networks. Contemporary Candomblé exists in tension between preservation of African heritage and Brazilian creolization, between local autonomy and transnational 're-Africanization' movements seeking to align with Nigerian Yoruba practices, and between religious secrecy and public visibility as UNESCO-recognized cultural patrimony. The religion attracts both Afro-descendants maintaining ancestral connections and white/mixed-race Brazilians drawn to its earth-centered spirituality, ritual aesthetics, and communal belonging."
-    ]
-  },
+  overview: [
+    "Candomblé is an Afro-Brazilian religion that crystallized in nineteenth-century Bahia, emerging from the forced encounter of enslaved West and Central Africans—primarily Yoruba, Fon, and Bantu peoples—with Brazilian slave society, Portuguese Catholicism, and indigenous influences. Unlike a singular, unified tradition, Candomblé comprises multiple nações (nations), ritual lineages identified with African ethnic origins: Ketu (Yoruba/Nagô), Jeje (Fon/Ewe from Dahomey), Angola and Congo (Bantu), and smaller groupings. Each nação preserves distinct liturgical languages, drum rhythms, deity pantheons (orixás in Ketu, voduns in Jeje, inkices in Angola), and ritual protocols, though they share common structural elements—spirit possession, animal sacrifice, initiation hierarchies, and the cultivation of axé (vital spiritual force).",
+    "At the heart of Candomblé practice is the terreiro (also called ilê, roça, or casa de santo)—a sacred compound, typically a residential property in urban or peri-urban Bahia, containing shrines, ritual rooms, sacred trees, and communal spaces. Each terreiro is led by a mãe-de-santo (mother-of-saint, also iyalorixá in Ketu terminology) or pai-de-santo (father-of-saint, babalorixá), initiated priests who oversee rituals, train godchildren (filhos and filhas-de-santo), and maintain relationships with the deities. Terreiros function as autonomous religious units without centralized hierarchy or scripture; knowledge is transmitted through initiation, apprenticeship, and embodied practice. Authority derives from seniority, initiatory lineage, demonstrated spiritual power, and community recognition.",
+    "Candomblé developed in conditions of extreme oppression—slavery, colonial racism, Catholic hegemony, and post-abolition marginalization. Enslaved Africans created Candomblé as what historian Rachel Harding calls 'alternative spaces of Blackness,' zones of relative autonomy where they cultivated African-derived identities, healed bodies and spirits, and resisted cultural erasure. Throughout the colonial, imperial (1822–1889), and early republican periods (1889–1930s), Candomblé was persecuted by police, criminalized as 'witchcraft' (feitiçaria), and subjected to raids, arrests, and destruction of ritual objects. Only in the mid-20th century did Brazilian state attitudes shift toward tolerance and, eventually, official recognition as part of national cultural heritage.",
+    "Today, Candomblé is practiced primarily in Bahia (especially Salvador and the Recôncavo region), with significant communities in Rio de Janeiro, São Paulo, and other Brazilian states. Since the 1980s, it has also spread internationally to Portugal, Argentina, Uruguay, and other countries through Brazilian migration and global spiritual networks. Contemporary Candomblé exists in tension between preservation of African heritage and Brazilian creolization, between local autonomy and transnational 're-Africanization' movements seeking to align with Nigerian Yoruba practices, and between religious secrecy and public visibility as UNESCO-recognized cultural patrimony. The religion attracts both Afro-descendants maintaining ancestral connections and white/mixed-race Brazilians drawn to its earth-centered spirituality, ritual aesthetics, and communal belonging."
+  ],
+
   history: {
     title: "Historical Development",
     content: [
@@ -23,6 +21,7 @@ export const candombleArticle: ReligionArticle = {
       "In 1986, the Ilê Axé Iyá Nassô Oká (Casa Branca) became the first terreiro designated as national patrimony by IPHAN (Brazil's heritage agency), recognizing Afro-Brazilian religion as cultural heritage. Other terreiros have since received heritage status. In 2003, a federal law (Law 10.639) mandated teaching African and Afro-Brazilian history and culture in schools, indirectly benefiting Candomblé's visibility. However, Candomblé continues to face challenges: evangelical Christian hostility (neo-Pentecostal churches often demonize Candomblé as 'devil worship'), gentrification threatening urban terreiros, and internal debates over commercialization, gender roles, and the boundaries between tradition and innovation."
     ]
   },
+
   worldview: {
     title: "Worldview and Philosophy",
     content: [
@@ -34,6 +33,7 @@ export const candombleArticle: ReligionArticle = {
       "Death in Candomblé is a transition, not an ending. The deceased become eguns (ancestors), joining the ranks of spirits who continue to influence the living. Elaborate funerary rites (axexê) ensure the spirit's peaceful separation from the body and community, preventing it from 'walking' (causing disturbances). Ancestors are honored at shrines and consulted for guidance, though ancestor veneration is more central in Angola-Congo traditions than in Ketu. Initiates believe their orixá accompanies them through life and, at death, returns to the divine realm (orun or aiê in Ketu terminology) while the egun remains as ancestral presence. Reincarnation (reencarnação) is acknowledged—souls may return to the same family lineage—though the focus is on this life and cultivating axé here and now."
     ]
   },
+
   texts: {
     title: "Sacred Texts and Oral Literature",
     content: [
@@ -45,6 +45,7 @@ export const candombleArticle: ReligionArticle = {
       "Since the mid-20th century, anthropologists have documented Candomblé, publishing aspects of theology, ritual, and social organization. Roger Bastide, Pierre Verger, Juana Elbein dos Santos, and others have created substantial written archives, sparking debates within the community: some practitioners welcome scholarly documentation as preservation and legitimation; others view it as profanation of secrets meant only for initiates. The internet has accelerated this tension—YouTube videos of ceremonies, online forums, digital libraries—disrupting traditional gatekeeping but also making Candomblé accessible to diaspora practitioners, researchers, and spiritual seekers globally. Younger initiates navigate between respect for secrecy and pragmatic need for resources, especially as Candomblé spreads beyond Bahia to contexts where traditional oral transmission networks are weaker."
     ]
   },
+
   practice: {
     title: "Practices and Rituals",
     content: [
@@ -57,6 +58,7 @@ export const candombleArticle: ReligionArticle = {
       "Daily maintenance of axé includes feeding the orixás' shrines with water, palm oil (azeite de dendê), honey, and other offerings; lighting candles; reciting prayers; and maintaining ritual purity (avoiding pollution from menstruation, death, or spiritual contamination). Many initiated Candomblé practitioners also maintain home altars with their orixá's colors, symbols, and small assentamentos, conducting private devotions. Integration with Catholic practice varies: some practitioners attend Mass and Candomblé ceremonies without conflict, viewing Catholic and African elements as complementary; others reject Catholicism entirely, seeing syncretism as colonial imposition to be discarded in favor of African authenticity."
     ]
   },
+
   diversity: {
     title: "Internal Diversity: Nações and Regional Variations",
     content: [
@@ -68,6 +70,7 @@ export const candombleArticle: ReligionArticle = {
       "Since the 1980s, transnational dynamics have reshaped Candomblé. 'Re-Africanization' movements emerged, seeking to 'purify' practice by eliminating Catholic syncretism, learning Yoruba language, and establishing ties with Nigerian Yoruba religion. Some Bahian priests travel to Nigeria for initiation or consultation, and Nigerian babaláwo have visited Brazil to perform rituals. This generates tension: some practitioners embrace re-Africanization as cultural recovery; others view it as elitist imposition of foreign norms onto Brazilian tradition. Simultaneously, Cuban Santería priests have brought Ifá divination and other innovations to Brazil, creating hybrid Candomblé-Santería practices. Scholars like J. Lorand Matory and Stefania Capone document these 'Black Atlantic' circulations, arguing that Candomblé has always been transnational and that 'tradition' is continuously negotiated, not fixed."
     ]
   },
+
   communities: {
     title: "Global Communities and Contemporary Practice",
     content: [
@@ -79,6 +82,7 @@ export const candombleArticle: ReligionArticle = {
       "Contemporary Candomblé demographics are shifting. Urbanization, economic pressure, and evangelical Christian expansion (neo-Pentecostal churches actively proselytize against Candomblé, sometimes violently attacking terreiros or practitioners) threaten the religion's social base. Youth disengagement is a concern—initiatory training is long, expensive, and demanding, competing with secular education, employment, and modern lifestyles. However, countervailing trends include: university courses on Afro-Brazilian religions (Law 10.639/2003 mandates African history in schools, indirectly benefiting Candomblé); cultural tourism promoting Candomblé as Bahian heritage; and transnational networks linking Candomblé with global Black Atlantic spirituality. The religion's decentralization, adaptability, and lack of dogma have historically enabled resilience; whether these same qualities suffice in 21st-century contexts remains an open question."
     ]
   },
+
   places: {
     title: "Sacred Sites and Terreiros",
     content: [
@@ -92,6 +96,7 @@ export const candombleArticle: ReligionArticle = {
       "**Dique do Tororó** (Salvador), an artificial lake surrounded by orixá statues erected in 1998, is a controversial site. The eight towering statues—Exu, Ogum, Oxóssi, Xangô, Oxum, Iansã, Iemanjá, Oxalá—were commissioned by the city government as tourist attractions and symbols of Bahian identity. Some Candomblé leaders celebrated the public recognition; others criticized the statues as folkloric commodification, lacking spiritual consecration and reducing orixás to tourist spectacles. The site nonetheless attracts devotees who leave offerings and pray, and has become an unofficial pilgrimage site for visitors seeking connection with Candomblé."
     ]
   },
+
   debates: {
     title: "Debates and Contested Questions",
     content: [
@@ -104,47 +109,154 @@ export const candombleArticle: ReligionArticle = {
       "**Tradition vs. Innovation**: How much can Candomblé change while remaining 'Candomblé'? Innovations—adopting Ifá divination from Nigeria/Cuba, translating liturgy into Portuguese, allowing non-initiated attendance at previously secret rituals, using social media for religious education—spark debate. Conservatives argue that innovation betrays ancestors, violates oaths of secrecy, and dilutes axé. Progressives counter that Candomblé has always adapted (it emerged through slavery's transformations) and that rigid tradition stifles growth, alienates youth, and prevents Candomblé from thriving in changed contexts. Elders worry that young initiates prioritize convenience over discipline, while youth critique elders as authoritarian gatekeepers. This tension between preservation and adaptation is existential—too much conservatism risks irrelevance; too much innovation risks incoherence."
     ]
   },
-  keyTerms: {
-    title: "Key Terms and Concepts",
-    content: [
-      "**Candomblé**: Afro-Brazilian religion centered on worship of orixás (or voduns/inkices), spirit possession, and cultivation of axé; emerged in 19th-century Bahia from West/Central African traditions.",
-      "**Axé (ashé)**: Vital spiritual force, divine energy, power to make things happen; flows from Olodumare through deities to humans; accumulated through ritual.",
-      "**Orixá (orixa)**: Deity in Ketu-Nagô Candomblé; spiritual force governing natural domains and human experiences (e.g., Iemanjá/ocean, Xangô/thunder).",
-      "**Vodun**: Deity in Jeje Candomblé; equivalent to orixá but from Fon-Ewe cosmology.",
-      "**Inkice (nkisi)**: Deity in Angola-Congo Candomblé; equivalent to orixá but from Bantu cosmology.",
-      "**Olodumare (Olorun, Olofin)**: Supreme creator deity, distant and impersonal; source of all axé.",
-      "**Terreiro (ilê, roça, casa de santo)**: Sacred compound where Candomblé is practiced; includes shrines, ritual rooms, communal spaces.",
-      "**Mãe-de-santo (iyalorixá)**: Mother-of-saint, female initiated priest who leads a terreiro.",
-      "**Pai-de-santo (babalorixá)**: Father-of-saint, male initiated priest who leads a terreiro.",
-      "**Filho/Filha-de-santo**: Son/daughter-of-saint; initiated devotee of an orixá, godchild of a mãe or pai-de-santo.",
-      "**Nação (nation)**: Ritual lineage identified with African ethnic origin (Ketu/Yoruba, Jeje/Fon, Angola/Bantu); distinct liturgical languages, deities, drum rhythms.",
-      "**Ketu (Nagô)**: Yoruba-derived nação; most numerically dominant and academically documented; worships orixás, uses Yoruba liturgical language.",
-      "**Jeje**: Fon-Ewe-derived nação; worships voduns, uses Fon-derived language; associated with Dahomey.",
-      "**Angola (Congo)**: Bantu-derived nação; worships inkices, uses Kikongo/Kimbundu language; associated with West-Central Africa.",
-      "**Feitura de santo (making the saint)**: Initiation ceremony transforming an abian into an iaô; involves seclusion, head-shaving, sacrifices, possession.",
-      "**Iaô (iyawó)**: Newly initiated priest/priestess in first 7 years post-initiation; must observe strict taboos.",
-      "**Ebomi**: Senior initiate after completing 7-year obrigação; eligible to initiate others.",
-      "**Abian**: Candidate for initiation; non-initiated participant in terreiro activities.",
-      "**Jogo de búzios**: Cowrie shell divination; sixteen shells cast to generate patterns (odus) interpreted by priest.",
-      "**Odu**: Divination sign or pattern; associated with specific orixás, itans, and prescriptions.",
-      "**Itan**: Mythological narrative about orixás; functions as sacred literature, moral instruction, divination key.",
-      "**Ebó**: Offering or sacrifice prescribed by divination to restore axé, feed orixás, resolve problems.",
-      "**Matança (sacrifício)**: Animal sacrifice; feeding orixás by offering blood to their sacred stones (otás).",
-      "**Otá (pedra de santo)**: Sacred stone representing and embodying an orixá; housed in shrines, fed with offerings.",
-      "**Transe (possessão, santo feito)**: Spirit possession; state where orixá 'mounts' devotee who loses ordinary consciousness and embodies the deity.",
-      "**Atabaque**: Ritual drum; set of three (rum, rumpi, lé) used in Ketu ceremonies to invoke orixás.",
-      "**Cantiga**: Sacred song in African liturgical language; sung to invoke and praise orixás during ceremonies.",
-      "**Festa pública (toque, xirê)**: Public ceremony honoring orixás; features drumming, singing, dancing, possession, feasting.",
-      "**Exu (Eshu)**: Orixá of crossroads, communication, and cosmic order; must be propitiated first in all rituals; often misidentified with Christian devil.",
-      "**Iemanjá (Yemoja)**: Orixá of the ocean, motherhood, and nurturing; one of the most popular deities in Brazilian Candomblé.",
-      "**Xangô (Shango)**: Orixá of thunder, fire, justice, and kingship; associated with Saint Jerome in Catholic syncretism.",
-      "**Oxum (Oshun)**: Orixá of rivers, love, fertility, beauty, and wealth; associated with Our Lady of Charity.",
-      "**Oxalá (Obatala)**: Orixá of creation, purity, peace, and wisdom; eldest deity; associated with Jesus Christ in Catholic syncretism.",
-      "**Ogum (Ogun)**: Orixá of iron, war, technology, and labor; patron of blacksmiths, warriors, and workers.",
-      "**Iansã (Oyá)**: Orixá of wind, storms, cemeteries, and transformation; governs female power and change; associated with Saint Barbara.",
-      "**Axexê**: Funerary ritual for deceased initiates; ensures spirit's peaceful transition and prevents disturbances."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Candomblé",
+      definition: "Afro-Brazilian religion centered on worship of orixás (or voduns/inkices), spirit possession, and cultivation of axé; emerged in 19th-century Bahia from West/Central African traditions."
+    },
+    {
+      term: "Axé (ashé)",
+      definition: "Vital spiritual force, divine energy, power to make things happen; flows from Olodumare through deities to humans; accumulated through ritual."
+    },
+    {
+      term: "Orixá (orixa)",
+      definition: "Deity in Ketu-Nagô Candomblé; spiritual force governing natural domains and human experiences (e.g., Iemanjá/ocean, Xangô/thunder)."
+    },
+    {
+      term: "Vodun",
+      definition: "Deity in Jeje Candomblé; equivalent to orixá but from Fon-Ewe cosmology."
+    },
+    {
+      term: "Inkice (nkisi)",
+      definition: "Deity in Angola-Congo Candomblé; equivalent to orixá but from Bantu cosmology."
+    },
+    {
+      term: "Olodumare (Olorun, Olofin)",
+      definition: "Supreme creator deity, distant and impersonal; source of all axé."
+    },
+    {
+      term: "Terreiro (ilê, roça, casa de santo)",
+      definition: "Sacred compound where Candomblé is practiced; includes shrines, ritual rooms, communal spaces."
+    },
+    {
+      term: "Mãe-de-santo (iyalorixá)",
+      definition: "Mother-of-saint, female initiated priest who leads a terreiro."
+    },
+    {
+      term: "Pai-de-santo (babalorixá)",
+      definition: "Father-of-saint, male initiated priest who leads a terreiro."
+    },
+    {
+      term: "Filho/Filha-de-santo",
+      definition: "Son/daughter-of-saint; initiated devotee of an orixá, godchild of a mãe or pai-de-santo."
+    },
+    {
+      term: "Nação (nation)",
+      definition: "Ritual lineage identified with African ethnic origin (Ketu/Yoruba, Jeje/Fon, Angola/Bantu); distinct liturgical languages, deities, drum rhythms."
+    },
+    {
+      term: "Ketu (Nagô)",
+      definition: "Yoruba-derived nação; most numerically dominant and academically documented; worships orixás, uses Yoruba liturgical language."
+    },
+    {
+      term: "Jeje",
+      definition: "Fon-Ewe-derived nação; worships voduns, uses Fon-derived language; associated with Dahomey."
+    },
+    {
+      term: "Angola (Congo)",
+      definition: "Bantu-derived nação; worships inkices, uses Kikongo/Kimbundu language; associated with West-Central Africa."
+    },
+    {
+      term: "Feitura de santo (making the saint)",
+      definition: "Initiation ceremony transforming an abian into an iaô; involves seclusion, head-shaving, sacrifices, possession."
+    },
+    {
+      term: "Iaô (iyawó)",
+      definition: "Newly initiated priest/priestess in first 7 years post-initiation; must observe strict taboos."
+    },
+    {
+      term: "Ebomi",
+      definition: "Senior initiate after completing 7-year obrigação; eligible to initiate others."
+    },
+    {
+      term: "Abian",
+      definition: "Candidate for initiation; non-initiated participant in terreiro activities."
+    },
+    {
+      term: "Jogo de búzios",
+      definition: "Cowrie shell divination; sixteen shells cast to generate patterns (odus) interpreted by priest."
+    },
+    {
+      term: "Odu",
+      definition: "Divination sign or pattern; associated with specific orixás, itans, and prescriptions."
+    },
+    {
+      term: "Itan",
+      definition: "Mythological narrative about orixás; functions as sacred literature, moral instruction, divination key."
+    },
+    {
+      term: "Ebó",
+      definition: "Offering or sacrifice prescribed by divination to restore axé, feed orixás, resolve problems."
+    },
+    {
+      term: "Matança (sacrifício)",
+      definition: "Animal sacrifice; feeding orixás by offering blood to their sacred stones (otás)."
+    },
+    {
+      term: "Otá (pedra de santo)",
+      definition: "Sacred stone representing and embodying an orixá; housed in shrines, fed with offerings."
+    },
+    {
+      term: "Transe (possessão, santo feito)",
+      definition: "Spirit possession; state where orixá 'mounts' devotee who loses ordinary consciousness and embodies the deity."
+    },
+    {
+      term: "Atabaque",
+      definition: "Ritual drum; set of three (rum, rumpi, lé) used in Ketu ceremonies to invoke orixás."
+    },
+    {
+      term: "Cantiga",
+      definition: "Sacred song in African liturgical language; sung to invoke and praise orixás during ceremonies."
+    },
+    {
+      term: "Festa pública (toque, xirê)",
+      definition: "Public ceremony honoring orixás; features drumming, singing, dancing, possession, feasting."
+    },
+    {
+      term: "Exu (Eshu)",
+      definition: "Orixá of crossroads, communication, and cosmic order; must be propitiated first in all rituals; often misidentified with Christian devil."
+    },
+    {
+      term: "Iemanjá (Yemoja)",
+      definition: "Orixá of the ocean, motherhood, and nurturing; one of the most popular deities in Brazilian Candomblé."
+    },
+    {
+      term: "Xangô (Shango)",
+      definition: "Orixá of thunder, fire, justice, and kingship; associated with Saint Jerome in Catholic syncretism."
+    },
+    {
+      term: "Oxum (Oshun)",
+      definition: "Orixá of rivers, love, fertility, beauty, and wealth; associated with Our Lady of Charity."
+    },
+    {
+      term: "Oxalá (Obatala)",
+      definition: "Orixá of creation, purity, peace, and wisdom; eldest deity; associated with Jesus Christ in Catholic syncretism."
+    },
+    {
+      term: "Ogum (Ogun)",
+      definition: "Orixá of iron, war, technology, and labor; patron of blacksmiths, warriors, and workers."
+    },
+    {
+      term: "Iansã (Oyá)",
+      definition: "Orixá of wind, storms, cemeteries, and transformation; governs female power and change; associated with Saint Barbara."
+    },
+    {
+      term: "Axexê",
+      definition: "Funerary ritual for deceased initiates; ensures spirit's peaceful transition and prevents disturbances."
+    }
+  ],
+
   sources: [
     {
       label: "Roger Bastide, The African Religions of Brazil (Johns Hopkins University Press, 1978/2007)",

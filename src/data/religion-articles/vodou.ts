@@ -1,15 +1,13 @@
 import type { ReligionArticle } from "./types";
 
 export const vodouArticle: ReligionArticle = {
-  overview: {
-    title: "Overview",
-    content: [
-      "Haitian Vodou is an Afro-Caribbean religion that crystallized during the eighteenth and early nineteenth centuries in the French colony of Saint-Domingue (modern Haiti), forged in the crucible of plantation slavery from West and Central African spiritual traditions—primarily Fon, Yoruba, and Kongo—blended with French Catholicism, indigenous Taíno influences, and the specificities of Haitian revolutionary and post-independence experience. Vodou is not a survival of a single African religion but a creolized synthesis, created through generations of enslaved Africans negotiating spiritual continuity under conditions of extreme violence, cultural rupture, and forced conversion. The religion centers on relationships with lwa (also spelled loa)—spirits who serve as intermediaries between humans and Bondye (Bon Dieu, the Good God, cognate with the Christian deity but remote and accessible only through the lwa), governing natural forces, ancestral lineages, personal destinies, and moral-spiritual order.",
-      "Vodou practice unfolds primarily in peristyles (also called ounfò or kay mistè)—sacred enclosures, typically open-sided roofed structures with central posts (poto mitan) around which drumming, dancing, singing, and spirit possession occur. Each peristyle is led by an oungan (male priest) or manbo (female priest), initiated leaders who divine, heal, conduct ceremonies, and mediate between humans and lwa. The religion organizes lwa into nanchons (nations)—ritual families identified with African ethnic-geographic origins: Rada (Dahomean/Fon-derived, cool, benevolent), Petwo (Haitian-created, hot, powerful, associated with the revolution), Nago (Yoruba-derived), Kongo (Central African), and others. Each nanchon has distinct drum rhythms, songs, ritual protocols, and lwa personalities. Possession trance (monte, mounted, or kriz, crisis) is Vodou's central ritual technology: during ceremonies, lwa 'mount' devotees like riders on horses, the human personality temporarily displaced while the lwa speaks, dances, gives counsel, and interacts with the community.",
-      "Throughout Haiti's history—from slavery through independence (1804) to the present—Vodou has faced relentless persecution: colonial authorities criminalized African gatherings, post-independence Haitian governments banned 'superstitious practices' to appear civilized to racist international powers, the Catholic Church conducted anti-superstition campaigns (1896, 1913–18, 1939–42) destroying ritual objects and forcing renunciations, and the U.S. military occupation (1915–34) reinforced repression while sensationalizing 'voodoo' in American popular culture. Legal prohibition persisted until 1987, when Haiti's post-Duvalier constitution finally recognized religious freedom. Despite centuries of marginalization, Vodou remained the majority religion of Haiti's rural peasantry and urban poor, providing healing, justice, community organization, moral-spiritual frameworks, and cultural identity. In contemporary Haiti, Vodou coexists uneasily with Catholicism and rapidly expanding evangelical Protestantism, which often demonizes Vodou as devil worship.",
-      "Today, Vodou is practiced across Haiti—in rural lakous (ancestral compound communities), urban peristyles, and diaspora temples in North America (especially New York, Miami, Montreal) and Europe. Estimates of practitioners vary widely due to dual religious belonging (many Haitians identify as both Catholic and Vodouisant) and stigma that discourages open identification; scholars estimate 50–80% of Haiti's population (approximately 5–8 million people) engage with Vodou to varying degrees, from full initiation to occasional consultations. Vodou functions simultaneously as religion, healing system, judicial mechanism (resolving disputes through spiritual authority), artistic tradition (feeding Haiti's music, visual arts, and carnival), and site of cultural resistance. International recognition has grown: UNESCO designated specific Vodou practices as Intangible Cultural Heritage, and Haitian governments since the 1990s have cautiously embraced Vodou as national patrimony, though stigma, evangelical hostility, and elite anti-Vodou prejudice persist."
-    ]
-  },
+  overview: [
+    "Haitian Vodou is an Afro-Caribbean religion that crystallized during the eighteenth and early nineteenth centuries in the French colony of Saint-Domingue (modern Haiti), forged in the crucible of plantation slavery from West and Central African spiritual traditions—primarily Fon, Yoruba, and Kongo—blended with French Catholicism, indigenous Taíno influences, and the specificities of Haitian revolutionary and post-independence experience. Vodou is not a survival of a single African religion but a creolized synthesis, created through generations of enslaved Africans negotiating spiritual continuity under conditions of extreme violence, cultural rupture, and forced conversion. The religion centers on relationships with lwa (also spelled loa)—spirits who serve as intermediaries between humans and Bondye (Bon Dieu, the Good God, cognate with the Christian deity but remote and accessible only through the lwa), governing natural forces, ancestral lineages, personal destinies, and moral-spiritual order.",
+    "Vodou practice unfolds primarily in peristyles (also called ounfò or kay mistè)—sacred enclosures, typically open-sided roofed structures with central posts (poto mitan) around which drumming, dancing, singing, and spirit possession occur. Each peristyle is led by an oungan (male priest) or manbo (female priest), initiated leaders who divine, heal, conduct ceremonies, and mediate between humans and lwa. The religion organizes lwa into nanchons (nations)—ritual families identified with African ethnic-geographic origins: Rada (Dahomean/Fon-derived, cool, benevolent), Petwo (Haitian-created, hot, powerful, associated with the revolution), Nago (Yoruba-derived), Kongo (Central African), and others. Each nanchon has distinct drum rhythms, songs, ritual protocols, and lwa personalities. Possession trance (monte, mounted, or kriz, crisis) is Vodou's central ritual technology: during ceremonies, lwa 'mount' devotees like riders on horses, the human personality temporarily displaced while the lwa speaks, dances, gives counsel, and interacts with the community.",
+    "Throughout Haiti's history—from slavery through independence (1804) to the present—Vodou has faced relentless persecution: colonial authorities criminalized African gatherings, post-independence Haitian governments banned 'superstitious practices' to appear civilized to racist international powers, the Catholic Church conducted anti-superstition campaigns (1896, 1913–18, 1939–42) destroying ritual objects and forcing renunciations, and the U.S. military occupation (1915–34) reinforced repression while sensationalizing 'voodoo' in American popular culture. Legal prohibition persisted until 1987, when Haiti's post-Duvalier constitution finally recognized religious freedom. Despite centuries of marginalization, Vodou remained the majority religion of Haiti's rural peasantry and urban poor, providing healing, justice, community organization, moral-spiritual frameworks, and cultural identity. In contemporary Haiti, Vodou coexists uneasily with Catholicism and rapidly expanding evangelical Protestantism, which often demonizes Vodou as devil worship.",
+    "Today, Vodou is practiced across Haiti—in rural lakous (ancestral compound communities), urban peristyles, and diaspora temples in North America (especially New York, Miami, Montreal) and Europe. Estimates of practitioners vary widely due to dual religious belonging (many Haitians identify as both Catholic and Vodouisant) and stigma that discourages open identification; scholars estimate 50–80% of Haiti's population (approximately 5–8 million people) engage with Vodou to varying degrees, from full initiation to occasional consultations. Vodou functions simultaneously as religion, healing system, judicial mechanism (resolving disputes through spiritual authority), artistic tradition (feeding Haiti's music, visual arts, and carnival), and site of cultural resistance. International recognition has grown: UNESCO designated specific Vodou practices as Intangible Cultural Heritage, and Haitian governments since the 1990s have cautiously embraced Vodou as national patrimony, though stigma, evangelical hostility, and elite anti-Vodou prejudice persist."
+  ],
+
   history: {
     title: "Historical Development",
     content: [
@@ -23,6 +21,7 @@ export const vodouArticle: ReligionArticle = {
       "Contemporary Vodou faces new pressures: evangelical Protestant expansion (Pentecostal and Charismatic churches have grown rapidly since the 1970s, now constituting approximately 25–30% of Haiti's population) brings aggressive anti-Vodou proselytization and occasional mob violence against peristyles. The 2010 earthquake, which killed an estimated 220,000–300,000 people, sparked evangelical claims that Haiti's 'pact with the devil' (referencing Bois Caïman) caused divine punishment, intensifying stigma. Economic migration, urbanization, and generational change threaten transmission: younger Haitians often lack access to rural ounfò training, and initiatory costs are prohibitive. Nonetheless, Vodou persists through adaptability: urban peristyles, diaspora temples in New York and Miami, hybrid practices blending Vodou with other spiritual traditions, and increasing academic and artistic engagement."
     ]
   },
+
   worldview: {
     title: "Worldview and Cosmology",
     content: [
@@ -35,6 +34,7 @@ export const vodouArticle: ReligionArticle = {
       "The self in Vodou is composite: gwo bonanj (big guardian angel, life force, seat of consciousness), ti bonanj (little guardian angel, soul), and kò kadav (corporal body). At death, the gwo bonanj departs, the ti bonanj lingers, and the body decays. Funerary rites (dènyèsman, last rites; and the more elaborate sèvis pou mò, service for the dead) ensure the ti bonanj's peaceful transition to Ginen (Guinea, mythic Africa, ancestral realm) where it joins the lwa and ancestors. A ritual called retire mo nan dlo (remove the dead from the water) conducted one year and one day post-death retrieves the deceased's spiritual essence, placing it in a govi (clay jar) on the family altar, making the ancestor accessible for consultation and veneration. Vodou's afterlife is not reward-punishment but ancestral continuity; the dead remain involved in the living's affairs, providing guidance, demanding service, and maintaining lineage cohesion."
     ]
   },
+
   texts: {
     title: "Oral Traditions and Ritual Knowledge",
     content: [
@@ -46,6 +46,7 @@ export const vodouArticle: ReligionArticle = {
       "Since the mid-20th century, anthropologists and Vodou scholars—including Alfred Métraux (*Voodoo in Haiti*, 1959), Karen McCarthy Brown (*Mama Lola*, 1991), Leslie Desmangles (*The Faces of the Gods*, 1992), and others—have documented Vodou, creating substantial written archives. This has sparked debates within the community: some practitioners welcome documentation as preservation, legitimation, and defense against misrepresentation; others view it as profanation of secrets meant only for initiates. The tension intensifies in the digital age—YouTube videos of ceremonies, social media posts, online forums—disrupting traditional gatekeeping while making Vodou accessible to diaspora practitioners, scholars, and spiritual seekers. Younger initiates navigate between honoring secrecy and pragmatic need for resources, especially in diaspora where lineage-based transmission is harder to maintain."
     ]
   },
+
   practice: {
     title: "Ritual Practices and Ceremonies",
     content: [
@@ -58,6 +59,7 @@ export const vodouArticle: ReligionArticle = {
       "Daily Vodou practice for non-initiated practitioners (who constitute the majority) includes: household altars with images of Catholic saints, candles, water, and offerings to deceased ancestors and lwa; prayers and invocations; occasional consultations with oungan/manbo for divination, healing, or problem-solving; participation in community ceremonies; and observance of taboos (respecting lwa associated with one's family, avoiding days of the week or colors prohibited by one's lwa). Even Haitians who identify primarily as Catholic often 'serve the lwa' privately or participate in Vodou rites during crises, reflecting what scholars call 'religious simultaneity' rather than strict category boundaries."
     ]
   },
+
   diversity: {
     title: "Regional and Diasporic Variations",
     content: [
@@ -70,6 +72,7 @@ export const vodouArticle: ReligionArticle = {
       "Within Haiti, Vodou increasingly overlaps with **Protestantism**, creating hybrid identities: some Haitians identify as 'Christian Vodouisants,' attending church on Sundays and peristyles for healing or protection, seeing no contradiction. Evangelical churches, however, demand complete renunciation of Vodou (reje, rejection), and converts sometimes destroy family altars, refuse ancestral veneration, and condemn Vodou as demonic. This Protestant-Vodou conflict, intensifying since the 1970s, has become violent at times: evangelical mobs have attacked peristyles, burned ounfòs, and killed oungans accused of sorcery. The tension reflects broader struggles over Haitian identity, class (Protestantism is upwardly mobile; Vodou is associated with poverty), and globalization (evangelical Christianity connects Haiti to international networks; Vodou is seen as backward)."
     ]
   },
+
   communities: {
     title: "Contemporary Practice and Demographics",
     content: [
@@ -81,6 +84,7 @@ export const vodouArticle: ReligionArticle = {
       "Non-Haitian engagement with Vodou is growing and controversial. Since the 1990s, 'New Orleans Voodoo' (a commercialized, tourist-oriented version loosely inspired by Louisiana Voudou, which itself derives from Haitian Vodou via 18th–19th-century migration) has popularized Vodou aesthetics—gris-gris bags, 'voodoo dolls,' Marie Laveau mythology—bearing little resemblance to Haitian practice. Some non-Haitians seek initiation in Haitian Vodou, raising debates about cultural appropriation, racial dynamics (mostly white seekers initiated by Black Haitian priests), and whether Vodou is ethnically specific or universally accessible. Haitian practitioners hold diverse views: some welcome non-Haitian initiates as affirming Vodou's universality and generating income; others view it as spiritual colonialism. The tension mirrors broader debates about race, authenticity, and commodification in Afro-diasporic religions."
     ]
   },
+
   places: {
     title: "Sacred Sites and Pilgrimage Centers",
     content: [
@@ -93,6 +97,7 @@ export const vodouArticle: ReligionArticle = {
       "**Lakous** (ancestral compound communities) throughout rural Haiti function as sacred geography, though less famous than pilgrimage sites. Each lakou centers on a founding family's peristyle, housing ancestral altars, ritual spaces, and pwen (spiritual forces) that protect and empower the community. Major lakous include Badjo and Soukri (near Gonaïves, alongside Souvenance), known for preserving Rada and Nago traditions. Lakous are threatened by urbanization, land degradation, and economic pressures forcing younger generations to migrate, yet they remain vital to rural Vodou practice and cultural transmission."
     ]
   },
+
   debates: {
     title: "Contested Questions and Contemporary Challenges",
     content: [
@@ -105,43 +110,138 @@ export const vodouArticle: ReligionArticle = {
       "**Generational Transmission and Survival**: Vodou faces existential threats: urbanization disrupts rural lakou transmission; economic migration separates youth from elders who hold knowledge; initiatory costs are prohibitive (kanzo can cost thousands of U.S. dollars, unaffordable for most Haitians); stigma drives younger generations toward Christianity or secular identities; and digital modernity offers alternative worldviews. Elders lament that young Haitians lack Kreyòl fluency, disrespect elders, and prioritize material success over spiritual relationships. However, countervailing trends exist: diaspora peristyles maintain practice abroad; academic study legitimates Vodou; UNESCO recognition as cultural heritage provides institutional support; and artists, musicians, and intellectuals celebrate Vodou as Haitian cultural identity. Whether these suffice to ensure Vodou's survival into the 22nd century remains uncertain."
     ]
   },
-  keyTerms: {
-    title: "Key Terms and Concepts",
-    content: [
-      "**Vodou (Vaudou, Voodoo, Vodun)**: Afro-Caribbean religion of Haiti, creolized synthesis of West/Central African traditions and Catholicism, centered on relationships with lwa.",
-      "**Lwa (loa)**: Spirits who serve as intermediaries between humans and Bondye; govern natural forces, human experiences, ancestral lineages, and moral-spiritual order.",
-      "**Bondye (Bon Dieu, Good God)**: Supreme creator deity, remote and impersonal; not worshipped directly but accessed through lwa.",
-      "**Nanchon (nation)**: Ritual family of lwa identified with African ethnic-geographic origins (Rada, Petwo, Nago, Kongo, etc.); each has distinct drum rhythms, songs, and ritual protocols.",
-      "**Rada**: Nanchon derived from Dahomey (Fon-Ewe peoples); characterized as 'cool,' ancient, benevolent; associated with water, agriculture, ancestral wisdom.",
-      "**Petwo (Petro)**: Haitian-created nanchon; characterized as 'hot,' aggressive, fast-moving; associated with fire, transformation, justice, and the revolution.",
-      "**Ginen (Guinea)**: Mythic Africa, ancestral realm where the dead reside and from which lwa originate; spiritual homeland.",
-      "**Peristyle (ounfò, kay mistè)**: Sacred enclosure where Vodou ceremonies occur; typically open-sided roofed structure with poto mitan (central post).",
-      "**Oungan**: Male Vodou priest; initiated leader who divines, heals, conducts ceremonies, mediates between humans and lwa.",
-      "**Manbo**: Female Vodou priest; initiated leader with same authority as oungan.",
-      "**Ounsi**: Initiated devotee; servant of the lwa who participates in ceremonies and may become possessed.",
-      "**Kanzo**: Initiation process transforming lay participant into ounsi or elevating ounsi to oungan/manbo; involves seclusion, ordeals, revelation of secret knowledge.",
-      "**Possession trance (kriz lwa, monte, chwal)**: Altered state where lwa 'mounts' a devotee like a rider on a horse, displacing ordinary consciousness; the lwa speaks, dances, and interacts through the possessed body.",
-      "**Sèvis lwa (service for the lwa)**: Ritual practice of serving lwa through offerings, ceremonies, and obedience; maintaining reciprocal relationships.",
-      "**Vèvè**: Ritual ground drawings made with cornmeal, ash, or flour, depicting lwa symbols and inviting their presence during ceremonies.",
-      "**Poto mitan**: Central post in a peristyle; cosmological axis connecting earth to sky, around which drumming, dancing, and possession occur.",
-      "**Ason**: Sacred rattle made from a calabash gourd with beads and snake vertebrae; symbol of priestly authority, used to invoke lwa.",
-      "**Pwen (point)**: Spiritual force or power; also charm/amulet containing herbs, stones, and spiritual essence for protection or empowerment.",
-      "**Manje lwa (feeding the lwa)**: Offerings of specific foods, drinks, and items each lwa prefers; central to maintaining lwa relationships.",
-      "**Travay (work)**: Ritual work prescribed by oungan/manbo—offerings, baths, ceremonies—to address spiritual problems; also magic for harm.",
-      "**Bòkò**: Sorcerer who practices maji (harmful magic) for pay; term is pejorative, condemned by mainstream Vodou.",
-      "**Lakou**: Ancestral compound community in rural Haiti; extended family living together, maintaining peristyle and ancestral altars.",
-      "**Danbala Wedo**: Primordial Rada serpent lwa; governs creation, purity, wisdom; depicted as white snake, associated with water.",
-      "**Ayida Wedo**: Danbala's wife, rainbow lwa; governs continuity, cosmic balance.",
-      "**Legba (Papa Legba)**: Rada lwa, guardian of crossroads and gateways; elder opener of spiritual pathways; must be invoked first in ceremonies; associated with Saint Peter.",
-      "**Ogou (Ogoun)**: Nago lwa of war, iron, fire, and political power; patron of warriors, politicians, and blacksmiths; associated with Saint James the Greater.",
-      "**Èzili Freda**: Rada lwa of love, beauty, luxury, and femininity; associated with Our Lady of Sorrows or Our Lady of Mount Carmel.",
-      "**Èzili Dantò**: Fierce Petwo lwa of motherhood, protection, and vengeance; associated with Black Madonna of Częstochowa.",
-      "**Baron Samdi (Baron Samedi, Baron Saturday)**: Chief of Gede family, governor of cemeteries and death; depicted in black suit, top hat, and sunglasses; speaks with nasal voice; associated with Saint Gerard or Saint Expedite.",
-      "**Gede**: Family of lwa governing death, sexuality, regeneration, and truth-telling; known for obscene humor, truth-telling, and healing; celebrated November 1–2.",
-      "**Gwo bonanj / Ti bonanj**: Components of the self—gwo bonanj is life force/consciousness; ti bonanj is soul/essence that survives death.",
-      "**Zonbi (zombie)**: Corpse raised by bòkò through ritual and poisons; enslaved as mindless labor; condemned as evil in mainstream Vodou."
-    ]
-  },
+
+  keyTerms: [
+    {
+      term: "Vodou (Vaudou, Voodoo, Vodun)",
+      definition: "Afro-Caribbean religion of Haiti, creolized synthesis of West/Central African traditions and Catholicism, centered on relationships with lwa."
+    },
+    {
+      term: "Lwa (loa)",
+      definition: "Spirits who serve as intermediaries between humans and Bondye; govern natural forces, human experiences, ancestral lineages, and moral-spiritual order."
+    },
+    {
+      term: "Bondye (Bon Dieu, Good God)",
+      definition: "Supreme creator deity, remote and impersonal; not worshipped directly but accessed through lwa."
+    },
+    {
+      term: "Nanchon (nation)",
+      definition: "Ritual family of lwa identified with African ethnic-geographic origins (Rada, Petwo, Nago, Kongo, etc.); each has distinct drum rhythms, songs, and ritual protocols."
+    },
+    {
+      term: "Rada",
+      definition: "Nanchon derived from Dahomey (Fon-Ewe peoples); characterized as 'cool,' ancient, benevolent; associated with water, agriculture, ancestral wisdom."
+    },
+    {
+      term: "Petwo (Petro)",
+      definition: "Haitian-created nanchon; characterized as 'hot,' aggressive, fast-moving; associated with fire, transformation, justice, and the revolution."
+    },
+    {
+      term: "Ginen (Guinea)",
+      definition: "Mythic Africa, ancestral realm where the dead reside and from which lwa originate; spiritual homeland."
+    },
+    {
+      term: "Peristyle (ounfò, kay mistè)",
+      definition: "Sacred enclosure where Vodou ceremonies occur; typically open-sided roofed structure with poto mitan (central post)."
+    },
+    {
+      term: "Oungan",
+      definition: "Male Vodou priest; initiated leader who divines, heals, conducts ceremonies, mediates between humans and lwa."
+    },
+    {
+      term: "Manbo",
+      definition: "Female Vodou priest; initiated leader with same authority as oungan."
+    },
+    {
+      term: "Ounsi",
+      definition: "Initiated devotee; servant of the lwa who participates in ceremonies and may become possessed."
+    },
+    {
+      term: "Kanzo",
+      definition: "Initiation process transforming lay participant into ounsi or elevating ounsi to oungan/manbo; involves seclusion, ordeals, revelation of secret knowledge."
+    },
+    {
+      term: "Possession trance (kriz lwa, monte, chwal)",
+      definition: "Altered state where lwa 'mounts' a devotee like a rider on a horse, displacing ordinary consciousness; the lwa speaks, dances, and interacts through the possessed body."
+    },
+    {
+      term: "Sèvis lwa (service for the lwa)",
+      definition: "Ritual practice of serving lwa through offerings, ceremonies, and obedience; maintaining reciprocal relationships."
+    },
+    {
+      term: "Vèvè",
+      definition: "Ritual ground drawings made with cornmeal, ash, or flour, depicting lwa symbols and inviting their presence during ceremonies."
+    },
+    {
+      term: "Poto mitan",
+      definition: "Central post in a peristyle; cosmological axis connecting earth to sky, around which drumming, dancing, and possession occur."
+    },
+    {
+      term: "Ason",
+      definition: "Sacred rattle made from a calabash gourd with beads and snake vertebrae; symbol of priestly authority, used to invoke lwa."
+    },
+    {
+      term: "Pwen (point)",
+      definition: "Spiritual force or power; also charm/amulet containing herbs, stones, and spiritual essence for protection or empowerment."
+    },
+    {
+      term: "Manje lwa (feeding the lwa)",
+      definition: "Offerings of specific foods, drinks, and items each lwa prefers; central to maintaining lwa relationships."
+    },
+    {
+      term: "Travay (work)",
+      definition: "Ritual work prescribed by oungan/manbo—offerings, baths, ceremonies—to address spiritual problems; also magic for harm."
+    },
+    {
+      term: "Bòkò",
+      definition: "Sorcerer who practices maji (harmful magic) for pay; term is pejorative, condemned by mainstream Vodou."
+    },
+    {
+      term: "Lakou",
+      definition: "Ancestral compound community in rural Haiti; extended family living together, maintaining peristyle and ancestral altars."
+    },
+    {
+      term: "Danbala Wedo",
+      definition: "Primordial Rada serpent lwa; governs creation, purity, wisdom; depicted as white snake, associated with water."
+    },
+    {
+      term: "Ayida Wedo",
+      definition: "Danbala's wife, rainbow lwa; governs continuity, cosmic balance."
+    },
+    {
+      term: "Legba (Papa Legba)",
+      definition: "Rada lwa, guardian of crossroads and gateways; elder opener of spiritual pathways; must be invoked first in ceremonies; associated with Saint Peter."
+    },
+    {
+      term: "Ogou (Ogoun)",
+      definition: "Nago lwa of war, iron, fire, and political power; patron of warriors, politicians, and blacksmiths; associated with Saint James the Greater."
+    },
+    {
+      term: "Èzili Freda",
+      definition: "Rada lwa of love, beauty, luxury, and femininity; associated with Our Lady of Sorrows or Our Lady of Mount Carmel."
+    },
+    {
+      term: "Èzili Dantò",
+      definition: "Fierce Petwo lwa of motherhood, protection, and vengeance; associated with Black Madonna of Częstochowa."
+    },
+    {
+      term: "Baron Samdi (Baron Samedi, Baron Saturday)",
+      definition: "Chief of Gede family, governor of cemeteries and death; depicted in black suit, top hat, and sunglasses; speaks with nasal voice; associated with Saint Gerard or Saint Expedite."
+    },
+    {
+      term: "Gede",
+      definition: "Family of lwa governing death, sexuality, regeneration, and truth-telling; known for obscene humor, truth-telling, and healing; celebrated November 1–2."
+    },
+    {
+      term: "Gwo bonanj / Ti bonanj",
+      definition: "Components of the self—gwo bonanj is life force/consciousness; ti bonanj is soul/essence that survives death."
+    },
+    {
+      term: "Zonbi (zombie)",
+      definition: "Corpse raised by bòkò through ritual and poisons; enslaved as mindless labor; condemned as evil in mainstream Vodou."
+    }
+  ],
+
   sources: [
     {
       label: "Karen McCarthy Brown, Mama Lola: A Vodou Priestess in Brooklyn (University of California Press, 1991/2001)",
