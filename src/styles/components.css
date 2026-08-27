@@ -193,6 +193,9 @@
   border-color: rgba(230, 180, 80, 0.35);
   background: rgba(230, 180, 80, 0.1);
 }
+.nav__actions .nav__menu-btn {
+  display: none;
+}
 
 .sr-only {
   position: absolute;
@@ -341,6 +344,9 @@
   .nav__menu-btn {
     display: inline-flex;
   }
+  .nav__actions .nav__menu-btn {
+    display: inline-flex;
+  }
   .nav--open,
   .nav.nav--open.nav--scrolled {
     background: rgba(8, 11, 17, 0.94);
@@ -350,10 +356,13 @@
   }
   .nav-menu:not([hidden]) {
     display: block;
-  }
-  .nav-menu__backdrop {
     position: fixed;
     inset: var(--nav-h) 0 0 0;
+    z-index: 110;
+  }
+  .nav-menu__backdrop {
+    position: absolute;
+    inset: 0;
     z-index: 110;
     border: 0;
     padding: 0;
@@ -366,10 +375,7 @@
     animation: navMenuFade 0.25s var(--ease);
   }
   .nav-menu__panel {
-    position: fixed;
-    top: var(--nav-h);
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: 111;
     max-height: calc(100dvh - var(--nav-h));
     overflow-y: auto;

@@ -146,6 +146,7 @@ export default function NavBar() {
     .join(" ");
 
   return (
+    <>
     <header className={navClass}>
       <div className="nav__inner container">
         <NavLink to={withLocale(locale, "/")} className="nav__brand" aria-label="World Religions Explorer home">
@@ -219,23 +220,20 @@ export default function NavBar() {
           </button>
         </div>
       </div>
+    </header>
 
       <div
         className="nav-menu"
         hidden={!menuOpen}
         id={menuId}
+        onClick={() => closeMenu(true)}
       >
-        <button
-          type="button"
-          className="nav-menu__backdrop"
-          tabIndex={-1}
-          aria-label="Close menu"
-          onClick={() => closeMenu(true)}
-        />
+        <div className="nav-menu__backdrop" aria-hidden />
         <nav
           ref={panelRef}
           className="nav-menu__panel"
           aria-label="Primary"
+          onClick={(event) => event.stopPropagation()}
         >
           {links.map((l) => (
             <NavLink
@@ -254,7 +252,7 @@ export default function NavBar() {
           ))}
         </nav>
       </div>
-    </header>
+    </>
   );
 }
 
