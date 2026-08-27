@@ -25,6 +25,7 @@ import { santeriaArticle } from "./santeria";
 import { vodouArticle } from "./vodou";
 import { candombleArticle } from "./candomble";
 import { rastafariArticle } from "./rastafari";
+import { navajoArticle } from "./navajo";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -399,37 +400,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Met Museum - Roman art", href: "https://www.metmuseum.org/toah/ht/05/rom.html" },
     ],
   },
-  "navajo": {
-    overview: [
-      "Navajo spirituality, practiced by the Diné people of the American Southwest, is organized around hózhó, a concept of beauty, balance, and harmony that permeates health, ethics, and relations with the natural world. The Holy People, or Diyin Diné'é, are powerful beings who taught ceremonies, songs, and moral order in the emergence narratives that structure Diné identity. Illness and misfortune are often understood as disharmony rather than isolated physical failure, requiring restoration through ceremonial knowledge performed by trained singers and medicine practitioners.",
-      "Ceremonial life is extensive and locally varied. The Blessingway, Nightway, and other rites employ sandpaintings, prayer, and song cycles that are sacred and restricted; many details are not shared with uninitiated outsiders. Some ceremonies extend over several nights and require precise oral recitation learned across decades of training. Sweat lodge, prayer, and offerings connect individuals to clans, landscapes, and ancestral instructions. Diné religion is not a separate compartment from daily life but a framework linking language, kinship, land tenure, and healing. Practices and emphases differ among communities on and off the Navajo Nation.",
-      "Colonial displacement, boarding schools, resource extraction, and commercial misuse of sacred symbols have threatened ceremonial integrity, prompting Diné leaders to defend religious privacy and cultural property. Contemporary Diné may also participate in Christianity or other faiths while maintaining traditional ceremonies. Scholarly and medical institutions increasingly recognize ceremonial healing as part of a broader cultural ecology. Federal law and tribal governance now restrict unauthorized reproduction of sacred imagery. Respectful study acknowledges limits on public knowledge and privileges Diné definitions of what may be spoken or represented."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The Diné walk in hózhó - beauty, balance, harmony. Ceremonies like the Blessingway restore this balance; sandpaintings and songs heal illness understood as disharmony, not germs.\", sacredTexts: [ { name: \"(Oral - ceremonial songs & sandpaintings)\", description: \"D"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Sin: Disharmony (hóchxó) requiring restoration",
-      "Deity: Holy People (Diyin Diné'é)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral - ceremonial songs & sandpaintings): Diné healing and blessing ceremonies rely on precisely memorized songs and sandpainting designs that must be executed without error. Each ceremony - such as the Blessingway or Enemy Way - has its own narrative cycle tied to the Holy People who taught these rites. Knowledge is held by medicine men and women and passed through apprenticeship, not published texts."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Sandpainting healing, Sweat lodge, Blessingway ceremony."],
-    },
-    sources: [
-      { label: "Britannica - Navajo", href: "https://www.britannica.com/topic/Navajo-people" },
-      { label: "Smithsonian - Navajo Culture", href: "https://www.smithsonianmag.com/smithsonian-institution/navajo-180949088/" },
-      { label: "National Park Service - Diné History", href: "https://www.nps.gov/articles/dine-history-and-culture.htm" },
-    ],
-  },
+  "navajo": navajoArticle,
   "norse": {
     overview: [
       "Norse paganism was the pre-Christian religious tradition of Scandinavia and other Germanic peoples from roughly the Viking Age and earlier periods. Its mythology, preserved mainly in thirteenth-century Icelandic sources such as the Poetic Edda and Snorri Sturluson's Prose Edda, describes two divine families-the Aesir (including Odin, Thor, and Frigg) and the Vanir (including Njord and Freyja). The cosmos was structured around Yggdrasil, the world tree connecting multiple realms, including Asgard, Midgard, and Hel. These texts were compiled long after conversion but draw on older oral poetry.",
