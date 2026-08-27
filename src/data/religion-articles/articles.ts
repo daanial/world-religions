@@ -1,4 +1,5 @@
 import type { ReligionArticle } from "./types";
+import { buddhismArticle } from "./buddhism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -69,47 +70,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "The Tibetan & Himalayan Library, University of Virginia", href: "https://www.thlib.org" },
     ],
   },
-  "buddhism": {
-    overview: [
-      "Buddhism arose in the Gangetic plain of northern India around the fifth century BCE, when Siddhartha Gautama, later known as the Buddha or Awakened One, taught a path to end suffering. According to early accounts, he rejected extremes of luxury and harsh asceticism, proposing instead a Middle Way grounded in ethical conduct, meditative concentration, and wisdom. His diagnosis of the human condition centers on dukkha (unsatisfactoriness), traced to craving and ignorance, and his prescription is the Noble Eightfold Path leading toward nirvana, the cessation of those mental bonds.",
-      "After the Buddha's death, monastic communities preserved his teachings in oral form and later in written canons such as the Pali Tipitaka. Disagreements over discipline and doctrine produced distinct schools. Theravada Buddhism, prominent in Sri Lanka and Southeast Asia, emphasizes monastic life and gradual progress toward arhatship. Mahayana traditions, which spread through Central and East Asia, celebrate the bodhisattva ideal of compassion for all beings. Vajrayana Buddhism, associated with Tibet and the Himalayas, incorporates tantric ritual and esoteric meditation. Despite these differences, Buddhists broadly affirm impermanence, non-self (anatta), and the law of karma shaping rebirth until liberation.",
-      "From its Indian birthplace Buddhism became a major world religion across Asia and, in modern times, the West. Contemporary movements adapt meditation and mindfulness for secular settings while monasteries and lay societies sustain classical liturgies. Whether in forest hermitages in Thailand or urban dharma centers in North America, Buddhists continue to debate how ancient teachings apply to modern economics, ecology, social justice, and mental health."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded by Siddhartha Gautama, the Buddha taught that suffering arises from craving and ignorance, and that it can end through the Eightfold Path. Schools like Theravada, Mahayana, and Vajrayana spread the dharma across Asia.\", sacredTexts: [ { name: \"Tipitaka (Pali Canon)\","],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Enlightenment: Nirvana - extinguishing of craving",
-      "Karma: Intentional action conditions rebirth",
-      "Afterlife: Rebirth until liberation; no eternal soul"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Tipitaka (Pali Canon): The earliest complete Buddhist canon, preserved in Pali and authoritative for Theravada Buddhism. It is divided into three 'baskets': Vinaya (monastic rules), Sutta (discourses of the Buddha), and Abhidhamma (philosophical analysis). Composed and memorized orally for centuries, it was first written down in Sri Lanka around the first century BCE.",
-      "Mahayana Sutras: A vast library of texts revered by Mahayana Buddhists, including the Lotus Sutra, Heart Sutra, and Diamond Sutra. They emphasize the bodhisattva ideal - postponing one's own nirvana to save all beings - and introduce concepts like emptiness (shunyata) and Buddha-nature. Many were composed in Sanskrit between the first century BCE and fifth century CE.",
-      "Tibetan Kangyur: The 'Translated Word of the Buddha,' a 108-volume collection of scriptures in Tibetan used by Vajrayana schools. It includes Hinayana, Mahayana, and tantric texts, many translated from Sanskrit during Tibet's classical period. Monasteries treat the Kangyur as physically sacred, and public readings confer great merit."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Meditation (vipassana, zazen), Mindfulness, Monasticism, Pilgrimage."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: lhasa."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia of Philosophy - Buddhism", href: "https://plato.stanford.edu/entries/buddhism/" },
-      { label: "Encyclopaedia Britannica - Buddhism", href: "https://www.britannica.com/topic/Buddhism" },
-      { label: "BBC Religion - Buddhism", href: "https://www.bbc.co.uk/religion/religions/buddhism/" },
-      { label: "Pew Research Center - Buddhists", href: "https://www.pewresearch.org/religion/2012/12/18/global-religious-landscape-buddhist/" },
-    ],
-  },
+  "buddhism": buddhismArticle,
   "canaanite": {
     overview: [
       "Canaanite religion was the polytheistic tradition of the Levantine coast and inland regions during the second and first millennia BCE. It is known primarily from Ugaritic texts discovered at Ras Shamra (ancient Ugarit) in Syria, along with archaeological remains and references in Egyptian, Mesopotamian, and biblical sources. The pantheon was headed by El, a senior father-god, alongside Baal (storm and fertility), Anat (war), and Asherah (often linked with fertility and motherhood). Gods were organized in a divine council, a motif echoed in later Northwest Semitic literature and royal ideology.",
