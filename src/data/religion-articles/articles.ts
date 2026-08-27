@@ -32,6 +32,7 @@ import { dreamtimeArticle } from "./dreamtime";
 import { sumerianArticle } from "./sumerian";
 import { egyptianArticle } from "./egyptian";
 import { canaaniteArticle } from "./canaanite";
+import { greekRomanArticle } from "./greek-roman";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -111,33 +112,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "World History Encyclopedia - Gnosticism", href: "https://www.worldhistory.org/Gnosticism/" },
     ],
   },
-  "greek-roman": {
-    overview: ["The polytheism of the classical Mediterranean - Olympian gods, civic cult, mystery religions, and the Olympian pantheon that seeded Western art and myth. Its philosophical critics (the Stoics, Platonists) fed into later theology.\", sacredTexts: [ { name: \"Iliad & Odyssey\", description: \"Homer's epic poems, composed orally around the eighth century BCE and foundational to Greek identity. The Iliad recounts the wrath of Achilles during the Trojan War; the Odyssey follows Odysseus's long voyage home. Both portray the gods as active participants in human affairs, rewarding honor and punishing hubris.\", }, { name: \"Theogony\", description: \"Hesiod's poem tracing the genealogy of the Greek gods from Chaos through the reign of Zeus. It explains the succession of divine rulers and the origins of natural forces and human woes. Greeks treated it as a canonical account of how the cosmos and Olympian order came to be.\", }, { name: \"Aeneid\", description: \"Virgil's Roman epic linking the Trojan hero Aeneas to the founding of Rome and the Julian dynasty. It blends Greek myth with Roman piety, portraying destiny (fatum) as guided by Jupiter and fate. The poem became the literary scripture of Roman civic religion and imperial ideology.\", }, ], practices: [\"Sacrifice\", \"Oracles\", \"Mystery rites (Eleusis)\", \"Public festivals\"], coreIdeas: [ { label: \"Afterlife\", value: \"Hades for most; Elysium for heroes\" }, { label: \"Sin\", value: \"Hubris provoking divine retribution (nemesis)\" }, ], conceptPositions: { \"mysticism\": \"affirmed\", \"polytheism\": \"affirmed\", \"sacrifice\": \"affirmed\", \"soul\": \"affirmed"],
-    history: {
-      title: "Historical Development",
-      content: ["The polytheism of the classical Mediterranean - Olympian gods, civic cult, mystery religions, and the Olympian pantheon that seeded Western art and myth. Its philosophical critics (the Stoics, Platonists) fed into later theology.\", sacredTexts: [ { name: \"Iliad & Odyssey\","],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Hades for most; Elysium for heroes",
-      "Sin: Hubris provoking divine retribution (nemesis)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Iliad & Odyssey: Homer's epic poems, composed orally around the eighth century BCE and foundational to Greek identity. The Iliad recounts the wrath of Achilles during the Trojan War; the Odyssey follows Odysseus's long voyage home. Both portray the gods as active participants in human affairs, rewarding honor and punishing hubris.",
-      "Theogony: Hesiod's poem tracing the genealogy of the Greek gods from Chaos through the reign of Zeus. It explains the succession of divine rulers and the origins of natural forces and human woes. Greeks treated it as a canonical account of how the cosmos and Olympian order came to be.",
-      "Aeneid: Virgil's Roman epic linking the Trojan hero Aeneas to the founding of Rome and the Julian dynasty. It blends Greek myth with Roman piety, portraying destiny (fatum) as guided by Jupiter and fate. The poem became the literary scripture of Roman civic religion and imperial ideology."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Sacrifice, Oracles, Mystery rites (Eleusis), Public festivals."],
-    },
-    sources: [],
-  },
+  "greek-roman": greekRomanArticle,
   "hinduism": hinduismArticle,
   "ifa": ifaArticle,
   "inuit": inuitArticle,
