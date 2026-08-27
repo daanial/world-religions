@@ -17,6 +17,7 @@ import { caodaiArticle } from "./caodai";
 import { bonArticle } from "./bon";
 import { yazidiArticle } from "./yazidi";
 import { druseArticle } from "./druse";
+import { mandaeanArticle } from "./mandaean";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -315,40 +316,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "jainism": jainismArticle,
   "judaism": judaismArticle,
   "korean-shin": koreanShinArticle,
-  "mandaean": {
-    overview: [
-      "Mandaeism is a Gnostic monotheistic religion whose adherents trace their origin to first-century followers of John the Baptist, whom they revere as their greatest prophet and final teacher - while explicitly rejecting Jesus and Muhammad. Mandaean texts such as the Haran Gawaita describe an early migration from Palestine through Haran to southern Mesopotamia to escape persecution, though scholars continue to debate whether the tradition's roots are ultimately Palestinian or native to Mesopotamia. What is clear is that by the Parthian and Sasanian periods, Mandaean communities were established in the marshlands of what is now southern Iraq and southwestern Iran, worshipping Hayyi Rabbi, 'the Great Life,' as their supreme, unknowable God.",
-      "Central to Mandaean practice is baptism (masbuta), performed repeatedly in flowing 'living water' rather than as a one-time rite of conversion, alongside the masiqta, a ceremony guiding the soul's ascent after death. Cosmology describes emanations from the divine, including angelic beings (uthras) such as Manda d-Hayyi, and a hierarchy of prophets from Adam and Seth through John the Baptist. Scripture - the Ginza Rabba, the Qulasta prayerbook, and the Book of John - survives in Mandaic, an Eastern Aramaic dialect, and is copied and guarded by a hereditary priesthood organized into three grades: tarmidia, ganzibra, and rishama.",
-      "Under Islamic rule Mandaeans were recognized as 'People of the Book,' identified with the Quranic Sabians, which afforded the community legal protection for centuries. That protection collapsed after the 2003 Iraq invasion: sectarian violence drove the Iraqi Mandaean population down from a substantial, centuries-old community to a small fraction of its former size within a few years, scattering most survivors into diaspora across Europe, Australia, and North America. Today an estimated 60,000-70,000 Mandaeans remain worldwide, making the preservation of Mandaic language, priestly ordination, and river-baptism ritual outside their ancestral marshlands an active and urgent concern for the community."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A Gnostic monotheistic religion originating in the Jordan Valley or southern Mesopotamia in the early centuries CE, venerating John the Baptist and practicing repeated ritual immersion in flowing water (masbuta) as its central rite. Mandaeans speak a distinct Aramaic dialect and today survive mainly"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Cosmos: World of Light vs. flawed material creation",
-      "Salvation: Purification through repeated baptism in flowing water"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Ginza Rabba: The 'Great Treasure,' Mandaeism's principal scripture, combining cosmological teaching, hymns, and moral instruction in the Mandaic Aramaic language. It describes the World of Light, the flawed material creation, and the soul's ascent after death. Priests guard and copy the text by hand as a sacred duty.",
-      "Book of John (Drasha d-Yahia): A scripture centered on John the Baptist, whom Mandaeans revere as the true prophet of their faith while rejecting Jesus and Muhammad. It recounts his birth, teaching, and baptismal ministry in the Jordan. It is recited during major Mandaean rituals and festivals."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Ritual immersion (masbuta), Living-water baptism, Priestly ordination, Avoidance of intermarriage."],
-    },
-    sources: [
-      { label: "Britannica - Mandaeanism", href: "https://www.britannica.com/topic/Mandaeanism" },
-      { label: "Encyclopaedia Iranica - Mandaeans", href: "https://www.iranicaonline.org/articles/mandaeans-i-general" },
-      { label: "Minority Rights Group - Mandaeans", href: "https://minorityrights.org/communities/mandaeans/" },
-    ],
-  },
+  "mandaean": mandaeanArticle,
   "manichaean": {
     overview: [
       "Manichaeism was founded by the prophet Mani (c. 216-276 CE) in the Sasanian Persian Empire. Mani proclaimed a universal revelation synthesizing elements drawn from Zoroastrian, Christian, and Buddhist traditions. Its cosmology describes a primordial conflict between the Realm of Light and the Realm of Darkness, with the material world formed from mixed light and matter. Humans contain light particles trapped in flesh, and salvation involves liberating this light through knowledge (gnosis) and ascetic discipline taught by the prophet and his disciples.",
