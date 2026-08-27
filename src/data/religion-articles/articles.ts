@@ -29,6 +29,7 @@ import { navajoArticle } from "./navajo";
 import { inuitArticle } from "./inuit";
 import { maoriArticle } from "./maori";
 import { dreamtimeArticle } from "./dreamtime";
+import { sumerianArticle } from "./sumerian";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -412,46 +413,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Internet Encyclopedia of Philosophy - Stoicism", href: "https://iep.utm.edu/stoicism/" },
     ],
   },
-  "sumerian": {
-    overview: [
-      "Sumerian religion was the religious system of the city-states of southern Mesopotamia from roughly the fourth millennium BCE until Sumerian culture was absorbed into broader Babylonian traditions. It centered on a large pantheon of gods tied to cities, natural forces, and cosmic order. Major deities included An (sky), Enlil (air and sovereignty), Enki (wisdom and water), and Inanna (love, fertility, and war). Each city maintained temples as economic and ritual centers where priests mediated between communities and divine powers through offerings, hymns, and seasonal festivals.",
-      "Sumerian cosmology envisioned a layered universe: heavens above, the flat earth, and the subterranean realm of the dead. The underworld, often called Kur, offered a shadowy existence rather than a moral paradise or hell. Humans were created, according to myths such as the Atra-Hasis epic, to labor for the gods. The Epic of Gilgamesh, among the earliest literary works, explores mortality, kingship, and the limits of human wisdom. Ziggurats and temple complexes expressed the bond between earthly rulers and divine patrons, while divination and extispicy guided political decisions.",
-      "Much of what scholars know comes from cuneiform tablets discovered at sites such as Ur, Uruk, and Nippur. Sumerian motifs-creation from clay, flood narratives, divine councils-reappear in later Akkadian, Babylonian, and biblical traditions. While beliefs varied across centuries and cities, the pattern of city patron deities, temple economies, and ritual calendars remained defining features until Mesopotamian religion evolved under successive empires. Kingship itself was understood as a divinely sanctioned office, with rulers bearing titles such as shepherd of the people."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The religious world of Sumer in southern Mesopotamia - a pantheon of city patron deities, temple economies, and the earliest written myths such as the Epic of Gilgamesh. Sumerian cosmology described a layered universe of heaven, earth, and underworld, and introduced many motifs that echo through lat"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Gloomy underworld (Kur), no judgment paradise",
-      "Sin: Offense against cosmic order ordained by gods",
-      "Deity: Polytheistic pantheon with patron city-gods"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Epic of Gilgamesh: The earliest surviving epic poem, telling of King Gilgamesh of Uruk and his quest for immortality after the death of his friend Enkidu. It explores friendship, kingship, and the limits of human life against the gods' decree of mortality. Tablet fragments from the third millennium BCE preserve a story that influenced later Near Eastern and Greek literature.",
-      "Enuma Elish (inherited): The Babylonian creation epic, composed in Akkadian and recited at the New Year festival. It describes how Marduk defeated the primordial goddess Tiamat and ordered the cosmos from her body. Sumerian cities later inherited and adapted this myth as Babylon rose to regional dominance.",
-      "Sumerian King List: A chronicle blending history and legend, listing kings of Sumer from before the Flood through historical dynasties. It asserts that kingship descended from heaven and legitimized successive rulers. The text reveals how Sumerians understood divine authority and the cyclical rise and fall of cities."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Temple offerings, Ziggurat rituals, Divination, New Year festivals."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: babylon."],
-    },
-    sources: [
-      { label: "Britannica - Mesopotamian religion", href: "https://www.britannica.com/topic/Mesopotamian-religion" },
-      { label: "Met Museum - Mesopotamia", href: "https://www.metmuseum.org/toah/ht/02/wam.html" },
-      { label: "BBC Religion - Ancient Mesopotamia", href: "https://www.bbc.co.uk/religion/religions/islam/history/mesopotamia_1.shtml" },
-    ],
-  },
+  "sumerian": sumerianArticle,
   "taoism": taoismArticle,
   "tengrism": {
     overview: [
