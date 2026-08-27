@@ -38,6 +38,11 @@ const RELIGION_IMAGE_FILES: Record<string, string> = {
   inuit: "inuit.png",
   navajo: "navajo.png",
   maori: "maori.png",
+  dreaming: "dreaming.png",
+  ifa: "ifa.png",
+  candomble: "candomble.png",
+  wicca: "wicca.png",
+  rastafari: "rastafari.png",
 };
 
 export function getReligionImageSrc(religionId: string): string | undefined {
@@ -68,6 +73,11 @@ const RELIGION_THUMBNAIL_FILES: Record<string, string> = {
   inuit: "inuit-thumb.png",
   navajo: "navajo-thumb.png",
   maori: "maori-thumb.png",
+  dreaming: "dreaming-thumb.png",
+  ifa: "ifa-thumb.png",
+  candomble: "candomble-thumb.png",
+  wicca: "wicca-thumb.png",
+  rastafari: "rastafari-thumb.png",
 };
 
 export function getReligionThumbnailSrc(religionId: string): string | undefined {
