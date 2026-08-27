@@ -119,8 +119,8 @@ export const islamArticle: ReligionArticle = {
   ],
 
   sources: [
-    { label: "Stanford Encyclopedia of Philosophy: Arabic and Islamic Philosophy of Religion", href: "https://plato.stanford.edu/ENTRIES/arabic-islamic-religion/" },
-    { label: "Stanford Encyclopedia of Philosophy: al-Farabi's Philosophy of Society and Religion", href: "https://plato.stanford.edu/ENTRIES/al-farabi-soc-rel/" },
+    { label: "Stanford Encyclopedia of Philosophy: Arabic and Islamic Philosophy of Religion", href: "https://plato.stanford.edu/entries/arabic-islamic-religion/" },
+    { label: "Stanford Encyclopedia of Philosophy: al-Farabi's Philosophy of Society and Religion", href: "https://plato.stanford.edu/entries/al-farabi-soc-rel/" },
     { label: "Stanford Encyclopedia of Philosophy: al-Ghazali", href: "https://plato.stanford.edu/entries/al-ghazali/" },
     { label: "Encyclopaedia Britannica: Islam", href: "https://www.britannica.com/topic/Islam" },
     { label: "Encyclopaedia Britannica: Islamic World - Sunnis and Shiites", href: "https://www.britannica.com/topic/Islamic-world/Sunnis-and-Shiites" },
