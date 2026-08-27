@@ -12,45 +12,10 @@ import { confucianismArticle } from "./confucianism";
 import { shintoArticle } from "./shinto";
 import { koreanShinArticle } from "./korean-shin";
 import { chineseFolkArticle } from "./chinese-folk";
+import { bahaiArticle } from "./bahai";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
-  "bahai": {
-    overview: [
-      "The Bahá'í Faith originated in nineteenth-century Persia amid the messianic expectations of Shia Islam. In 1844, Siyyid Ali Muhammad of Shiraz declared himself the Bab (Gate), preparing the way for a greater figure. After the Bab's execution in 1850, Mirza Husayn-Ali Nuri, known as Bahá'u'lláh, announced in 1863 that he was the promised manifestation of God for this age. Bahá'u'lláh's exile to Baghdad, Constantinople, Adrianople, and finally Akka (Acre) spread his teachings across the Ottoman Empire. His writings, including the Kitáb-i-Aqdas and Kitáb-i-Íqán, form the canonical scripture of the tradition.",
-      "Bahá'ís teach the oneness of God, the essential unity of all religions, and the unity of humanity regardless of race, nationality, or gender. They regard Abraham, Krishna, Moses, Buddha, Jesus, Muhammad, and the Bab as successive messengers who revealed divine guidance suited to their eras. Core practices include daily prayer, a nineteen-day annual fast, and abstention from alcohol and partisan politics. Governance rests on elected councils at local, national, and international levels, with the Universal House of Justice in Haifa, Israel, as the supreme institution. There is no clergy; individual investigation of truth is encouraged.",
-      "Today the Bahá'í Faith claims several million adherents in virtually every country, though precise counts are debated because many national censuses do not list it separately. Bahá'í communities emphasize education, gender equality, interfaith dialogue, and social development projects. The faith maintains a distinctive calendar of nineteen months and holds regular devotional gatherings open to all. Scholars classify the movement as an independent world religion that emerged from an Islamic milieu while articulating a universalist theology distinct from both Islam and Christianity."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded by Bahá'u'lláh in Persia, the Bahá'í Faith teaches the oneness of God, religion, and humanity. It sees the world's great faiths as successive chapters of one divine education, and calls for world peace, equality, and the harmony of science and religion.\", sacredTexts: [ { n"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Monotheism: One unknowable God",
-      "Salvation: Spiritual progress across eternity",
-      "Unity: All religions share one source"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Kitáb-i-Aqdas: Bahá'u'lláh's 'Most Holy Book,' written in Arabic and Persian, establishing laws and institutions for the Bahá'í community. It covers prayer, fasting, marriage, inheritance, and the abolition of clergy. Bahá'ís regard it as the charter for a unified global civilization grounded in justice and equality.",
-      "Kitáb-i-Íqán: The 'Book of Certitude,' Bahá'u'lláh's major theological work explaining the progressive nature of divine revelation. It interprets symbols in past scriptures and demonstrates how Abraham, Moses, Jesus, Muhammad, and the Báb each opened a new chapter of one education. It is considered essential reading for understanding Bahá'í belief.",
-      "Hidden Words: A collection of brief, lyrical passages in Arabic and Persian offering spiritual counsel on the soul's relationship to God. Written in the voice of God addressing humanity, they distill Bahá'í ethics into accessible meditations. Many Bahá'ís memorize and recite them in daily devotional practice."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Daily prayer, Annual fasting, No alcohol, Consultation."],
-    },
-    sources: [
-      { label: "Britannica: Bahá'í Faith", href: "https://www.britannica.com/topic/Bahai-Faith" },
-      { label: "BBC Religion: Bahá'í", href: "https://www.bbc.co.uk/religion/religions/bahai/" },
-      { label: "Bahá'í Reference Library", href: "https://www.bahai.org/library/" },
-      { label: "Pew Research Center: Bahá'ís", href: "https://www.pewresearch.org/religion/2012/12/18/global-religious-landscape-bahais/" },
-    ],
-  },
+  "bahai": bahaiArticle,
   "bon": {
     overview: [
       "Bön is the indigenous religious tradition of Tibet, with roots that predate the arrival of Buddhism. Early Bön involved priests called kushen who conducted rituals - including animal sacrifice and death rites - for the kings of the Yarlung dynasty; scholars remain divided on whether its deepest origins lie in local Tibetan practice, in the neighboring Zhangzhung culture, or in outside influences such as Zoroastrianism. Bön's own tradition holds that it was taught by Tonpa Shenrab (Shenrab Miwo), a figure said to have attained enlightenment centuries before the historical Buddha in a land called Olmo Lungring, west of Tibet - though his historicity is not established by outside evidence.",
