@@ -7,6 +7,7 @@ import { christianityArticle } from "./christianity";
 import { islamArticle } from "./islam";
 import { judaismArticle } from "./judaism";
 import { zoroastrianArticle } from "./zoroastrian";
+import { taoismArticle } from "./taoism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -975,41 +976,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "BBC Religion - Ancient Mesopotamia", href: "https://www.bbc.co.uk/religion/religions/islam/history/mesopotamia_1.shtml" },
     ],
   },
-  "taoism": {
-    overview: [
-      "Taoism, also called Daoism, took shape in China during the Warring States period and is closely linked to the Daodejing, traditionally attributed to Laozi, and the Zhuangzi. Its central concept is the Dao, the ineffable Way that generates, sustains, and returns all things. Classical Taoist thought counsels alignment with natural patterns, wu wei (non-coercive action), simplicity, and humility rather than rigid striving or artificial social contrivance. Philosophical Taoism offers a reflective critique of conventional morality and political ambition, inviting practitioners to recognize the spontaneous order already present in the cosmos and to value emptiness, flexibility, and the relativity of human distinctions. The Zhuangzi in particular celebrates transformation, playfulness, and freedom from fixed categories of right and wrong.",
-      "From the Han dynasty onward, religious Taoism developed into organized priesthoods, temples, liturgy, and communal festivals across China. It incorporated cosmology, divination, alchemy, and practices aimed at health, exorcism, and longevity, drawing on a vast pantheon that includes the Three Pure Ones, local deities, and immortals (xian). Taoist meditation, qigong, talismanic arts, and internal alchemy persist in East Asia and the global diaspora today. Scholars often distinguish philosophical from religious Taoism, though historically the boundary is porous: many communities treat Laozi's teachings and ritual practice as complementary paths toward harmony with the Dao. The Daozang, a massive canon compiled over centuries, preserves ritual manuals, histories, and commentaries that document this diverse tradition. Today Taoist ideas also influence medicine, martial arts, and environmental ethics beyond formal religious affiliation, reflecting the tradition's enduring cultural reach."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Taoism teaches harmony with the Tao, the ineffable source and flow of all things. Laozi's Tao Te Ching counsels wu-wei (effortless action) and naturalness. Religious Taoism added a vast pantheon, alchemy, and longevity practices.\", sacredTexts: [ { name: \"Tao Te Ching\", des"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Liberation: Wu-wei - effortless alignment with the Tao",
-      "Deity: The Tao, and a pantheon of immortals",
-      "Afterlife: Becoming a xian (immortal)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Tao Te Ching: A brief classic of 81 chapters traditionally attributed to Laozi, though likely compiled by multiple authors over time. It teaches the Tao - the nameless source of all things - and counsels wu-wei, acting in harmony with nature rather than forcing outcomes. Its paradoxical verses have been translated more often than almost any book except the Bible.",
-      "Zhuangzi: Named for the philosopher Zhuang Zhou (fourth century BCE), this text uses fables, humor, and paradox to celebrate spontaneity and freedom from rigid categories. Its famous butterfly dream passage questions the boundary between self and world. It complements the Tao Te Ching as the second pillar of philosophical Taoism.",
-      "Daozang: The vast Taoist canon, comprising over 1,400 texts collected over centuries and formally compiled in the Ming dynasty. It includes alchemical manuals, ritual liturgies, commentaries, and biographies of immortals. Religious Taoism draws on the Daozang for temple practice, meditation, and the quest for longevity."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Qigong, Tai chi, Meditation, Alchemical arts."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia of Philosophy - Daoism", href: "https://plato.stanford.edu/entries/daoism/" },
-      { label: "Encyclopaedia Britannica - Taoism", href: "https://www.britannica.com/topic/Taoism" },
-      { label: "Columbia University - Taoism in China", href: "https://afe.easia.columbia.edu/special/china_general_taoism.htm" },
-    ],
-  },
+  "taoism": taoismArticle,
   "tengrism": {
     overview: [
       "Tengrism is the traditional religious framework of Turkic and Mongol peoples of the Eurasian steppe, centered on Tengri (Tengeri), the Eternal Blue Sky, as supreme cosmic authority. Alongside Tengri, communities venerated ancestral spirits, local earth and mountain deities (such as Etugen in Mongol tradition), and nature powers linked to water, fire, and the hunt. The religion is best understood as an animistic and shamanic system rather than a centralized doctrinal faith with fixed scriptures or a single priestly hierarchy.",

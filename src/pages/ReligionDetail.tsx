@@ -19,6 +19,27 @@ import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function renderBold(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  const regex = /\*\*(.+?)\*\*/g;
+  let match;
+  
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(<strong key={match.index}>{match[1]}</strong>);
+    lastIndex = regex.lastIndex;
+  }
+  
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  
+  return parts.length > 0 ? parts : text;
+}
+
 export default function ReligionDetail() {
   const { id } = useParams<{ id: string }>();
   const religion = RELIGIONS.find((r) => r.id === id);
@@ -190,7 +211,7 @@ export default function ReligionDetail() {
               </div>
               {article.overview.map((paragraph, index) => (
                 <p key={index} className={index === 0 ? "rd__lead" : "rd__body"}>
-                  {paragraph}
+                  {renderBold(paragraph)}
                 </p>
               ))}
               {religion.splitsFrom && (
@@ -211,7 +232,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.history.title}</h2>
                 {article.history.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -224,7 +245,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.worldview.title}</h2>
                 {article.worldview.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -237,7 +258,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.texts.title}</h2>
                 {article.texts.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -250,7 +271,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.practice.title}</h2>
                 {article.practice.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -263,7 +284,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.diversity.title}</h2>
                 {article.diversity.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -276,7 +297,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.communities.title}</h2>
                 {article.communities.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -289,7 +310,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.places.title}</h2>
                 {article.places.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -302,7 +323,7 @@ export default function ReligionDetail() {
                 <h2 className="rd__section-title">{article.debates.title}</h2>
                 {article.debates.content.map((paragraph, index) => (
                   <p key={index} className="rd__body">
-                    {paragraph}
+                    {renderBold(paragraph)}
                   </p>
                 ))}
               </div>
@@ -318,7 +339,7 @@ export default function ReligionDetail() {
                   {article.keyTerms.map((term, index) => (
                     <div key={index} className="rd__term-item">
                       <dt className="rd__term-name">{term.term}</dt>
-                      <dd className="rd__term-def">{term.definition}</dd>
+                      <dd className="rd__term-def">{renderBold(term.definition)}</dd>
                     </div>
                   ))}
                 </dl>

@@ -121,7 +121,7 @@ export const zoroastrianArticle: ReligionArticle = {
     { label: "Prods Oktor Skjærvø, The Spirit of Zoroastrianism (Yale University Press, 2011)", href: "https://yalebooks.yale.edu/book/9780300170351/spirit-zoroastrianism/" },
     { label: "The Wiley Blackwell Companion to Zoroastrianism (eds. Stausberg, Vevaina, Tessmann; Wiley-Blackwell, 2015)", href: "https://onlinelibrary.wiley.com/doi/book/10.1002/9781118785539" },
     { label: "The Oxford Handbook of Ancient Iran (ed. D. T. Potts; Oxford University Press, 2013)", href: "https://global.oup.com/academic/product/the-oxford-handbook-of-ancient-iran-9780199733309" },
-    { label: "The Cambridge Companion to Ancient Mediterranean Religions (ed. Barbette Stanley Spaeth; Cambridge University Press, 2013)", href: "https://www.cambridge.org/core/books/cambridge-companion-to-ancient-mediterranean-religions/4C8E0E1E6F9A8F3F1E6E7E8E9E0E1E2E" },
+    { label: "The Cambridge Companion to Ancient Mediterranean Religions (ed. Barbette Stanley Spaeth; Cambridge University Press, 2013)", href: "https://www.cambridge.org/us/universitypress/subjects/classical-studies/ancient-history/cambridge-companion-ancient-mediterranean-religions" },
     { label: "Pew Research Center: Religious Composition of India (2021)", href: "https://www.pewresearch.org/religion/2021/09/21/population-growth-and-religious-composition/" },
     { label: "UNESCO World Heritage: Persepolis", href: "https://whc.unesco.org/en/list/114/" },
     { label: "UNESCO World Heritage: Historic City of Yazd", href: "https://whc.unesco.org/en/list/1544/" },
