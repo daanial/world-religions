@@ -105,7 +105,7 @@ async function prerenderRoute(browser: Browser, route: string) {
 
   try {
     await page.setViewport({ width: 1440, height: 900 });
-    await page.goto(url, { waitUntil: "networkidle0", timeout: 60000 });
+    await page.goto(url, { waitUntil: "load", timeout: 60000 });
     await waitForPageContent(page, route);
 
     const html = await page.content();
