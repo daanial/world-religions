@@ -26,6 +26,7 @@ import { vodouArticle } from "./vodou";
 import { candombleArticle } from "./candomble";
 import { rastafariArticle } from "./rastafari";
 import { navajoArticle } from "./navajo";
+import { inuitArticle } from "./inuit";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -229,37 +230,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   },
   "hinduism": hinduismArticle,
   "ifa": ifaArticle,
-  "inuit": {
-    overview: [
-      "Inuit religious traditions encompass the spiritual lifeways of Inuit peoples across the Arctic, including present-day Greenland, Canada, Alaska, and Chukotka. Historically these traditions were oral and embedded in hunting, kinship, and seasonal movement on the land and sea. Central themes include the shared soul or inua of humans and animals, the need for respectful treatment of game, and the role of the angakkuq, or shaman, who mediated between communities and powerful spiritual beings. Sedna or similar sea spirits appear in many narratives as guardians of marine animals, whose goodwill was essential for survival.",
-      "Inuit groups are diverse, and beliefs varied by region, band, and historical period. Tunghak, Nuliajuk, and other names and stories reflect local cosmology rather than one standardized pantheon. Taboos governing food preparation, childbirth, and hunting success functioned as moral and ecological discipline. Contact with missionaries, traders, and colonial governments transformed public practice, yet many Inuit communities retain combinations of Christian faith and inherited spiritual values, including respect for elders, animals, and the land. Seasonal hunting cycles continue to frame moral teaching even where older public ritual forms have changed.",
-      "Scholars today approach Inuit religion through archaeology, ethnography, and collaboration with Inuit knowledge holders rather than solely through outsider accounts. Arctic climate change, sedentarization, and language shift have altered how traditions are transmitted, while revitalization efforts seek to preserve songs, stories, and ethical relationships with the environment. Inuit-owned institutions increasingly guide research priorities and public interpretation. Academic writing distinguishes historical pre-Christian practice from contemporary Inuit spirituality, which remains dynamic and internally varied across the circumpolar North."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The spiritual world of the Inuit held that animals and humans share souls. Shamans (angakkuq) negotiated with Sedna, goddess of the sea, to release game. Taboos and proper ritual kept the cosmic balance.\", sacredTexts: [ { name: \"(Oral tradition)\", description: \"I"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Soul: Animals and humans share souls (inua)",
-      "Sin: Breaking taboos angers Sedna"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral tradition): Inuit spiritual knowledge was transmitted through stories, songs, and taboos passed down by elders and shamans across the Arctic. Tales of Sedna, the sea goddess, and the angakkuq's journeys to the spirit world explained hunting fortunes and cosmic balance. No written canon existed; the land, animals, and oral narratives together formed the sacred record."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Shamanic journeys, Taboo observance, Ancestor respect."],
-    },
-    sources: [
-      { label: "Britannica - Inuit", href: "https://www.britannica.com/topic/Inuit" },
-      { label: "Smithsonian Arctic Studies Center", href: "https://www.smithsonianmag.com/smithsonian-institution/the-arctic-studies-center-180949088/" },
-      { label: "Canadian Museum of History - Inuit", href: "https://www.historymuseum.ca/cmc/exhibitions/civil/inuit/inuit00e.html" },
-    ],
-  },
+  "inuit": inuitArticle,
   "islam": islamArticle,
   "jainism": jainismArticle,
   "judaism": judaismArticle,
