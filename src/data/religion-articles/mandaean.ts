@@ -1,4 +1,4 @@
-import { ReligionArticle } from './types';
+import type { ReligionArticle } from './types';
 
 export const mandaeanArticle: ReligionArticle = {
   id: 'mandaean',
