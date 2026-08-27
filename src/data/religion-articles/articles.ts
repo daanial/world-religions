@@ -31,79 +31,23 @@ import { maoriArticle } from "./maori";
 import { dreamtimeArticle } from "./dreamtime";
 import { sumerianArticle } from "./sumerian";
 import { egyptianArticle } from "./egyptian";
+import { canaaniteArticle } from "./canaanite";
+import { greekRomanArticle } from "./greek-roman";
+import { norseArticle } from "./norse";
+import { druidicArticle } from "./druidic";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
   "caodai": caodaiArticle,
   "bon": bonArticle,
   "buddhism": buddhismArticle,
-  "canaanite": {
-    overview: [
-      "Canaanite religion was the polytheistic tradition of the Levantine coast and inland regions during the second and first millennia BCE. It is known primarily from Ugaritic texts discovered at Ras Shamra (ancient Ugarit) in Syria, along with archaeological remains and references in Egyptian, Mesopotamian, and biblical sources. The pantheon was headed by El, a senior father-god, alongside Baal (storm and fertility), Anat (war), and Asherah (often linked with fertility and motherhood). Gods were organized in a divine council, a motif echoed in later Northwest Semitic literature and royal ideology.",
-      "Mythic narratives such as the Baal Cycle describe cosmic battles, royal enthronement, and seasonal cycles of drought and renewal. Temples and high-place sanctuaries hosted animal sacrifice, libations, and festivals tied to agricultural rhythms. The underworld deity Mot personified death in a shadowy realm rather than a structured moral afterlife. Cult practices at sites across Palestine, Phoenicia, and Syria show regional variation while sharing common divine names and ritual patterns. Phoenician colonies spread Canaanite deities and cult forms across the Mediterranean, linking Levantine religion to wider ancient networks of trade and settlement.",
-      "As Israelite and Judahite religion developed, biblical texts polemicize against Canaanite practices and deities, yet also preserve linguistic and conceptual overlap-such as the plural term elohim and Asherah pole debates. Scholars debate the precise relationship between Canaanite religion and early Israelite belief, but the Ugaritic corpus remains indispensable for reconstructing the broader religious world of the ancient Levant and its shared cultural vocabulary across competing kingdoms, city-states, and scribal traditions."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The beliefs of the Levantine coast, sharing roots with later Israelite religion. A council of gods led by El, the storm-god Baal, and goddess Asherah. The Hebrew Bible preserves echoes of this world in its polemic against them.\", sacredTexts: [ { name: \"Ugaritic texts (Baal Cycle)\""],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Council of gods (Elohim)",
-      "Afterlife: Shadowy realm of Mot"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Ugaritic texts (Baal Cycle): Clay tablets from Ugarit (modern Ras Shamra) recording myths of the storm-god Baal's battle with Yam (Sea) and Mot (Death). They depict El as father of the gods and Asherah as consort of El, offering a window into Levantine religion before Israelite monotheism. The Baal Cycle was recited at seasonal festivals and shaped Near Eastern storm-god mythology for centuries."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include High-place altars, Animal sacrifice, Libations."],
-    },
-    sources: [
-      { label: "Britannica - Canaanite religion", href: "https://www.britannica.com/topic/Canaanite-religion" },
-      { label: "World History Encyclopedia - Canaanite religion", href: "https://www.worldhistory.org/Canaanite_Religion/" },
-      { label: "Met Museum - Levant", href: "https://www.metmuseum.org/toah/ht/04/wam.html" },
-    ],
-  },
+  "canaanite": canaaniteArticle,
   "candomble": candombleArticle,
   "chinese-folk": chineseFolkArticle,
   "christianity": christianityArticle,
   "confucianism": confucianismArticle,
   "dreamtime": dreamtimeArticle,
-  "druidic": {
-    overview: [
-      "Celtic druidism refers to the priestly and learned traditions of ancient Celtic societies in Gaul, Britain, and Ireland before and during early Christianization. Druids appear in Greco-Roman accounts-especially Julius Caesar's Gallic Wars-as judges, advisors, teachers, and ritual specialists who transmitted lore orally. They reportedly oversaw sacrifices, calendar rites, and legal disputes, exercising significant authority within tribal structures. No druidic texts survive from the pre-Roman period, leaving their beliefs and rituals largely indirect and open to scholarly debate.",
-      "Direct evidence from druids themselves is absent; reconstruction relies on external descriptions, later Irish and Welsh medieval texts (which may blend pre-Christian and Christian elements), and archaeology. Caesar claimed Celts believed in reincarnation and the soul's immortality, though such reports may reflect Roman interpretive frameworks. Seasonal festivals such as Samhain and Beltane, sacred groves, and veneration of natural landmarks are commonly associated with Celtic religious life, supported in part by later Irish tradition and archaeological sites such as ritual enclosures and votive deposits.",
-      "The druidic class was largely suppressed under Roman rule in Gaul and Britain and declined as Christianity spread across the former Celtic world. Irish and Welsh sagas later preserved figures such as the filid and bards, whose roles may echo druidic functions, though continuity is debated by historians. Modern neo-druid movements draw inspiration from ancient sources but are new religious constructions rather than survivals of ancient practice. Scholars therefore distinguish carefully between historically attested ancient Celtic religion and contemporary revivalist traditions, acknowledging substantial gaps in the evidence and limits of Roman eyewitness accounts."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The priestly traditions of the ancient Celts. Druids were judges, poets, and ritual specialists who transmitted cosmology orally. Sacred groves, seasonal fire-festivals (Samhain, Beltane), and a belief in reincarnation shaped Celtic life.\", sacredTexts: [ { name: \"(Oral tradition -"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Reincarnation: Soul passes to new body",
-      "Deity: Many regional gods and goddesses"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral tradition - recorded by Caesar & Irish monks): Celtic druids transmitted theology, law, and ritual through memorized verse over generations, forbidding written records of their deepest teachings. Roman writers like Julius Caesar and later Irish Christian monks preserved fragments of this oral corpus in Latin and Gaelic manuscripts. What survives describes a cosmos of many gods, sacred groves, and the soul's passage between lives."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Seasonal fire festivals, Oak & mistletoe rites, Oral bardic training."],
-    },
-    sources: [
-      { label: "Britannica - Druid", href: "https://www.britannica.com/topic/Druid" },
-      { label: "World History Encyclopedia - Druid", href: "https://www.worldhistory.org/Druid/" },
-      { label: "National Museum of Ireland - Celtic religion", href: "https://www.museum.ie/en-IE/Collections-Research/Research/Research-Guides/Celtic-Religion" },
-    ],
-  },
+  "druidic": druidicArticle,
   "druse": druseArticle,
   "egyptian": egyptianArticle,
   "gnosticism": {
@@ -140,33 +84,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "World History Encyclopedia - Gnosticism", href: "https://www.worldhistory.org/Gnosticism/" },
     ],
   },
-  "greek-roman": {
-    overview: ["The polytheism of the classical Mediterranean - Olympian gods, civic cult, mystery religions, and the Olympian pantheon that seeded Western art and myth. Its philosophical critics (the Stoics, Platonists) fed into later theology.\", sacredTexts: [ { name: \"Iliad & Odyssey\", description: \"Homer's epic poems, composed orally around the eighth century BCE and foundational to Greek identity. The Iliad recounts the wrath of Achilles during the Trojan War; the Odyssey follows Odysseus's long voyage home. Both portray the gods as active participants in human affairs, rewarding honor and punishing hubris.\", }, { name: \"Theogony\", description: \"Hesiod's poem tracing the genealogy of the Greek gods from Chaos through the reign of Zeus. It explains the succession of divine rulers and the origins of natural forces and human woes. Greeks treated it as a canonical account of how the cosmos and Olympian order came to be.\", }, { name: \"Aeneid\", description: \"Virgil's Roman epic linking the Trojan hero Aeneas to the founding of Rome and the Julian dynasty. It blends Greek myth with Roman piety, portraying destiny (fatum) as guided by Jupiter and fate. The poem became the literary scripture of Roman civic religion and imperial ideology.\", }, ], practices: [\"Sacrifice\", \"Oracles\", \"Mystery rites (Eleusis)\", \"Public festivals\"], coreIdeas: [ { label: \"Afterlife\", value: \"Hades for most; Elysium for heroes\" }, { label: \"Sin\", value: \"Hubris provoking divine retribution (nemesis)\" }, ], conceptPositions: { \"mysticism\": \"affirmed\", \"polytheism\": \"affirmed\", \"sacrifice\": \"affirmed\", \"soul\": \"affirmed"],
-    history: {
-      title: "Historical Development",
-      content: ["The polytheism of the classical Mediterranean - Olympian gods, civic cult, mystery religions, and the Olympian pantheon that seeded Western art and myth. Its philosophical critics (the Stoics, Platonists) fed into later theology.\", sacredTexts: [ { name: \"Iliad & Odyssey\","],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Hades for most; Elysium for heroes",
-      "Sin: Hubris provoking divine retribution (nemesis)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Iliad & Odyssey: Homer's epic poems, composed orally around the eighth century BCE and foundational to Greek identity. The Iliad recounts the wrath of Achilles during the Trojan War; the Odyssey follows Odysseus's long voyage home. Both portray the gods as active participants in human affairs, rewarding honor and punishing hubris.",
-      "Theogony: Hesiod's poem tracing the genealogy of the Greek gods from Chaos through the reign of Zeus. It explains the succession of divine rulers and the origins of natural forces and human woes. Greeks treated it as a canonical account of how the cosmos and Olympian order came to be.",
-      "Aeneid: Virgil's Roman epic linking the Trojan hero Aeneas to the founding of Rome and the Julian dynasty. It blends Greek myth with Roman piety, portraying destiny (fatum) as guided by Jupiter and fate. The poem became the literary scripture of Roman civic religion and imperial ideology."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Sacrifice, Oracles, Mystery rites (Eleusis), Public festivals."],
-    },
-    sources: [],
-  },
+  "greek-roman": greekRomanArticle,
   "hinduism": hinduismArticle,
   "ifa": ifaArticle,
   "inuit": inuitArticle,
@@ -281,40 +199,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     ],
   },
   "navajo": navajoArticle,
-  "norse": {
-    overview: [
-      "Norse paganism was the pre-Christian religious tradition of Scandinavia and other Germanic peoples from roughly the Viking Age and earlier periods. Its mythology, preserved mainly in thirteenth-century Icelandic sources such as the Poetic Edda and Snorri Sturluson's Prose Edda, describes two divine families-the Aesir (including Odin, Thor, and Frigg) and the Vanir (including Njord and Freyja). The cosmos was structured around Yggdrasil, the world tree connecting multiple realms, including Asgard, Midgard, and Hel. These texts were compiled long after conversion but draw on older oral poetry.",
-      "Worship centered on blót (sacrificial feasts), votive offerings, and sacred sites such as groves and halls. Seiðr and galdr denote forms of ritual magic associated especially with Odin and certain practitioners. Norse sources present varied afterlife destinations: Valhalla for some warriors, Hel's realm for many of the dead, and other halls tied to specific deities. Fate (wyrd) and the norns who shape destiny give the mythology a notably fatalistic tone, culminating in Ragnarök, the prophesied destruction and renewal of the world. Kinship and ancestral honor framed much of religious obligation in daily life.",
-      "Archaeological evidence-including figurines, amulets, and ship burials-corroborates aspects of literary accounts, though Christian scribes shaped the written record centuries after widespread conversion. Runestones and place names preserve invocations of Thor and other gods. Modern popular images of Norse religion often simplify or romanticize the tradition. Scholarly reconstruction therefore combines cautious reading of medieval texts with material evidence from across northern Europe, acknowledging that pre-Christian practice likely varied among regions, social groups, and periods of contact with Christian kingdoms."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The pre-Christian religion of Scandinavia and the Germanic peoples - Aesir and Vanir gods, the world-tree Yggdrasil, and a fatalistic cosmos ending in Ragnarök. Valor in battle could earn a place in Valhalla.\", sacredTexts: [ { name: \"Poetic Edda\", description: \"A"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Valhalla, Hel, or the halls of other gods",
-      "Fate: Norns weave inescapable destiny"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Poetic Edda: A collection of Old Norse poems preserved in the Codex Regius, including the Völuspá (prophecy of the seeress) and tales of Odin, Thor, and Loki. It recounts the creation of the world, the gods' deeds, and the foretold destruction of Ragnarök. These verses were the primary source for later Scandinavian understanding of the mythic past.",
-      "Prose Edda (Snorri): Written around 1220 by the Icelandic scholar Snorri Sturluson to preserve and explain skaldic poetry for future generations. It retells myths in accessible prose and includes a dialogue between Gylfi and the Aesir gods. Snorri's work is the most systematic surviving account of Norse cosmology and divine genealogy."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Blót sacrifice, Runes, Seiðr magic, Feasting."],
-    },
-    sources: [
-      { label: "Britannica - Germanic religion", href: "https://www.britannica.com/topic/Germanic-religion-and-mythology" },
-      { label: "World History Encyclopedia - Norse mythology", href: "https://www.worldhistory.org/Norse_Mythology/" },
-      { label: "BBC History - Vikings", href: "https://www.bbc.co.uk/history/ancient/vikings/" },
-    ],
-  },
+  "norse": norseArticle,
   "rastafari": rastafariArticle,
   "samaritan": samaritanArticle,
   "santeria": santeriaArticle,
