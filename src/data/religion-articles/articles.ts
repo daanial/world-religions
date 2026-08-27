@@ -30,6 +30,7 @@ import { inuitArticle } from "./inuit";
 import { maoriArticle } from "./maori";
 import { dreamtimeArticle } from "./dreamtime";
 import { sumerianArticle } from "./sumerian";
+import { egyptianArticle } from "./egyptian";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -104,42 +105,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     ],
   },
   "druse": druseArticle,
-  "egyptian": {
-    overview: [
-      "Ancient Egyptian religion spanned more than three millennia, from the early dynastic period through the Roman era, and shaped every dimension of Egyptian civilization. Its core concept was maat-cosmic order, truth, and justice-which pharaohs were obliged to uphold as intermediaries between gods and humanity. The pantheon included solar deities such as Ra, funerary gods such as Osiris and Anubis, and widely venerated figures such as Isis and Hathor. Temple cults, local shrines, and household piety coexisted within a flexible theological landscape that tolerated regional variation.",
-      "Egyptians believed the soul comprised multiple components, including the ka (life force) and ba (personality), which required preservation after death. Funerary practices-mummification, tomb furnishing, and spells from the Pyramid Texts, Coffin Texts, and Book of the Dead-aimed to secure safe passage through the underworld. In the judgment scene, the heart of the deceased was weighed against the feather of maat; the justified could enter the Field of Reeds, while the condemned faced annihilation. Priestly colleges maintained temple rituals, and festival calendars aligned worship with the agricultural year and the annual rhythm of the Nile flood.",
-      "Religious expression changed over time: the Amarna period briefly elevated Aten, and later periods saw growing prominence of Osiris and Isis across the Mediterranean. Monumental architecture at Karnak, Luxor, and the Valley of the Kings reflects sustained investment in divine kingship and afterlife theology. Egyptian ideas about judgment, resurrection, and divine mediation influenced neighboring cultures and later religious thought, leaving a lasting imprint on Mediterranean spirituality and conceptions of moral order."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A 3,000-year tradition centered on maat (cosmic order), divine kingship, and an elaborate afterlife. The dead faced judgment: their heart weighed against the feather of truth. Gods like Ra, Osiris, and Isis governed cycles of sun, Nile, and rebirth.\", sacredTexts: [ { name: \"Pyrami"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Field of Reeds for the justified",
-      "Judgement: Heart weighed against maat",
-      "Liberation: Eternal union with the gods"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Pyramid Texts: The oldest religious writings in the world, carved inside Fifth and Sixth Dynasty pyramids around 2400 BCE. These spells and hymns guided the pharaoh's soul through the afterlife, invoking Osiris and the gods of the Duat. They form the foundation of all later Egyptian funerary literature.",
-      "Book of the Dead: A collection of spells written on papyrus scrolls and placed in tombs from the New Kingdom onward. The most famous passage describes the weighing of the heart against the feather of Maat before Osiris. It offered ordinary Egyptians, not just kings, a map to navigate judgment and reach the Field of Reeds.",
-      "Coffin Texts: Middle Kingdom spells painted inside wooden coffins, democratizing afterlife knowledge once reserved for royalty. They expanded on Pyramid Text themes with new spells for protection, transformation, and cosmic travel. Many motifs in the Book of the Dead first appear here."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Mummification, Temple cult, Funerary rites, Solar worship."],
-    },
-    sources: [
-      { label: "Britannica - Egyptian religion", href: "https://www.britannica.com/topic/Egyptian-religion" },
-      { label: "BBC Religion - Ancient Egypt", href: "https://www.bbc.co.uk/religion/religions/egypt/" },
-      { label: "Met Museum - Ancient Egypt", href: "https://www.metmuseum.org/toah/ht/03/afe.html" },
-    ],
-  },
+  "egyptian": egyptianArticle,
   "gnosticism": {
     overview: [
       "Gnosticism names a family of religious movements that emerged within early Christianity and Second Temple Judaism, flourishing across the Mediterranean and Near East from roughly the first through fourth centuries CE. Rather than a single organized church, it comprised diverse teachers and schools united by a shared cosmological instinct: a remote, unknowable supreme God (often called the Monad) stands apart from the flawed material cosmos, which was instead fashioned by a lesser, ignorant creator figure - the demiurge, sometimes named Yaldabaoth. Human beings carry a fragment of divine light trapped within matter, exiled from the pleroma, the true realm of fullness and light.",
