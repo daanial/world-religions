@@ -43,6 +43,7 @@ const RELIGION_IMAGE_FILES: Record<string, string> = {
   candomble: "candomble.png",
   wicca: "wicca.png",
   rastafari: "rastafari.png",
+  "korean-shin": "korean-shin.png",
 };
 
 export function getReligionImageSrc(religionId: string): string | undefined {
@@ -78,6 +79,7 @@ const RELIGION_THUMBNAIL_FILES: Record<string, string> = {
   candomble: "candomble-thumb.png",
   wicca: "wicca-thumb.png",
   rastafari: "rastafari-thumb.png",
+  "korean-shin": "korean-shin-thumb.png",
 };
 
 export function getReligionThumbnailSrc(religionId: string): string | undefined {
