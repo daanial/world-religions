@@ -2,7 +2,7 @@ import { useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { RELIGIONS, type Religion, type Family, type Region } from "../data/religions";
 import { formatYear } from "../lib/format";
-import { getReligionImageSrc } from "../lib/religionImages";
+import { getReligionImageSrc, getReligionThumbnailSrc } from "../lib/religionImages";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 import { useLocale, withLocale } from "../lib/locale";
@@ -315,7 +315,7 @@ interface TraditionCardProps {
 
 function TraditionCard({ religion }: TraditionCardProps) {
   const locale = useLocale();
-  const imageSrc = getReligionImageSrc(religion.id);
+  const imageSrc = getReligionThumbnailSrc(religion.id) ?? getReligionImageSrc(religion.id);
   const followersText = religion.living
     ? religion.followers >= 1000000
       ? `${(religion.followers / 1000000).toFixed(1)}M followers`

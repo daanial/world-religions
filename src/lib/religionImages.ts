@@ -16,9 +16,73 @@ const RELIGION_IMAGE_FILES: Record<string, string> = {
   judaism: "judaism.png",
   christianity: "christianity.png",
   islam: "islam.png",
+  bahai: "bahai.png",
+  taoism: "daoism.png",
+  shinto: "shinto.png",
+  gnosticism: "gnosticism.png",
+  confucianism: "confucianism.png",
+  mesoamerican: "mesoamerican.png",
+  mandaean: "mandaean.png",
+  yoruba: "yoruba.png",
+  bon: "bon.png",
+  stoicism: "stoicism.png",
+  "slavic-baltic": "slavic-baltic.png",
+  samaritan: "samaritan.png",
+  cheondogyo: "cheondogyo.png",
+  "chinese-folk": "chinese-folk.png",
+  caodai: "caodai.png",
+  yazidi: "yazidi.png",
+  druse: "druse.png",
+  santeria: "santeria.png",
+  vodou: "vodou.png",
+  inuit: "inuit.png",
+  navajo: "navajo.png",
+  maori: "maori.png",
+  dreamtime: "dreaming.png",
+  ifa: "ifa.png",
+  candomble: "candomble.png",
+  wicca: "wicca.png",
+  rastafari: "rastafari.png",
+  "korean-shin": "korean-shin.png",
 };
 
 export function getReligionImageSrc(religionId: string): string | undefined {
   const file = RELIGION_IMAGE_FILES[religionId];
+  return file ? `/assets/img/${file}` : undefined;
+}
+
+const RELIGION_THUMBNAIL_FILES: Record<string, string> = {
+  bahai: "bahai-thumb.png",
+  taoism: "daoism-thumb.png",
+  shinto: "shinto-thumb.png",
+  gnosticism: "gnosticism-thumb.png",
+  confucianism: "confucianism-thumb.png",
+  mesoamerican: "mesoamerican-thumb.png",
+  mandaean: "mandaean-thumb.png",
+  yoruba: "yoruba-thumb.png",
+  bon: "bon-thumb.png",
+  stoicism: "stoicism-thumb.png",
+  "slavic-baltic": "slavic-baltic-thumb.png",
+  samaritan: "samaritan-thumb.png",
+  cheondogyo: "cheondogyo-thumb.png",
+  "chinese-folk": "chinese-folk-thumb.png",
+  caodai: "caodai-thumb.png",
+  yazidi: "yazidi-thumb.png",
+  druse: "druse-thumb.png",
+  santeria: "santeria-thumb.png",
+  vodou: "vodou-thumb.png",
+  inuit: "inuit-thumb.png",
+  navajo: "navajo-thumb.png",
+  maori: "maori-thumb.png",
+  dreamtime: "dreaming-thumb.png",
+  ifa: "ifa-thumb.png",
+  candomble: "candomble-thumb.png",
+  wicca: "wicca-thumb.png",
+  rastafari: "rastafari-thumb.png",
+  "korean-shin": "korean-shin-thumb.png",
+};
+
+export function getReligionThumbnailSrc(religionId: string): string | undefined {
+  const file = RELIGION_THUMBNAIL_FILES[religionId];
   return file ? `/assets/img/${file}` : undefined;
 }

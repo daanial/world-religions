@@ -5,6 +5,7 @@ import Starfield from "../components/Starfield";
 import TimelineChart from "../components/TimelineChart";
 import { RELIGIONS } from "../data/religions";
 import { formatYear } from "../lib/format";
+import { getReligionImageSrc, getReligionThumbnailSrc } from "../lib/religionImages";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 
@@ -66,6 +67,14 @@ export default function Timeline() {
             {visible.map((r) => (
               <Link key={r.id} to={`/religion/${r.id}`} className="tl-card card">
                 <div className="tl-card__bar" style={{ background: r.accent }} />
+                {(() => {
+                  const imgSrc = getReligionThumbnailSrc(r.id) ?? getReligionImageSrc(r.id);
+                  return imgSrc ? (
+                    <div className="tl-card__image">
+                      <img src={imgSrc} alt={`${r.name} plate`} loading="lazy" />
+                    </div>
+                  ) : null;
+                })()}
                 <div className="tl-card__head">
                   <h3>{r.name}</h3>
                   {r.extinct && <span className="tl-card__extinct">† Extinct</span>}

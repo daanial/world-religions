@@ -115,6 +115,18 @@ export default function Landing() {
 
       {/* ---------- HERO ---------- */}
       <section className="hero">
+        <video
+          className="hero__video"
+          src="/assets/HeroReligionsCubexic.mp4"
+          autoPlay
+          muted
+          playsInline
+          loop
+          preload="auto"
+          aria-hidden
+        />
+        <div className="hero__video-overlay" aria-hidden />
+
         <div className="hero__vignette" aria-hidden />
         <div className="container hero__content">
           <div className="hero__eyebrow eyebrow">
