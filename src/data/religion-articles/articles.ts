@@ -22,6 +22,7 @@ import { samaritanArticle } from "./samaritan";
 import { yorubaArticle } from "./yoruba";
 import { ifaArticle } from "./ifa";
 import { santeriaArticle } from "./santeria";
+import { candombleArticle } from "./candomble";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -59,37 +60,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Met Museum - Levant", href: "https://www.metmuseum.org/toah/ht/04/wam.html" },
     ],
   },
-  "candomble": {
-    overview: [
-      "Candomblé is an Afro-Brazilian religion that took shape in nineteenth-century Bahia among enslaved and freed Africans, blending West and Central African traditions - chiefly Yoruba, Fon, and Bantu - with the Roman Catholicism imposed by Portuguese colonizers. The religion organized itself into distinct denominations called nações (nations), each preserving the language, deities, and ritual vocabulary of a different African tradition: Nagô or Ketu (Yoruba-derived), Jeje (Fon-derived), and Angola (Bantu-derived) remain the three most prominent lineages, each maintained with considerable independence from the others.",
-      "Worship centers on the orixás, spirits who mediate between humanity and Olorun, the distant supreme creator; each orixá carries a distinct personality, domain, and moral character - commonly described as morally ambiguous rather than purely good - and every practitioner is understood to have a tutelary orixá shaping their own temperament. Ritual life unfolds in community temple-houses called terreiros, led by priestesses (mãe de santo) or priests (pai de santo), where drumming, dance, and possession trance allow orixás to manifest directly among worshippers, alongside animal offerings and divination. Under colonial pressure, each orixá was historically paired with a corresponding Catholic saint, a syncretism that let the religion survive within an officially Catholic society.",
-      "Candomblé endured decades of legal suppression and social stigma in Brazil, with police raids on terreiros continuing into the twentieth century, before gaining formal legal protection and growing public visibility from the 1970s onward. In recent decades many terreiros have moved to re-emphasize their specifically African liturgical roots and Yoruba-derived ritual language, distancing themselves from the heavier Catholic syncretism seen in related traditions such as Cuban Santería. Practiced today across Brazil and increasingly in diaspora communities abroad, Candomblé is recognized by scholars as one of the most historically documented and institutionally organized African-diaspora religions in the Americas."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["An Afro-Brazilian religion formed by enslaved Yoruba, Fon, and Bantu peoples in Bahia, centering on the worship of orixás (deities) through drumming, dance, and trance possession within community temples called terreiros. Distinct from the more Catholic-syncretized Santería, Candomblé has increasing"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Olorun above; orixás as forces of nature and personality",
-      "Afterlife: Return to ancestral and orixá realms"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral - itan & Ifá-related divination corpus): Candomblé transmits its theology orally through itan (myths of the orixás) and divination systems related to Ifá, taught within terreiro lineages under a mãe or pai de santo (priestess or priest). There is no single written scripture; authority rests in initiation and oral memory passed from generation to generation."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Drumming & trance possession, Orixá initiation, Animal & food offerings, Terreiro festivals."],
-    },
-    sources: [
-      { label: "Britannica - Candomblé", href: "https://www.britannica.com/topic/Candomble" },
-      { label: "Harvard Divinity School Religious Literacy Project - Candomblé", href: "https://rlp.hds.harvard.edu/faq/candomble" },
-      { label: "Smithsonian Folklife - Afro-Brazilian Religion", href: "https://festival.si.edu/" },
-    ],
-  },
+  "candomble": candombleArticle,
   "chinese-folk": chineseFolkArticle,
   "christianity": christianityArticle,
   "confucianism": confucianismArticle,
