@@ -33,6 +33,7 @@ import { sumerianArticle } from "./sumerian";
 import { egyptianArticle } from "./egyptian";
 import { canaaniteArticle } from "./canaanite";
 import { greekRomanArticle } from "./greek-roman";
+import { norseArticle } from "./norse";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -227,40 +228,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     ],
   },
   "navajo": navajoArticle,
-  "norse": {
-    overview: [
-      "Norse paganism was the pre-Christian religious tradition of Scandinavia and other Germanic peoples from roughly the Viking Age and earlier periods. Its mythology, preserved mainly in thirteenth-century Icelandic sources such as the Poetic Edda and Snorri Sturluson's Prose Edda, describes two divine families-the Aesir (including Odin, Thor, and Frigg) and the Vanir (including Njord and Freyja). The cosmos was structured around Yggdrasil, the world tree connecting multiple realms, including Asgard, Midgard, and Hel. These texts were compiled long after conversion but draw on older oral poetry.",
-      "Worship centered on blót (sacrificial feasts), votive offerings, and sacred sites such as groves and halls. Seiðr and galdr denote forms of ritual magic associated especially with Odin and certain practitioners. Norse sources present varied afterlife destinations: Valhalla for some warriors, Hel's realm for many of the dead, and other halls tied to specific deities. Fate (wyrd) and the norns who shape destiny give the mythology a notably fatalistic tone, culminating in Ragnarök, the prophesied destruction and renewal of the world. Kinship and ancestral honor framed much of religious obligation in daily life.",
-      "Archaeological evidence-including figurines, amulets, and ship burials-corroborates aspects of literary accounts, though Christian scribes shaped the written record centuries after widespread conversion. Runestones and place names preserve invocations of Thor and other gods. Modern popular images of Norse religion often simplify or romanticize the tradition. Scholarly reconstruction therefore combines cautious reading of medieval texts with material evidence from across northern Europe, acknowledging that pre-Christian practice likely varied among regions, social groups, and periods of contact with Christian kingdoms."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The pre-Christian religion of Scandinavia and the Germanic peoples - Aesir and Vanir gods, the world-tree Yggdrasil, and a fatalistic cosmos ending in Ragnarök. Valor in battle could earn a place in Valhalla.\", sacredTexts: [ { name: \"Poetic Edda\", description: \"A"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Valhalla, Hel, or the halls of other gods",
-      "Fate: Norns weave inescapable destiny"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Poetic Edda: A collection of Old Norse poems preserved in the Codex Regius, including the Völuspá (prophecy of the seeress) and tales of Odin, Thor, and Loki. It recounts the creation of the world, the gods' deeds, and the foretold destruction of Ragnarök. These verses were the primary source for later Scandinavian understanding of the mythic past.",
-      "Prose Edda (Snorri): Written around 1220 by the Icelandic scholar Snorri Sturluson to preserve and explain skaldic poetry for future generations. It retells myths in accessible prose and includes a dialogue between Gylfi and the Aesir gods. Snorri's work is the most systematic surviving account of Norse cosmology and divine genealogy."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Blót sacrifice, Runes, Seiðr magic, Feasting."],
-    },
-    sources: [
-      { label: "Britannica - Germanic religion", href: "https://www.britannica.com/topic/Germanic-religion-and-mythology" },
-      { label: "World History Encyclopedia - Norse mythology", href: "https://www.worldhistory.org/Norse_Mythology/" },
-      { label: "BBC History - Vikings", href: "https://www.bbc.co.uk/history/ancient/vikings/" },
-    ],
-  },
+  "norse": norseArticle,
   "rastafari": rastafariArticle,
   "samaritan": samaritanArticle,
   "santeria": santeriaArticle,
