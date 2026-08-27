@@ -31,6 +31,13 @@ const RELIGION_IMAGE_FILES: Record<string, string> = {
   cheondogyo: "cheondogyo.png",
   "chinese-folk": "chinese-folk.png",
   caodai: "caodai.png",
+  yazidi: "yazidi.png",
+  druze: "druse.png",
+  santeria: "santeria.png",
+  vodou: "vodou.png",
+  inuit: "inuit.png",
+  navajo: "navajo.png",
+  maori: "maori.png",
 };
 
 export function getReligionImageSrc(religionId: string): string | undefined {
@@ -54,6 +61,13 @@ const RELIGION_THUMBNAIL_FILES: Record<string, string> = {
   cheondogyo: "cheondogyo-thumb.png",
   "chinese-folk": "chinese-folk-thumb.png",
   caodai: "caodai-thumb.png",
+  yazidi: "yazidi-thumb.png",
+  druze: "druse-thumb.png",
+  santeria: "santeria-thumb.png",
+  vodou: "vodou-thumb.png",
+  inuit: "inuit-thumb.png",
+  navajo: "navajo-thumb.png",
+  maori: "maori-thumb.png",
 };
 
 export function getReligionThumbnailSrc(religionId: string): string | undefined {
