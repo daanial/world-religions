@@ -10,6 +10,7 @@ import { zoroastrianArticle } from "./zoroastrian";
 import { taoismArticle } from "./taoism";
 import { confucianismArticle } from "./confucianism";
 import { shintoArticle } from "./shinto";
+import { koreanShinArticle } from "./korean-shin";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -456,32 +457,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "islam": islamArticle,
   "jainism": jainismArticle,
   "judaism": judaismArticle,
-  "korean-shin": {
-    overview: ["Founded by Choe Je-u, Cheondogyo fused Confucian ethics, Buddhist practice, and a monotheistic belief in Haneullim (the Lord of Heaven). It became a rallying point for Korean national identity under Japanese rule.\", sacredTexts: [ { name: \"Donggyeong Daejeon\", description: \"The 'Classic of the Eastern Scripture,' the primary scripture of Cheondogyo compiled by Choe Je-u's followers. It records divine revelations received through incantation and presents the doctrine of Haneullim, the Lord of Heaven dwelling within all people. The text calls for moral reform, equality, and the realization of paradise on earth.\", }, { name: \"Yongdam Yusa\", description: \"A collection of teachings, hymns, and narratives associated with Choe Je-u and early Cheondogyo leaders. It preserves the movement's origin story and its fusion of Confucian ethics, Buddhist practice, and monotheistic faith. The work remains central to Cheondogyo worship and Korean nationalist identity.\", }, ], practices: [\"Incantation (sicheonnyeong)\", \"Daily prayer\", \"Equality rituals\"], coreIdeas: [ { label: \"Monotheism\", value: \"Haneullim - God within all humans\" }, { label: \"Salvation\", value: \"Bringing heaven to earth\" }, ], conceptPositions: { \"monotheism\": \"affirmed\", \"mysticism\": \"affirmed\", \"prayer\": \"affirmed"],
-    history: {
-      title: "Historical Development",
-      content: ["Founded by Choe Je-u, Cheondogyo fused Confucian ethics, Buddhist practice, and a monotheistic belief in Haneullim (the Lord of Heaven). It became a rallying point for Korean national identity under Japanese rule.\", sacredTexts: [ { name: \"Donggyeong Daejeon\", description:"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Monotheism: Haneullim - God within all humans",
-      "Salvation: Bringing heaven to earth"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Donggyeong Daejeon: The 'Classic of the Eastern Scripture,' the primary scripture of Cheondogyo compiled by Choe Je-u's followers. It records divine revelations received through incantation and presents the doctrine of Haneullim, the Lord of Heaven dwelling within all people. The text calls for moral reform, equality, and the realization of paradise on earth.",
-      "Yongdam Yusa: A collection of teachings, hymns, and narratives associated with Choe Je-u and early Cheondogyo leaders. It preserves the movement's origin story and its fusion of Confucian ethics, Buddhist practice, and monotheistic faith. The work remains central to Cheondogyo worship and Korean nationalist identity."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Incantation (sicheonnyeong), Daily prayer, Equality rituals."],
-    },
-    sources: [],
-  },
+  "korean-shin": koreanShinArticle,
   "mandaean": {
     overview: [
       "Mandaeism is a Gnostic monotheistic religion whose adherents trace their origin to first-century followers of John the Baptist, whom they revere as their greatest prophet and final teacher - while explicitly rejecting Jesus and Muhammad. Mandaean texts such as the Haran Gawaita describe an early migration from Palestine through Haran to southern Mesopotamia to escape persecution, though scholars continue to debate whether the tradition's roots are ultimately Palestinian or native to Mesopotamia. What is clear is that by the Parthian and Sasanian periods, Mandaean communities were established in the marshlands of what is now southern Iraq and southwestern Iran, worshipping Hayyi Rabbi, 'the Great Life,' as their supreme, unknowable God.",
