@@ -41,6 +41,7 @@ import { mithraismArticle } from "./mithraism";
 import { gnosticismArticle } from "./gnosticism";
 import { mesoamericanArticle } from "./mesoamerican";
 import { slavicBalticArticle } from "./slavic-baltic";
+import { stoicismArticle } from "./stoicism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -78,42 +79,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "shinto": shintoArticle,
   "sikhism": sikhismArticle,
   "slavic-baltic": slavicBalticArticle,
-  "stoicism": {
-    overview: [
-      "Stoicism is a Hellenistic school of philosophy founded in Athens around 300 BCE by Zeno of Citium. It takes its name from the Stoa Poikile, the painted colonnade where Zeno taught. Unlike purely theoretical inquiry, Stoicism was conceived as a practical philosophy aimed at living well through reason and moral discipline. Early Stoics such as Cleanthes and Chrysippus developed a systematic worldview spanning logic, physics, and ethics, while later Roman Stoics including Seneca, Epictetus, and Marcus Aurelius emphasized personal conduct, resilience, and civic duty. Although not a religion in the conventional sense, Stoicism functioned for many adherents as a comprehensive guide to character, fate, and the human place within nature.",
-      "Central to Stoic ethics is the claim that virtue-understood as wisdom, justice, courage, and moderation-is the only true good, while externals such as wealth, reputation, and even health are indifferent to happiness. The Stoics taught that the cosmos is governed by logos, a rational divine principle, and that human beings share in this reason. Emotional disturbance arises from mistaken judgments about what matters; the ideal Stoic sage responds to events with equanimity rather than destructive passion. Epictetus famously distinguished between what is within our control and what is not, urging attention to intention and character rather than outcomes. This framework offered a way to endure political instability, personal loss, and social inequality without abandoning moral responsibility.",
-      "Stoicism influenced Roman law, early Christian thought, and later philosophical traditions, even as its institutional school declined in late antiquity. Its ideas reappeared in Renaissance humanism, early modern ethics, and contemporary popular philosophy focused on mindfulness and resilience. Modern scholarship treats Stoicism as a major source for ancient psychology, political theory, and cosmopolitan ethics. Whether read through the Meditations of Marcus Aurelius, the Discourses of Epictetus, or the letters of Seneca, the tradition continues to attract readers seeking a disciplined, rational approach to life's uncertainties."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded in Athens by Zeno, Stoicism taught that virtue - wisdom, courage, justice, temperance - is the only true good, and that peace comes from distinguishing what we control from what we don't. It shaped Roman law, Christian ethics, and modern cognitive therapy.\", sacredTexts: [ {"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Sin: Error of judgment, not evil essence",
-      "Liberation: Apatheia - freedom from destructive passions",
-      "Deity: Logos - divine reason pervading all"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Meditations (Marcus Aurelius): Private philosophical notes written by the Roman emperor Marcus Aurelius during military campaigns in the second century CE. He reflects on virtue, duty, mortality, and aligning the mind with nature's rational order. Never intended for publication, it became one of the most widely read works of Stoic practice.",
-      "Enchiridion (Epictetus): A concise handbook compiled by Epictetus's student Arrian from the philosopher's classroom teachings. It distills Stoic ethics into practical rules: distinguish what is in your control from what is not, and guard your judgments. The Enchiridion served as a daily manual for Stoic living for centuries.",
-      "Letters (Seneca): Moral letters from the Roman statesman Seneca to his friend Lucilius, covering grief, anger, wealth, friendship, and death. Written in elegant prose, they apply Stoic principles to the dilemmas of everyday life. Seneca's letters bridge philosophy and literature, making Stoicism accessible beyond the lecture hall."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Morning meditation, Negative visualization, Journaling, Self-examination."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia - Stoicism", href: "https://plato.stanford.edu/entries/stoicism/" },
-      { label: "Britannica - Stoicism", href: "https://www.britannica.com/topic/Stoicism" },
-      { label: "Internet Encyclopedia of Philosophy - Stoicism", href: "https://iep.utm.edu/stoicism/" },
-    ],
-  },
+  "stoicism": stoicismArticle,
   "sumerian": sumerianArticle,
   "taoism": taoismArticle,
   "tengrism": tengrismArticle,
