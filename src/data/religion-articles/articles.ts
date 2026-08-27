@@ -22,6 +22,7 @@ import { samaritanArticle } from "./samaritan";
 import { yorubaArticle } from "./yoruba";
 import { ifaArticle } from "./ifa";
 import { santeriaArticle } from "./santeria";
+import { vodouArticle } from "./vodou";
 import { candombleArticle } from "./candomble";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
@@ -628,37 +629,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Smithsonian - Genghis Khan", href: "https://www.si.edu/newsdesk/snapshot/genghis-khan" },
     ],
   },
-  "vodou": {
-    overview: [
-      "Haitian Vodou is a religion forged in colonial Saint-Domingue through the encounter of West and Central African traditions, Indigenous knowledge, and Catholic colonial culture. Practitioners honor Bondye, a distant supreme creator understood as beyond direct human petition, and serve the lwa, spirits associated with natural forces, historical figures, and human archetypes. Ceremonies feature drumming, song, dance, offerings, and spirit possession in which a lwa may temporarily manifest through a devotee to counsel and heal the community. Ancestors remain present in daily moral life and ritual obligation.",
-      "Vodou is not a single uniform church but a family of lineages, temples, and regional styles across Haiti and its diaspora. Rites, pantheon emphasis, and language of prayer differ among communities in Port-au-Prince, the Artibonite, rural provinces, and Haitian communities abroad. Initiation grades, priestly roles such as houngan and mambo, and the keeping of peristyle altars structure religious authority. Misrepresentation in colonial propaganda, sensational media, and foreign misunderstanding has long obscured Vodou's status as a coherent ethical and communal system with its own theology of the soul, misfortune, and restoration.",
-      "Academic and Haitian scholars alike stress that Vodou sustained resistance, memory, and social cohesion through slavery, independence, dictatorship, and disaster. Healing, divination, and moral instruction are integrated rather than separated from worship. The 2003 recognition of Vodou as an official religion in Haiti affirmed its public standing, though prejudice persists abroad. Contemporary Vodou navigates poverty, migration, evangelical opposition, and tourism, yet remains vital in Haitian public and private life. Responsible description recognizes diversity among practitioners and rejects stereotypes that reduce Vodou to magic or superstition rather than religion."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Forged in colonial Haiti from West African, Kongo, and Catholic roots, Vodou honors a distant creator (Bondye) reached through the lwa - spirits of nature, ancestors, and human archetypes served in drumming ceremonies.\", sacredTexts: [ { name: \"(Oral tradition)\", descriptio"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Bondye above; the lwa as intermediaries",
-      "Soul: Two souls - gros-bon-ange and ti-bon-ange"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral tradition): Haitian Vodou has no single written scripture; its theology is transmitted through songs, prayers, and ritual knowledge passed from houngan and mambo to initiates. Creation stories of Bondye and the lwa, along with hundreds of ritual songs, are learned by heart across generations. This oral corpus was forged in slavery, blending Yoruba, Kongo, and Catholic elements into a living tradition."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Drumming ceremonies, Altar service, Possession trance, Ancestor veneration."],
-    },
-    sources: [
-      { label: "Britannica - Vodou", href: "https://www.britannica.com/topic/Vodou" },
-      { label: "Smithsonian - Vodou", href: "https://www.smithsonianmag.com/arts-culture/vodou-142965516/" },
-      { label: "BBC Religion - Vodou", href: "https://www.bbc.co.uk/religion/religions/vodou/" },
-    ],
-  },
+  "vodou": vodouArticle,
   "wicca": {
     overview: [
       "Wicca is a modern religious movement that emerged in mid-twentieth-century Britain and is often classified under contemporary Paganism. Its public form is commonly traced to Gerald Gardner, who published works in the 1950s describing witchcraft as a surviving nature religion. Scholars debate how much Gardner drew on folklore, ceremonial magic, and literary sources rather than an unbroken ancient lineage, but Wicca quickly developed into a self-conscious tradition with ritual structures, initiatory groups, and published liturgy. From Britain it spread to North America and beyond, adapting to local cultures while retaining a shared emphasis on seasonal cycles, personal experience, and ritual practice.",
