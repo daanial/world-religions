@@ -8,6 +8,7 @@ import { islamArticle } from "./islam";
 import { judaismArticle } from "./judaism";
 import { zoroastrianArticle } from "./zoroastrian";
 import { taoismArticle } from "./taoism";
+import { confucianismArticle } from "./confucianism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -196,42 +197,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     sources: [],
   },
   "christianity": christianityArticle,
-  "confucianism": {
-    overview: [
-      "Confucianism derives from Kong Qiu (551-479 BCE), known in the West as Confucius, who sought to restore social harmony through moral cultivation rather than punitive law alone. The Lunyu (Analects), compiled by disciples, records his teachings on ren (benevolence), li (ritual propriety), yi (righteousness), and xiao (filial piety). Confucianism presents a this-worldly ethical system focused on character, reciprocal obligations among ruler, minister, parent, and child, and the belief that virtuous leadership inspires virtuous subjects. Heaven (Tian) appears not as a personal deity but as a moral order that responds to human conduct, rewarding sincerity and condemning cruelty or neglect of duty. Education, ritual performance, and self-examination were central means by which individuals and communities cultivated lasting virtue.",
-      "Over centuries, Confucian thought shaped Chinese imperial education, civil service examinations, and state ritual throughout the empire. Mencius expanded the tradition's moral psychology, arguing that humans possess innate tendencies toward goodness. Later Neo-Confucians such as Zhu Xi integrated metaphysics, cosmology, and disciplined self-cultivation through study and quiet-sitting meditation. Although rarely classified as a religion in the Western sense, Confucianism functioned as a civil religion with rites honoring Heaven and ancestors. Its influence extends across Korea, Japan, and Vietnam, where adapted Confucian norms informed law, family structure, gender roles, and governance for many centuries. The Five Classics and Four Books became standard curricula throughout East Asia, embedding Confucian values in elite and, gradually, broader social life. Contemporary debates revisit Confucian resources for ethics, democracy, and ecological responsibility, examining how classical ideals might address present social challenges."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Confucius taught that a stable society rests on ren (humaneness), li (ritual propriety), and filial piety. Confucianism shaped Chinese government, family, and education for two millennia - more an ethical philosophy than a faith about gods.\", sacredTexts: [ { name: \"Analects\","],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Virtue: Ren - humaneness, the supreme virtue",
-      "Sin: Failing in duty or ritual propriety",
-      "Deity: Heaven (Tian) as moral order, not a person"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Analects: A collection of sayings and conversations of Confucius, compiled by his disciples after his death in 479 BCE. It addresses governance, personal cultivation, filial piety, and the virtue of ren (humaneness). For two millennia it was the core text of China's civil service examinations and moral education.",
-      "Mencius: The teachings of Mencius (Mengzi, fourth century BCE), who argued that human nature is inherently good and that righteous governance flows from benevolent rulers. He defended the common people's right to resist tyranny and developed Confucian ideas of moral intuition. The text is one of the Four Books central to Neo-Confucianism.",
-      "Five Classics: A set of ancient texts - including the Book of Documents, Book of Songs, Book of Rites, Book of Changes (I Ching), and Spring and Autumn Annals - that Confucius is traditionally said to have edited. They cover history, poetry, ritual, divination, and chronicle. Confucian education treated mastery of the Classics as the foundation of wisdom and virtue."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Ancestor veneration, Ritual (li), Self-cultivation, Study."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia of Philosophy - Confucius", href: "https://plato.stanford.edu/entries/confucius/" },
-      { label: "Encyclopaedia Britannica - Confucianism", href: "https://www.britannica.com/topic/Confucianism" },
-      { label: "Columbia University - Confucianism in China", href: "https://afe.easia.columbia.edu/special/china_general_confucian.htm" },
-      { label: "Stanford Encyclopedia of Philosophy - Neo-Confucianism", href: "https://plato.stanford.edu/entries/neo-confucian/" },
-    ],
-  },
+  "confucianism": confucianismArticle,
   "dreamtime": {
     overview: [
       "Aboriginal Australian spiritual traditions, often discussed under the English term Dreaming, are the religious lifeways of the First Nations peoples of the Australian continent. Aboriginal English terms such as Tjukurrpa, Ngarranggarni, or other language-specific names better reflect local meaning than any single translation. These traditions hold that Ancestral beings shaped land, law, language, and social order in the founding era and remain present through country, ceremony, and story. Land is therefore inseparable from morality, identity, and cosmic order rather than mere property.",
