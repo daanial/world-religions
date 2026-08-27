@@ -16,6 +16,7 @@ import { bahaiArticle } from "./bahai";
 import { caodaiArticle } from "./caodai";
 import { bonArticle } from "./bon";
 import { yazidiArticle } from "./yazidi";
+import { druseArticle } from "./druse";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -149,38 +150,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "National Museum of Ireland - Celtic religion", href: "https://www.museum.ie/en-IE/Collections-Research/Research/Research-Guides/Celtic-Religion" },
     ],
   },
-  "druse": {
-    overview: [
-      "The Druze are an ethno-religious community centered in the Levant, especially Lebanon, Syria, and Israel. Their tradition emerged in the eleventh century from Ismaili Shia Islam during the Fatimid Caliphate. Hamza ibn Ali and other missionaries, acting under the authority of the caliph al-Hakim bi-Amr Allah, composed the Rasa'il al-Hikma (Epistles of Wisdom), which remain the core sacred texts. After al-Hakim's disappearance in 1021, the movement closed to new converts and developed into a distinct community with its own theology, endogamy, and social structure.",
-      "Druze doctrine is esoteric and largely concealed from outsiders. Initiated elders (uqqal) study sacred writings and lead communal life, while the majority (juhhal) participate in ritual and social obligations without access to the full teachings. Beliefs include strict monotheism, the transmigration of souls, and a cyclical view of history in which God periodically sends prophets and mentors. Al-Hakim is revered as a manifestation of the divine, though Druze theology resists simple categorization as either Islamic sect or separate religion. Religious practice emphasizes moral conduct, hospitality, and loyalty to the community rather than public proselytism.",
-      "Estimated at roughly one million worldwide, Druze identity combines faith, kinship, and Arabic language. They have played notable roles in Levantine politics and military service while maintaining religious discretion. Weekly gatherings on Thursday evenings and annual festivals mark the religious calendar, though public ritual remains modest compared with the inner life of the uqqal. Academic sources treat Druze history as a case study in how a closed initiatory tradition preserves cohesion under minority status across centuries of Ottoman, colonial, and national-state rule."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["An offshoot of Ismaili Shia Islam that became its own tradition. Druze believe in one God, reincarnation, and a final judgment. The faith's inner teachings are secret, reserved for the initiated 'uqqal.'\", sacredTexts: [ { name: \"Rasa'il al-Hikma (Epistles of Wisdom)\", desc"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Monotheism: One transcendent God",
-      "Reincarnation: Successive rebirths of the soul",
-      "Judgement: Final accounting at the end of cycles"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Rasa'il al-Hikma (Epistles of Wisdom): A collection of 111 epistles composed by Hamza ibn Ali and other missionaries during the Fatimid period, forming the sole canonical scripture of the Druze faith. They expound a Neoplatonic cosmology, the unity of God, and the cyclical appearance of divine messengers. Only the initiated 'uqqal' may study them; the text remains closed to outsiders and converts."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Thursday meetings, Initiation, Modest dress."],
-    },
-    sources: [
-      { label: "Britannica: Druze", href: "https://www.britannica.com/topic/Druze" },
-      { label: "BBC Religion: Druze", href: "https://www.bbc.co.uk/religion/religions/druze/" },
-      { label: "Encyclopaedia Iranica: Druze", href: "https://www.iranicaonline.org/articles/druze" },
-    ],
-  },
+  "druse": druseArticle,
   "egyptian": {
     overview: [
       "Ancient Egyptian religion spanned more than three millennia, from the early dynastic period through the Roman era, and shaped every dimension of Egyptian civilization. Its core concept was maat-cosmic order, truth, and justice-which pharaohs were obliged to uphold as intermediaries between gods and humanity. The pantheon included solar deities such as Ra, funerary gods such as Osiris and Anubis, and widely venerated figures such as Isis and Hathor. Temple cults, local shrines, and household piety coexisted within a flexible theological landscape that tolerated regional variation.",
