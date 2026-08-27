@@ -1,5 +1,6 @@
 import type { ReligionArticle } from "./types";
 import { buddhismArticle } from "./buddhism";
+import { hinduismArticle } from "./hinduism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -451,48 +452,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     },
     sources: [],
   },
-  "hinduism": {
-    overview: [
-      "Hinduism is not a single creed founded by one historical figure but a diverse ensemble of traditions that scholars treat as a family of related practices shaped over millennia on the Indian subcontinent. Its roots reach into the Vedic ritual culture of the second millennium BCE, preserved in Sanskrit hymns and liturgical formulae. Over centuries, Brahmanical priestly traditions, philosophical schools, devotional movements, and regional customs interwove into what is today called Hinduism. The label itself is largely a modern construction, applied during colonial encounters, yet it marks communities who share overlapping ideas about dharma (right order and duty), karma (the moral law of cause and effect), and samsara (the cycle of birth, death, and rebirth).",
-      "Classical Hindu thought explores how embodied souls relate to ultimate reality, often termed brahman. Some Upanishadic sages teach that liberation (moksha) comes through knowledge of their unity; others emphasize ritual, yoga, ascetic discipline, or loving devotion to a personal deity such as Vishnu, Shiva, or the Goddess. Epic narratives like the Mahabharata and Ramayana, together with countless local temple cults, have carried these teachings to worshippers across South Asia and the global diaspora. Puja, pilgrimage to sacred rivers and cities such as Varanasi, and festival observances remain central in lived practice.",
-      "Because Hindu traditions vary widely by region, caste, language, and sect, scholars caution against treating any single doctrine as representative of all Hindus. Contemporary communities continue to reinterpret ancient texts while engaging in democratic politics, environmental activism, and interfaith dialogue, demonstrating that this civilizational heritage remains a living, plural field of belief rather than a fixed charter."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A vast family of traditions without a single founder, rooted in the Vedas and flowering through Upanishads, epics, and bhakti. Hindus explore dharma (duty), karma (cause and effect), samsara (rebirth), and moksha (liberation) through countless deities and paths.\", sacredTexts: [ {"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Liberation: Moksha - release from samsara",
-      "Karma: Actions shape future rebirths",
-      "Deity: Brahman beneath many forms (Brahma, Vishnu, Shiva)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Vedas: The oldest and most authoritative Hindu scriptures, composed in Sanskrit between roughly 1500 and 500 BCE. The four collections - Rig, Sama, Yajur, and Atharva - contain hymns, rituals, and cosmological speculations recited by Brahmin priests. They are regarded as shruti, 'that which is heard,' revealed directly to ancient sages.",
-      "Upanishads: Philosophical texts appended to the Vedas, exploring the nature of Brahman (ultimate reality) and Atman (the self). They move from ritual sacrifice toward inner contemplation and the quest for moksha. The Chandogya and Brihadaranyaka Upanishads are among the most influential, shaping Hindu, Buddhist, and Western philosophy.",
-      "Bhagavad Gita: A 700-verse dialogue between the warrior Arjuna and the god Krishna, embedded in the Mahabharata epic. Krishna teaches the paths of devotion (bhakti), selfless action (karma yoga), and knowledge (jnana) as routes to liberation. It is one of the most widely read and commented-upon texts in Hindu tradition.",
-      "Mahabharata: The world's longest epic poem, telling of the great war between the Pandava and Kaurava clans and the fall of the dharma age. It weaves together history, mythology, law, and philosophy across roughly 100,000 verses. The Bhagavad Gita forms its spiritual climax, and the epic's moral dilemmas remain central to Hindu thought.",
-      "Ramayana: The epic of Prince Rama, an avatar of Vishnu, who rescues his wife Sita from the demon king Ravana with the help of Hanuman. It celebrates dharma, devotion, and ideal kingship, and is recited and performed across South and Southeast Asia. Valmiki's Sanskrit version is the best known, though regional retellings abound."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Puja, Yoga & meditation, Pilgrimage (tirtha), Festivals (Diwali, Holi)."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: varanasi."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia of Philosophy - Hinduism", href: "https://plato.stanford.edu/entries/hinduism/" },
-      { label: "Encyclopaedia Britannica - Hinduism", href: "https://www.britannica.com/topic/Hinduism" },
-      { label: "BBC Religion - Hinduism", href: "https://www.bbc.co.uk/religion/religions/hinduism/" },
-    ],
-  },
+  "hinduism": hinduismArticle,
   "ifa": {
     overview: [
       "Ifá is a Yoruba divination and wisdom tradition centered on Orunmila, the orisha of knowledge, and the corpus of odu, or sacred signs, interpreted through ritual tools such as palm nuts or a divining chain. Babalawos and iyanifas, trained priests of Ifá, recite verses, proverbs, and prescriptions associated with each of the 256 odu combinations to guide clients on destiny, ethics, health, and community relations. Ifá is simultaneously a religious office, a literary archive, and a philosophy of character, fate, and social responsibility transmitted chiefly through apprenticeship and memory.",
