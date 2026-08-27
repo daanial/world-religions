@@ -36,6 +36,7 @@ import { greekRomanArticle } from "./greek-roman";
 import { norseArticle } from "./norse";
 import { druidicArticle } from "./druidic";
 import { manichaeanArticle } from "./manichaean";
+import { tengrismArticle } from "./tengrism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -229,37 +230,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   },
   "sumerian": sumerianArticle,
   "taoism": taoismArticle,
-  "tengrism": {
-    overview: [
-      "Tengrism is the traditional religious framework of Turkic and Mongol peoples of the Eurasian steppe, centered on Tengri (Tengeri), the Eternal Blue Sky, as supreme cosmic authority. Alongside Tengri, communities venerated ancestral spirits, local earth and mountain deities (such as Etugen in Mongol tradition), and nature powers linked to water, fire, and the hunt. The religion is best understood as an animistic and shamanic system rather than a centralized doctrinal faith with fixed scriptures or a single priestly hierarchy.",
-      "Shamans (kam or böö) mediated between human communities and the spirit world through trance, song, and ritual journeying. Sacred mountains, trees, and springs served as sites of prayer and offering. Rulers such as Genghis Khan invoked Tengri's mandate to legitimize conquest and governance, as reflected in the Secret History of the Mongols and Orkhon inscriptions. Ancestor veneration and oaths sworn under the sky reinforced social bonds across nomadic societies that lacked permanent temples. Hunting rites and weather magic also formed part of the broader spiritual repertoire of steppe peoples.",
-      "Tengrism declined in prominence as Buddhism, Islam, and Christianity spread across Central Asia, yet practices and beliefs persisted in folk tradition and were revived in modern nationalist and spiritual movements in Kazakhstan, Mongolia, and other states. Contemporary Tengrism varies widely and often blends ancient motifs with modern identity politics and state-sponsored heritage projects. Scholars treat both historical steppe religion and present-day revival forms with attention to regional diversity, nomadic ecology, and limited pre-modern textual sources that rarely record theology in systematic doctrinal form."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The animistic-sky religion of the Turkic and Mongol nomads, centered on Tengri, the supreme sky-god. It venerated ancestors, sacred mountains, and the balance of all things. Genghis Khan ruled with Tengri's mandate.\", sacredTexts: [ { name: \"(Oral - Inscriptions of Orkhon, Secret H"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Ancestral spirit world",
-      "Deity: Tengri, the Eternal Blue Sky"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral - Inscriptions of Orkhon, Secret History of the Mongols): Tengrism's core teachings were passed orally among Turkic and Mongol peoples, with no single canonical scripture. The Orkhon inscriptions of the eighth century preserve early Turkic prayers to Tengri and the ancestors of the Göktürk khagans. The Secret History of the Mongols, written in the thirteenth century, records Genghis Khan's mandate from the Eternal Blue Sky and the shamanic world of the steppe."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Shamanic trance, Sky & mountain veneration, Ancestor rites."],
-    },
-    sources: [
-      { label: "Britannica - Tengri", href: "https://www.britannica.com/topic/Tengri" },
-      { label: "World History Encyclopedia - Tengrism", href: "https://www.worldhistory.org/Tengrism/" },
-      { label: "Smithsonian - Genghis Khan", href: "https://www.si.edu/newsdesk/snapshot/genghis-khan" },
-    ],
-  },
+  "tengrism": tengrismArticle,
   "vodou": vodouArticle,
   "wicca": {
     overview: [
