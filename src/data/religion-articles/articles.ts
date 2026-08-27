@@ -15,6 +15,7 @@ import { chineseFolkArticle } from "./chinese-folk";
 import { bahaiArticle } from "./bahai";
 import { caodaiArticle } from "./caodai";
 import { bonArticle } from "./bon";
+import { yazidiArticle } from "./yazidi";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -871,41 +872,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Oxford Research Encyclopedia - Contemporary Paganism", href: "https://oxfordre.com/religion/display/10.1093/acrefore/9780199340378.001.0001/acrefore-9780199340378-e-255" },
     ],
   },
-  "yazidi": {
-    overview: [
-      "Yazidism is a monotheistic tradition of the Kurdish-speaking peoples of northern Iraq, Syria, Turkey, and the diaspora. Its origins are debated: some scholars see roots in pre-Islamic Mesopotamian and Iranian religion, while Yazidis themselves trace a line of divine revelation through a series of peacock angels. The central figure is Melek Taus (Tawusi Malak), the Peacock Angel, whom Yazidis venerate as God's chief emissary. Lalish, a valley shrine in Iraqi Kurdistan, is the faith's holiest site and the destination of an annual six-day pilgrimage.",
-      "Yazidi cosmology describes God creating the world and entrusting it to seven angels, among whom Melek Taus holds primacy. Oral and written traditions, including the Meshaf Resh (Black Book) and Kitêba Cilwe (Book of Revelation), preserve hymns, myths, and laws, though their historical antiquity is contested by scholars. Social organization divides members into castes of sheikhs, pirs, and murids, with strict endogamy and rules governing purity, diet, and baptism (mor kirin). Yazidism is non-proselytizing; one must be born into the community.",
-      "Yazidis have endured persecution for centuries, often misidentified by outsiders as devil worshipers because of misunderstandings about Melek Taus. The 2014 genocide by the Islamic State group displaced and killed thousands, accelerating emigration and international advocacy for Yazidi rights. Qewals, hereditary bards, transmit sacred hymns (qewls) that sustain communal memory where written records are scarce. Researchers study Yazidism as a distinct Kurdish religious heritage that blends ancient Near Eastern motifs with elements shaped by contact with Islam and Christianity, while remaining a living minority tradition under pressure."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["An ancient Kurdish monotheism centered on Melek Taus, the Peacock Angel. Yazidis blend Persian, Mesopotamian, and Abrahamic elements with strict endogamy and a caste of sheikhs and pirs.\", sacredTexts: [ { name: \"Meshaf Resh\", description: \"The 'Black Book,' the p"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Xwedê, served by seven angels incl. Melek Taus",
-      "Sin: Marriage outside caste; certain foods"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Meshaf Resh: The 'Black Book,' the primary written scripture of Yazidism, kept at the Lalish sanctuary in Iraqi Kurdistan. It recounts the creation of the world by Xwedê and the role of Melek Taus, the Peacock Angel, as God's chief emissary. Access is restricted to Yazidi clergy, and the text is never read aloud in public.",
-      "Kitêba Cilwe (traditionally oral): The 'Book of Revelation' or 'Book of Illumination,' containing hymns and prayers traditionally transmitted orally among Yazidi sheikhs and pirs. It praises the seven angels and the Peacock Angel's role in creation and redemption. Like much Yazidi scripture, it blends written and oral transmission within a closed community."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Annual Lalish pilgrimage, Baptism (mor kirin), Caste traditions."],
-    },
-    sources: [
-      { label: "Britannica: Yazīdī", href: "https://www.britannica.com/topic/Yazidi" },
-      { label: "BBC Religion: Yazidi", href: "https://www.bbc.co.uk/religion/religions/yazidi/" },
-      { label: "United Nations: Yazidi Documentation", href: "https://www.un.org/en/genocideprevention/documents/public-awareness-and-education-tools/About-Yezidis-in-Iraq.pdf" },
-      { label: "Encyclopaedia Iranica: Yazidis", href: "https://www.iranicaonline.org/articles/yazidis" },
-    ],
-  },
+  "yazidi": yazidiArticle,
   "yoruba": {
     overview: [
       "Yoruba religion is the indigenous spiritual tradition of the Yoruba-speaking peoples of southwestern Nigeria, Benin, and Togo, with ancient roots in West African city-states such as Ife and Oyo. Its cosmology places Olodumare, the supreme creator, above a vast pantheon of orishas who govern rivers, iron, wisdom, thunder, and other domains of existence. Priests, diviners, and devotees maintain shrines, perform festivals, and offer sacrifices to sustain reciprocal relationships between humans, ancestors, and divine powers. The religion is primarily oral, encoded in myth, praise poetry, ritual gesture, and the Ifá divination corpus.",
