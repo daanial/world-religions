@@ -31,43 +31,14 @@ import { maoriArticle } from "./maori";
 import { dreamtimeArticle } from "./dreamtime";
 import { sumerianArticle } from "./sumerian";
 import { egyptianArticle } from "./egyptian";
+import { canaaniteArticle } from "./canaanite";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
   "caodai": caodaiArticle,
   "bon": bonArticle,
   "buddhism": buddhismArticle,
-  "canaanite": {
-    overview: [
-      "Canaanite religion was the polytheistic tradition of the Levantine coast and inland regions during the second and first millennia BCE. It is known primarily from Ugaritic texts discovered at Ras Shamra (ancient Ugarit) in Syria, along with archaeological remains and references in Egyptian, Mesopotamian, and biblical sources. The pantheon was headed by El, a senior father-god, alongside Baal (storm and fertility), Anat (war), and Asherah (often linked with fertility and motherhood). Gods were organized in a divine council, a motif echoed in later Northwest Semitic literature and royal ideology.",
-      "Mythic narratives such as the Baal Cycle describe cosmic battles, royal enthronement, and seasonal cycles of drought and renewal. Temples and high-place sanctuaries hosted animal sacrifice, libations, and festivals tied to agricultural rhythms. The underworld deity Mot personified death in a shadowy realm rather than a structured moral afterlife. Cult practices at sites across Palestine, Phoenicia, and Syria show regional variation while sharing common divine names and ritual patterns. Phoenician colonies spread Canaanite deities and cult forms across the Mediterranean, linking Levantine religion to wider ancient networks of trade and settlement.",
-      "As Israelite and Judahite religion developed, biblical texts polemicize against Canaanite practices and deities, yet also preserve linguistic and conceptual overlap-such as the plural term elohim and Asherah pole debates. Scholars debate the precise relationship between Canaanite religion and early Israelite belief, but the Ugaritic corpus remains indispensable for reconstructing the broader religious world of the ancient Levant and its shared cultural vocabulary across competing kingdoms, city-states, and scribal traditions."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The beliefs of the Levantine coast, sharing roots with later Israelite religion. A council of gods led by El, the storm-god Baal, and goddess Asherah. The Hebrew Bible preserves echoes of this world in its polemic against them.\", sacredTexts: [ { name: \"Ugaritic texts (Baal Cycle)\""],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Council of gods (Elohim)",
-      "Afterlife: Shadowy realm of Mot"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Ugaritic texts (Baal Cycle): Clay tablets from Ugarit (modern Ras Shamra) recording myths of the storm-god Baal's battle with Yam (Sea) and Mot (Death). They depict El as father of the gods and Asherah as consort of El, offering a window into Levantine religion before Israelite monotheism. The Baal Cycle was recited at seasonal festivals and shaped Near Eastern storm-god mythology for centuries."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include High-place altars, Animal sacrifice, Libations."],
-    },
-    sources: [
-      { label: "Britannica - Canaanite religion", href: "https://www.britannica.com/topic/Canaanite-religion" },
-      { label: "World History Encyclopedia - Canaanite religion", href: "https://www.worldhistory.org/Canaanite_Religion/" },
-      { label: "Met Museum - Levant", href: "https://www.metmuseum.org/toah/ht/04/wam.html" },
-    ],
-  },
+  "canaanite": canaaniteArticle,
   "candomble": candombleArticle,
   "chinese-folk": chineseFolkArticle,
   "christianity": christianityArticle,
