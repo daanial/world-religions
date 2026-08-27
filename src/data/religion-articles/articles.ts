@@ -35,6 +35,9 @@ import { canaaniteArticle } from "./canaanite";
 import { greekRomanArticle } from "./greek-roman";
 import { norseArticle } from "./norse";
 import { druidicArticle } from "./druidic";
+import { manichaeanArticle } from "./manichaean";
+import { tengrismArticle } from "./tengrism";
+import { mithraismArticle } from "./mithraism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -93,45 +96,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "judaism": judaismArticle,
   "korean-shin": koreanShinArticle,
   "mandaean": mandaeanArticle,
-  "manichaean": {
-    overview: [
-      "Manichaeism was founded by the prophet Mani (c. 216-276 CE) in the Sasanian Persian Empire. Mani proclaimed a universal revelation synthesizing elements drawn from Zoroastrian, Christian, and Buddhist traditions. Its cosmology describes a primordial conflict between the Realm of Light and the Realm of Darkness, with the material world formed from mixed light and matter. Humans contain light particles trapped in flesh, and salvation involves liberating this light through knowledge (gnosis) and ascetic discipline taught by the prophet and his disciples.",
-      "The community divided into the Elect-an ascetic elite who practiced strict dietary and purity rules-and Hearers, lay supporters who provided food and goods to the Elect, thereby participating indirectly in the liberation of light. Ritual meals, confession, and missionary activity spread the faith along trade routes from the Roman Mediterranean to Central Asia and China. Manichaean art and texts, including fragments of the Shabuhragan and writings discovered in Turfan and Egypt, attest to its once-wide reach across diverse linguistic and cultural settings. Mani's own missionary journeys reportedly extended from the Roman frontier to India.",
-      "Manichaeism provoked fierce opposition from Zoroastrian, Christian, and Islamic authorities and was eventually outlawed across most regions. Augustine of Hippo, once a Hearers, later wrote extensively against the faith. By the late Middle Ages it had largely disappeared, though its dualist cosmology influenced polemical labels and theological debates across the Mediterranean world. Today scholars study Manichaeism primarily through surviving fragments, recognizing it as one of antiquity's most geographically expansive missionary religions despite the near-total loss of its canonical literature."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded by the prophet Mani, Manichaeism was once a rival to Christianity from Rome to China. It taught a radical cosmic dualism - light (spirit, good) trapped in the material world of darkness - and a path of liberation through ascetic 'Elect' and lay 'Hearers.'\", sacredTexts: [ {"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Liberation: Release of light-particles from matter",
-      "Sin: Feeding the body feeds darkness"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Shabuhragan: A Middle Persian text composed for King Shapur I, presenting Mani's teachings on the cosmic struggle between light and darkness. It outlines the three ages of world history and the role of prophets across cultures. The work was once widely circulated along Silk Road trade routes.",
-      "Gospel of Mani: Mani's own account of his divine calling and mission to complete the revelations of Buddha, Zoroaster, and Jesus. It presented Manichaeism as the final, universal religion synthesizing earlier traditions. Only fragments survive in Coptic, Middle Persian, and Chinese translations.",
-      "Arzhang: An illustrated 'Picture Book' attributed to Mani, using paintings to teach cosmology to audiences across languages and literacy levels. It depicted the realms of light, the material prison, and the path of liberation. Church authorities ordered its destruction, and no copy survives intact today."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Vegetarianism, Confession, Ritual meals, Missionary journeys."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: babylon."],
-    },
-    sources: [
-      { label: "Britannica - Manichaeism", href: "https://www.britannica.com/topic/Manichaeism" },
-      { label: "Stanford Encyclopedia - Manichaeism", href: "https://plato.stanford.edu/entries/manichaeism/" },
-      { label: "World History Encyclopedia - Manichaeism", href: "https://www.worldhistory.org/Manichaeism/" },
-    ],
-  },
+  "manichaean": manichaeanArticle,
   "maori": maoriArticle,
   "mesoamerican": {
     overview: [
@@ -167,37 +132,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "World History Encyclopedia - Maya Religion", href: "https://www.worldhistory.org/Maya_Religion/" },
     ],
   },
-  "mithraism": {
-    overview: [
-      "Mithraism was a Roman mystery cult prominent from roughly the first through fourth centuries CE, especially among soldiers, merchants, and imperial officials stationed along trade routes. It centered on the god Mithras, depicted in the iconic tauroctony-slaying a bull in a cave-an image found in hundreds of underground temples (mithraea) across the Roman Empire. The cult's origins are debated; Roman Mithraism shares the name of the ancient Iranian divinity Mithra, but its iconography and initiation structure appear to be a distinct Greco-Roman development rather than a direct Iranian import.",
-      "Initiates progressed through seven grades, often symbolized by ritual implements and planetary associations, and participated in communal meals. Mithraea were small, enclosed spaces modeling the cave of the myth, with benches for dining and the tauroctony relief as focal point. No comprehensive scripture survives; knowledge derives from inscriptions, frescoes, and archaeological remains. The cult promised cosmic salvation and the soul's ascent through celestial gates, though the precise theology must be inferred cautiously from fragmentary evidence and the symbolic program of initiation scenes.",
-      "Mithraism coexisted with civic pagan cults and early Christianity, and scholars have long debated parallels and competition between the two traditions in the Roman frontier provinces and major urban centers. By the late fourth century the cult had largely vanished, possibly suppressed alongside other non-Christian practices across the empire. Because written doctrine is scarce, many details of belief and ritual remain uncertain, and reconstructions continue to rely heavily on material culture and comparative study of mystery religions in late antiquity."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A Roman mystery religion popular among soldiers, centered on the god Mithras slaying the cosmic bull. Initiation through seven grades promised salvation of the soul after death. Its underground mithraea spread across the Empire.\", sacredTexts: [ { name: \"(Mostly lost - iconography"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Salvation: Liberated ascent of the soul through the planets",
-      "Deity: Mithras, a solar intermediary"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Mostly lost - iconography & inscriptions survive): Mithraism was a secret initiatory cult whose written scriptures were never publicly circulated and have almost entirely perished. What remains are inscriptions in mithraea across the Roman Empire and the rich iconography of the tauroctony - Mithras slaying the cosmic bull. Initiates learned the faith's seven grades and salvation myth through ritual drama rather than reading."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Initiation grades, Ritual meals, Bull-slaying rite (tauroctony)."],
-    },
-    sources: [
-      { label: "Britannica - Mithraism", href: "https://www.britannica.com/topic/Mithraism" },
-      { label: "World History Encyclopedia - Mithraism", href: "https://www.worldhistory.org/Mithraism/" },
-      { label: "Met Museum - Roman art", href: "https://www.metmuseum.org/toah/ht/05/rom.html" },
-    ],
-  },
+  "mithraism": mithraismArticle,
   "navajo": navajoArticle,
   "norse": norseArticle,
   "rastafari": rastafariArticle,
@@ -266,37 +201,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   },
   "sumerian": sumerianArticle,
   "taoism": taoismArticle,
-  "tengrism": {
-    overview: [
-      "Tengrism is the traditional religious framework of Turkic and Mongol peoples of the Eurasian steppe, centered on Tengri (Tengeri), the Eternal Blue Sky, as supreme cosmic authority. Alongside Tengri, communities venerated ancestral spirits, local earth and mountain deities (such as Etugen in Mongol tradition), and nature powers linked to water, fire, and the hunt. The religion is best understood as an animistic and shamanic system rather than a centralized doctrinal faith with fixed scriptures or a single priestly hierarchy.",
-      "Shamans (kam or böö) mediated between human communities and the spirit world through trance, song, and ritual journeying. Sacred mountains, trees, and springs served as sites of prayer and offering. Rulers such as Genghis Khan invoked Tengri's mandate to legitimize conquest and governance, as reflected in the Secret History of the Mongols and Orkhon inscriptions. Ancestor veneration and oaths sworn under the sky reinforced social bonds across nomadic societies that lacked permanent temples. Hunting rites and weather magic also formed part of the broader spiritual repertoire of steppe peoples.",
-      "Tengrism declined in prominence as Buddhism, Islam, and Christianity spread across Central Asia, yet practices and beliefs persisted in folk tradition and were revived in modern nationalist and spiritual movements in Kazakhstan, Mongolia, and other states. Contemporary Tengrism varies widely and often blends ancient motifs with modern identity politics and state-sponsored heritage projects. Scholars treat both historical steppe religion and present-day revival forms with attention to regional diversity, nomadic ecology, and limited pre-modern textual sources that rarely record theology in systematic doctrinal form."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The animistic-sky religion of the Turkic and Mongol nomads, centered on Tengri, the supreme sky-god. It venerated ancestors, sacred mountains, and the balance of all things. Genghis Khan ruled with Tengri's mandate.\", sacredTexts: [ { name: \"(Oral - Inscriptions of Orkhon, Secret H"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Ancestral spirit world",
-      "Deity: Tengri, the Eternal Blue Sky"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral - Inscriptions of Orkhon, Secret History of the Mongols): Tengrism's core teachings were passed orally among Turkic and Mongol peoples, with no single canonical scripture. The Orkhon inscriptions of the eighth century preserve early Turkic prayers to Tengri and the ancestors of the Göktürk khagans. The Secret History of the Mongols, written in the thirteenth century, records Genghis Khan's mandate from the Eternal Blue Sky and the shamanic world of the steppe."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Shamanic trance, Sky & mountain veneration, Ancestor rites."],
-    },
-    sources: [
-      { label: "Britannica - Tengri", href: "https://www.britannica.com/topic/Tengri" },
-      { label: "World History Encyclopedia - Tengrism", href: "https://www.worldhistory.org/Tengrism/" },
-      { label: "Smithsonian - Genghis Khan", href: "https://www.si.edu/newsdesk/snapshot/genghis-khan" },
-    ],
-  },
+  "tengrism": tengrismArticle,
   "vodou": vodouArticle,
   "wicca": {
     overview: [
