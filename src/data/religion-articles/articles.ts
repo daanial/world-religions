@@ -18,6 +18,7 @@ import { bonArticle } from "./bon";
 import { yazidiArticle } from "./yazidi";
 import { druseArticle } from "./druse";
 import { mandaeanArticle } from "./mandaean";
+import { samaritanArticle } from "./samaritan";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -548,68 +549,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Encyclopedia.com - Rastafarianism", href: "https://www.encyclopedia.com/environment/encyclopedias-almanacs-transcripts-and-maps/rastafarianism" },
     ],
   },
-  "samaritan": {
-    overview: [
-      "Samaritans are an ethno-religious community descended from the ancient Israelites of the northern Kingdom of Israel, centering their worship on Mount Gerizim rather than Jerusalem. Their own tradition claims unbroken descent from the tribes of Ephraim and Manasseh; Jewish sources instead trace their distinct identity to population changes following the Assyrian conquest of the eighth century BCE. Modern scholarship suggests neither a wholesale population replacement nor a simple continuity, but a gradual crystallization of separate Samaritan identity during the Persian and Hellenistic periods, as the northern Israelite community developed its own priesthood, calendar, and holy site independent of Jerusalem.",
-      "The decisive rupture with Judaism deepened over centuries and turned violent around 110 BCE, when the Hasmonean ruler John Hyrcanus destroyed the Samaritan temple atop Mount Gerizim. Samaritans accept only the Torah - in their own textual recension, the Samaritan Pentateuch, written in Paleo-Hebrew script and differing from the Jewish Masoretic text in thousands of details, most consequentially in identifying Gerizim as God's chosen sanctuary - and reject the later Prophets, Writings, and rabbinic tradition entirely. A hereditary high priesthood, currently numbering its leader as the 133rd since Aaron, oversees practices including strict Sabbath and dietary law and an annual Passover animal sacrifice performed on the mountain itself.",
-      "Centuries of pressure under successive empires reduced the community to the brink of disappearance: today roughly 900 Samaritans survive, split almost evenly between Kiryat Luza on Mount Gerizim in the West Bank and the city of Holon in Israel, making them one of the smallest continuously practicing religious communities in the world. Straddling the Israeli-Palestinian divide, Samaritans hold both Israeli and Palestinian citizenship in many cases and maintain relations with both communities. Scholars regard the Samaritans as a living witness to a form of Israelite religion that diverged from - rather than descended from - the Judaism that produced the Hebrew Bible's later books."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A monotheistic tradition tracing itself to the ancient Israelites of the northern kingdom, centered on Mount Gerizim rather than Jerusalem as the chosen holy site. Long estranged from mainstream Judaism, the Samaritan community today numbers under a thousand, split between Kiryat Luza on Mount Geriz"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Monotheism: One God, worshipped at Mount Gerizim",
-      "Scripture: Torah alone, in its Samaritan textual form"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Samaritan Pentateuch: The Samaritan community's version of the Torah, written in the ancient Hebrew (Paleo-Hebrew) script and differing from the Jewish Masoretic text in thousands of details - most significantly in naming Mount Gerizim, not Jerusalem, as God's chosen sanctuary. It is the sole scriptural canon of Samaritanism, without the later Prophets or Writings accepted in Judaism."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Passover sacrifice on Mount Gerizim, Sabbath observance, Priestly (Cohen) lineage."],
-    },
-    sources: [
-      { label: "Britannica - Samaritan", href: "https://www.britannica.com/topic/Samaritan" },
-      { label: "Jewish Virtual Library - The Samaritans", href: "https://www.jewishvirtuallibrary.org/the-samaritans" },
-      { label: "Bible Odyssey (Society of Biblical Literature) - Samaritans", href: "https://www.bibleodyssey.org/people/related-articles/samaritans" },
-    ],
-  },
-  "santeria": {
-    overview: [
-      "Santería is an Afro-Caribbean religious tradition that developed among Yoruba-speaking enslaved people and their descendants in colonial Cuba. It centers on devotion to the orishas, divine forces linked to nature, human character, and daily life, under the distant creator Olodumare. Practitioners honor orishas through drumming ceremonies called bembe, divination, offerings, and initiation into priesthoods. Catholic saints were historically paired with orishas in a process of syncretism, though communities differ today in how explicitly they maintain or reinterpret that pairing.",
-      "Beliefs and practices vary among Cuban, Puerto Rican, Dominican, and diaspora communities in the United States and elsewhere. Some lineages emphasize strict adherence to Yoruba-derived ritual forms, while others adapt to local cultures and legal contexts governing animal sacrifice and public ceremony. Orisha devotion is integrated with ancestor veneration, ethical guidance from divination, and obligations to one's religious house. Scholars classify Santería as part of a wider complex of African diaspora religions alongside Candomblé and Vodou, each rooted in distinct historical conditions rather than identical doctrine.",
-      "Academic study treats Santería as a living tradition in which theology is transmitted orally, through ritual performance, and through priestly apprenticeship. Initiates maintain altars, receive the orishas through consecrated vessels, and consult Ifá or diloggún divination to navigate illness, relationships, and misfortune. Contemporary practitioners also navigate stereotypes rooted in colonial and missionary prejudice. Legal recognition has grown in some countries, yet practitioners still confront discrimination. Respectful scholarship recognizes Santería as a coherent religious system with its own moral logic, not a folkloric adjunct to Catholicism, while acknowledging genuine diversity of practice across houses and regions."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Born in colonial Cuba, Santería blends West African Yoruba religion with Catholicism. Orishas (deities) are honored through drumming, dance, divination, and syncretized with Catholic saints.\", sacredTexts: [ { name: \"(Oral - Ifá divination corpus)\", description: \""],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Olodumare above; orishas as emanations",
-      "Afterlife: Ancestors reborn or with the orishas"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral - Ifá divination corpus): Santería preserves its deepest teachings through the Ifá divination system, an oral corpus of 256 odu (signs) memorized by babalawos and Santería priests. Each odu carries myths, proverbs, and prescriptions for offerings to the orishas. The tradition was carried from West Africa to Cuba under slavery and passed down through initiation lineages rather than written books."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Bembé drumming, Divination (Ifá/Diloggún), Animal offering, Altars (soperas)."],
-    },
-    sources: [
-      { label: "Britannica - Santería", href: "https://www.britannica.com/topic/Santera" },
-      { label: "Smithsonian - African Diaspora Religions", href: "https://www.smithsonianmag.com/history/the-african-diaspora-religions-180976441/" },
-      { label: "UNESCO - Intangible Cultural Heritage", href: "https://ich.unesco.org/en/home" },
-    ],
-  },
+  "samaritan": samaritanArticle,
   "shinto": shintoArticle,
   "sikhism": sikhismArticle,
   "slavic-baltic": {
