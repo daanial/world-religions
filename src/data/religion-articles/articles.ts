@@ -6,6 +6,7 @@ import { sikhismArticle } from "./sikhism";
 import { christianityArticle } from "./christianity";
 import { islamArticle } from "./islam";
 import { judaismArticle } from "./judaism";
+import { zoroastrianArticle } from "./zoroastrian";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -1173,44 +1174,5 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Smithsonian - Yoruba Art and Culture", href: "https://africa.si.edu/exhibitions/current-exhibitions/yoruba/" },
     ],
   },
-  "zoroastrian": {
-    overview: [
-      "Zoroastrianism is among the world's oldest continuously practiced religions, rooted in the teachings attributed to the prophet Zarathustra (Zoroaster), traditionally placed in ancient eastern Iran. Its central figure is Ahura Mazda, the Wise Lord, source of truth (asha) and goodness. The religion describes a cosmic struggle between order and the destructive spirit Angra Mainyu (Ahriman). Humans participate in this struggle through moral choice, prayer, and righteous action. The oldest portions of the Avesta, especially the Gathas, are attributed to Zarathustra himself and form the doctrinal core of the tradition.",
-      "Zoroastrian theology emphasizes individual judgment: after death the soul crosses the Chinvat Bridge, proceeding to heaven or hell according to its deeds. A final renovation (frashokereti) and the coming of a savior (Saoshyant) are expected to restore creation. Fire, symbolizing divine light and purity, is central to temple worship, though Zoroastrians do not worship fire itself. Purity codes, charity, and the sacred girdle (kusti) mark daily religious life, while the twin principles of good thoughts, good words, and good deeds guide ethical conduct among lay and priestly communities alike.",
-      "From the Achaemenid through Sasanian empires, Zoroastrianism shaped Iranian culture and influenced Judaism, Christianity, and Islam through concepts of monotheism, angelology, judgment, and eschatology. After the Arab conquest of Persia, communities persisted in Iran and India (Parsis), where fire temples and seasonal festivals such as Nowruz continued. Today small but active populations remain, particularly in India and Iran, maintaining ancient rituals while adapting to modern circumstances, diaspora life, and concerns about community continuity."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded by Zarathustra, Zoroastrianism posits Ahura Mazda, the Wise Lord, locked in cosmic struggle with Angra Mainyu. It introduced influential ideas: a single good creator, judgment of every soul, heaven and hell, and a final savior (Saoshyant). It profoundly shaped Judaism, Christianity, and Isla"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Afterlife: Chinvat Bridge to heaven or hell",
-      "Sin: Choosing the lie (druj) over truth (asha)",
-      "Monotheism: Ahura Mazda, uncreated Wise Lord"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Avesta: The primary collection of Zoroastrian scripture, transmitted orally for centuries before being written in Middle Persian. Only about one quarter of the original corpus survives today. It contains hymns, liturgies, and laws attributed to the prophet Zarathustra and his followers.",
-      "Gathas: Seventeen hymns composed in Old Avestan, widely regarded as the words of Zarathustra himself. They praise Ahura Mazda and call humanity to choose asha (truth) over druj (the lie). The Gathas are the theological heart of the faith and are recited in every major Zoroastrian ceremony.",
-      "Vendidad: A legal and ritual text focused on purity, the battle against evil, and proper conduct toward fire, water, earth, and plants. It preserves myths of creation and the origin of death and disease. Priests consult it for rules governing daily life and ritual cleanliness."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Fire temples, Sacred thread (kusti), Purity rituals, Charity."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: persepolis."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia - Zoroastrianism", href: "https://plato.stanford.edu/entries/zoroastrian/" },
-      { label: "Britannica - Zoroastrianism", href: "https://www.britannica.com/topic/Zoroastrianism" },
-      { label: "BBC Religion - Zoroastrianism", href: "https://www.bbc.co.uk/religion/religions/zoroastrian/" },
-    ],
-  },
+  "zoroastrian": zoroastrianArticle,
 };
