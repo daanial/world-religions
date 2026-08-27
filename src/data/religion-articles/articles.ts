@@ -14,41 +14,12 @@ import { koreanShinArticle } from "./korean-shin";
 import { chineseFolkArticle } from "./chinese-folk";
 import { bahaiArticle } from "./bahai";
 import { caodaiArticle } from "./caodai";
+import { bonArticle } from "./bon";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
   "caodai": caodaiArticle,
-  "bon": {
-    overview: [
-      "Bön is the indigenous religious tradition of Tibet, with roots that predate the arrival of Buddhism. Early Bön involved priests called kushen who conducted rituals - including animal sacrifice and death rites - for the kings of the Yarlung dynasty; scholars remain divided on whether its deepest origins lie in local Tibetan practice, in the neighboring Zhangzhung culture, or in outside influences such as Zoroastrianism. Bön's own tradition holds that it was taught by Tonpa Shenrab (Shenrab Miwo), a figure said to have attained enlightenment centuries before the historical Buddha in a land called Olmo Lungring, west of Tibet - though his historicity is not established by outside evidence.",
-      "After Buddhism's arrival in Tibet, Bön was marginalized but underwent a significant renaissance in the tenth and eleventh centuries, during which it developed into a literate, systematized religion with its own monastic institutions closely paralleling - and in significant respects converging with - Tibetan Buddhism, especially the Nyingma school. Scholars disagree sharply on how to characterize this relationship: some argue Bön functions essentially as a variant of Tibetan Buddhism that preserves older, pre-Buddhist elements, while others hold it only crystallized as a self-conscious, independent religious system in response to and competition with Buddhism itself. Bönpo and Buddhist practitioners nonetheless regard their traditions as distinct, tracing authority to different lineages.",
-      "Bön's canon - the Bön Kangyur and Bön Tengyur - covers sutras, tantras, and philosophical commentary, with many teachings said to have been hidden as termas (treasures) during periods of persecution and later rediscovered by treasure-finders (tertöns). Practice spans nine vehicles ranging from divination and ritual magic to advanced Dzogchen meditation. Chinese occupation of Tibet destroyed most Bön monasteries, though many have since been rebuilt, notably Menri monastery in India; in 1979 the 14th Dalai Lama formally recognized Bön as equal in status to Tibet's Buddhist schools. An estimated 400,000 Bönpo practice today across the Tibetan plateau and its diaspora."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The indigenous religious tradition of Tibet, predating the arrival of Buddhism and later systematized into a literate monastic tradition with its own canon, monasteries, and lineages closely paralleling Tibetan Buddhism. Bönpo venerate the legendary founder Tonpa Shenrab and maintain distinct cosmol"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Founder: Tonpa Shenrab, legendary founding teacher",
-      "Path: Nine Ways (theg pa dgu) from shamanic ritual to monastic philosophy"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Bön Kangyur: Bön's canonical scripture collection, paralleling the structure of the Tibetan Buddhist Kangyur, containing teachings attributed to Tonpa Shenrab across the tradition's 'Nine Ways' (vehicles) of practice. It covers cosmology, ritual, monastic discipline, and esoteric meditation."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Monastic study, Sky burial & death rites, Divination & astrology, Circumambulation (counter-clockwise)."],
-    },
-    sources: [
-      { label: "Britannica - Bon religion", href: "https://www.britannica.com/topic/Bon-religion" },
-      { label: "Oxford Bibliographies - Bon", href: "https://www.oxfordbibliographies.com/display/document/obo-9780195393521/obo-9780195393521-0069.xml" },
-      { label: "The Tibetan & Himalayan Library, University of Virginia", href: "https://www.thlib.org" },
-    ],
-  },
+  "bon": bonArticle,
   "buddhism": buddhismArticle,
   "canaanite": {
     overview: [
