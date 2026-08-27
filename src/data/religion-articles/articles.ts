@@ -20,6 +20,7 @@ import { druseArticle } from "./druse";
 import { mandaeanArticle } from "./mandaean";
 import { samaritanArticle } from "./samaritan";
 import { yorubaArticle } from "./yoruba";
+import { ifaArticle } from "./ifa";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -252,37 +253,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     sources: [],
   },
   "hinduism": hinduismArticle,
-  "ifa": {
-    overview: [
-      "Ifá is a Yoruba divination and wisdom tradition centered on Orunmila, the orisha of knowledge, and the corpus of odu, or sacred signs, interpreted through ritual tools such as palm nuts or a divining chain. Babalawos and iyanifas, trained priests of Ifá, recite verses, proverbs, and prescriptions associated with each of the 256 odu combinations to guide clients on destiny, ethics, health, and community relations. Ifá is simultaneously a religious office, a literary archive, and a philosophy of character, fate, and social responsibility transmitted chiefly through apprenticeship and memory.",
-      "Ifá practice extends beyond Nigeria to Benin, Togo, and diaspora communities where Yoruba religion took root, including Cuban Santería and related lineages. Regional schools differ in initiation requirements, verse recension, and relationship to other orisha cults. Offerings known as ebo, ancestor consultation, and festival observance integrate Ifá into broader Yoruba ritual life rather than isolating it as mere fortune-telling. UNESCO recognition of Ifá oral corpus highlights its status as one of the world's major bodies of oral literature and moral instruction.",
-      "Colonial and modern pressures reshaped access to training, gender roles in priesthood, and public perception of divination. Contemporary babalawos navigate legal regulation, interfaith society, and global interest in African spirituality while maintaining standards of initiation and secrecy. Annual festivals and congresses of Ifá priests in Nigeria and the diaspora reinforce shared standards while allowing regional variation. Scholars distinguish Ifá as a rigorous hermeneutic system with its own epistemology from popular stereotypes of magic. Respectful study acknowledges national and lineage diversity and the authority of initiated practitioners over interpretive traditions."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Ifá is both a divination system and a body of wisdom literature (odu) consulted through sacred palm nuts or chain. Its babalawos (priests) interpret the 256 odu - one of the world's great oral corpora.\", sacredTexts: [ { name: \"Odu Ifá (256 verses)\", description:"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Olodumare; Orunmila as wisdom-keeper",
-      "Destiny: Each soul chooses its fate (ayanmo)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Odu Ifá (256 verses): The heart of Ifá divination: 256 odu, each comprising hundreds of verses of myth, proverb, and ritual prescription attributed to the orisha Orunmila. Babalawos memorize vast portions over decades and cast odu through palm nuts or a divining chain to answer life's questions. This corpus is among the largest bodies of oral wisdom literature in the world."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Divination, Ebo (offerings), Ancestor consultation."],
-    },
-    sources: [
-      { label: "Britannica - Ifa", href: "https://www.britannica.com/topic/Ifa" },
-      { label: "UNESCO - Ifa Divination System", href: "https://ich.unesco.org/en/RL/ifa-divination-system-00963" },
-      { label: "Smithsonian - Yoruba Divination", href: "https://africa.si.edu/exhibitions/current-exhibitions/yoruba/divination/" },
-    ],
-  },
+  "ifa": ifaArticle,
   "inuit": {
     overview: [
       "Inuit religious traditions encompass the spiritual lifeways of Inuit peoples across the Arctic, including present-day Greenland, Canada, Alaska, and Chukotka. Historically these traditions were oral and embedded in hunting, kinship, and seasonal movement on the land and sea. Central themes include the shared soul or inua of humans and animals, the need for respectful treatment of game, and the role of the angakkuq, or shaman, who mediated between communities and powerful spiritual beings. Sedna or similar sea spirits appear in many narratives as guardians of marine animals, whose goodwill was essential for survival.",
