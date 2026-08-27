@@ -11,6 +11,7 @@ import { taoismArticle } from "./taoism";
 import { confucianismArticle } from "./confucianism";
 import { shintoArticle } from "./shinto";
 import { koreanShinArticle } from "./korean-shin";
+import { chineseFolkArticle } from "./chinese-folk";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -175,29 +176,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Pluralism Project, Harvard University - Caodaism", href: "https://pluralism.org/caodaism" },
     ],
   },
-  "chinese-folk": {
-    overview: ["The diffuse, non-institutional religious life of China - ancestor veneration, household and local deities, temple fairs, and divination - practiced alongside and interwoven with Buddhism, Taoism, and Confucianism rather than as a separate exclusive faith. It has no single founder, clergy, or canon, but persists as the most widely practiced belief system in China.\", sacredTexts: [ { name: \"(No single canon - almanacs, temple liturgies, local gazetteers)\", description: \"Chinese folk religion has no unified scripture; practice draws on the Tongshu (popular almanac) for auspicious timing, temple-specific liturgies for local deities and city gods, and orally transmitted ancestor-veneration customs. Its authority rests in community practice and lineage rather than a fixed text.\", }, ], practices: [\"Ancestor veneration\", \"Temple fairs & processions\", \"Incense offerings\", \"Fengshui & divination\"], coreIdeas: [ { label: \"Deity\", value: \"Layered pantheon of ancestors, local gods, and celestial bureaucracy\" }, { label: \"Afterlife\", value: \"Ancestors sustained by descendants' offerings\" }, ], conceptPositions: { \"mysticism\": \"affirmed\", \"polytheism\": \"affirmed\", \"prayer\": \"affirmed\", \"soul\": \"affirmed"],
-    history: {
-      title: "Historical Development",
-      content: ["The diffuse, non-institutional religious life of China - ancestor veneration, household and local deities, temple fairs, and divination - practiced alongside and interwoven with Buddhism, Taoism, and Confucianism rather than as a separate exclusive faith. It has no single founder, clergy, or canon,"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Layered pantheon of ancestors, local gods, and celestial bureaucracy",
-      "Afterlife: Ancestors sustained by descendants' offerings"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(No single canon - almanacs, temple liturgies, local gazetteers): Chinese folk religion has no unified scripture; practice draws on the Tongshu (popular almanac) for auspicious timing, temple-specific liturgies for local deities and city gods, and orally transmitted ancestor-veneration customs. Its authority rests in community practice and lineage rather than a fixed text."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Ancestor veneration, Temple fairs & processions, Incense offerings, Fengshui & divination."],
-    },
-    sources: [],
-  },
+  "chinese-folk": chineseFolkArticle,
   "christianity": christianityArticle,
   "confucianism": confucianismArticle,
   "dreamtime": {
