@@ -5,6 +5,7 @@ import { jainismArticle } from "./jainism";
 import { sikhismArticle } from "./sikhism";
 import { christianityArticle } from "./christianity";
 import { islamArticle } from "./islam";
+import { judaismArticle } from "./judaism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -485,47 +486,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   },
   "islam": islamArticle,
   "jainism": jainismArticle,
-  "judaism": {
-    overview: [
-      "Judaism is the religion of the Jewish people, rooted in a covenant between God and Israel as narrated in the Hebrew Bible. Scholars trace its formation through centuries of Israelite history, from early Iron Age communities in the Levant to the consolidation of monotheistic worship centered on YHWH. The destruction of the First and Second Temples in Jerusalem (586 BCE and 70 CE) reshaped Jewish life, shifting emphasis from sacrificial worship toward Torah study, prayer, and observance of mitzvot. Rabbinic Judaism, articulated in the Mishnah and Talmud, became the dominant form after late antiquity and continues to guide Orthodox, Conservative, and Reform communities worldwide.",
-      "Jewish identity intertwines religious practice, ethnic heritage, and shared memory of exile and return. Core observances include Shabbat, dietary laws (kashrut), lifecycle rituals, and pilgrimage festivals such as Passover and Sukkot. Theological views vary: many Jews affirm a personal God who acts in history, while others emphasize ethical monotheism, mysticism (Kabbalah), or cultural continuity without strict theism. Debates over messianism, resurrection, and the afterlife (Olam Ha-Ba) persist across denominations. Despite diaspora, persecution, and modern secularization, Judaism has preserved textual traditions, legal reasoning, and communal institutions that also supplied foundational narratives for Christianity and Islam.",
-      "Today Judaism is practiced on every inhabited continent, with major centers in Israel and North America. Contemporary issues include the relationship between religion and Zionism, gender roles in worship, intermarriage, and the meaning of Jewish peoplehood in pluralist societies. Academic study treats Judaism as both a living faith and a subject of history, archaeology, and comparative religion, examining how a small ancient people maintained continuity across millennia of political change."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Judaism traces its origin to Abraham and the covenant at Sinai, where God revealed the Torah. Through exile and diaspora it preserved monotheism, ethical law, and the hope of redemption, becoming the root of Christianity and Islam.\", sacredTexts: [ { name: \"Torah\", descript"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Monotheism: YHWH, one God of the covenant",
-      "Sin: Violation of the covenant (mitzvot)",
-      "Afterlife: Varied - Olam Ha-Ba; resurrection debated"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Torah: The first five books of the Hebrew Bible - Genesis, Exodus, Leviticus, Numbers, and Deuteronomy - traditionally attributed to Moses. It records creation, the covenant at Sinai, and the laws governing Israelite life. Torah scrolls are handwritten on parchment and read in full over the course of each synagogue year.",
-      "Tanakh: The complete Hebrew Bible, comprising Torah (Law), Nevi'im (Prophets), and Ketuvim (Writings). It spans from creation through exile and return, forming the scriptural foundation of Judaism. The Prophets call Israel to justice; the Writings include Psalms, Proverbs, Job, and Esther.",
-      "Talmud: A vast compendium of rabbinic debate, law, and lore compiled between the third and sixth centuries CE in two versions: the Babylonian and Jerusalem Talmuds. It interprets the Torah and applies its principles to every aspect of life. Studying Talmud is the central intellectual and spiritual discipline of rabbinic Judaism."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Shabbat, Kosher diet, Prayer (3x daily), Pilgrimage festivals."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: jerusalem."],
-    },
-    sources: [
-      { label: "Britannica: Judaism", href: "https://www.britannica.com/topic/Judaism" },
-      { label: "BBC Religion: Judaism", href: "https://www.bbc.co.uk/religion/religions/judaism/" },
-      { label: "Stanford Encyclopedia of Philosophy: Judaism", href: "https://plato.stanford.edu/entries/judaism/" },
-      { label: "Pew Research Center: Jewish Americans", href: "https://www.pewresearch.org/religion/2021/05/11/jewish-americans-in-2020/" },
-    ],
-  },
+  "judaism": judaismArticle,
   "korean-shin": {
     overview: ["Founded by Choe Je-u, Cheondogyo fused Confucian ethics, Buddhist practice, and a monotheistic belief in Haneullim (the Lord of Heaven). It became a rallying point for Korean national identity under Japanese rule.\", sacredTexts: [ { name: \"Donggyeong Daejeon\", description: \"The 'Classic of the Eastern Scripture,' the primary scripture of Cheondogyo compiled by Choe Je-u's followers. It records divine revelations received through incantation and presents the doctrine of Haneullim, the Lord of Heaven dwelling within all people. The text calls for moral reform, equality, and the realization of paradise on earth.\", }, { name: \"Yongdam Yusa\", description: \"A collection of teachings, hymns, and narratives associated with Choe Je-u and early Cheondogyo leaders. It preserves the movement's origin story and its fusion of Confucian ethics, Buddhist practice, and monotheistic faith. The work remains central to Cheondogyo worship and Korean nationalist identity.\", }, ], practices: [\"Incantation (sicheonnyeong)\", \"Daily prayer\", \"Equality rituals\"], coreIdeas: [ { label: \"Monotheism\", value: \"Haneullim - God within all humans\" }, { label: \"Salvation\", value: \"Bringing heaven to earth\" }, ], conceptPositions: { \"monotheism\": \"affirmed\", \"mysticism\": \"affirmed\", \"prayer\": \"affirmed"],
     history: {
