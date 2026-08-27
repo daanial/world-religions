@@ -2,6 +2,7 @@ import type { ReligionArticle } from "./types";
 import { buddhismArticle } from "./buddhism";
 import { hinduismArticle } from "./hinduism";
 import { jainismArticle } from "./jainism";
+import { sikhismArticle } from "./sikhism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -986,39 +987,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "World History Encyclopedia - Shinto", href: "https://www.worldhistory.org/Shinto/" },
     ],
   },
-  "sikhism": {
-    overview: [
-      "Sikhism emerged in the Punjab region of northwestern India during the late fifteenth and early sixteenth centuries, when Guru Nanak and a succession of nine further Gurus articulated a devotional path centered on one formless, timeless God (Ik Onkar). Rejecting caste hierarchy and empty ritual, they taught that salvation comes through remembrance of the divine Name (Nam), honest labor (kirat karni), and selfless service (seva). Hymns composed by the Gurus and other saints were compiled into the Adi Granth, later designated Guru Granth Sahib and venerated as the eternal Guru after the line of human Gurus ended with Guru Gobind Singh in 1708.",
-      "Guru Gobind Singh also founded the Khalsa, a community of initiated Sikhs bound by the Five Ks (including uncut hair and a steel bracelet) and committed to defending the oppressed. The Golden Temple (Harmandir Sahib) in Amritsar, surrounded by the sacred pool and open to all through its langar, or free communal kitchen, embodies Sikh ideals of equality and hospitality. Throughout the eighteenth and nineteenth centuries Sikhs established a kingdom in Punjab under Maharaja Ranjit Singh before British colonial rule reshaped the region.",
-      "Today about thirty million Sikhs live worldwide, with large communities in India, the United Kingdom, Canada, and the United States. Gurdwaras serve as worship halls where kirtan (devotional singing) and scripture reading continue daily. Sikhs participate actively in civic life, humanitarian relief, and interfaith cooperation, carrying forward a tradition that blends monotheistic devotion, ethical activism, and communal solidarity across generations of a global diaspora."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded by Guru Nanak in Punjab, Sikhism teaches one formless God (Ik Onkar), the equality of all people regardless of caste or gender, and a life of honest work (kirat karni) and selfless service (seva).\", sacredTexts: [ { name: \"Guru Granth Sahib\", description:"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Monotheism: Ik Onkar - one timeless creator",
-      "Salvation: Union with God through Nam and seva",
-      "Equality: No caste, no gender hierarchy"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["Guru Granth Sahib: Sikhism's eternal Guru, a single volume of hymns and poetry compiled by the fifth Guru, Arjan, and finalized by the tenth Guru, Gobind Singh. It includes writings of six Sikh Gurus plus saints from Hindu and Muslim backgrounds, sung in gurdwaras worldwide. The book is treated as a living presence - enthroned, covered, and addressed directly in worship."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Kirtan (sacred song), Langar (free kitchen), Five Ks, Simran (remembrance)."],
-    },
-    sources: [
-      { label: "Stanford Encyclopedia of Philosophy - Sikhism", href: "https://plato.stanford.edu/entries/sikhism/" },
-      { label: "Encyclopaedia Britannica - Sikhism", href: "https://www.britannica.com/topic/Sikhism" },
-      { label: "BBC Religion - Sikhism", href: "https://www.bbc.co.uk/religion/religions/sikhism/" },
-      { label: "Pluralism Project - Sikhism in America", href: "https://pluralism.org/religions/sikhism" },
-    ],
-  },
+  "sikhism": sikhismArticle,
   "slavic-baltic": {
     overview: ["The pre-Christian religions of the Slavic and Baltic peoples, centered on sky and thunder gods (Perun, Perkūnas), household and ancestor spirits, and sacred groves. Lithuania's official conversion in 1387 marked the end of the last state-level pagan religion in Europe, though folk customs persisted alongside Christianity for centuries.\", sacredTexts: [ { name: \"(Oral tradition - chronicled by Christian scribes)\", description: \"Slavic and Baltic paganism left no native scripture; what is known comes from outside accounts - the Russian Primary Chronicle's description of Perun's idols in Kyiv, and German missionary reports on Baltic grove-worship and priesthoods. Folk songs, festivals, and place names preserved fragments long after formal conversion.\", }, ], practices: [\"Sacred grove worship\", \"Ancestor & household spirits\", \"Seasonal fire festivals\", \"Divination\"], coreIdeas: [ { label: \"Deity\", value: \"Perun/Perkūnas (thunder) and a wider pantheon\" }, { label: \"Afterlife\", value: \"Ancestral spirits (dziady) honored at seasonal rites\" }, ], conceptPositions: { \"mysticism\": \"affirmed\", \"polytheism\": \"affirmed\", \"sacrifice\": \"affirmed"],
     history: {
