@@ -28,6 +28,7 @@ import { rastafariArticle } from "./rastafari";
 import { navajoArticle } from "./navajo";
 import { inuitArticle } from "./inuit";
 import { maoriArticle } from "./maori";
+import { dreamtimeArticle } from "./dreamtime";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -69,37 +70,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "chinese-folk": chineseFolkArticle,
   "christianity": christianityArticle,
   "confucianism": confucianismArticle,
-  "dreamtime": {
-    overview: [
-      "Aboriginal Australian spiritual traditions, often discussed under the English term Dreaming, are the religious lifeways of the First Nations peoples of the Australian continent. Aboriginal English terms such as Tjukurrpa, Ngarranggarni, or other language-specific names better reflect local meaning than any single translation. These traditions hold that Ancestral beings shaped land, law, language, and social order in the founding era and remain present through country, ceremony, and story. Land is therefore inseparable from morality, identity, and cosmic order rather than mere property.",
-      "Hundreds of distinct nations maintain separate languages, song cycles, and custodial responsibilities. Songlines trace routes of creation across vast distances, encoded in narrative, dance, and visual designs whose full meaning is often restricted by gender, age, and initiation status. Elders determine what knowledge may be shared with outsiders and under what conditions. Ceremonies renew country, teach law, and transmit knowledge through corroboree and other rites. Colonization, missionization, frontier violence, and assimilation policies caused profound loss, yet Aboriginal peoples continue to practice, adapt, and defend sacred law under contemporary legal and political struggle.",
-      "Responsible scholarship uses terminology preferred by local communities, recognizes limits on public disclosure, and rejects treating Aboriginal religion as one primitive uniform belief. Native title, repatriation, and land management partnerships increasingly draw on Aboriginal cosmology. The Dreaming is understood by many Aboriginal teachers as eternal and ongoing rather than confined to a distant mythic past. Uluru and other sacred sites illustrate ongoing debates over access, tourism, and custodial authority. Diversity among desert, coastal, and urban Aboriginal communities remains a defining feature of any accurate account."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The 'Dreaming' (Tjukurrpa) describes the ancestor-beings who sang the world into form in the dawn time - and continue to sustain it. Land, law, and ancestry are inseparable; ceremony renews the creation.\", sacredTexts: [ { name: \"(Songlines, rock art, oral law)\", descriptio"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Cosmos: Eternal Dreaming - past, present, future at once",
-      "Soul: Reincarnation of ancestral spirits"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Songlines, rock art, oral law): Aboriginal sacred knowledge is encoded in songlines - paths across the continent that trace the journeys of ancestral beings during the Dreaming. Rock art, ceremony, and oral law together preserve Tjukurrpa, the timeless creation order. Each language group holds its own chapters of this living library, tied to specific Country and passed through initiation."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Songlines, Initiation, Corroboree ceremonies, Caring for Country."],
-    },
-    sources: [
-      { label: "AIATSIS - Aboriginal Spirituality", href: "https://aiatsis.gov.au/explore/articles/aboriginal-spirituality" },
-      { label: "Britannica - Australian Aboriginal peoples", href: "https://www.britannica.com/topic/Australian-Aboriginal" },
-      { label: "UNESCO - Australian Indigenous Heritage", href: "https://whc.unesco.org/en/statesparties/au" },
-    ],
-  },
+  "dreamtime": dreamtimeArticle,
   "druidic": {
     overview: [
       "Celtic druidism refers to the priestly and learned traditions of ancient Celtic societies in Gaul, Britain, and Ireland before and during early Christianization. Druids appear in Greco-Roman accounts-especially Julius Caesar's Gallic Wars-as judges, advisors, teachers, and ritual specialists who transmitted lore orally. They reportedly oversaw sacrifices, calendar rites, and legal disputes, exercising significant authority within tribal structures. No druidic texts survive from the pre-Roman period, leaving their beliefs and rituals largely indirect and open to scholarly debate.",
