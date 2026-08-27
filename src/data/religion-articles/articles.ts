@@ -35,6 +35,7 @@ import { canaaniteArticle } from "./canaanite";
 import { greekRomanArticle } from "./greek-roman";
 import { norseArticle } from "./norse";
 import { druidicArticle } from "./druidic";
+import { manichaeanArticle } from "./manichaean";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -93,45 +94,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
   "judaism": judaismArticle,
   "korean-shin": koreanShinArticle,
   "mandaean": mandaeanArticle,
-  "manichaean": {
-    overview: [
-      "Manichaeism was founded by the prophet Mani (c. 216-276 CE) in the Sasanian Persian Empire. Mani proclaimed a universal revelation synthesizing elements drawn from Zoroastrian, Christian, and Buddhist traditions. Its cosmology describes a primordial conflict between the Realm of Light and the Realm of Darkness, with the material world formed from mixed light and matter. Humans contain light particles trapped in flesh, and salvation involves liberating this light through knowledge (gnosis) and ascetic discipline taught by the prophet and his disciples.",
-      "The community divided into the Elect-an ascetic elite who practiced strict dietary and purity rules-and Hearers, lay supporters who provided food and goods to the Elect, thereby participating indirectly in the liberation of light. Ritual meals, confession, and missionary activity spread the faith along trade routes from the Roman Mediterranean to Central Asia and China. Manichaean art and texts, including fragments of the Shabuhragan and writings discovered in Turfan and Egypt, attest to its once-wide reach across diverse linguistic and cultural settings. Mani's own missionary journeys reportedly extended from the Roman frontier to India.",
-      "Manichaeism provoked fierce opposition from Zoroastrian, Christian, and Islamic authorities and was eventually outlawed across most regions. Augustine of Hippo, once a Hearers, later wrote extensively against the faith. By the late Middle Ages it had largely disappeared, though its dualist cosmology influenced polemical labels and theological debates across the Mediterranean world. Today scholars study Manichaeism primarily through surviving fragments, recognizing it as one of antiquity's most geographically expansive missionary religions despite the near-total loss of its canonical literature."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Founded by the prophet Mani, Manichaeism was once a rival to Christianity from Rome to China. It taught a radical cosmic dualism - light (spirit, good) trapped in the material world of darkness - and a path of liberation through ascetic 'Elect' and lay 'Hearers.'\", sacredTexts: [ {"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Liberation: Release of light-particles from matter",
-      "Sin: Feeding the body feeds darkness"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Shabuhragan: A Middle Persian text composed for King Shapur I, presenting Mani's teachings on the cosmic struggle between light and darkness. It outlines the three ages of world history and the role of prophets across cultures. The work was once widely circulated along Silk Road trade routes.",
-      "Gospel of Mani: Mani's own account of his divine calling and mission to complete the revelations of Buddha, Zoroaster, and Jesus. It presented Manichaeism as the final, universal religion synthesizing earlier traditions. Only fragments survive in Coptic, Middle Persian, and Chinese translations.",
-      "Arzhang: An illustrated 'Picture Book' attributed to Mani, using paintings to teach cosmology to audiences across languages and literacy levels. It depicted the realms of light, the material prison, and the path of liberation. Church authorities ordered its destruction, and no copy survives intact today."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Vegetarianism, Confession, Ritual meals, Missionary journeys."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: babylon."],
-    },
-    sources: [
-      { label: "Britannica - Manichaeism", href: "https://www.britannica.com/topic/Manichaeism" },
-      { label: "Stanford Encyclopedia - Manichaeism", href: "https://plato.stanford.edu/entries/manichaeism/" },
-      { label: "World History Encyclopedia - Manichaeism", href: "https://www.worldhistory.org/Manichaeism/" },
-    ],
-  },
+  "manichaean": manichaeanArticle,
   "maori": maoriArticle,
   "mesoamerican": {
     overview: [
