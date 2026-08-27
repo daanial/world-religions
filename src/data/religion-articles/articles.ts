@@ -37,6 +37,7 @@ import { norseArticle } from "./norse";
 import { druidicArticle } from "./druidic";
 import { manichaeanArticle } from "./manichaean";
 import { tengrismArticle } from "./tengrism";
+import { mithraismArticle } from "./mithraism";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -131,37 +132,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "World History Encyclopedia - Maya Religion", href: "https://www.worldhistory.org/Maya_Religion/" },
     ],
   },
-  "mithraism": {
-    overview: [
-      "Mithraism was a Roman mystery cult prominent from roughly the first through fourth centuries CE, especially among soldiers, merchants, and imperial officials stationed along trade routes. It centered on the god Mithras, depicted in the iconic tauroctony-slaying a bull in a cave-an image found in hundreds of underground temples (mithraea) across the Roman Empire. The cult's origins are debated; Roman Mithraism shares the name of the ancient Iranian divinity Mithra, but its iconography and initiation structure appear to be a distinct Greco-Roman development rather than a direct Iranian import.",
-      "Initiates progressed through seven grades, often symbolized by ritual implements and planetary associations, and participated in communal meals. Mithraea were small, enclosed spaces modeling the cave of the myth, with benches for dining and the tauroctony relief as focal point. No comprehensive scripture survives; knowledge derives from inscriptions, frescoes, and archaeological remains. The cult promised cosmic salvation and the soul's ascent through celestial gates, though the precise theology must be inferred cautiously from fragmentary evidence and the symbolic program of initiation scenes.",
-      "Mithraism coexisted with civic pagan cults and early Christianity, and scholars have long debated parallels and competition between the two traditions in the Roman frontier provinces and major urban centers. By the late fourth century the cult had largely vanished, possibly suppressed alongside other non-Christian practices across the empire. Because written doctrine is scarce, many details of belief and ritual remain uncertain, and reconstructions continue to rely heavily on material culture and comparative study of mystery religions in late antiquity."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["A Roman mystery religion popular among soldiers, centered on the god Mithras slaying the cosmic bull. Initiation through seven grades promised salvation of the soul after death. Its underground mithraea spread across the Empire.\", sacredTexts: [ { name: \"(Mostly lost - iconography"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Salvation: Liberated ascent of the soul through the planets",
-      "Deity: Mithras, a solar intermediary"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Mostly lost - iconography & inscriptions survive): Mithraism was a secret initiatory cult whose written scriptures were never publicly circulated and have almost entirely perished. What remains are inscriptions in mithraea across the Roman Empire and the rich iconography of the tauroctony - Mithras slaying the cosmic bull. Initiates learned the faith's seven grades and salvation myth through ritual drama rather than reading."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Initiation grades, Ritual meals, Bull-slaying rite (tauroctony)."],
-    },
-    sources: [
-      { label: "Britannica - Mithraism", href: "https://www.britannica.com/topic/Mithraism" },
-      { label: "World History Encyclopedia - Mithraism", href: "https://www.worldhistory.org/Mithraism/" },
-      { label: "Met Museum - Roman art", href: "https://www.metmuseum.org/toah/ht/05/rom.html" },
-    ],
-  },
+  "mithraism": mithraismArticle,
   "navajo": navajoArticle,
   "norse": norseArticle,
   "rastafari": rastafariArticle,
