@@ -4,6 +4,7 @@ import { hinduismArticle } from "./hinduism";
 import { jainismArticle } from "./jainism";
 import { sikhismArticle } from "./sikhism";
 import { christianityArticle } from "./christianity";
+import { islamArticle } from "./islam";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": {
@@ -482,47 +483,7 @@ export const ARTICLES: Record<string, ReligionArticle> = {
       { label: "Canadian Museum of History - Inuit", href: "https://www.historymuseum.ca/cmc/exhibitions/civil/inuit/inuit00e.html" },
     ],
   },
-  "islam": {
-    overview: [
-      "Islam is a monotheistic tradition founded in seventh-century Arabia, when the Prophet Muhammad received revelations he understood as the word of God (Allah). These revelations, collected in the Qur'an, affirm earlier prophets including Abraham, Moses, and Jesus while presenting Muhammad as the final messenger in a line of divine guidance. Muhammad's migration from Mecca to Medina (622 CE, the hijra) marks the start of the Islamic calendar and the formation of a cohesive Muslim community. Within decades of his death in 632, Arab-Muslim armies had expanded across the Middle East and North Africa, bringing Islam into contact with Persian, Byzantine, and Central Asian cultures.",
-      "Muslims profess tawhid, the absolute oneness of God, and seek submission (islam) to divine will through faith and practice. The Five Pillars structure religious life: the shahada (declaration of faith), salat (ritual prayer), zakat (almsgiving), sawm (fasting during Ramadan), and hajj (pilgrimage to Mecca for those able). Islamic law (sharia) draws on the Qur'an, the sunna (Muhammad's example recorded in hadith), and centuries of jurisprudential reasoning, producing schools of thought such as Hanafi, Maliki, Shafi'i, and Hanbali. A political succession dispute after Muhammad's death contributed to the Sunni-Shia division, which remains significant though both branches share core beliefs.",
-      "Islam is the world's second-largest religion, with diverse expressions from West Africa to Southeast Asia. Sufi mysticism, philosophical theology (kalam), and institutions such as madrasas and waqf endowments have shaped intellectual history. Modern Muslim societies debate reform, gender roles, political Islam, and relations with non-Muslim majorities. Academic study examines Islam as scripture, law, civilization, and lived practice, emphasizing regional variation rather than a single monolithic culture."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["Islam teaches that God (Allah) revealed His final guidance to the Prophet Muhammad through the Qur'an. The Five Pillars shape a Muslim's life: declaration of faith, prayer, charity, fasting, and pilgrimage. Sunni and Shia branches emerged after Muhammad's death.\", sacredTexts: [ {"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Monotheism: Tawhid - absolute oneness of Allah",
-      "Sin: Disobedience to Allah's will",
-      "Afterlife: Paradise (Jannah) or Hell (Jahannam)"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: [
-      "Qur'an: Islam's central revelation, believed to be the literal word of God (Allah) as dictated to the Prophet Muhammad through the angel Gabriel over twenty-three years. It is organized into 114 surahs (chapters) arranged largely by length, not chronology. Muslims recite it in Arabic in daily prayer, and memorizing the entire text is a mark of great devotion.",
-      "Hadith: Collections of reports about the words, deeds, and approvals of the Prophet Muhammad, compiled by scholars in the centuries after his death. Hadith provide the practical model (sunna) for living out Qur'anic principles in daily life. Sunni and Shia Muslims recognize different canonical collections, reflecting early community divisions.",
-      "Sunnah: The lived tradition and normative example of the Prophet Muhammad, derived from Hadith and early community practice. It covers everything from prayer posture to business ethics and family law. Together with the Qur'an, the Sunnah forms the primary source of Islamic law (sharia) and spiritual guidance."
-    ],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Salat (5 daily prayers), Sawm (Ramadan fast), Zakat (charity), Hajj pilgrimage."],
-    },
-    places: {
-      title: "Sacred Places",
-      content: ["Important sites: mecca, jerusalem."],
-    },
-    sources: [
-      { label: "Britannica: Islam", href: "https://www.britannica.com/topic/Islam" },
-      { label: "BBC Religion: Islam", href: "https://www.bbc.co.uk/religion/religions/islam/" },
-      { label: "Stanford Encyclopedia of Philosophy: Islam", href: "https://plato.stanford.edu/entries/islam/" },
-      { label: "Pew Research Center: The Future of World Religions", href: "https://www.pewresearch.org/religion/2015/04/02/religious-projections-2010-2050/" },
-    ],
-  },
+  "islam": islamArticle,
   "jainism": jainismArticle,
   "judaism": {
     overview: [
