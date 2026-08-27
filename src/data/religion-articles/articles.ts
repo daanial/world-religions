@@ -19,6 +19,7 @@ import { yazidiArticle } from "./yazidi";
 import { druseArticle } from "./druse";
 import { mandaeanArticle } from "./mandaean";
 import { samaritanArticle } from "./samaritan";
+import { yorubaArticle } from "./yoruba";
 
 export const ARTICLES: Record<string, ReligionArticle> = {
   "bahai": bahaiArticle,
@@ -751,36 +752,6 @@ export const ARTICLES: Record<string, ReligionArticle> = {
     ],
   },
   "yazidi": yazidiArticle,
-  "yoruba": {
-    overview: [
-      "Yoruba religion is the indigenous spiritual tradition of the Yoruba-speaking peoples of southwestern Nigeria, Benin, and Togo, with ancient roots in West African city-states such as Ife and Oyo. Its cosmology places Olodumare, the supreme creator, above a vast pantheon of orishas who govern rivers, iron, wisdom, thunder, and other domains of existence. Priests, diviners, and devotees maintain shrines, perform festivals, and offer sacrifices to sustain reciprocal relationships between humans, ancestors, and divine powers. The religion is primarily oral, encoded in myth, praise poetry, ritual gesture, and the Ifá divination corpus.",
-      "Regional and lineage variation is substantial. Orisha prominence differs among Yoruba subgroups, and practices in Nigeria are not identical to those preserved in Brazil, Cuba, Trinidad, or other diaspora settings seeded by the transatlantic slave trade. Ancestor veneration through egungun masquerades, lineage rites, and memorial observances remains central across many communities. Ethical life is often understood through concepts such as good character (iwa pele) and alignment with one's chosen destiny, themes developed in Ifá literature and community teaching rather than a single written creed.",
-      "Colonialism, Christian mission, and modern nation-states reshaped but did not erase Yoruba religious life. Today millions of Yoruba people identify as Muslim or Christian while also maintaining orisha devotion, and others practice Yoruba religion as their primary faith. Urban migration and new media have created fresh forums for debate about authenticity, gender roles, and adaptation. Scholars emphasize that Yoruba spirituality is a living, plural field of traditions rather than a fixed ancient system frozen in time. Respectful study attends to local authority, ritual secrecy, and the distinction between insider knowledge and outside academic description."
-    ],
-    history: {
-      title: "Historical Development",
-      content: ["The indigenous religion of the Yoruba people of Nigeria, centered on Olodumare (the supreme creator) and the orishas - deities governing forces of nature and human affairs. It seeded Santería, Candomblé, and other diaspora faiths.\", sacredTexts: [ { name: \"(Oral - Ifá corpus, Odu I"],
-    },
-    worldview: {
-      title: "Core Beliefs",
-      content: [
-      "Deity: Olodumare and hundreds of orishas",
-      "Afterlife: Ancestors (egun) guide the living"
-    ],
-    },
-    texts: {
-      title: "Sacred Texts",
-      content: ["(Oral - Ifá corpus, Odu Ifá): Yoruba religion's wisdom literature lives in the Ifá corpus - 256 odu, each with hundreds of associated verses, stories, and rituals. Babalawos spend decades memorizing this material and consult it through divination with palm nuts or a divining chain. It governs everything from naming ceremonies to moral guidance and offerings to the orishas."],
-    },
-    practice: {
-      title: "Practices",
-      content: ["Key practices include Ifá divination, Orisha festivals, Ebo (offerings), Egungun masquerade."],
-    },
-    sources: [
-      { label: "Britannica - Yoruba religion", href: "https://www.britannica.com/topic/Yoruba-religion" },
-      { label: "BBC Religion - Yoruba", href: "https://www.bbc.co.uk/religion/religions/yoruba/" },
-      { label: "Smithsonian - Yoruba Art and Culture", href: "https://africa.si.edu/exhibitions/current-exhibitions/yoruba/" },
-    ],
-  },
+  "yoruba": yorubaArticle,
   "zoroastrian": zoroastrianArticle,
 };
