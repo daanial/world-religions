@@ -192,15 +192,15 @@ export default function ReligionDetail() {
 
       {/* ---------- STATS ---------- */}
       <section className="container rd__stats">
-        <StatCard label="Founded" value={formatYear(religion.origin)} icon={OriginIcon} />
-        <StatCard label="Age" value={religion.extinct ? `${ageOf(religion.origin, religion.ended)} yrs` : `${ageOf(religion.origin)} yrs`} icon={ClockIcon} />
+        <StatCard label={pt(locale, "origin")} value={formatYear(religion.origin)} icon={OriginIcon} />
+        <StatCard label={pt(locale, "age")} value={religion.extinct ? `${ageOf(religion.origin, religion.ended)} yrs` : `${ageOf(religion.origin)} yrs`} icon={ClockIcon} />
         <StatCard
-          label="Followers"
+          label={pt(locale, "followers")}
           value={religion.followers > 0 ? formatFollowers(religion.followers) : "—"}
           sub={religion.extinct ? "No longer practiced" : undefined}
           icon={PeopleIcon}
         />
-        <StatCard label="Countries" value={religion.countries > 0 ? religion.countries.toString() : "—"} icon={GlobeSmallIcon} />
+        <StatCard label={pt(locale, "countries")} value={religion.countries > 0 ? religion.countries.toString() : "—"} icon={GlobeSmallIcon} />
       </section>
 
       {/* ---------- ARTICLE CONTENT ---------- */}
