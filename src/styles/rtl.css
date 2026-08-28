@@ -69,3 +69,13 @@ html[dir="rtl"] .ip-stop__bio::first-letter {
   display: inline-block;
   unicode-bidi: isolate;
 }
+
+html[lang="fa"] .rd__lineage {
+  direction: rtl;
+  text-align: right;
+}
+
+html[lang="fa"] .rd__lineage-label {
+  text-transform: none;
+  letter-spacing: normal;
+}

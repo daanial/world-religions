@@ -52,6 +52,12 @@ export default function ReligionDetail() {
       : religionBase,
     [religionBase, locale]
   );
+  const lineageReligion = religion?.splitsFrom ? RELIGIONS.find((r) => r.id === religion.splitsFrom) : undefined;
+  const lineageName = lineageReligion
+    ? locale === "fa"
+      ? FA_RELIGION_META[lineageReligion.id as keyof typeof FA_RELIGION_META]?.name ?? lineageReligion.name
+      : lineageReligion.name
+    : "";
   const { visit, toggleCompare, isInCompare, compareIds } = useApp();
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -223,10 +229,10 @@ export default function ReligionDetail() {
                 </p>
               ))}
               {religion.splitsFrom && (
-                <p className="rd__lineage">
+                <p className="rd__lineage" dir={locale === "fa" ? "rtl" : "ltr"}>
                   <span className="rd__lineage-label">{locale === "fa" ? "برآمده از" : "Emerges from"}</span>
                   <Link to={withLocale(locale, `/religion/${religion.splitsFrom}`)} className="rd__lineage-link">
-                    {RELIGIONS.find((r) => r.id === religion.splitsFrom)?.name} →
+                    {lineageName} ←
                   </Link>
                 </p>
               )}
