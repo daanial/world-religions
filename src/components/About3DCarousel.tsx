@@ -86,7 +86,7 @@ export default function About3DCarousel({ images, className, onReady }: About3DC
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: "high-performance" });
     } catch {
-      setWebglFailed(true);
+      queueMicrotask(() => setWebglFailed(true));
       return;
     }
 

@@ -1,23 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
 import { useLocale, withLocale } from "../lib/locale";
+import { useT, type UiStrings } from "../lib/i18n";
 
-const exploreLinks = [
-  { to: "/", label: "Home", end: true },
-  { to: "/timeline", label: "Timeline" },
-  { to: "/globe", label: "Globe" },
-  { to: "/traditions", label: "Traditions" },
-  { to: "/compare", label: "Compare" },
-  { to: "/concepts", label: "Concepts" },
-  { to: "/pilgrimage", label: "Pilgrimage" },
-  { to: "/inward-paths", label: "Inward Paths" },
-  { to: "/about", label: "About" },
+const exploreLinks: Array<{ to: string; key: keyof UiStrings; end?: boolean }> = [
+  { to: "/", key: "navHome", end: true },
+  { to: "/timeline", key: "navTimeline" },
+  { to: "/globe", key: "navGlobe" },
+  { to: "/traditions", key: "navTraditions" },
+  { to: "/compare", key: "navCompare" },
+  { to: "/concepts", key: "navConcepts" },
+  { to: "/pilgrimage", key: "navPilgrimage" },
+  { to: "/inward-paths", key: "navInwardPaths" },
+  { to: "/about", key: "navAbout" },
 ];
 
 const stack = ["React", "TypeScript", "Vite", "Three.js", "D3", "GSAP", "Framer Motion"];
 
 export default function Footer() {
   const locale = useLocale();
-  
+  const t = useT();
+
   return (
     <footer className="site-footer">
       <div className="site-footer__glow" aria-hidden />
@@ -28,14 +30,11 @@ export default function Footer() {
               World Religions
               <span className="site-footer__brand-sub">Explorer</span>
             </Link>
-            <p className="site-footer__tagline">
-              A study aid and visual essay across 6,000 years of belief. Figures are approximate —
-              traditions overlap, evolve, and resist tidy categories.
-            </p>
+            <p className="site-footer__tagline">{t("footerTagline")}</p>
           </div>
 
           <nav className="site-footer__nav" aria-label="Footer navigation">
-            <div className="site-footer__nav-title">Explore</div>
+            <div className="site-footer__nav-title">{t("footerExploreTitle")}</div>
             <ul className="site-footer__links">
               {exploreLinks.map((l) => (
                 <li key={l.to}>
@@ -46,7 +45,7 @@ export default function Footer() {
                       `site-footer__link ${isActive ? "site-footer__link--active" : ""}`
                     }
                   >
-                    {l.label}
+                    {t(l.key)}
                   </NavLink>
                 </li>
               ))}
@@ -54,7 +53,7 @@ export default function Footer() {
           </nav>
 
           <div className="site-footer__credit-col">
-            <div className="site-footer__nav-title">An educational project by</div>
+            <div className="site-footer__nav-title">{t("footerCreditTitle")}</div>
             <p className="site-footer__credit">
               <a href="https://danialkeshani.com" target="_blank" rel="noopener noreferrer">
                 Danial Keshani
@@ -66,14 +65,12 @@ export default function Footer() {
                 Cubex
               </a>
             </p>
-            <p className="site-footer__credit-note">
-              Built for curiosity — no accounts, no backend, open to wander.
-            </p>
+            <p className="site-footer__credit-note">{t("footerCreditNote")}</p>
           </div>
         </div>
 
         <div className="site-footer__stack" aria-label="Technologies used">
-          <span className="site-footer__stack-label">Made with</span>
+          <span className="site-footer__stack-label">{t("footerStackLabel")}</span>
           {stack.map((item) => (
             <span key={item} className="site-footer__stack-pill">
               {item}

@@ -40,18 +40,148 @@ const chronologyRanges = [
   { label: "Modern (1500+ CE)", min: 1500, max: Infinity },
 ];
 
+const TRANSLATIONS = {
+  en: {
+    title: "Traditions Directory",
+    eyebrow: "All {count} traditions",
+    lead: "A complete index of every faith, philosophy, and spiritual path in the World Religions Explorer — from Sumerian city-gods to Rastafari, from ancient mysteries to living traditions. Search, filter, and explore the full landscape.",
+    searchPlaceholder: "Search traditions, concepts, practices...",
+    searchAria: "Search traditions",
+    status: "Status",
+    statusAll: "All ({count})",
+    statusLiving: "Living ({count})",
+    statusHistorical: "Historical ({count})",
+    family: "Family",
+    allFamilies: "All families",
+    region: "Region",
+    allRegions: "All regions",
+    era: "Era",
+    allEras: "All eras",
+    sortBy: "Sort by",
+    sortAlphabetical: "Alphabetical",
+    sortOldest: "Oldest first",
+    sortNewest: "Newest first",
+    sortFollowers: "Most followers",
+    filtersActive: "{count} filter active",
+    filtersActivePlural: "{count} filters active",
+    clearAll: "Clear all",
+    showingResults: "Showing {count} of {total} traditions",
+    noResults: "No traditions match your search criteria. Try adjusting your filters.",
+    cardHistorical: "† Historical",
+    cardPresent: " – present",
+    followersM: "{count}M followers",
+    followersK: "{count}K followers",
+    followers: "{count} followers",
+    filterByFamily: "Filter by family",
+    filterByRegion: "Filter by region",
+    filterByChronology: "Filter by chronology",
+    sortTraditions: "Sort traditions",
+    familyNames: {
+      "Abrahamic": "Abrahamic",
+      "Indian": "Indian",
+      "Iranian": "Iranian",
+      "East Asian": "East Asian",
+      "Indo-European": "Indo-European",
+      "Indigenous": "Indigenous",
+      "African": "African",
+      "Modern": "Modern"
+    } as Record<Family, string>,
+    regionNames: {
+      "Middle East": "Middle East",
+      "South Asia": "South Asia",
+      "East Asia": "East Asia",
+      "Central Asia": "Central Asia",
+      "Europe": "Europe",
+      "Africa": "Africa",
+      "Americas": "Americas",
+      "Oceania": "Oceania"
+    } as Record<Region, string>,
+    eraNames: {
+      "Ancient (before 0 CE)": "Ancient (before 0 CE)",
+      "Classical (0-1000 CE)": "Classical (0-1000 CE)",
+      "Medieval (1000-1500 CE)": "Medieval (1000-1500 CE)",
+      "Modern (1500+ CE)": "Modern (1500+ CE)"
+    } as Record<string, string>
+  },
+  fa: {
+    title: "فهرست سنت‌ها و آیین‌ها",
+    eyebrow: "تمامی {count} سنت",
+    lead: "نمایه‌ای کامل از هر آیین، فلسفه و مسیر معنوی در جستجوگر ادیان جهان — از خدایان‌شهرهای سومری تا راستافاری، و از اسرار باستانی تا سنت‌های زنده. در کل این چشم‌انداز جستجو، فیلتر و کاوش کنید.",
+    searchPlaceholder: "جستجو در سنت‌ها، مفاهیم، آیین‌ها...",
+    searchAria: "جستجوی سنت‌ها",
+    status: "وضعیت",
+    statusAll: "همه ({count})",
+    statusLiving: "پویا / زنده ({count})",
+    statusHistorical: "تاریخی / منسوخ ({count})",
+    family: "خانواده",
+    allFamilies: "همه‌ی خانواده‌ها",
+    region: "منطقه",
+    allRegions: "همه‌ی منطقه‌ها",
+    era: "دوران",
+    allEras: "همه‌ی دوران‌ها",
+    sortBy: "مرتب‌سازی",
+    sortAlphabetical: "الفبایی",
+    sortOldest: "قدیمی‌ترین نخست",
+    sortNewest: "جدیدترین نخست",
+    sortFollowers: "بیشترین پیروان",
+    filtersActive: "{count} فیلتر فعال است",
+    filtersActivePlural: "{count} فیلتر فعال است",
+    clearAll: "پاک کردن همه",
+    showingResults: "نمایش {count} از {total} سنت",
+    noResults: "هیچ سنتی با معیارهای جستجوی شما مطابقت ندارد. فیلترها را تغییر دهید.",
+    cardHistorical: "† تاریخی",
+    cardPresent: " – تاکنون",
+    followersM: "{count} میلیون پیرو",
+    followersK: "{count} هزار پیرو",
+    followers: "{count} پیرو",
+    filterByFamily: "فیلتر بر اساس خانواده",
+    filterByRegion: "فیلتر بر اساس منطقه",
+    filterByChronology: "فیلتر بر اساس دوران",
+    sortTraditions: "مرتب‌سازی سنت‌ها",
+    familyNames: {
+      "Abrahamic": "ابراهیمی",
+      "Indian": "هندی",
+      "Iranian": "ایرانی",
+      "East Asian": "شرق آسیا",
+      "Indo-European": "هندواروپایی",
+      "Indigenous": "بومی",
+      "African": "آفریقایی و جوامع پراکنده",
+      "Modern": "مدرن"
+    } as Record<Family, string>,
+    regionNames: {
+      "Middle East": "خاورمیانه",
+      "South Asia": "جنوب آسیا",
+      "East Asia": "شرق آسیا",
+      "Central Asia": "آسیای مرکزی",
+      "Europe": "اروپا",
+      "Africa": "آفریقا",
+      "Americas": "قاره آمریکا",
+      "Oceania": "اقیانوسیه"
+    } as Record<Region, string>,
+    eraNames: {
+      "Ancient (before 0 CE)": "باستان (پیش از میلاد)",
+      "Classical (0-1000 CE)": "کلاسیک (۰-۱۰۰۰ میلادی)",
+      "Medieval (1000-1500 CE)": "قرون وسطی (۱۰۰۰-۱۵۰۰ میلادی)",
+      "Modern (1500+ CE)": "مدرن (۱۵۰۰+ میلادی)"
+    } as Record<string, string>
+  }
+};
+
 export default function Traditions() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
+  const locale = useLocale();
+  const t = TRANSLATIONS[locale];
 
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
 
   usePageSeo({
-    title: "Traditions Directory",
-    description:
-      "Browse all 44 religious and philosophical traditions from 6,000 years of human history. Search, filter by family, region, and time period.",
+    title: t.title,
+    description: locale === "fa"
+      ? "در میان تمام ۴۴ سنت دینی و فلسفی در طول ۶,۰۰۰ سال تاریخ بشر جستجو کنید. قابلیت فیلتر بر اساس خانواده، منطقه و دوره‌ی زمانی."
+      : "Browse all 44 religious and philosophical traditions from 6,000 years of human history. Search, filter by family, region, and time period.",
     path: "/traditions",
   });
 
@@ -153,13 +283,11 @@ export default function Traditions() {
 
       <div className="container">
         <header className="page__head traditions-page__head">
-          <div className="eyebrow reveal">All {RELIGIONS.length} traditions</div>
-          <h1 className="page__title reveal">Traditions Directory</h1>
-          <p className="page__lead reveal">
-            A complete index of every faith, philosophy, and spiritual path in the World Religions
-            Explorer — from Sumerian city-gods to Rastafari, from ancient mysteries to living
-            traditions. Search, filter, and explore the full landscape.
-          </p>
+          <div className="eyebrow reveal">
+            {t.eyebrow.replace("{count}", String(RELIGIONS.length))}
+          </div>
+          <h1 className="page__title reveal">{t.title}</h1>
+          <p className="page__lead reveal">{t.lead}</p>
         </header>
 
         <div className="traditions-controls glass reveal">
@@ -167,108 +295,108 @@ export default function Traditions() {
             <SearchIcon />
             <input
               type="search"
-              placeholder="Search traditions, concepts, practices..."
+              placeholder={t.searchPlaceholder}
               value={searchTerm}
               onChange={(e) => {
                 setSearchTerm(e.target.value);
                 updateFilter("search", e.target.value);
               }}
               className="traditions-search__input"
-              aria-label="Search traditions"
+              aria-label={t.searchAria}
             />
           </div>
 
           <div className="traditions-filters">
             <div className="traditions-filter-group">
-              <label className="traditions-filter-label">Status</label>
+              <label className="traditions-filter-label">{t.status}</label>
               <div className="traditions-filter-chips">
                 <button
                   className={`filter-chip ${statusFilter === "all" ? "filter-chip--active" : ""}`}
                   onClick={() => updateFilter("status", "")}
                   aria-pressed={statusFilter === "all"}
                 >
-                  All ({RELIGIONS.length})
+                  {t.statusAll.replace("{count}", String(RELIGIONS.length))}
                 </button>
                 <button
                   className={`filter-chip ${statusFilter === "living" ? "filter-chip--active" : ""}`}
                   onClick={() => updateFilter("status", "living")}
                   aria-pressed={statusFilter === "living"}
                 >
-                  Living ({RELIGIONS.filter((r) => r.living).length})
+                  {t.statusLiving.replace("{count}", String(RELIGIONS.filter((r) => r.living).length))}
                 </button>
                 <button
                   className={`filter-chip ${statusFilter === "extinct" ? "filter-chip--active" : ""}`}
                   onClick={() => updateFilter("status", "extinct")}
                   aria-pressed={statusFilter === "extinct"}
                 >
-                  Historical ({RELIGIONS.filter((r) => !r.living).length})
+                  {t.statusHistorical.replace("{count}", String(RELIGIONS.filter((r) => !r.living).length))}
                 </button>
               </div>
             </div>
 
             <div className="traditions-filter-group">
-              <label className="traditions-filter-label">Family</label>
+              <label className="traditions-filter-label">{t.family}</label>
               <select
                 className="traditions-select"
                 value={familyFilter}
                 onChange={(e) => updateFilter("family", e.target.value)}
-                aria-label="Filter by family"
+                aria-label={t.filterByFamily}
               >
-                <option value="">All families</option>
+                <option value="">{t.allFamilies}</option>
                 {familyOptions.map((f) => (
                   <option key={f} value={f}>
-                    {f} ({RELIGIONS.filter((r) => r.family === f).length})
+                    {t.familyNames[f]} ({RELIGIONS.filter((r) => r.family === f).length})
                   </option>
                 ))}
               </select>
             </div>
 
             <div className="traditions-filter-group">
-              <label className="traditions-filter-label">Region</label>
+              <label className="traditions-filter-label">{t.region}</label>
               <select
                 className="traditions-select"
                 value={regionFilter}
                 onChange={(e) => updateFilter("region", e.target.value)}
-                aria-label="Filter by region"
+                aria-label={t.filterByRegion}
               >
-                <option value="">All regions</option>
+                <option value="">{t.allRegions}</option>
                 {regionOptions.map((r) => (
                   <option key={r} value={r}>
-                    {r} ({RELIGIONS.filter((rel) => rel.region === r).length})
+                    {t.regionNames[r]} ({RELIGIONS.filter((rel) => rel.region === r).length})
                   </option>
                 ))}
               </select>
             </div>
 
             <div className="traditions-filter-group">
-              <label className="traditions-filter-label">Era</label>
+              <label className="traditions-filter-label">{t.era}</label>
               <select
                 className="traditions-select"
                 value={chronologyFilter}
                 onChange={(e) => updateFilter("chronology", e.target.value)}
-                aria-label="Filter by chronology"
+                aria-label={t.filterByChronology}
               >
-                <option value="">All eras</option>
+                <option value="">{t.allEras}</option>
                 {chronologyRanges.map((cr) => (
                   <option key={cr.label} value={cr.label}>
-                    {cr.label}
+                    {t.eraNames[cr.label] || cr.label}
                   </option>
                 ))}
               </select>
             </div>
 
             <div className="traditions-filter-group">
-              <label className="traditions-filter-label">Sort by</label>
+              <label className="traditions-filter-label">{t.sortBy}</label>
               <select
                 className="traditions-select"
                 value={sortBy}
                 onChange={(e) => updateFilter("sort", e.target.value)}
-                aria-label="Sort traditions"
+                aria-label={t.sortTraditions}
               >
-                <option value="alphabetical">Alphabetical</option>
-                <option value="oldest">Oldest first</option>
-                <option value="newest">Newest first</option>
-                <option value="followers">Most followers</option>
+                <option value="alphabetical">{t.sortAlphabetical}</option>
+                <option value="oldest">{t.sortOldest}</option>
+                <option value="newest">{t.sortNewest}</option>
+                <option value="followers">{t.sortFollowers}</option>
               </select>
             </div>
           </div>
@@ -276,10 +404,12 @@ export default function Traditions() {
           {activeFilterCount > 0 && (
             <div className="traditions-active-filters">
               <span className="traditions-active-filters__label">
-                {activeFilterCount} filter{activeFilterCount > 1 ? "s" : ""} active
+                {activeFilterCount === 1
+                  ? t.filtersActive.replace("{count}", String(activeFilterCount))
+                  : t.filtersActivePlural.replace("{count}", String(activeFilterCount))}
               </span>
               <button onClick={handleClearFilters} className="btn--ghost btn--sm">
-                Clear all
+                {t.clearAll}
               </button>
             </div>
           )}
@@ -288,13 +418,15 @@ export default function Traditions() {
         <div className="traditions-results reveal">
           <div className="traditions-results__header">
             <p className="traditions-results__count">
-              Showing {sorted.length} of {RELIGIONS.length} traditions
+              {t.showingResults
+                .replace("{count}", String(sorted.length))
+                .replace("{total}", String(RELIGIONS.length))}
             </p>
           </div>
 
           {sorted.length === 0 ? (
             <div className="traditions-empty card">
-              <p>No traditions match your search criteria. Try adjusting your filters.</p>
+              <p>{t.noResults}</p>
             </div>
           ) : (
             <div className="traditions-grid reveal-stagger">
@@ -315,13 +447,14 @@ interface TraditionCardProps {
 
 function TraditionCard({ religion }: TraditionCardProps) {
   const locale = useLocale();
+  const t = TRANSLATIONS[locale];
   const imageSrc = getReligionThumbnailSrc(religion.id) ?? getReligionImageSrc(religion.id);
   const followersText = religion.living
     ? religion.followers >= 1000000
-      ? `${(religion.followers / 1000000).toFixed(1)}M followers`
+      ? t.followersM.replace("{count}", (religion.followers / 1000000).toFixed(1))
       : religion.followers >= 1000
-        ? `${(religion.followers / 1000).toFixed(0)}K followers`
-        : `${religion.followers} followers`
+        ? t.followersK.replace("{count}", (religion.followers / 1000).toFixed(0))
+        : t.followers.replace("{count}", String(religion.followers))
     : null;
 
   return (
@@ -334,19 +467,19 @@ function TraditionCard({ religion }: TraditionCardProps) {
       <div className="tradition-card__content">
         <div className="tradition-card__header">
           <h3 className="tradition-card__name">{religion.name}</h3>
-          {religion.extinct && <span className="tradition-card__extinct">† Historical</span>}
+          {religion.extinct && <span className="tradition-card__extinct">{t.cardHistorical}</span>}
         </div>
         <div className="tradition-card__meta">
           <span className="tradition-card__date">
             {formatYear(religion.origin)}
-            {religion.ended ? ` – ${formatYear(religion.ended)}` : " – present"}
+            {religion.ended ? ` – ${formatYear(religion.ended)}` : t.cardPresent}
           </span>
           {followersText && <span className="tradition-card__followers">{followersText}</span>}
         </div>
         <p className="tradition-card__blurb">{religion.blurb}</p>
         <div className="tradition-card__footer">
-          <span className="tag">{religion.family}</span>
-          <span className="tag">{religion.region}</span>
+          <span className="tag">{t.familyNames[religion.family]}</span>
+          <span className="tag">{t.regionNames[religion.region]}</span>
           <span className="tradition-card__arrow" style={{ color: religion.accent }}>
             →
           </span>

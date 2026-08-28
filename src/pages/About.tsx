@@ -3,15 +3,17 @@ import gsap from "gsap";
 import About3DCarousel from "../components/About3DCarousel";
 import { ABOUT_IMAGES } from "../lib/aboutImages";
 import { usePageSeo } from "../lib/seo";
+import { useLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 export default function About() {
+  const locale = useLocale();
   const overlayRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLParagraphElement>(null);
 
   usePageSeo({
-    title: "About / In Memory",
-    description:
-      "Six thousand years of belief — timelines, sacred geography, concept networks, and side-by-side comparisons across thirty-four traditions. Built for curiosity, not certainty.",
+    title: locale === "fa" ? "درباره / به یاد" : "About / In Memory",
+    description: locale === "fa" ? "شش هزار سال باور — جدول‌های زمانی، جغرافیای مقدس، شبکه‌های مفهومی و مقایسهٔ ۴۴ سنت. ساخته‌شده برای کنجکاوی، نه قطعیت." : "Six thousand years of belief — timelines, sacred geography, concept networks, and side-by-side comparisons across 44 traditions. Built for curiosity, not certainty.",
     path: "/about",
     image: ABOUT_IMAGES[0]?.src,
   });
@@ -43,47 +45,36 @@ export default function About() {
 
   return (
     <div className="page about-page">
-      <section className="about-hero" aria-label="About World Religions Explorer">
+      <section className="about-hero" aria-label={pt(locale, "aboutLabel")}>
         <About3DCarousel images={ABOUT_IMAGES} className="about-hero__carousel" />
 
         <div className="about-hero__vignette" aria-hidden />
 
         <p ref={hintRef} className="about-hero__hint">
-          Drag to orbit · Scroll to change speed · Click an image to focus
+          {locale === "fa" ? "برای چرخش بکشید · برای تغییر سرعت پیمایش کنید · برای تمرکز روی تصویر کلیک کنید" : "Drag to orbit · Scroll to change speed · Click an image to focus"}
         </p>
 
         <div ref={overlayRef} className="about-hero__overlay glass" aria-live="polite">
           <div className="about-hero__overlay-inner">
-            <h1 className="about-hero__title">About / In Memory</h1>
+            <h1 className="about-hero__title">{pt(locale, "aboutTitle")}</h1>
             <p className="about-hero__lead">
-              Six thousand years of belief. Timelines, sacred geography, concept networks,
-              side-by-side comparisons across thirty-four traditions — built for curiosity, not
-              certainty.
+              {locale === "fa" ? "شش هزار سال باور. جدول‌های زمانی، جغرافیای مقدس، شبکه‌های مفهومی و مقایسهٔ ۴۴ سنت — ساخته‌شده برای کنجکاوی، نه قطعیت." : "Six thousand years of belief. Timelines, sacred geography, concept networks, side-by-side comparisons across 44 traditions — built for curiosity, not certainty."}
             </p>
             <p className="about-hero__body">
-              I met these questions young. First in the Bhagavad Gita, then in Sufi verses read in
-              secret as a teenager — the same question underneath every tradition I would later
-              study: what is this flame in the human chest that reaches for the unseen, that builds
-              temples and empires and laws around what it cannot see, and that sometimes, still,
-              burns for it. This project is an attempt to give that question room to breathe.
+              {locale === "fa" ? "من با این پرسش‌ها از جوانی روبه‌رو شدم؛ نخست در بهاگاواد گیتا و بعد در شعرهای صوفیانه‌ای که نوجوانی پنهانی می‌خواندم — همان پرسشی که زیرِ هر سنتی که بعدها مطالعه کردم حضور داشت: این شعله در سینهٔ انسان چیست که به سوی نادیدنی دست دراز می‌کند، پیرامون چیزی که نمی‌تواند ببیند معبد و امپراتوری و قانون می‌سازد و گاهی هنوز برای آن می‌سوزد؟ این پروژه تلاشی است برای آن‌که این پرسش مجال نفس‌کشیدن پیدا کند." : "I met these questions young. First in the Bhagavad Gita, then in Sufi verses read in secret as a teenager — the same question underneath every tradition I would later study: what is this flame in the human chest that reaches for the unseen, that builds temples and empires and laws around what it cannot see, and that sometimes, still, burns for it. This project is an attempt to give that question room to breathe."}
             </p>
             <p className="about-hero__body about-hero__body--memorial">
-              It is also, inseparably, dedicated to the dead of January 2026 — to the women and men
-              killed by their own government in Iran, in a massacre the world was made to watch in
-              the dark, the internet cut so the killing could not be witnessed. Among them, a woman
-              whose face was never given back her name — catalogued only as number 12760. She is one
-              of thousands. She stands here for all of them.
+              {locale === "fa" ? "این پروژه همچنین، جدایی‌ناپذیر از آن، به کشته‌شدگان ژانویهٔ ۲۰۲۶ تقدیم شده است — به زنان و مردانی که به دست حکومت خود در ایران کشته شدند؛ در کشتاری که جهان مجبور شد در تاریکی تماشایش کند، در حالی که اینترنت قطع شده بود تا کسی شاهد آن نباشد. در میان آنان زنی بود که چهره‌اش هرگز نامش را پس نگرفت — زنی که تنها با شمارهٔ ۱۲۷۶۰ ثبت شد. او یکی از هزاران نفر است و این‌جا نمایندهٔ همهٔ آنان ایستاده است." : "It is also, inseparably, dedicated to the dead of January 2026 — to the women and men killed by their own government in Iran, in a massacre the world was made to watch in the dark, the internet cut so the killing could not be witnessed. Among them, a woman whose face was never given back her name — catalogued only as number 12760. She is one of thousands. She stands here for all of them."}
             </p>
             <p className="about-hero__body about-hero__body--memorial">
-              To the trees that fell, and to all the unnamed forests beside them: you are not lost to
-              memory. You are why this exists.
+              {locale === "fa" ? "به درختانی که افتادند و به همهٔ جنگل‌های بی‌نام کنارشان: شما از یاد نرفته‌اید. دلیل وجود این پروژه شمایید." : "To the trees that fell, and to all the unnamed forests beside them: you are not lost to memory. You are why this exists."}
             </p>
             <p className="about-hero__credit">
-              Created by{" "}
+              {locale === "fa" ? "ساخته‌شده توسط " : "Created by "}
               <a href="https://danialkeshani.com" target="_blank" rel="noopener noreferrer">
                 Danial Keshani
               </a>{" "}
-              &{" "}
+              {locale === "fa" ? "و" : "&"}{" "}
               <a href="https://cubexic.com" target="_blank" rel="noopener noreferrer">
                 Cubex
               </a>

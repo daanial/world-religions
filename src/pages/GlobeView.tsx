@@ -6,17 +6,19 @@ import { SITES, type SacredSite } from "../data/sites";
 import { RELIGIONS } from "../data/religions";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
+import { useLocale, withLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 export default function GlobeView() {
   const rootRef = useRef<HTMLDivElement>(null);
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
   const [selected, setSelected] = useState<SacredSite | null>(null);
+  const locale = useLocale();
 
   usePageSeo({
-    title: "Sacred Geography Globe",
-    description:
-      "Explore sacred sites across the world on an interactive globe. Fly between Jerusalem, Mecca, Varanasi, Lhasa, and other holy places.",
+    title: locale === "fa" ? "کرهٔ جغرافیای مقدس" : "Sacred Geography Globe",
+    description: locale === "fa" ? "مکان‌های مقدس جهان را روی کره‌ای تعاملی کاوش کنید؛ از اورشلیم و مکه تا واراناسی و لهاسا." : "Explore sacred sites across the world on an interactive globe. Fly between Jerusalem, Mecca, Varanasi, Lhasa, and other holy places.",
     path: "/globe",
   });
 
@@ -26,12 +28,9 @@ export default function GlobeView() {
 
       <div className="container globe-layout">
         <header className="page__head">
-          <div className="eyebrow reveal">Sacred geography</div>
-          <h1 className="page__title reveal">A Living Globe</h1>
-          <p className="page__lead reveal">
-            Drag to spin the Earth. Click a glowing pin — or pick a place below — to fly there and
-            read its story.
-          </p>
+          <div className="eyebrow reveal">{pt(locale, "sacredGeography")}</div>
+          <h1 className="page__title reveal">{pt(locale, "livingGlobe")}</h1>
+          <p className="page__lead reveal">{pt(locale, "globeLead")}</p>
         </header>
 
         <div className="globe-stage card reveal">
@@ -40,7 +39,7 @@ export default function GlobeView() {
             onSelect={(site) => setSelected(site)}
           />
           <div className="globe-stage__hint">
-            <span className="globe-stage__hint-dot" /> drag to rotate · click a pin
+            <span className="globe-stage__hint-dot" /> {pt(locale, "dragRotate")}
           </div>
         </div>
 
@@ -49,14 +48,14 @@ export default function GlobeView() {
             <SitePanel site={selected} onClose={() => setSelected(null)} />
           ) : (
             <div className="globe-panel__empty">
-              <div className="globe-panel__empty-title">Sacred Sites</div>
-              <p>Pick one of {SITES.length} locations to begin.</p>
+              <div className="globe-panel__empty-title">{pt(locale, "sacredSites")}</div>
+              <p>{pt(locale, "pickLocation", { count: SITES.length })}</p>
             </div>
           )}
         </aside>
 
         <section className="globe-sites">
-          <h2 className="globe-sites__title">All sacred places</h2>
+          <h2 className="globe-sites__title">{pt(locale, "allSacredPlaces")}</h2>
           <div className="globe-sites__grid">
             {SITES.map((site) => (
               <button
@@ -68,7 +67,7 @@ export default function GlobeView() {
                 <span className="site-chip__dot" />
                 <span className="site-chip__name">{site.name}</span>
                 <span className="site-chip__count">
-                  {site.religions.length} faith{site.religions.length > 1 ? "s" : ""}
+                  {site.religions.length} {site.religions.length > 1 ? pt(locale, "faiths") : pt(locale, "faith")}
                 </span>
               </button>
             ))}
@@ -80,6 +79,7 @@ export default function GlobeView() {
 }
 
 function SitePanel({ site, onClose }: { site: SacredSite; onClose: () => void }) {
+  const locale = useLocale();
   const religions = RELIGIONS.filter((r) => site.religions.includes(r.id));
   return (
     <div className="site-panel">
@@ -90,7 +90,7 @@ function SitePanel({ site, onClose }: { site: SacredSite; onClose: () => void })
           </div>
           <h2 className="site-panel__title">{site.name}</h2>
         </div>
-        <button className="site-panel__close" onClick={onClose} aria-label="Close panel">
+        <button className="site-panel__close" onClick={onClose} aria-label={pt(locale, "closePanel")}>
           ✕
         </button>
       </div>
@@ -99,12 +99,12 @@ function SitePanel({ site, onClose }: { site: SacredSite; onClose: () => void })
 
       {religions.length > 0 && (
         <div className="site-panel__religions">
-          <div className="site-panel__subhead">Revered by</div>
+          <div className="site-panel__subhead">{pt(locale, "reveredBy")}</div>
           <div className="site-panel__religion-list">
             {religions.map((r) => (
               <Link
                 key={r.id}
-                to={`/religion/${r.id}`}
+                to={withLocale(locale, `/religion/${r.id}`)}
                 className="site-panel__religion"
                 style={{ borderColor: r.accent }}
               >

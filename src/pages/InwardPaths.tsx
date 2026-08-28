@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Starfield from "../components/Starfield";
@@ -6,17 +6,18 @@ import {
   INWARD_PATHS_FRAMING,
   INWARD_PATHS_INTRO,
   INWARD_PATHS_SECTIONS,
-  getAllFigures,
   type TimelineFigure,
   type TimelineQuote,
 } from "../data/inward-paths-timeline";
+import { INWARD_PATHS_INTRO_FA, INWARD_PATHS_SECTIONS_FA, INWARD_PATHS_FRAMING_FA } from "../data/inward-paths-timeline.fa";
 import { usePageSeo } from "../lib/seo";
+import { useLocale } from "../lib/locale";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function formatSortYear(year: number): string {
-  if (year < 0) return `${Math.abs(year)} BCE`;
-  if (year < 1000) return `${year} CE`;
+function formatSortYear(year: number, locale: "en" | "fa"): string {
+  if (year < 0) return `${Math.abs(year)} ${locale === "fa" ? "پ.م." : "BCE"}`;
+  if (year < 1000) return `${year} ${locale === "fa" ? "م." : "CE"}`;
   return `${year}`;
 }
 
@@ -33,9 +34,11 @@ function QuoteBlock({ quote }: { quote: TimelineQuote }) {
 function FigureRow({
   figure,
   side,
+  locale,
 }: {
   figure: TimelineFigure;
   side: "left" | "right";
+  locale: "en" | "fa";
 }) {
   const accent = figure.accent ?? "var(--gold)";
 
@@ -50,7 +53,7 @@ function FigureRow({
       >
         <div className="ip-stop__marker" aria-hidden>
           <span className="ip-stop__dot" />
-          <span className="ip-stop__year">{formatSortYear(figure.sortYear)}</span>
+          <span className="ip-stop__year">{formatSortYear(figure.sortYear, locale)}</span>
         </div>
 
         <div className="ip-stop__inner">
@@ -66,15 +69,14 @@ function FigureRow({
 
             {figure.noQuotes ? (
               <p className="ip-stop__no-quotes">
-                No reliable corpus of personal quotations survives — what is transmitted is his
-                student&apos;s record of his teaching, not Luria&apos;s own prose.
+                {locale === "fa" ? "مجموعه‌ای قابل اعتماد از نقل‌قول‌های شخصی او باقی نمانده است؛ آنچه منتقل شده، گزارش شاگردش از آموزش اوست، نه نثر خودِ لوریا." : "No reliable corpus of personal quotations survives — what is transmitted is his student&apos;s record of his teaching, not Luria&apos;s own prose."}
               </p>
             ) : (
               figure.quotes &&
               figure.quotes.length > 0 && (
                 <div className="ip-stop__quotes">
                   {figure.quotes.map((q) => (
-                    <QuoteBlock key={`${figure.id}-${q.text.slice(0, 24)}`} quote={q} />
+                  <QuoteBlock key={`${figure.id}-${q.text.slice(0, 24)}`} quote={q} />
                   ))}
                 </div>
               )
@@ -87,12 +89,15 @@ function FigureRow({
 }
 
 export default function InwardPaths() {
+  const locale = useLocale();
   const rootRef = useRef<HTMLDivElement>(null);
   const spineRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const cometRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const figures = getAllFigures();
+  const isPersian = locale === "fa";
+  const sections = isPersian ? INWARD_PATHS_SECTIONS_FA : INWARD_PATHS_SECTIONS;
+  const figures = useMemo(() => sections.flatMap((section) => section.figures).sort((a, b) => a.sortYear - b.sortYear), [sections]);
   const [activeFigure, setActiveFigure] = useState<TimelineFigure>(() => figures[0]);
   const [activeIndex, setActiveIndex] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -124,9 +129,8 @@ export default function InwardPaths() {
   };
 
   usePageSeo({
-    title: "Inward Paths — Spirituality & Mysticism",
-    description:
-      "A scroll-driven timeline of eighteen mystics, sages, and interpreters across three millennia — from Yajnavalkya and Laozi to Rumi, Teresa of Ávila, and Thomas Merton.",
+    title: locale === "fa" ? "مسیرهای درونی — معنویت و عرفان" : "Inward Paths — Spirituality & Mysticism",
+    description: locale === "fa" ? "جدولی زمانی از هجده عارف، حکیم و مفسر در سه هزاره — از یاجنَوالکیا و لائوتسه تا مولانا، ترزا آویلایی و توماس مرتن." : "A scroll-driven timeline of eighteen mystics, sages, and interpreters across three millennia — from Yajnavalkya and Laozi to Rumi, Teresa of Ávila, and Thomas Merton.",
     path: "/inward-paths",
   });
 
@@ -273,7 +277,7 @@ export default function InwardPaths() {
       window.removeEventListener("resize", onResize);
       ctx.revert();
     };
-  }, []);
+  }, [figures]);
 
   return (
     <div className="page ip-page" ref={rootRef}>
@@ -281,13 +285,13 @@ export default function InwardPaths() {
 
       <div className="container ip-layout">
         <header className="page__head ip-intro">
-          <div className="eyebrow">{INWARD_PATHS_INTRO.eyebrow}</div>
-          <h1 className="page__title">{INWARD_PATHS_INTRO.title}</h1>
-          <p className="ip-intro__subtitle">{INWARD_PATHS_INTRO.subtitle}</p>
-          <p className="page__lead">{INWARD_PATHS_INTRO.lead}</p>
-          <p className="ip-intro__note">{INWARD_PATHS_INTRO.editorialNote}</p>
+          <div className="eyebrow">{isPersian ? INWARD_PATHS_INTRO_FA.eyebrow : INWARD_PATHS_INTRO.eyebrow}</div>
+          <h1 className="page__title">{isPersian ? INWARD_PATHS_INTRO_FA.title : INWARD_PATHS_INTRO.title}</h1>
+          <p className="ip-intro__subtitle">{isPersian ? INWARD_PATHS_INTRO_FA.subtitle : INWARD_PATHS_INTRO.subtitle}</p>
+          <p className="page__lead">{isPersian ? INWARD_PATHS_INTRO_FA.lead : INWARD_PATHS_INTRO.lead}</p>
+          <p className="ip-intro__note">{isPersian ? INWARD_PATHS_INTRO_FA.editorialNote : INWARD_PATHS_INTRO.editorialNote}</p>
 
-          <nav className="ip-jump" aria-label="Jump to a figure">
+          <nav className="ip-jump" aria-label={locale === "fa" ? "پرش به یک چهره" : "Jump to a figure"}>
             {figures.map((f) => (
               <a
                 key={f.id}
@@ -310,8 +314,11 @@ export default function InwardPaths() {
             </div>
 
             {(() => {
-              let figureIndex = 0;
-              return INWARD_PATHS_SECTIONS.map((section, sectionIndex) => (
+              return sections.map((section, sectionIndex) => {
+                const figureIndex = sections
+                  .slice(0, sectionIndex)
+                  .reduce((count, previous) => count + previous.figures.length, 0);
+                return (
                 <section
                   key={section.id}
                   className={`ip-section${sectionIndex > 0 ? " ip-section--divider" : ""}`}
@@ -328,14 +335,14 @@ export default function InwardPaths() {
                   </header>
 
                   <div className="ip-stops">
-                    {section.figures.map((figure) => {
-                      const side = figureIndex % 2 === 0 ? "left" : "right";
-                      figureIndex += 1;
-                      return <FigureRow key={figure.id} figure={figure} side={side} />;
+                    {section.figures.map((figure, localIndex) => {
+                      const side = (figureIndex + localIndex) % 2 === 0 ? "left" : "right";
+                      return <FigureRow key={figure.id} figure={figure} side={side} locale={locale} />;
                     })}
                   </div>
                 </section>
-              ));
+                );
+              });
             })()}
           </div>
 
@@ -348,7 +355,7 @@ export default function InwardPaths() {
             <p className="ip-scroll-rail__label">Now reading</p>
             <p className="ip-scroll-rail__name">{activeFigure.name}</p>
             <p className="ip-scroll-rail__meta">
-              {activeFigure.tradition} · {formatSortYear(activeFigure.sortYear)}
+              {activeFigure.tradition} · {formatSortYear(activeFigure.sortYear, locale)}
             </p>
             <div className="ip-scroll-rail__progress" aria-hidden>
               <div
@@ -363,8 +370,8 @@ export default function InwardPaths() {
         </div>
 
         <aside className="ip-framing card">
-          <h2 className="ip-framing__title">{INWARD_PATHS_FRAMING.title}</h2>
-          <p className="ip-framing__body">{INWARD_PATHS_FRAMING.body}</p>
+          <h2 className="ip-framing__title">{isPersian ? INWARD_PATHS_FRAMING_FA.title : INWARD_PATHS_FRAMING.title}</h2>
+          <p className="ip-framing__body">{isPersian ? INWARD_PATHS_FRAMING_FA.body : INWARD_PATHS_FRAMING.body}</p>
         </aside>
       </div>
     </div>

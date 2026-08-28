@@ -8,6 +8,7 @@ import { RELIGIONS } from "../data/religions";
 import { buildWebsiteJsonLd, usePageSeo } from "../lib/seo";
 import { SITE_DESCRIPTION } from "../lib/site";
 import { useLocale, withLocaleAndQuery, withLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,10 @@ const features = [
     to: "/timeline",
     eyebrow: "6,000 Years",
     title: "Interactive Timeline",
+    faTitle: "جدول زمانی تعاملی",
     body: "Drag, zoom, and trace births, schisms, and extinctions across the entire span of recorded belief.",
+    faBody: "در سراسر گسترهٔ باورهای ثبت‌شده بکشید، بزرگ‌نمایی کنید و پیدایش‌ها، انشعاب‌ها و نابودی‌ها را دنبال کنید.",
+    faEyebrow: "۶٬۰۰۰ سال",
     accent: "var(--gold)",
     icon: TimelineIcon,
   },
@@ -24,7 +28,10 @@ const features = [
     to: "/globe",
     eyebrow: "Sacred Geography",
     title: "A Living Globe",
+    faTitle: "کرهٔ زمینِ زنده",
     body: "Fly between Varanasi, Mecca, Jerusalem, and Babylon. See where faiths took root.",
+    faBody: "میان واراناسی، مکه، اورشلیم و بابل پرواز کنید و ببینید ادیان در کجا ریشه دوانده‌اند.",
+    faEyebrow: "جغرافیای مقدس",
     accent: "var(--turquoise)",
     icon: GlobeIcon,
   },
@@ -32,7 +39,10 @@ const features = [
     to: "/concepts",
     eyebrow: "The Ideas",
     title: "Concept Network",
+    faTitle: "شبکهٔ مفاهیم",
     body: "Wander a force-directed map of karma, salvation, sacrifice — and the faiths that hold them.",
+    faBody: "در نقشه‌ای پویا از کارما، رستگاری و قربانی — و دین‌هایی که آن‌ها را در خود دارند — پرسه بزنید.",
+    faEyebrow: "ایده‌ها",
     accent: "var(--violet)",
     icon: GraphIcon,
   },
@@ -40,7 +50,10 @@ const features = [
     to: "/compare",
     eyebrow: "Side by Side",
     title: "Compare Traditions",
+    faTitle: "مقایسهٔ سنت‌ها",
     body: "Line up to four religions and see where they agree, diverge, and quietly echo each other.",
+    faBody: "تا چهار دین را کنار هم بگذارید و ببینید کجا هم‌نظرند، کجا جدا می‌شوند و کجا پژواک یکدیگرند.",
+    faEyebrow: "کنار هم",
     accent: "var(--crimson)",
     icon: CompareIcon,
   },
@@ -51,8 +64,8 @@ export default function Landing() {
   const locale = useLocale();
 
   usePageSeo({
-    title: "World Religions Explorer",
-    description: SITE_DESCRIPTION,
+    title: locale === "fa" ? "کاوشگر ادیان جهان" : "World Religions Explorer",
+    description: locale === "fa" ? "اطلس تعاملی ادیان، فلسفه‌ها و کیهان‌شناسی‌هایی که تاریخ آگاهی انسان را شکل داده‌اند." : SITE_DESCRIPTION,
     path: "/",
     jsonLd: buildWebsiteJsonLd(),
   });
@@ -130,23 +143,22 @@ export default function Landing() {
         <div className="hero__vignette" aria-hidden />
         <div className="container hero__content">
           <div className="hero__eyebrow eyebrow">
-            <span className="hero__eyebrow-line" /> Explore 6,000 years of belief
+            <span className="hero__eyebrow-line" /> {pt(locale, "landingEyebrow")}
           </div>
           <h1 className="hero__title">
             <span className="hero__title-line">World</span>
             <span className="hero__title-line gradient-text">Religions</span>
           </h1>
           <p className="hero__lead">
-            An interactive atlas of the faiths, philosophies, and ancient cosmologies that have
-            shaped human consciousness — from Sumer's ziggurats to the modern diaspora.
+            {pt(locale, "landingLead")}
           </p>
           <div className="hero__cta">
             <Link to={withLocale(locale, "/timeline")} className="btn btn--primary">
-              Enter the Timeline
+              {pt(locale, "enterTimeline")}
               <ArrowRight />
             </Link>
             <Link to={withLocale(locale, "/globe")} className="btn btn--ghost">
-              Explore the Globe
+              {pt(locale, "exploreGlobe")}
             </Link>
           </div>
         </div>
@@ -154,7 +166,7 @@ export default function Landing() {
         <HeroTimelineStrip />
 
         <div className="hero__scroll-hint" aria-hidden>
-          <span>scroll</span>
+          <span>{pt(locale, "scroll")}</span>
           <span className="hero__scroll-line" />
         </div>
       </section>
@@ -162,30 +174,30 @@ export default function Landing() {
       {/* ---------- STATS ---------- */}
       <section className="stats container">
         <div className="stats__grid">
-          <Stat value={RELIGIONS.length} suffix="+" label="Traditions mapped" />
-          <Stat value={livingCount} suffix="" label="Still practiced today" />
-          <Stat value={extinctCount} suffix="" label="Lost to time" />
-          <Stat value={Math.round(totalFollowers / 1e9)} suffix="B" label="Adherents represented" />
+          <Stat value={RELIGIONS.length} suffix="+" label={pt(locale, "traditionsMapped")} />
+          <Stat value={livingCount} suffix="" label={pt(locale, "practicedToday")} />
+          <Stat value={extinctCount} suffix="" label={pt(locale, "lostToTime")} />
+          <Stat value={Math.round(totalFollowers / 1e9)} suffix="B" label={pt(locale, "adherentsRepresented")} />
         </div>
       </section>
 
       {/* ---------- FEATURES ---------- */}
       <section className="features container">
         <div className="features__head reveal">
-          <div className="eyebrow">Four ways to explore</div>
-          <h2 className="features__title">An atlas you can wander</h2>
+          <div className="eyebrow">{pt(locale, "fourWays")}</div>
+          <h2 className="features__title">{pt(locale, "atlasWander")}</h2>
         </div>
         <div className="features__grid">
           {features.map((f) => (
-            <Link key={f.to} to={f.to} className="feature-card card reveal">
+            <Link key={f.to} to={withLocale(locale, f.to)} className="feature-card card reveal">
               <div className="feature-card__icon" style={{ color: f.accent }}>
                 <f.icon />
               </div>
-              <div className="feature-card__eyebrow eyebrow">{f.eyebrow}</div>
-              <h3 className="feature-card__title">{f.title}</h3>
-              <p>{f.body}</p>
+              <div className="feature-card__eyebrow eyebrow">{locale === "fa" ? f.faEyebrow : f.eyebrow}</div>
+              <h3 className="feature-card__title">{locale === "fa" ? f.faTitle : f.title}</h3>
+              <p>{locale === "fa" ? f.faBody : f.body}</p>
               <span className="feature-card__link" style={{ color: f.accent }}>
-                Explore <ArrowRight />
+                {pt(locale, "explore")} <ArrowRight />
               </span>
             </Link>
           ))}
@@ -209,8 +221,8 @@ export default function Landing() {
       {/* ---------- FAMILIES ---------- */}
       <section className="families container">
         <div className="families__head reveal">
-          <div className="eyebrow">By tradition family</div>
-          <h2 className="features__title">Six great currents</h2>
+          <div className="eyebrow">{pt(locale, "byFamily")}</div>
+          <h2 className="features__title">{locale === "fa" ? "هشت جریان بزرگ" : "Six great currents"}</h2>
         </div>
         <div className="families__grid reveal">
           {FAMILY_INFO.map((fam) => {
@@ -222,9 +234,9 @@ export default function Landing() {
                 className="family-card card"
               >
                 <div className="family-card__swatch" style={{ background: fam.accent }} />
-                <h3 className="family-card__name">{fam.name}</h3>
-                <p className="family-card__desc">{fam.desc}</p>
-                <div className="family-card__count">{count} traditions</div>
+                <h3 className="family-card__name">{locale === "fa" ? fam.faName : fam.name}</h3>
+                <p className="family-card__desc">{locale === "fa" ? fam.faDesc : fam.desc}</p>
+                <div className="family-card__count">{count} {pt(locale, "traditions")}</div>
               </Link>
             );
           })}
@@ -296,13 +308,13 @@ function CompareIcon() {
 }
 
 /* ---------- family meta ---------- */
-const FAMILY_INFO: { id: string; name: string; desc: string; accent: string }[] = [
-  { id: "Abrahamic", name: "Abrahamic", desc: "Covenant, prophecy, and one God — from Sinai outward.", accent: "var(--crimson)" },
-  { id: "Indian", name: "Indian", desc: "Karma, rebirth, and liberation across the subcontinent.", accent: "var(--saffron)" },
-  { id: "Iranian", name: "Iranian", desc: "Light and darkness, from Zarathustra to the Bahá'í.", accent: "var(--gold)" },
-  { id: "East Asian", name: "East Asian", desc: "Tao, ritual, and the kami of the rising sun.", accent: "var(--jade)" },
-  { id: "Indo-European", name: "Indo-European", desc: "Bronze Age pantheons, from Sumer to the Nordic sagas.", accent: "var(--amber)" },
-  { id: "African", name: "African & Diaspora", desc: "Orishas, lwa, and ancestors across the Black Atlantic.", accent: "var(--turquoise)" },
-  { id: "Indigenous", name: "Indigenous", desc: "The Dreaming, the hózhó, the sacred land itself.", accent: "var(--violet)" },
-  { id: "Modern", name: "Modern", desc: "New religious movements born from 19th-century revelation and reform.", accent: "var(--periwinkle)" },
+const FAMILY_INFO: { id: string; name: string; faName: string; desc: string; faDesc: string; accent: string }[] = [
+  { id: "Abrahamic", name: "Abrahamic", faName: "ابراهیمی", desc: "Covenant, prophecy, and one God — from Sinai outward.", faDesc: "پیمان، پیامبری و خدای یگانه — از سینا به بعد.", accent: "var(--crimson)" },
+  { id: "Indian", name: "Indian", faName: "هندی", desc: "Karma, rebirth, and liberation across the subcontinent.", faDesc: "کارما، تولد دوباره و رهایی در سراسر شبه‌قاره.", accent: "var(--saffron)" },
+  { id: "Iranian", name: "Iranian", faName: "ایرانی", desc: "Light and darkness, from Zarathustra to the Bahá'í.", faDesc: "روشنایی و تاریکی، از زرتشت تا بهائی.", accent: "var(--gold)" },
+  { id: "East Asian", name: "East Asian", faName: "شرق آسیا", desc: "Tao, ritual, and the kami of the rising sun.", faDesc: "تائو، آیین و کامی‌های سرزمین خورشید تابان.", accent: "var(--jade)" },
+  { id: "Indo-European", name: "Indo-European", faName: "هندواروپایی", desc: "Bronze Age pantheons, from Sumer to the Nordic sagas.", faDesc: "خدایان عصر برنز، از سومر تا حماسه‌های نورس.", accent: "var(--amber)" },
+  { id: "African", name: "African & Diaspora", faName: "آفریقایی و مهاجر", desc: "Orishas, lwa, and ancestors across the Black Atlantic.", faDesc: "اوریشاها، لواها و نیاکان در سراسر اطلس سیاه.", accent: "var(--turquoise)" },
+  { id: "Indigenous", name: "Indigenous", faName: "بومی", desc: "The Dreaming, the hózhó, the sacred land itself.", faDesc: "دریمینگ، هُژو و خودِ سرزمین مقدس.", accent: "var(--violet)" },
+  { id: "Modern", name: "Modern", faName: "نوین", desc: "New religious movements born from 19th-century revelation and reform.", faDesc: "جنبش‌های دینی نوینی که از وحی و اصلاحات سدهٔ نوزدهم زاده شدند.", accent: "var(--periwinkle)" },
 ];

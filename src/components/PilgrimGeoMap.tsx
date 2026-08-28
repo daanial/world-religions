@@ -17,6 +17,8 @@ import {
   coordsFromLine,
   type LegGeometry,
 } from "../lib/pilgrim-route-animate";
+import { useLocale } from "../lib/locale";
+import { POINT_LABELS_FA, ROUTE_META_FA } from "../data/pilgrimage-routes.fa";
 
 const MAPBOX_STYLE = "mapbox://styles/mapbox/dark-v11";
 
@@ -100,6 +102,7 @@ function installMapboxTeardownGuard(map: MapboxMap) {
 }
 
 export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMapProps) {
+  const locale = useLocale();
   const mapRef = useRef<MapRef>(null);
   const token = import.meta.env.VITE_MAPBOX_TOKEN as string | undefined;
   const reduceMotion = useMemo(
@@ -120,10 +123,13 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
-    setError(null);
-    setAnimated({});
-    setPilgrim(null);
+    queueMicrotask(() => {
+      if (cancelled) return;
+      setLoading(true);
+      setError(null);
+      setAnimated({});
+      setPilgrim(null);
+    });
 
     const legDefs = legsForRoute(routeKey);
     Promise.all(legDefs.map((leg) => loadLegGeometry(leg)))
@@ -174,7 +180,7 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
   if (!token) {
     return (
       <div className="pilgrim-geo pilgrim-geo--missing">
-        <p>Mapbox token missing. Add <code>VITE_MAPBOX_TOKEN</code> to <code>.env.local</code>.</p>
+        <p>{locale === "fa" ? <>توکن Mapbox موجود نیست. <code>VITE_MAPBOX_TOKEN</code> را به <code>.env.local</code> اضافه کنید.</> : <>Mapbox token missing. Add <code>VITE_MAPBOX_TOKEN</code> to <code>.env.local</code>.</>}</p>
       </div>
     );
   }
@@ -182,7 +188,7 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
   if (error) {
     return (
       <div className="pilgrim-geo pilgrim-geo--missing">
-        <p>Could not load route data: {error}</p>
+        <p>{locale === "fa" ? "داده‌های مسیر بارگذاری نشد: " : "Could not load route data: "}{error}</p>
       </div>
     );
   }
@@ -247,7 +253,7 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
           <Marker key={place.id} longitude={place.lng} latitude={place.lat} anchor="center">
             <div className={`pilgrim-geo-marker ${place.isDest ? "pilgrim-geo-marker--dest" : ""}`}>
               <span className="pilgrim-geo-marker__dot" />
-              <span className="pilgrim-geo-marker__label">{place.label}</span>
+              <span className="pilgrim-geo-marker__label">{locale === "fa" ? POINT_LABELS_FA[place.id] ?? place.label : place.label}</span>
             </div>
           </Marker>
         ))}
@@ -262,16 +268,16 @@ export default function PilgrimGeoMap({ routeKey, animate = true }: PilgrimGeoMa
 
       {loading && (
         <div className="pilgrim-geo__loading" role="status">
-          Loading {route.name}…
+          {locale === "fa" ? "در حال بارگذاری " : "Loading "}{locale === "fa" ? ROUTE_META_FA[routeKey].name : route.name}…
         </div>
       )}
 
       <div className="pilgrim-geo__attr">
         {routeKey === "camino"
-          ? "Trails: OpenStreetMap · Mapbox"
+          ? locale === "fa" ? "مسیرها: OpenStreetMap · Mapbox" : "Trails: OpenStreetMap · Mapbox"
           : routeKey === "buddhist" || routeKey === "kumbh"
-            ? "Schematic segments · Mapbox"
-            : "Schematic arcs · Mapbox"}
+            ? locale === "fa" ? "بخش‌های شماتیک · Mapbox" : "Schematic segments · Mapbox"
+            : locale === "fa" ? "کمان‌های شماتیک · Mapbox" : "Schematic arcs · Mapbox"}
       </div>
     </div>
   );

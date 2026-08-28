@@ -8,16 +8,18 @@ import { formatYear } from "../lib/format";
 import { getReligionImageSrc, getReligionThumbnailSrc } from "../lib/religionImages";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
+import { useLocale, withLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 export default function Timeline() {
   const rootRef = useRef<HTMLDivElement>(null);
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
+  const locale = useLocale();
 
   usePageSeo({
-    title: "Interactive Timeline",
-    description:
-      "Trace 6,000 years of religious history across 34 traditions. Drag, zoom, and explore births, schisms, and extinctions on an interactive timeline.",
+    title: locale === "fa" ? "جدول زمانی تعاملی" : "Interactive Timeline",
+    description: locale === "fa" ? "تاریخ ۶٬۰۰۰ سالهٔ ۴۴ سنت را دنبال کنید و پیدایش‌ها، انشعاب‌ها و نابودی‌ها را روی جدولی تعاملی ببینید." : "Trace 6,000 years of religious history across 44 traditions. Drag, zoom, and explore births, schisms, and extinctions on an interactive timeline.",
     path: "/timeline",
   });
 
@@ -29,27 +31,24 @@ export default function Timeline() {
 
       <div className="container">
         <header className="page__head tl-page__head">
-          <div className="eyebrow reveal">6,000 years, one ribbon</div>
-          <h1 className="page__title reveal">Interactive Timeline</h1>
-          <p className="page__lead reveal">
-            Each ribbon is a tradition, from its birth to today (or its quiet end). Dotted lines
-            mark schisms; the † marks faiths now gone. Click any tradition to dive in.
-          </p>
+          <div className="eyebrow reveal">{pt(locale, "timelineEyebrow")}</div>
+          <h1 className="page__title reveal">{pt(locale, "timelineTitle")}</h1>
+          <p className="page__lead reveal">{pt(locale, "timelineLead")}</p>
         </header>
 
         <div className="tl-toolbar glass reveal">
           <div className="tl-toolbar__legend">
             <span className="tl-leg">
-              <span className="tl-leg__dot tl-leg__dot--birth" /> Birth
+              <span className="tl-leg__dot tl-leg__dot--birth" /> {pt(locale, "birth")}
             </span>
             <span className="tl-leg">
-              <span className="tl-leg__bar" /> Lifespan
+              <span className="tl-leg__bar" /> {pt(locale, "lifespan")}
             </span>
             <span className="tl-leg">
-              <span className="tl-leg__line" /> Schism
+              <span className="tl-leg__line" /> {pt(locale, "schism")}
             </span>
             <span className="tl-leg">
-              <span className="tl-leg__extinct" aria-hidden>†</span> Extinct
+              <span className="tl-leg__extinct" aria-hidden>†</span> {pt(locale, "extinct")}
             </span>
           </div>
         </div>
@@ -62,10 +61,10 @@ export default function Timeline() {
 
         {/* directory */}
         <section className="tl-directory reveal">
-          <h2 className="tl-directory__title">All {visible.length} traditions</h2>
+          <h2 className="tl-directory__title">{pt(locale, "allTraditions", { count: visible.length })}</h2>
           <div className="tl-directory__grid reveal-stagger">
             {visible.map((r) => (
-              <Link key={r.id} to={`/religion/${r.id}`} className="tl-card card">
+              <Link key={r.id} to={withLocale(locale, `/religion/${r.id}`)} className="tl-card card">
                 <div className="tl-card__bar" style={{ background: r.accent }} />
                 {(() => {
                   const imgSrc = getReligionThumbnailSrc(r.id) ?? getReligionImageSrc(r.id);
@@ -77,17 +76,17 @@ export default function Timeline() {
                 })()}
                 <div className="tl-card__head">
                   <h3>{r.name}</h3>
-                  {r.extinct && <span className="tl-card__extinct">† Extinct</span>}
+                  {r.extinct && <span className="tl-card__extinct">† {pt(locale, "extinct")}</span>}
                 </div>
                 <div className="tl-card__meta">
                   {formatYear(r.origin)}
-                  {r.ended ? ` – ${formatYear(r.ended)}` : " – present"}
+                  {r.ended ? ` – ${formatYear(r.ended)}` : ` – ${pt(locale, "present")}`}
                 </div>
                 <p className="tl-card__blurb">{r.blurb}</p>
                 <div className="tl-card__footer">
                   <span className="tag">{r.family}</span>
                   <span className="tl-card__go" style={{ color: r.accent }}>
-                    Explore →
+                    {pt(locale, "explore")}
                   </span>
                 </div>
               </Link>

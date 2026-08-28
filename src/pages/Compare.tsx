@@ -8,6 +8,7 @@ import { formatFollowers, formatYear, ageOf } from "../lib/format";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 import { useLocale, withLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 // Feature rows for the comparison matrix.
 interface Feature {
@@ -37,6 +38,14 @@ const FEATURES: Feature[] = [
   { key: "sacrifice", label: "Ritual Sacrifice" },
 ];
 
+const FEATURE_LABELS_FA: Partial<Record<keyof ConceptTag, string>> = {
+  monotheism: "خدای یگانه (توحید)", polytheism: "خدایان متعدد", heaven: "بهشت / فردوس",
+  hell: "دوزخ / کیفر", sin: "مفهوم گناه", judgement: "داوری نهایی", soul: "روح جاودان",
+  reincarnation: "تناسخ", karma: "کارما", liberation: "رهایی / موکشا", salvation: "رستگاری",
+  enlightenment: "روشن‌شدگی", nonviolence: "پرهیز از خشونت (آهیمسا)", mysticism: "سنت عرفانی",
+  prayer: "نیایش رسمی", meditation: "مراقبه", fasting: "روزه", pilgrimage: "زیارت", sacrifice: "قربانی آیینی",
+};
+
 export default function Compare() {
   const { compareIds, toggleCompare, clearCompare } = useApp();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -56,9 +65,8 @@ export default function Compare() {
   useStaggerReveal(rootRef);
 
   usePageSeo({
-    title: "Compare Religions",
-    description:
-      "Compare up to four religions side by side across monotheism, reincarnation, salvation, prayer, pilgrimage, and other core concepts.",
+    title: locale === "fa" ? "مقایسهٔ ادیان" : "Compare Religions",
+    description: locale === "fa" ? "تا چهار دین را بر اساس توحید، تناسخ، رستگاری، نیایش، زیارت و دیگر مفاهیم محوری مقایسه کنید." : "Compare up to four religions side by side across monotheism, reincarnation, salvation, prayer, pilgrimage, and other core concepts.",
     path: "/compare",
   });
 
@@ -110,12 +118,9 @@ export default function Compare() {
 
       <div className="container">
         <header className="page__head">
-          <div className="eyebrow reveal">Side by side</div>
-          <h1 className="page__title reveal">Compare Traditions</h1>
-          <p className="page__lead reveal">
-            Select up to four religions and see at a glance where they align, diverge, and quietly
-            echo one another across the millennia.
-          </p>
+          <div className="eyebrow reveal">{pt(locale, "compareEyebrow")}</div>
+          <h1 className="page__title reveal">{pt(locale, "compareTitle")}</h1>
+          <p className="page__lead reveal">{pt(locale, "compareLead")}</p>
         </header>
 
         {selected.length === 0 ? (
@@ -129,7 +134,7 @@ export default function Compare() {
                   <button
                     className="cmp-header__remove"
                     onClick={() => toggleCompare(r.id)}
-                    aria-label={`Remove ${r.name}`}
+                    aria-label={`${pt(locale, "remove")} ${r.name}`}
                   >
                     ✕
                   </button>
@@ -145,7 +150,7 @@ export default function Compare() {
               {selected.length < 4 && (
                 <button className="cmp-header cmp-header--add" onClick={() => setPickerOpen(true)}>
                   <span className="cmp-header__plus">+</span>
-                  <span>Add religion</span>
+                  <span>{pt(locale, "addReligion")}</span>
                 </button>
               )}
             </div>
@@ -177,18 +182,18 @@ export default function Compare() {
 
             {/* quick facts */}
             <div className="cmp-facts">
-              <h3 className="cmp-facts__title">At a glance</h3>
+              <h3 className="cmp-facts__title">{pt(locale, "atAGlance")}</h3>
               <div className="cmp-facts__grid">
                 {selected.map((r) => (
                   <div key={r.id} className="cmp-fact card" style={{ "--accent": r.accent } as React.CSSProperties}>
                     <div className="cmp-fact__name">{r.name}</div>
-                    <FactRow label="Origin" value={formatYear(r.origin)} />
-                    <FactRow label="Age" value={`${ageOf(r.origin, r.ended)} yrs`} />
-                    <FactRow label="Followers" value={r.followers > 0 ? formatFollowers(r.followers) : "—"} />
-                    <FactRow label="Countries" value={r.countries > 0 ? String(r.countries) : "—"} />
-                    <FactRow label="Family" value={r.family} />
-                    <FactRow label="Region" value={r.region} />
-                    <FactRow label="Status" value={r.extinct ? "Extinct" : r.living ? "Living" : "Historical"} />
+                    <FactRow label={pt(locale, "origin")} value={formatYear(r.origin)} />
+                    <FactRow label={pt(locale, "age")} value={`${ageOf(r.origin, r.ended)} سال`} />
+                    <FactRow label={pt(locale, "followers")} value={r.followers > 0 ? formatFollowers(r.followers) : "—"} />
+                    <FactRow label={pt(locale, "countries")} value={r.countries > 0 ? String(r.countries) : "—"} />
+                    <FactRow label={pt(locale, "family")} value={r.family} />
+                    <FactRow label={pt(locale, "region")} value={r.region} />
+                    <FactRow label={pt(locale, "status")} value={r.extinct ? pt(locale, "extinct") : r.living ? pt(locale, "living") : pt(locale, "historical")} />
                   </div>
                 ))}
               </div>
@@ -196,10 +201,10 @@ export default function Compare() {
 
             <div className="cmp-actions">
               <button className="btn btn--ghost" onClick={clearCompare}>
-                Clear all
+                {pt(locale, "clearAll")}
               </button>
               <button className="btn btn--outline" onClick={() => setPickerOpen(true)}>
-                Add another
+                {pt(locale, "addAnother")}
               </button>
             </div>
           </div>
@@ -231,6 +236,7 @@ function FeatureRow({
   onHover: () => void;
   onLeave: () => void;
 }) {
+  const locale = useLocale();
   return (
     <>
       <div
@@ -239,17 +245,17 @@ function FeatureRow({
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
       >
-        {feature.label}
+        {locale === "fa" ? FEATURE_LABELS_FA[feature.key] ?? feature.label : feature.label}
       </div>
       {religions.map((r) => {
         const position = r.conceptPositions?.[feature.key];
         const displayText = position
-          ? position === "affirmed"
+            ? position === "affirmed"
             ? "✓"
             : position === "rejected"
               ? "✗"
               : position === "varies by school"
-                ? "Varies"
+                ? pt(locale, "varies")
                 : position === "analogous"
                   ? "~"
                   : position === "not applicable"
@@ -270,7 +276,7 @@ function FeatureRow({
             key={r.id}
             className={cellClass}
             data-row={feature.key}
-            title={position || "not addressed"}
+            title={position || pt(locale, "notAddressed")}
           >
             <span className="mx-cell__text">{displayText}</span>
           </div>
@@ -300,16 +306,13 @@ function EmptyState({ onPick }: { onPick: () => void }) {
           <circle cx="12" cy="12" r="9" opacity="0.3" />
         </svg>
       </div>
-      <h2 className="cmp-empty__title">Nothing to compare yet</h2>
-      <p className="cmp-empty__lead">
-        Add two or more religions to see them side by side. Try Hinduism, Buddhism, Christianity,
-        and Islam — or any mix that interests you.
-      </p>
+      <h2 className="cmp-empty__title">{pt(locale, "nothingToCompare")}</h2>
+      <p className="cmp-empty__lead">{pt(locale, "compareEmptyLead")}</p>
       <button className="btn btn--primary" onClick={onPick}>
-        Choose religions
+        {pt(locale, "chooseReligions")}
       </button>
       <Link to={withLocale(locale, "/timeline")} className="cmp-empty__link">
-        or browse the timeline →
+        {pt(locale, "browseTimeline")}
       </Link>
     </div>
   );
@@ -325,6 +328,7 @@ function ReligionPicker({
   onClose: () => void;
 }) {
   const [query, setQuery] = useState("");
+  const locale = useLocale();
   const list = useMemo(() => {
     const q = query.toLowerCase().trim();
     return RELIGIONS.filter((r) => !excludeIds.includes(r.id)).filter(
@@ -340,14 +344,14 @@ function ReligionPicker({
     <div className="picker" onClick={onClose}>
       <div className="picker__panel glass" onClick={(e) => e.stopPropagation()}>
         <div className="picker__head">
-          <h3>Add a religion</h3>
-          <button className="picker__close" onClick={onClose} aria-label="Close">
+          <h3>{pt(locale, "addReligion")}</h3>
+          <button className="picker__close" onClick={onClose} aria-label={pt(locale, "close")}>
             ✕
           </button>
         </div>
         <input
           className="picker__search"
-          placeholder="Search by name, family, or region…"
+          placeholder={pt(locale, "searchReligion")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           autoFocus
@@ -363,7 +367,7 @@ function ReligionPicker({
             </button>
           ))}
           {list.length === 0 && (
-            <div className="picker__empty">No matches for "{query}".</div>
+            <div className="picker__empty">{pt(locale, "noMatches")} “{query}”.</div>
           )}
         </div>
       </div>

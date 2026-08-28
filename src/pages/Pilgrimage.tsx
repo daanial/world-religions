@@ -10,14 +10,17 @@ import {
   getCaption,
   type RouteKey,
 } from "../data/pilgrimage-routes";
+import { PILGRIMAGE_CONTENT_FA, ROUTE_DISCLAIMERS_FA, ROUTE_JUMP_LABELS_FA, ROUTE_META_FA } from "../data/pilgrimage-routes.fa";
 import { RELIGIONS } from "../data/religions";
 import { usePageSeo } from "../lib/seo";
 import { getPilgrimageImageSrc } from "../lib/pilgrimageImages";
 import { pilgrimageNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
+import { useLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
-function PilgrimVideoEmbed({ videoId, title }: { videoId: string; title: string }) {
+function PilgrimVideoEmbed({ videoId, title, locale }: { videoId: string; title: string; locale: "en" | "fa" }) {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -42,7 +45,7 @@ function PilgrimVideoEmbed({ videoId, title }: { videoId: string; title: string 
   return (
     <figure ref={ref} className="pilgrim-video">
       <div className="pilgrim-video__chrome">
-        <span className="pilgrim-video__badge">Film</span>
+        <span className="pilgrim-video__badge">{locale === "fa" ? "فیلم" : "Film"}</span>
         <span className="pilgrim-video__label">{title}</span>
       </div>
       <div className="pilgrim-video__frame">
@@ -67,7 +70,7 @@ function PilgrimVideoEmbed({ videoId, title }: { videoId: string; title: string 
           target="_blank"
           rel="noopener noreferrer"
         >
-          Watch on YouTube
+          {locale === "fa" ? "تماشا در یوتیوب" : "Watch on YouTube"}
         </a>
       </figcaption>
     </figure>
@@ -111,31 +114,32 @@ const ROUTE_DISCLAIMERS: Record<GeoRouteKey, string> = {
   kumbh: "Kumbh host cities connected schematically — the mela rotates among them, it is not a walking circuit.",
 };
 
-function GeoMapBlock({ routeKey }: { routeKey: GeoRouteKey }) {
+function GeoMapBlock({ routeKey, locale }: { routeKey: GeoRouteKey; locale: "en" | "fa" }) {
   const { ref, inView } = useInViewOnce<HTMLDivElement>();
 
   return (
     <div ref={ref} className="pilgrim-stage pilgrim-stage--geo card">
       {inView ? (
-        <Suspense fallback={<div className="pilgrim-geo pilgrim-geo--loading">Loading map…</div>}>
+        <Suspense fallback={<div className="pilgrim-geo pilgrim-geo--loading">{locale === "fa" ? "در حال بارگذاری نقشه…" : "Loading map…"}</div>}>
           <PilgrimGeoMap routeKey={routeKey} animate={inView} />
         </Suspense>
       ) : (
         <div className="pilgrim-geo pilgrim-geo--loading" aria-hidden>
-          Loading map…
+          {locale === "fa" ? "در حال بارگذاری نقشه…" : "Loading map…"}
         </div>
       )}
       <div className="pilgrim-stage__hint">
-        <span className="pilgrim-stage__hint-dot" /> drag to pan · scroll to zoom
+        <span className="pilgrim-stage__hint-dot" /> {pt(locale, "dragPan")}
       </div>
     </div>
   );
 }
 
-function RouteSection({ routeKey }: { routeKey: GeoRouteKey }) {
+function RouteSection({ routeKey, locale }: { routeKey: GeoRouteKey; locale: "en" | "fa" }) {
   const route = ROUTES[routeKey];
-  const content = PILGRIMAGE_CONTENT[routeKey];
-  const caption = getCaption(routeKey);
+  const content = locale === "fa" ? PILGRIMAGE_CONTENT_FA[routeKey] : PILGRIMAGE_CONTENT[routeKey];
+  const meta = locale === "fa" ? ROUTE_META_FA[routeKey] : route;
+  const caption = { meta: `${meta.era} · ${meta.cadence}`, title: meta.name, fact: "" };
 
   return (
     <section
@@ -159,16 +163,16 @@ function RouteSection({ routeKey }: { routeKey: GeoRouteKey }) {
 
       <dl className="pilgrim-facts card">
         <div className="pilgrim-facts__row">
-          <dt>Route</dt>
+          <dt>{locale === "fa" ? "مسیر" : "Route"}</dt>
           <dd>{content.route}</dd>
         </div>
         <div className="pilgrim-facts__row">
-          <dt>Locations</dt>
+          <dt>{locale === "fa" ? "مکان‌ها" : "Locations"}</dt>
           <dd>{content.locations}</dd>
         </div>
       </dl>
 
-      <GeoMapBlock routeKey={routeKey} />
+      <GeoMapBlock routeKey={routeKey} locale={locale} />
 
       <figure className="pilgrim-photo">
         <img
@@ -211,23 +215,27 @@ function RouteSection({ routeKey }: { routeKey: GeoRouteKey }) {
           </div>
 
           {content.videoId && (
-            <PilgrimVideoEmbed videoId={content.videoId} title={caption.title} />
+            <PilgrimVideoEmbed videoId={content.videoId} title={caption.title} locale={locale} />
           )}
         </div>
       </div>
 
-      <p className="pilgrim-disclaimer">{ROUTE_DISCLAIMERS[routeKey]}</p>
+      <p className="pilgrim-disclaimer">{locale === "fa" ? ROUTE_DISCLAIMERS_FA[routeKey] : ROUTE_DISCLAIMERS[routeKey]}</p>
     </section>
   );
 }
 
 export default function Pilgrimage() {
+  const locale = useLocale();
   const rootRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const hashRoute = location.hash.replace("#", "");
   const activeRoute =
     ROUTE_ORDER.find((key) => key === hashRoute) ?? ROUTE_ORDER[0];
-  const activeCaption = getCaption(activeRoute);
+  const activeCaption = {
+    ...getCaption(activeRoute),
+    ...(locale === "fa" ? { title: ROUTE_META_FA[activeRoute].name, meta: `${ROUTE_META_FA[activeRoute].era} · ${ROUTE_META_FA[activeRoute].cadence}` } : {}),
+  };
 
   useRegisterNarration(
     pilgrimageNarrationId(activeRoute),
@@ -238,9 +246,8 @@ export default function Pilgrimage() {
   useStaggerReveal(rootRef);
 
   usePageSeo({
-    title: "Pilgrim Paths",
-    description:
-      "Five great pilgrimages — the Hajj, Camino de Santiago, Chak Chak, the Buddhist Circuit, and Kumbh Mela — each with an interactive geographic map.",
+    title: locale === "fa" ? "راه‌های زیارت" : "Pilgrim Paths",
+    description: locale === "fa" ? "پنج زیارت بزرگ — حج، کامینو دِ سانتیاگو، چک‌چک، مدار بودایی و کومبه‌میلا — هر کدام با نقشه‌ای جغرافیایی و تعاملی." : "Five great pilgrimages — the Hajj, Camino de Santiago, Chak Chak, the Buddhist Circuit, and Kumbh Mela — each with an interactive geographic map.",
     path: "/pilgrimage",
   });
 
@@ -250,14 +257,11 @@ export default function Pilgrimage() {
 
       <div className="container pilgrimage-layout">
         <header className="page__head pilgrimage-intro">
-          <div className="eyebrow reveal">Sacred journeys</div>
-          <h1 className="page__title reveal">Pilgrim Paths</h1>
-          <p className="page__lead reveal">
-            Five faiths, five geometries — converging roads, sacred circuits, and a gathering that
-            moves between cities. Scroll to explore each pilgrimage on its own map.
-          </p>
+          <div className="eyebrow reveal">{pt(locale, "sacredJourneys")}</div>
+          <h1 className="page__title reveal">{pt(locale, "pilgrimPaths")}</h1>
+          <p className="page__lead reveal">{pt(locale, "pilgrimLead")}</p>
 
-          <nav className="pilgrim-jump reveal-stagger" aria-label="Jump to a pilgrimage">
+          <nav className="pilgrim-jump reveal-stagger" aria-label={pt(locale, "jumpToPilgrimage")}>
             {ROUTE_ORDER.map((key) => (
               <a
                 key={key}
@@ -265,14 +269,14 @@ export default function Pilgrimage() {
                 className="pilgrim-jump__link"
                 style={{ "--accent": ROUTES[key].accent } as CSSProperties}
               >
-                {ROUTE_JUMP_LABELS[key]}
+                {locale === "fa" ? ROUTE_JUMP_LABELS_FA[key] : ROUTE_JUMP_LABELS[key]}
               </a>
             ))}
           </nav>
         </header>
 
         {ROUTE_ORDER.map((key) => (
-          <RouteSection key={key} routeKey={key} />
+          <RouteSection key={key} routeKey={key} locale={locale} />
         ))}
       </div>
     </div>

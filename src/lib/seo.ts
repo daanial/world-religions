@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from "./site";
+import { SUPPORTED_LOCALES, DEFAULT_LOCALE, withLocale, splitLocaleFromPath } from "./locale";
 
 const DEFAULT_DESCRIPTION =
   "Explore 6,000 years of belief systems through timelines, globes, and concept networks.";
@@ -57,9 +58,37 @@ function formatTitle(title: string) {
   return title.includes(SITE_NAME) ? title : `${title} — ${SITE_NAME}`;
 }
 
+// Every PageSeo.path passed by pages today is the bare, unprefixed route
+// (e.g. "/timeline") — pages don't currently thread locale into their own
+// SEO calls, so we can't recover locale from seo.path itself (it never
+// carries the "/fa" prefix). Instead we read the real, currently-visited
+// URL. This runs client-side only (useEffect / direct calls after
+// mount), so window.location is always available here.
+const OG_LOCALE: Record<string, string> = { en: "en_US", fa: "fa_IR" };
+
+function upsertAlternateLinks(barePath: string) {
+  document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+
+  for (const code of SUPPORTED_LOCALES) {
+    const link = document.createElement("link");
+    link.setAttribute("rel", "alternate");
+    link.setAttribute("hreflang", code);
+    link.setAttribute("href", absoluteUrl(withLocale(code, barePath)));
+    document.head.appendChild(link);
+  }
+
+  const xDefault = document.createElement("link");
+  xDefault.setAttribute("rel", "alternate");
+  xDefault.setAttribute("hreflang", "x-default");
+  xDefault.setAttribute("href", absoluteUrl(withLocale(DEFAULT_LOCALE, barePath)));
+  document.head.appendChild(xDefault);
+}
+
 export function applyPageSeo(seo: PageSeo) {
+  const { locale } = splitLocaleFromPath(window.location.pathname);
+  const { path: barePath } = splitLocaleFromPath(seo.path);
   const title = formatTitle(seo.title);
-  const url = absoluteUrl(seo.path);
+  const url = absoluteUrl(withLocale(locale, barePath));
   const image = seo.image ? absoluteUrl(seo.image) : DEFAULT_OG_IMAGE;
   const type = seo.type ?? "website";
   const robots = seo.noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large";
@@ -68,6 +97,7 @@ export function applyPageSeo(seo: PageSeo) {
   upsertMeta("description", seo.description);
   upsertMeta("robots", robots);
   upsertLink("canonical", url);
+  upsertAlternateLinks(barePath);
 
   upsertMeta("og:title", title, "property");
   upsertMeta("og:description", seo.description, "property");
@@ -75,7 +105,7 @@ export function applyPageSeo(seo: PageSeo) {
   upsertMeta("og:type", type, "property");
   upsertMeta("og:site_name", SITE_NAME, "property");
   upsertMeta("og:image", image, "property");
-  upsertMeta("og:locale", "en_US", "property");
+  upsertMeta("og:locale", OG_LOCALE[locale] ?? OG_LOCALE.en, "property");
 
   upsertMeta("twitter:card", "summary_large_image");
   upsertMeta("twitter:title", title);
@@ -86,16 +116,26 @@ export function applyPageSeo(seo: PageSeo) {
 }
 
 export function usePageSeo(seo: PageSeo) {
+  const { title, description, path, image, type, noindex } = seo;
+  const jsonLdKey = JSON.stringify(seo.jsonLd);
   useEffect(() => {
-    applyPageSeo(seo);
+    applyPageSeo({
+      title,
+      description,
+      path,
+      image,
+      type,
+      noindex,
+      jsonLd: jsonLdKey ? JSON.parse(jsonLdKey) : undefined,
+    });
   }, [
-    seo.title,
-    seo.description,
-    seo.path,
-    seo.image,
-    seo.type,
-    seo.noindex,
-    JSON.stringify(seo.jsonLd),
+    title,
+    description,
+    path,
+    image,
+    type,
+    noindex,
+    jsonLdKey,
   ]);
 }
 

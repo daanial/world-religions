@@ -2,21 +2,22 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useApp } from "../context/AppContext";
 import { useNarration } from "../context/NarrationContext";
-import { useLocale, withLocale } from "../lib/locale";
+import { useLocale, withLocale, splitLocaleFromPath, LOCALE_REGISTRY } from "../lib/locale";
+import { useT, type UiStrings } from "../lib/i18n";
 import NarrationButton from "./NarrationButton";
 
 const DESKTOP_NAV_MQ = "(min-width: 900px)";
 
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/timeline", label: "Timeline" },
-  { to: "/globe", label: "Globe" },
-  { to: "/traditions", label: "Traditions" },
-  { to: "/compare", label: "Compare" },
-  { to: "/concepts", label: "Concepts" },
-  { to: "/pilgrimage", label: "Pilgrimage" },
-  { to: "/inward-paths", label: "Inward Paths" },
-  { to: "/about", label: "About" },
+const links: Array<{ to: string; key: keyof UiStrings }> = [
+  { to: "/", key: "navHome" },
+  { to: "/timeline", key: "navTimeline" },
+  { to: "/globe", key: "navGlobe" },
+  { to: "/traditions", key: "navTraditions" },
+  { to: "/compare", key: "navCompare" },
+  { to: "/concepts", key: "navConcepts" },
+  { to: "/pilgrimage", key: "navPilgrimage" },
+  { to: "/inward-paths", key: "navInwardPaths" },
+  { to: "/about", key: "navAbout" },
 ];
 
 export default function NavBar() {
@@ -26,6 +27,7 @@ export default function NavBar() {
   const [openedPath, setOpenedPath] = useState<string | null>(null);
   const loc = useLocation();
   const locale = useLocale();
+  const t = useT();
   const menuId = useId();
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -173,7 +175,7 @@ export default function NavBar() {
               end={l.to === "/"}
               className={({ isActive }) => `nav__link ${isActive ? "nav__link--active" : ""}`}
             >
-              {l.label}
+              {t(l.key)}
               {l.to === "/compare" && compareIds.length > 0 && (
                 <span className="nav__badge">{compareIds.length}</span>
               )}
@@ -193,21 +195,22 @@ export default function NavBar() {
             type="button"
             className="icon-btn"
             onClick={toggleAmbient}
-            title={ambientOn ? "Mute ambient soundscape" : "Play ambient soundscape"}
+            title={ambientOn ? t("navSoundOn") : t("navSoundOff")}
             aria-label="Toggle ambient sound"
             aria-pressed={ambientOn}
           >
             {ambientOn ? <SoundOnIcon /> : <SoundOffIcon />}
           </button>
-          <div className="nav__ach" title={`${achievements.length} achievements unlocked`}>
+          <div className="nav__ach" title={`${achievements.length} ${t("navAchievementsUnlocked")}`}>
             <TrophyIcon />
             <span>{achievements.length}</span>
           </div>
+          <LocaleSwitcher locale={locale} pathname={loc.pathname} search={loc.search} />
           <button
             ref={menuBtnRef}
             type="button"
             className={`icon-btn nav__menu-btn ${menuOpen ? "nav__menu-btn--open" : ""}`}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? t("navMenuClose") : t("navMenuOpen")}
             aria-expanded={menuOpen}
             aria-controls={menuId}
             onClick={() => (menuOpen ? closeMenu(false) : setOpenedPath(loc.pathname))}
@@ -244,15 +247,93 @@ export default function NavBar() {
                 `nav-menu__link ${isActive ? "nav-menu__link--active" : ""}`
               }
             >
-              {l.label}
+              {t(l.key)}
               {l.to === "/compare" && compareIds.length > 0 && (
                 <span className="nav__badge">{compareIds.length}</span>
               )}
             </NavLink>
           ))}
+          <LocaleSwitcher locale={locale} pathname={loc.pathname} search={loc.search} />
         </nav>
       </div>
     </>
+  );
+}
+
+// Dropdown rather than a row of pills: a pill row reads fine for 2
+// languages but doesn't scale — LOCALE_REGISTRY is meant to grow to
+// 3-6, and a row of 6 pills would eat most of the nav's width. This
+// scales to any registry size and always shows each language's own
+// name in its own script.
+function LocaleSwitcher({
+  locale,
+  pathname,
+  search,
+}: {
+  locale: ReturnType<typeof useLocale>;
+  pathname: string;
+  search: string;
+}) {
+  const { path } = splitLocaleFromPath(pathname);
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const current = LOCALE_REGISTRY.find((l) => l.code === locale) ?? LOCALE_REGISTRY[0];
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  return (
+    <div className="nav__locale" ref={rootRef}>
+      <button
+        type="button"
+        className="nav__locale-trigger"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
+      >
+        <GlobeIcon />
+        <span lang={current.code}>{current.nativeName}</span>
+      </button>
+      {open && (
+        <ul className="nav__locale-menu" role="listbox" aria-label="Language">
+          {LOCALE_REGISTRY.map((l) => (
+            <li key={l.code} role="option" aria-selected={l.code === locale}>
+              <NavLink
+                to={`${withLocale(l.code, path)}${search}`}
+                className={`nav__locale-option ${l.code === locale ? "nav__locale-option--active" : ""}`}
+                lang={l.code}
+                dir={l.rtl ? "rtl" : "ltr"}
+                onClick={() => setOpen(false)}
+              >
+                {l.nativeName}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function GlobeIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9s1.3-6.4 3.8-9z" />
+    </svg>
   );
 }
 

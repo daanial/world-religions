@@ -141,7 +141,8 @@ export default function PopulationChart() {
 
   useEffect(() => {
     if (playing && currentYear >= YEAR_MAX) {
-      setPlaying(false);
+      const frame = requestAnimationFrame(() => setPlaying(false));
+      return () => cancelAnimationFrame(frame);
     }
   }, [playing, currentYear]);
 

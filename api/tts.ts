@@ -2,7 +2,10 @@ import { getNarrationUnit, isAllowedNarrationId } from "../src/lib/narration-cat
 import { hashNarrationText, synthesizeOpenAISpeech } from "../lib/tts-utils";
 
 function isProductionRuntime(): boolean {
-  return process.env.VERCEL_ENV === "production";
+  // Disabled on production AND preview deployments — preview URLs are
+  // often publicly reachable/guessable, and this endpoint spends a real
+  // OpenAI API key. Only allow it on local `vercel dev` (VERCEL_ENV unset).
+  return process.env.VERCEL_ENV === "production" || process.env.VERCEL_ENV === "preview";
 }
 
 const rateLimit = new Map<string, { count: number; resetAt: number }>();

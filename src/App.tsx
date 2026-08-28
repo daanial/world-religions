@@ -4,6 +4,7 @@ import { AppProvider } from "./context/AppContext";
 import { NarrationProvider } from "./context/NarrationContext";
 import { useAmbientSound } from "./hooks/useAmbientSound";
 import { splitLocaleFromPath, LocaleContext } from "./lib/locale";
+import { useT, t } from "./lib/i18n";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Overlays from "./components/Overlays";
@@ -32,6 +33,7 @@ import "./styles/pilgrimage.css";
 import "./styles/about.css";
 import "./styles/inward-paths.css";
 import "./styles/traditions.css";
+import "./styles/rtl.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -47,10 +49,11 @@ function AmbientBootstrap() {
 }
 
 function RouteFallback() {
+  const t = useT();
   return (
     <div className="route-fallback" role="status" aria-live="polite">
       <div className="route-fallback__spinner" aria-hidden />
-      <span className="route-fallback__label">Loading…</span>
+      <span className="route-fallback__label">{t("loading")}</span>
     </div>
   );
 }
@@ -68,20 +71,35 @@ export default function App() {
 
 function LocalizedApp() {
   const location = useLocation();
-  const { locale } = splitLocaleFromPath(location.pathname);
-  
+  const { locale, path } = splitLocaleFromPath(location.pathname);
+
+  // Sync <html lang>/dir to the active locale. Persian is RTL; this also
+  // means Puppeteer-prerendered snapshots (scripts/prerender.ts) capture
+  // the correct attributes, since page.content() runs after this effect.
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    document.documentElement.dir = locale === "fa" ? "rtl" : "ltr";
+  }, [locale]);
+
+  // React Router matches routes literally, so a request for "/fa/timeline"
+  // would otherwise fall through to the catch-all NotFound route below.
+  // We strip the locale prefix and hand Routes a rewritten location so the
+  // same route tree serves every locale; withLocale()/NavLink still read
+  // the *real* location.pathname for building links and active-state.
+  const routedLocation = { ...location, pathname: path };
+
   return (
     <LocaleContext.Provider value={locale}>
       <NarrationProvider>
         <a href="#main-content" className="skip-link">
-          Skip to main content
+          {t(locale, "skipToContent")}
         </a>
         <ScrollToTop />
         <NavBar />
         <Overlays />
         <main id="main-content">
           <Suspense fallback={<RouteFallback />}>
-          <Routes>
+          <Routes location={routedLocation}>
             <Route path="/" element={<Landing />} />
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/globe" element={<GlobeView />} />

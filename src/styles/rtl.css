@@ -1,0 +1,71 @@
+/*
+ * RTL baseline for Persian (`html[dir="rtl"]`).
+ *
+ * This covers global chrome only: text direction/alignment, the primary
+ * nav, the mobile nav panel, and the footer. It does NOT cover
+ * per-component visual QA for anything spatial/interactive — see the
+ * "Known gaps" list in docs/i18n-persian.md before shipping Persian to
+ * real users. In particular: GlobeView (3D), Timeline (drag/zoom scrubber),
+ * PilgrimGeoMap (Mapbox), and the About page's 3D carousel all position
+ * elements with JS/canvas math that assumes LTR and have not been
+ * re-verified under RTL.
+ */
+
+/*
+ * Estedad (https://fonts.google.com/specimen/Estedad) covers Persian and
+ * Arabic script. Scoped to html[lang="fa"] rather than html[dir="rtl"]
+ * so a future Arabic-script language (e.g. "ar") can reuse it by adding
+ * its own selector here — but a future non-Arabic-script RTL language
+ * (e.g. Hebrew, "he") would need a different font, not this one.
+ * Overriding the --font-* variables (defined in tokens.css) means every
+ * component that already does font-family: var(--font-display|body)
+ * picks this up automatically — no per-component changes needed.
+ */
+html[lang="fa"] {
+  --font-display: "Estedad", "Tahoma", serif;
+  --font-body: "Estedad", "Tahoma", system-ui, sans-serif;
+}
+
+/*
+ * IMPORTANT: do NOT add `flex-direction: row-reverse` here. A `flex-row`
+ * container inside `dir="rtl"` already flows right-to-left natively —
+ * "row" reverses itself automatically based on directionality. Adding
+ * row-reverse on top double-flips it back to looking LTR (this was
+ * verified live and caught during the initial RTL smoke test: the nav
+ * rendered brand-left/actions-right under dir="rtl" until the
+ * row-reverse rules below were removed). Only use logical properties
+ * (margin-inline-*, text-align: start/end) and, where a component truly
+ * needs an explicit reversal despite already being in an RTL context
+ * (rare — e.g. something with a hardcoded LTR flex-direction inline
+ * style), reach for `flex-direction: row` explicitly, not row-reverse.
+ */
+
+html[dir="rtl"] .nav__badge {
+  margin-inline-start: 0;
+  margin-inline-end: 0.35em;
+}
+
+html[dir="rtl"] .site-footer__credit-sep {
+  transform: none;
+}
+
+/* The Inward Paths biography uses a decorative LTR drop-cap. Floating the
+   first Persian character to the physical left edge splits it from the
+   paragraph, so keep RTL biographies as ordinary right-to-left text. */
+html[dir="rtl"] .ip-stop__bio::first-letter {
+  float: none;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Numerals, dates, and Latin-script proper nouns (people, places, book
+   titles left untranslated) should stay LTR even inside RTL flow so they
+   don't visually reverse. Apply this class in translated content around
+   any such inline span. */
+[dir="ltr"].i18n-embed {
+  display: inline-block;
+  unicode-bidi: isolate;
+}

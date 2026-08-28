@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +14,9 @@ import { religionNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useApp } from "../context/AppContext";
 import { useLocale, withLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
+import { BUDDHISM_META_FA } from "../data/religion-meta.fa";
 import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -42,10 +44,16 @@ function renderBold(text: string): React.ReactNode {
 
 export default function ReligionDetail() {
   const { id } = useParams<{ id: string }>();
-  const religion = RELIGIONS.find((r) => r.id === id);
+  const locale = useLocale();
+  const religionBase = RELIGIONS.find((r) => r.id === id);
+  const religion = useMemo(
+    () => religionBase && locale === "fa" && religionBase.id === "buddhism"
+      ? { ...religionBase, ...BUDDHISM_META_FA }
+      : religionBase,
+    [religionBase, locale]
+  );
   const { visit, toggleCompare, isInCompare, compareIds } = useApp();
   const rootRef = useRef<HTMLDivElement>(null);
-  const locale = useLocale();
 
   useEffect(() => {
     if (religion) visit(religion.id);
@@ -94,7 +102,7 @@ export default function ReligionDetail() {
   const conceptNodes = religion
     ? CONCEPTS.filter((c) => religion.conceptPositions?.[c.id] === "affirmed")
     : [];
-  const article = religion ? getReligionArticle(religion.id) : null;
+  const article = religion ? getReligionArticle(religion.id, locale) : null;
   const imageSrc = religion ? getReligionImageSrc(religion.id) : undefined;
 
   useRegisterNarration(
@@ -106,7 +114,7 @@ export default function ReligionDetail() {
     religion
       ? {
           title: religion.name,
-          description: religion.blurb,
+          description: locale === "fa" ? `دربارهٔ ${religion.name}؛ خاستگاه، جهان‌بینی، آیین‌ها و جایگاه آن در تاریخ ادیان.` : religion.blurb,
           path: `/religion/${religion.id}`,
           image: imageSrc,
           type: "article",
@@ -140,13 +148,13 @@ export default function ReligionDetail() {
         <div className="rd__hero-glow" aria-hidden />
         <div className="container rd__hero-content">
           <Link to={withLocale(locale, "/timeline")} className="rd__back">
-            ← Back to Timeline
+            ← {pt(locale, "backToTimeline")}
           </Link>
           <div className="rd__eyebrow eyebrow">
             <span className="rd__eyebrow-dot" style={{ background: accent }} />
             {religion.family} · {religion.region}
-            {religion.extinct && <span className="rd__extinct">Extinct</span>}
-            {!religion.extinct && !religion.living && <span className="rd__extinct">Historical</span>}
+            {religion.extinct && <span className="rd__extinct">{pt(locale, "extinct")}</span>}
+            {!religion.extinct && !religion.living && <span className="rd__extinct">{pt(locale, "historical")}</span>}
           </div>
           <h1 className="rd__name">{religion.name}</h1>
           <p className="rd__blurb">{religion.blurb}</p>
@@ -171,11 +179,11 @@ export default function ReligionDetail() {
               disabled={compareFull}
               style={compareFull ? { opacity: 0.4, cursor: "not-allowed" } : undefined}
             >
-              {isInCompare(religion.id) ? "✓ In comparison" : compareFull ? "Compare full" : "+ Add to compare"}
+              {isInCompare(religion.id) ? "✓ در مقایسه" : compareFull ? "مقایسه کامل است" : "+ افزودن به مقایسه"}
             </button>
             {religion.cities && religion.cities.length > 0 && (
               <Link to={withLocale(locale, "/globe")} className="btn btn--ghost">
-                View on Globe
+                {locale === "fa" ? "نمایش روی کرهٔ زمین" : "View on Globe"}
               </Link>
             )}
           </div>
@@ -202,7 +210,7 @@ export default function ReligionDetail() {
           <section className="container rd__section rd-reveal">
             <div className="rd__prose">
               <div className="rd__section-head">
-                <h2 className="rd__section-title">Overview</h2>
+                <h2 className="rd__section-title">{pt(locale, "overview")}</h2>
                 <NarrationButton
                   id={religionNarrationId(religion.id)}
                   label={religion.name}
@@ -216,7 +224,7 @@ export default function ReligionDetail() {
               ))}
               {religion.splitsFrom && (
                 <p className="rd__lineage">
-                  <span className="rd__lineage-label">Emerges from</span>
+                  <span className="rd__lineage-label">{locale === "fa" ? "برآمده از" : "Emerges from"}</span>
                   <Link to={withLocale(locale, `/religion/${religion.splitsFrom}`)} className="rd__lineage-link">
                     {RELIGIONS.find((r) => r.id === religion.splitsFrom)?.name} →
                   </Link>
@@ -334,7 +342,7 @@ export default function ReligionDetail() {
           {article.keyTerms && article.keyTerms.length > 0 && (
             <section className="container rd__section rd-reveal">
               <div className="rd__prose">
-                <h2 className="rd__section-title">Key Terms</h2>
+                <h2 className="rd__section-title">{pt(locale, "keyTerms")}</h2>
                 <dl className="rd__terms">
                   {article.keyTerms.map((term, index) => (
                     <div key={index} className="rd__term-item">
@@ -351,7 +359,7 @@ export default function ReligionDetail() {
           {article.sources.length > 0 && (
             <section className="container rd__section rd-reveal">
               <div className="rd__prose">
-                <h2 className="rd__section-title">Further Reading</h2>
+                <h2 className="rd__section-title">{pt(locale, "furtherReading")}</h2>
                 <ul className="rd__sources-list">
                   {article.sources.map((source) => (
                     <li key={source.href}>
@@ -372,7 +380,7 @@ export default function ReligionDetail() {
         <div className="rd__panel card">
           <div className="rd__panel-head">
             <PracticeIcon />
-            <h3>Practices</h3>
+            <h3>{pt(locale, "practices")}</h3>
           </div>
           <ul className="rd__practices">
             {religion.practices.map((p) => (
@@ -387,7 +395,7 @@ export default function ReligionDetail() {
         <div className="rd__panel card">
           <div className="rd__panel-head">
             <IdeaIcon />
-            <h3>Core ideas</h3>
+            <h3>{pt(locale, "coreIdeas")}</h3>
           </div>
           <dl className="rd__ideas">
             {religion.coreIdeas.map((idea) => (
@@ -402,7 +410,7 @@ export default function ReligionDetail() {
 
       {/* ---------- SACRED TEXTS ---------- */}
       <section className="container rd__section rd-reveal">
-        <h2 className="rd__section-title">Sacred texts</h2>
+        <h2 className="rd__section-title">{pt(locale, "sacredTexts")}</h2>
         <div className="rd__texts">
           {religion.sacredTexts.map((t, i) => (
             <div key={t.name} className="rd__text card" style={{ "--i": i } as React.CSSProperties}>
@@ -419,7 +427,7 @@ export default function ReligionDetail() {
       {conceptNodes.length > 0 && (
         <section className="container rd__section rd-reveal">
           <div className="rd__concepts-head">
-            <h2 className="rd__section-title">Engaged concepts</h2>
+            <h2 className="rd__section-title">{pt(locale, "engagedConcepts")}</h2>
             <Link to={withLocale(locale, "/concepts")} className="rd__concepts-link">
               Open the concept network →
             </Link>
@@ -438,7 +446,7 @@ export default function ReligionDetail() {
       {/* ---------- RELATED ---------- */}
       {relatedCards.length > 0 && (
         <section className="container rd__related rd-reveal">
-          <h2 className="rd__section-title">Related traditions</h2>
+          <h2 className="rd__section-title">{pt(locale, "relatedTraditions")}</h2>
           <div className="rd__related-grid">
             {relatedCards.map((card) => (
               <Link key={`${card!.kind}-${card!.targetId}`} to={withLocale(locale, `/religion/${card!.targetId}`)} className="rd-rel-card card">
@@ -454,7 +462,7 @@ export default function ReligionDetail() {
                   <span className="rd-rel-card__confidence" data-confidence={card!.confidence}>
                     Confidence: {card!.confidence}
                   </span>
-                  <span className="rd-rel-card__go" style={{ color: card!.religion.accent }}>Explore →</span>
+                  <span className="rd-rel-card__go" style={{ color: card!.religion.accent }}>{pt(locale, "explore")}</span>
                 </div>
               </Link>
             ))}

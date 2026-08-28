@@ -3,19 +3,36 @@ import { Link } from "react-router-dom";
 import Starfield from "../components/Starfield";
 import NarrationButton from "../components/NarrationButton";
 import { CONCEPTS, CONCEPT_EDGES, type ConceptId } from "../data/concepts";
+import { CONCEPTS_FA } from "../data/concepts.fa";
 import { RELIGIONS } from "../data/religions";
 import { usePageSeo } from "../lib/seo";
 import { conceptNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
+import { useLocale } from "../lib/locale";
+import { useT } from "../lib/i18n";
 
 export default function Concepts() {
   const rootRef = useRef<HTMLDivElement>(null);
   const detailRef = useRef<HTMLElement>(null);
   useScrollReveal(rootRef);
   useStaggerReveal(rootRef);
+  const locale = useLocale();
+  const t = useT();
   const [active, setActive] = useState<ConceptId | null>(null);
-  const activeConcept = active ? CONCEPTS.find((c) => c.id === active) : undefined;
+
+  // Localized concept list — CONCEPTS_FA is complete for all 19 concepts
+  // (small, fixed dataset, unlike the deferred religion articles), so
+  // this only needs a locale check, not a per-key fallback.
+  const concepts = useMemo(() => {
+    if (locale !== "fa") return CONCEPTS;
+    return CONCEPTS.map((c) => {
+      const tr = CONCEPTS_FA[c.id];
+      return tr ? { ...c, label: tr.label, description: tr.description } : c;
+    });
+  }, [locale]);
+
+  const activeConcept = active ? concepts.find((c) => c.id === active) : undefined;
 
   useRegisterNarration(
     activeConcept ? conceptNarrationId(activeConcept.id) : null,
@@ -23,9 +40,8 @@ export default function Concepts() {
   );
 
   usePageSeo({
-    title: "Concept Network",
-    description:
-      "Explore a force-directed map of karma, salvation, sacrifice, enlightenment, and other ideas shared across world religions.",
+    title: t("conceptsSeoTitle"),
+    description: t("conceptsSeoDescription"),
     path: "/concepts",
   });
 
@@ -37,11 +53,11 @@ export default function Concepts() {
   // map concept id → religions that engage it
   const conceptReligions = useMemo(() => {
     const map: Record<string, typeof RELIGIONS> = {};
-    CONCEPTS.forEach((c) => {
+    concepts.forEach((c) => {
       map[c.id] = RELIGIONS.filter((r) => r.conceptPositions?.[c.id] === "affirmed");
     });
     return map;
-  }, []);
+  }, [concepts]);
 
   // related concepts (via edges)
   const related = useMemo(() => {
@@ -51,8 +67,8 @@ export default function Concepts() {
       if (e.source === active) ids.add(e.target);
       if (e.target === active) ids.add(e.source);
     });
-    return CONCEPTS.filter((c) => ids.has(c.id));
-  }, [active]);
+    return concepts.filter((c) => ids.has(c.id));
+  }, [active, concepts]);
 
   return (
     <div className="page concepts-page" ref={rootRef}>
@@ -60,17 +76,13 @@ export default function Concepts() {
 
       <div className="container">
         <header className="page__head">
-          <div className="eyebrow reveal">The big ideas</div>
-          <h1 className="page__title reveal">Concept Network</h1>
-          <p className="page__lead reveal">
-            The world's religions converge on a handful of great ideas — soul, salvation, karma,
-            judgement. Tap any concept to see the traditions that hold it and the ideas that connect
-            to it.
-          </p>
+          <div className="eyebrow reveal">{t("conceptsEyebrow")}</div>
+          <h1 className="page__title reveal">{t("conceptsTitle")}</h1>
+          <p className="page__lead reveal">{t("conceptsLead")}</p>
         </header>
 
         <div className="concepts-grid reveal-stagger">
-          {CONCEPTS.map((c) => {
+          {concepts.map((c) => {
             const isActive = active === c.id;
             const count = conceptReligions[c.id]?.length ?? 0;
             return (
@@ -87,8 +99,12 @@ export default function Concepts() {
                 </div>
                 <p className="concept-card__desc">{c.description}</p>
                 <div className="concept-card__foot">
-                  <span className="concept-card__count">{count} tradition{count === 1 ? "" : "s"}</span>
-                  <span className="concept-card__action">{isActive ? "Selected" : "Explore"}</span>
+                  <span className="concept-card__count">
+                    {count} {count === 1 ? t("conceptsTraditionSingular") : t("conceptsTraditionPlural")}
+                  </span>
+                  <span className="concept-card__action">
+                    {isActive ? t("conceptsSelected") : t("conceptsExplore")}
+                  </span>
                 </div>
               </button>
             );
@@ -99,13 +115,11 @@ export default function Concepts() {
           <section ref={detailRef} className="concept-detail card" key={active}>
             <div className="concept-detail__head">
               <div>
-                <div className="eyebrow" style={{ color: CONCEPTS.find((c) => c.id === active)?.accent }}>
-                  Concept detail
+                <div className="eyebrow" style={{ color: activeConcept?.accent }}>
+                  {t("conceptsDetailEyebrow")}
                 </div>
                 <div className="concept-detail__title-row">
-                  <h2 className="concept-detail__title">
-                    {CONCEPTS.find((c) => c.id === active)?.label}
-                  </h2>
+                  <h2 className="concept-detail__title">{activeConcept?.label}</h2>
                   <NarrationButton
                     id={conceptNarrationId(active)}
                     label={activeConcept?.label ?? "concept"}
@@ -113,17 +127,19 @@ export default function Concepts() {
                   />
                 </div>
               </div>
-              <button className="concept-detail__close" onClick={() => setActive(null)} aria-label="Close">
+              <button
+                className="concept-detail__close"
+                onClick={() => setActive(null)}
+                aria-label={t("conceptsClose")}
+              >
                 ✕
               </button>
             </div>
-            <p className="concept-detail__desc">
-              {CONCEPTS.find((c) => c.id === active)?.description}
-            </p>
+            <p className="concept-detail__desc">{activeConcept?.description}</p>
 
             {related.length > 0 && (
               <div className="concept-detail__block">
-                <div className="concept-detail__subhead">Connected concepts</div>
+                <div className="concept-detail__subhead">{t("conceptsConnected")}</div>
                 <div className="concept-detail__chips">
                   {related.map((r) => (
                     <button
@@ -142,7 +158,7 @@ export default function Concepts() {
 
             <div className="concept-detail__block">
               <div className="concept-detail__subhead">
-                Traditions engaging this concept ({conceptReligions[active]?.length ?? 0})
+                {t("conceptsEngaging")} ({conceptReligions[active]?.length ?? 0})
               </div>
               <div className="concept-detail__religions">
                 {conceptReligions[active]?.map((r) => (
@@ -158,7 +174,7 @@ export default function Concepts() {
                   </Link>
                 ))}
                 {conceptReligions[active]?.length === 0 && (
-                  <p className="concept-detail__none">No traditions tagged yet.</p>
+                  <p className="concept-detail__none">{t("conceptsNoneTagged")}</p>
                 )}
               </div>
             </div>
