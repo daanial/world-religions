@@ -16,7 +16,7 @@ import { useApp } from "../context/AppContext";
 import { useLocale, withLocale } from "../lib/locale";
 import { pt } from "../lib/pageI18n";
 import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
-import { BUDDHISM_META_FA } from "../data/religion-meta.fa";
+import { FA_RELIGION_META } from "../data/religion-meta.fa";
 import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -47,8 +47,8 @@ export default function ReligionDetail() {
   const locale = useLocale();
   const religionBase = RELIGIONS.find((r) => r.id === id);
   const religion = useMemo(
-    () => religionBase && locale === "fa" && religionBase.id === "buddhism"
-      ? { ...religionBase, ...BUDDHISM_META_FA }
+    () => religionBase && locale === "fa" && FA_RELIGION_META[religionBase.id as keyof typeof FA_RELIGION_META]
+      ? { ...religionBase, ...FA_RELIGION_META[religionBase.id as keyof typeof FA_RELIGION_META] }
       : religionBase,
     [religionBase, locale]
   );

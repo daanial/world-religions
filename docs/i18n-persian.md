@@ -2,6 +2,12 @@
 
 This is the Persian-specific appendix. **Read [`i18n.md`](./i18n.md) first** — it has the architecture, the full content index (all 44 article files + where UI strings live), the verification steps, and the RTL/font notes. Everything here is Persian-only: tone, terminology, and things worth knowing before you translate.
 
+## Current implementation status
+
+The Persian route is active at `/fa`. Shared navigation, footer, loading and error states are translated, as are Concepts, Traditions, Landing, Compare, About, Inward Paths and Pilgrimage. Buddhism, Zoroastrianism, Islam, Judaism and Hinduism have complete Persian article modules; Islam, Judaism and Hinduism also have localized religion metadata. The remaining 39 religion articles intentionally fall back to English until their translation phase.
+
+The drop-cap styling that separated the first Persian character in Inward Paths cards is disabled under RTL. GlobeView and Timeline still need visual QA because their canvas and dynamic labels are not fully localized. TTS/narration is parked and must not be reintroduced as part of translation work.
+
 ## Tone and register
 
 The English source is dense, encyclopedic, citation-aware academic prose — see `src/data/religion-articles/islam.ts` for the register: this is closer to an academic encyclopedia entry than marketing copy. Match that in Persian: formal written Persian (نثر رسمی), not colloquial. Preserve the epistemic hedging — where the English text says "scholars debate...", "the traditional account holds...", keep that hedging in translation rather than flattening it into confident assertions.
