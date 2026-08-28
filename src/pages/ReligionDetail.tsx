@@ -16,7 +16,7 @@ import { useApp } from "../context/AppContext";
 import { useLocale, withLocale } from "../lib/locale";
 import { pt } from "../lib/pageI18n";
 import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
-import { FA_RELIGION_META } from "../data/religion-meta.fa";
+import { FA_RELIGION_LABELS, FA_RELIGION_META } from "../data/religion-meta.fa";
 import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -55,7 +55,7 @@ export default function ReligionDetail() {
   const lineageReligion = religion?.splitsFrom ? RELIGIONS.find((r) => r.id === religion.splitsFrom) : undefined;
   const lineageName = lineageReligion
     ? locale === "fa"
-      ? FA_RELIGION_META[lineageReligion.id as keyof typeof FA_RELIGION_META]?.name ?? lineageReligion.name
+      ? FA_RELIGION_LABELS[lineageReligion.id] ?? lineageReligion.name
       : lineageReligion.name
     : "";
   const { visit, toggleCompare, isInCompare, compareIds } = useApp();
