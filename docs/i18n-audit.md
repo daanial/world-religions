@@ -4,12 +4,13 @@ Audit date: 2026-08-28
 
 ## Result
 
-The Persian localization is not complete and must not yet be described as a full translation. The five religion modules without fallback markers are working Persian modules, but several contain condensed prose rather than a paragraph-by-paragraph translation of the English source. The Imam Reza/Fatima Masumeh passage in Islam was one confirmed example and has been restored in full detail.
+The Persian localization is not complete and must not yet be described as a full translation. The six religion modules without fallback markers are working Persian modules, but several contain condensed prose rather than a paragraph-by-paragraph translation of the English source. The Imam Reza/Fatima Masumeh passage in Islam was one confirmed example and has been restored in full detail.
 
 Character totals are only a warning signal because Persian and English do not have a fixed length ratio. The large differences below are nevertheless strong evidence of omitted source detail and require sentence-level review before a module can be marked complete.
 
 | Article | Sections checked | Terms | Sources | Fidelity finding |
 |---|---:|---:|---:|---|
+| Bahá’í Faith | 9/9 present; paragraph counts preserved | 20/20 | 10/10 | Persian translation added; sentence-level review required |
 | Buddhism | 9/9 present; paragraph counts preserved | 12/12 | 12/12 | Condensed across most long sections; not complete |
 | Zoroastrianism | 9/9 present; places now 6/6 paragraphs | 20/20 | 12/12 | Condensed, especially communities and debates; not complete |
 | Islam | 9/9 present; paragraph counts preserved | 20/20 | 14/14 | Most sections condensed; pilgrimage section now substantially restored; not complete |
@@ -30,6 +31,8 @@ Matching counts do not prove that every sentence is fully translated; long-form 
 
 A religion article is only “complete” when every English paragraph has a faithful Persian counterpart with its factual details, examples, qualifications and source coverage intact. Matching headings, paragraph counts, key terms or route records is not sufficient. Summaries must be labeled as drafts, not translations.
 
-The permanent repository rules are recorded in [`AGENTS.md`](../AGENTS.md) and [`translation-rules.md`](./translation-rules.md). The structural checker currently reports **0 structural errors, 33 fidelity warnings, and 39 explicit fallbacks**; it is [`scripts/check-fa-translation.ts`](../scripts/check-fa-translation.ts). All three must remain in place for future translation phases.
+The permanent repository rules are recorded in [`AGENTS.md`](../AGENTS.md) and [`translation-rules.md`](./translation-rules.md). The structural checker currently reports **0 structural errors, 33 fidelity warnings, and 38 explicit fallbacks**; it is [`scripts/check-fa-translation.ts`](../scripts/check-fa-translation.ts). All three must remain in place for future translation phases.
+
+The 38 missing article translations are: Bon, Canaanite, Candomblé, Caodai, Chinese folk religion, Christianity, Confucianism, Dreamtime, Druidic, Druze, Egyptian religion, Gnosticism, Greek and Roman religion, Ifá, Inuit religion, Jainism, Korean shamanism, Mandaeanism, Manichaeism, Māori religion, Mesoamerican religion, Mithraism, Navajo religion, Norse religion, Rastafari, Samaritanism, Santería, Shinto, Sikhism, Slavic and Baltic religion, Stoicism, Sumerian religion, Taoism, Tengrism, Vodou, Wicca, Yazidism, and Yoruba religion.
 
 TTS/narration is parked and is not part of this audit or translation scope.
