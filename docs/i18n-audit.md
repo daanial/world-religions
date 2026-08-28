@@ -11,8 +11,8 @@ Character totals are only a warning signal because Persian and English do not ha
 | Article | Sections checked | Terms | Sources | Fidelity finding |
 |---|---:|---:|---:|---|
 | Buddhism | 9/9 present; paragraph counts preserved | 12/12 | 12/12 | Condensed across most long sections; not complete |
-| Zoroastrianism | 9/9 present; places 5/6 paragraphs | 20/20 | 12/12 | Condensed, especially communities, places and debates; not complete |
-| Islam | 9/9 present; paragraph counts preserved | 20/20 | 9/14 | Most sections condensed; pilgrimage section now substantially restored; not complete |
+| Zoroastrianism | 9/9 present; places now 6/6 paragraphs | 20/20 | 12/12 | Condensed, especially communities and debates; not complete |
+| Islam | 9/9 present; paragraph counts preserved | 20/20 | 14/14 | Most sections condensed; pilgrimage section now substantially restored; not complete |
 | Judaism | 9/9 present; paragraph counts preserved | 20/20 | 11/11 | Strongly condensed across all long sections; not complete |
 | Hinduism | 9/9 present; paragraph counts preserved | 12/12 | 12/12 | Strongly condensed across all long sections; not complete |
 
@@ -29,5 +29,7 @@ Matching counts do not prove that every sentence is fully translated; long-form 
 ## Current completion rule
 
 A religion article is only “complete” when every English paragraph has a faithful Persian counterpart with its factual details, examples, qualifications and source coverage intact. Matching headings, paragraph counts, key terms or route records is not sufficient. Summaries must be labeled as drafts, not translations.
+
+The permanent repository rules are recorded in [`AGENTS.md`](../AGENTS.md) and [`translation-rules.md`](./translation-rules.md). The structural checker currently reports **0 structural errors, 33 fidelity warnings, and 39 explicit fallbacks**; it is [`scripts/check-fa-translation.ts`](../scripts/check-fa-translation.ts). All three must remain in place for future translation phases.
 
 TTS/narration is parked and is not part of this audit or translation scope.
