@@ -203,7 +203,7 @@ export default function ReligionDetail() {
         <StatCard
           label={pt(locale, "followers")}
           value={religion.followers > 0 ? formatFollowers(religion.followers) : "—"}
-          sub={religion.extinct ? "No longer practiced" : undefined}
+          sub={religion.extinct ? pt(locale, "noLongerPracticed") : undefined}
           icon={PeopleIcon}
         />
         <StatCard label={pt(locale, "countries")} value={religion.countries > 0 ? religion.countries.toString() : "—"} icon={GlobeSmallIcon} />
