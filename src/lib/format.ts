@@ -1,5 +1,11 @@
-/** Format a year (negative = BCE) as a readable string. */
-export function formatYear(year: number): string {
+/** Format a year (negative = BCE) as a readable string. Pass locale "fa" for Persian digits and era words. */
+export function formatYear(year: number, locale: "en" | "fa" = "en"): string {
+  if (locale === "fa") {
+    const abs = Math.abs(year).toLocaleString("fa-IR");
+    if (year < 0) return `${abs} پیش از میلاد`;
+    if (year === 0) return "۱ میلادی";
+    return `${abs} میلادی`;
+  }
   if (year < 0) return `${Math.abs(year).toLocaleString()} BCE`;
   if (year === 0) return "1 CE";
   return `${year.toLocaleString()} CE`;
