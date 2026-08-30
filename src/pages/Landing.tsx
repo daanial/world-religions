@@ -146,8 +146,8 @@ export default function Landing() {
             <span className="hero__eyebrow-line" /> {pt(locale, "landingEyebrow")}
           </div>
           <h1 className="hero__title">
-            <span className="hero__title-line">World</span>
-            <span className="hero__title-line gradient-text">Religions</span>
+            <span className="hero__title-line">{locale === "fa" ? "ادیان" : "World"}</span>
+            <span className="hero__title-line gradient-text">{locale === "fa" ? "جهان" : "Religions"}</span>
           </h1>
           <p className="hero__lead">
             {pt(locale, "landingLead")}
@@ -314,7 +314,7 @@ const FAMILY_INFO: { id: string; name: string; faName: string; desc: string; faD
   { id: "Iranian", name: "Iranian", faName: "ایرانی", desc: "Light and darkness, from Zarathustra to the Bahá'í.", faDesc: "روشنایی و تاریکی، از زرتشت تا بهائی.", accent: "var(--gold)" },
   { id: "East Asian", name: "East Asian", faName: "شرق آسیا", desc: "Tao, ritual, and the kami of the rising sun.", faDesc: "تائو، آیین و کامی‌های سرزمین خورشید تابان.", accent: "var(--jade)" },
   { id: "Indo-European", name: "Indo-European", faName: "هندواروپایی", desc: "Bronze Age pantheons, from Sumer to the Nordic sagas.", faDesc: "خدایان عصر برنز، از سومر تا حماسه‌های نورس.", accent: "var(--amber)" },
-  { id: "African", name: "African & Diaspora", faName: "آفریقایی و مهاجر", desc: "Orishas, lwa, and ancestors across the Black Atlantic.", faDesc: "اوریشاها، لواها و نیاکان در سراسر اطلس سیاه.", accent: "var(--turquoise)" },
+  { id: "African", name: "African & Diaspora", faName: "آفریقایی و جوامع پراکنده", desc: "Orishas, lwa, and ancestors across the Black Atlantic.", faDesc: "اوریشاها، لواها و نیاکان در سراسر اطلس سیاه.", accent: "var(--turquoise)" },
   { id: "Indigenous", name: "Indigenous", faName: "بومی", desc: "The Dreaming, the hózhó, the sacred land itself.", faDesc: "دریمینگ، هُژو و خودِ سرزمین مقدس.", accent: "var(--violet)" },
   { id: "Modern", name: "Modern", faName: "نوین", desc: "New religious movements born from 19th-century revelation and reform.", faDesc: "جنبش‌های دینی نوینی که از وحی و اصلاحات سدهٔ نوزدهم زاده شدند.", accent: "var(--periwinkle)" },
 ];
