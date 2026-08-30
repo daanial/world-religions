@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import Starfield from "../components/Starfield";
 import Globe from "../components/Globe";
 import { SITES, type SacredSite } from "../data/sites";
+import { SITES_META_FA } from "../data/sites.fa";
 import { RELIGIONS } from "../data/religions";
+import { FA_RELIGION_META } from "../data/religion-meta.fa";
 import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 import { useLocale, withLocale } from "../lib/locale";
@@ -57,20 +59,23 @@ export default function GlobeView() {
         <section className="globe-sites">
           <h2 className="globe-sites__title">{pt(locale, "allSacredPlaces")}</h2>
           <div className="globe-sites__grid">
-            {SITES.map((site) => (
-              <button
-                key={site.id}
-                className={`site-chip ${selected?.id === site.id ? "site-chip--active" : ""}`}
-                style={{ "--accent": site.accent } as React.CSSProperties}
-                onClick={() => setSelected(site)}
-              >
-                <span className="site-chip__dot" />
-                <span className="site-chip__name">{site.name}</span>
-                <span className="site-chip__count">
-                  {site.religions.length} {site.religions.length > 1 ? pt(locale, "faiths") : pt(locale, "faith")}
-                </span>
-              </button>
-            ))}
+            {SITES.map((site) => {
+              const faMeta = locale === "fa" ? SITES_META_FA[site.id] : undefined;
+              return (
+                <button
+                  key={site.id}
+                  className={`site-chip ${selected?.id === site.id ? "site-chip--active" : ""}`}
+                  style={{ "--accent": site.accent } as React.CSSProperties}
+                  onClick={() => setSelected(site)}
+                >
+                  <span className="site-chip__dot" />
+                  <span className="site-chip__name">{faMeta?.name ?? site.name}</span>
+                  <span className="site-chip__count">
+                    {site.religions.length} {site.religions.length > 1 ? pt(locale, "faiths") : pt(locale, "faith")}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </section>
       </div>
@@ -81,6 +86,7 @@ export default function GlobeView() {
 function SitePanel({ site, onClose }: { site: SacredSite; onClose: () => void }) {
   const locale = useLocale();
   const religions = RELIGIONS.filter((r) => site.religions.includes(r.id));
+  const faMeta = locale === "fa" ? SITES_META_FA[site.id] : undefined;
   return (
     <div className="site-panel">
       <div className="site-panel__head">
@@ -88,30 +94,33 @@ function SitePanel({ site, onClose }: { site: SacredSite; onClose: () => void })
           <div className="eyebrow" style={{ color: site.accent }}>
             {site.lat.toFixed(2)}°, {site.lng.toFixed(2)}°
           </div>
-          <h2 className="site-panel__title">{site.name}</h2>
+          <h2 className="site-panel__title">{faMeta?.name ?? site.name}</h2>
         </div>
         <button className="site-panel__close" onClick={onClose} aria-label={pt(locale, "closePanel")}>
           ✕
         </button>
       </div>
-      <p className="site-panel__blurb">{site.blurb}</p>
-      <p className="site-panel__desc">{site.description}</p>
+      <p className="site-panel__blurb">{faMeta?.blurb ?? site.blurb}</p>
+      <p className="site-panel__desc">{faMeta?.description ?? site.description}</p>
 
       {religions.length > 0 && (
         <div className="site-panel__religions">
           <div className="site-panel__subhead">{pt(locale, "reveredBy")}</div>
           <div className="site-panel__religion-list">
-            {religions.map((r) => (
-              <Link
-                key={r.id}
-                to={withLocale(locale, `/religion/${r.id}`)}
-                className="site-panel__religion"
-                style={{ borderColor: r.accent }}
-              >
-                <span className="site-panel__religion-dot" style={{ background: r.accent }} />
-                {r.name}
-              </Link>
-            ))}
+            {religions.map((r) => {
+              const religionFaName = locale === "fa" ? FA_RELIGION_META[r.id as keyof typeof FA_RELIGION_META]?.name : undefined;
+              return (
+                <Link
+                  key={r.id}
+                  to={withLocale(locale, `/religion/${r.id}`)}
+                  className="site-panel__religion"
+                  style={{ borderColor: r.accent }}
+                >
+                  <span className="site-panel__religion-dot" style={{ background: r.accent }} />
+                  {religionFaName ?? r.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}

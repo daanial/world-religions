@@ -2,13 +2,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useApp } from "../context/AppContext";
 import { RELIGIONS } from "../data/religions";
+import { ACHIEVEMENTS_META_FA } from "../data/achievements.fa";
+import { FA_RELIGION_META } from "../data/religion-meta.fa";
+import { useLocale, withLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 /** Floating achievement toast + compare drawer — rendered once at app root. */
 export default function Overlays() {
   const { newlyUnlocked, dismissToast, compareIds, clearCompare, toggleCompare } = useApp();
   const { pathname } = useLocation();
+  const locale = useLocale();
   const selected = RELIGIONS.filter((r) => compareIds.includes(r.id));
-  const onComparePage = pathname === "/compare";
+  // pathname still carries the /fa prefix here, so compare it stripped of any locale prefix
+  const onComparePage = pathname === "/compare" || pathname === "/fa/compare";
 
   const scrollToCompare = () => {
     document.getElementById("compare-workspace")?.scrollIntoView({
@@ -16,6 +22,10 @@ export default function Overlays() {
       block: "start",
     });
   };
+
+  const achFa = newlyUnlocked ? ACHIEVEMENTS_META_FA[newlyUnlocked.id] : undefined;
+  const achTitle = locale === "fa" ? achFa?.title ?? newlyUnlocked?.title : newlyUnlocked?.title;
+  const achDesc = locale === "fa" ? achFa?.description ?? newlyUnlocked?.description : newlyUnlocked?.description;
 
   return (
     <>
@@ -33,9 +43,9 @@ export default function Overlays() {
               <Trophy />
             </div>
             <div className="toast__body">
-              <div className="toast__eyebrow">Achievement Unlocked</div>
-              <div className="toast__title">{newlyUnlocked.title}</div>
-              <div className="toast__desc">{newlyUnlocked.description}</div>
+              <div className="toast__eyebrow">{pt(locale, "achievementUnlocked")}</div>
+              <div className="toast__title">{achTitle}</div>
+              <div className="toast__desc">{achDesc}</div>
             </div>
           </motion.div>
         )}
@@ -51,37 +61,40 @@ export default function Overlays() {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="compare-drawer__chips">
-              {selected.map((r) => (
-                <button
-                  key={r.id}
-                  className="chip"
-                  style={{ borderColor: r.accent, color: r.accent }}
-                  onClick={() => toggleCompare(r.id)}
-                  title="Remove from comparison"
-                >
-                  <span className="chip__dot" style={{ background: r.accent }} />
-                  {r.name}
-                  <span className="chip__x">✕</span>
-                </button>
-              ))}
+              {selected.map((r) => {
+                const faName = locale === "fa" ? FA_RELIGION_META[r.id as keyof typeof FA_RELIGION_META]?.name : undefined;
+                return (
+                  <button
+                    key={r.id}
+                    className="chip"
+                    style={{ borderColor: r.accent, color: r.accent }}
+                    onClick={() => toggleCompare(r.id)}
+                    title={pt(locale, "removeFromComparison")}
+                  >
+                    <span className="chip__dot" style={{ background: r.accent }} />
+                    {faName ?? r.name}
+                    <span className="chip__x">✕</span>
+                  </button>
+                );
+              })}
               {Array.from({ length: 4 - selected.length }).map((_, i) => (
-                <Link key={i} to="/compare?add=1" className="chip chip--empty">
-                  + add
+                <Link key={i} to={withLocale(locale, "/compare?add=1")} className="chip chip--empty">
+                  {pt(locale, "addToCompare")}
                 </Link>
               ))}
             </div>
             <div className="compare-drawer__actions">
               {onComparePage ? (
                 <button type="button" className="btn btn--primary" onClick={scrollToCompare}>
-                  Compare {selected.length > 0 ? `(${selected.length})` : ""}
+                  {pt(locale, "compareButton")} {selected.length > 0 ? `(${selected.length})` : ""}
                 </button>
               ) : (
-                <Link to="/compare" className="btn btn--primary">
-                  Compare {selected.length > 0 ? `(${selected.length})` : ""}
+                <Link to={withLocale(locale, "/compare")} className="btn btn--primary">
+                  {pt(locale, "compareButton")} {selected.length > 0 ? `(${selected.length})` : ""}
                 </Link>
               )}
               <button className="btn btn--ghost" onClick={clearCompare}>
-                Clear
+                {pt(locale, "clearButton")}
               </button>
             </div>
           </motion.div>

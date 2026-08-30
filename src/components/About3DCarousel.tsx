@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import type { AboutImage } from "../lib/aboutImages";
+import { useLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 interface About3DCarouselProps {
   images: AboutImage[];
@@ -63,6 +65,7 @@ function createStarPoints(count: number): THREE.Points {
 }
 
 export default function About3DCarousel({ images, className, onReady }: About3DCarouselProps) {
+  const locale = useLocale();
   const mountRef = useRef<HTMLDivElement>(null);
   const [webglFailed, setWebglFailed] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
@@ -387,7 +390,7 @@ export default function About3DCarousel({ images, className, onReady }: About3DC
       className={`about-carousel ${className ?? ""}`}
       ref={mountRef}
       role="region"
-      aria-label="Interactive 3D image gallery. Drag to rotate, scroll to change speed, use arrow keys to navigate."
+      aria-label={pt(locale, "carouselAria")}
       tabIndex={0}
       data-focused-index={focusedIndex ?? undefined}
     />

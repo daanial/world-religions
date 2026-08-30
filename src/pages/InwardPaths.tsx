@@ -12,6 +12,7 @@ import {
 import { INWARD_PATHS_INTRO_FA, INWARD_PATHS_SECTIONS_FA, INWARD_PATHS_FRAMING_FA } from "../data/inward-paths-timeline.fa";
 import { usePageSeo } from "../lib/seo";
 import { useLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -349,7 +350,7 @@ export default function InwardPaths() {
           <aside
             className="ip-scroll-rail glass"
             aria-live="polite"
-            aria-label="Timeline progress"
+            aria-label={pt(locale, "timelineProgressAria")}
             style={{ "--accent": activeFigure.accent ?? "var(--gold)" } as CSSProperties}
           >
             <p className="ip-scroll-rail__label">Now reading</p>

@@ -10,6 +10,7 @@ import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 import { useLocale, withLocale } from "../lib/locale";
 import { pt } from "../lib/pageI18n";
+import { FA_RELIGION_META, FA_FAMILY_LABELS } from "../data/religion-meta.fa";
 
 export default function Timeline() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -54,7 +55,7 @@ export default function Timeline() {
         </div>
 
         <div className="tl-wrap card reveal">
-          <TimelineChart accent="var(--gold)" filter={{ extinct: true, living: true }} />
+          <TimelineChart accent="var(--gold)" filter={{ extinct: true, living: true }} locale={locale} />
         </div>
 
         <PopulationChart />
@@ -63,34 +64,39 @@ export default function Timeline() {
         <section className="tl-directory reveal">
           <h2 className="tl-directory__title">{pt(locale, "allTraditions", { count: visible.length })}</h2>
           <div className="tl-directory__grid reveal-stagger">
-            {visible.map((r) => (
-              <Link key={r.id} to={withLocale(locale, `/religion/${r.id}`)} className="tl-card card">
-                <div className="tl-card__bar" style={{ background: r.accent }} />
-                {(() => {
-                  const imgSrc = getReligionThumbnailSrc(r.id) ?? getReligionImageSrc(r.id);
-                  return imgSrc ? (
-                    <div className="tl-card__image">
-                      <img src={imgSrc} alt={`${r.name} plate`} loading="lazy" />
-                    </div>
-                  ) : null;
-                })()}
-                <div className="tl-card__head">
-                  <h3>{r.name}</h3>
-                  {r.extinct && <span className="tl-card__extinct">† {pt(locale, "extinct")}</span>}
-                </div>
-                <div className="tl-card__meta">
-                  {formatYear(r.origin)}
-                  {r.ended ? ` – ${formatYear(r.ended)}` : ` – ${pt(locale, "present")}`}
-                </div>
-                <p className="tl-card__blurb">{r.blurb}</p>
-                <div className="tl-card__footer">
-                  <span className="tag">{r.family}</span>
-                  <span className="tl-card__go" style={{ color: r.accent }}>
-                    {pt(locale, "explore")}
-                  </span>
-                </div>
-              </Link>
-            ))}
+            {visible.map((r) => {
+              const faMeta = locale === "fa" ? FA_RELIGION_META[r.id as keyof typeof FA_RELIGION_META] : undefined;
+              const displayName = faMeta?.name ?? r.name;
+              const displayBlurb = faMeta?.blurb ?? r.blurb;
+              return (
+                <Link key={r.id} to={withLocale(locale, `/religion/${r.id}`)} className="tl-card card">
+                  <div className="tl-card__bar" style={{ background: r.accent }} />
+                  {(() => {
+                    const imgSrc = getReligionThumbnailSrc(r.id) ?? getReligionImageSrc(r.id);
+                    return imgSrc ? (
+                      <div className="tl-card__image">
+                        <img src={imgSrc} alt={`${displayName} plate`} loading="lazy" />
+                      </div>
+                    ) : null;
+                  })()}
+                  <div className="tl-card__head">
+                    <h3>{displayName}</h3>
+                    {r.extinct && <span className="tl-card__extinct">† {pt(locale, "extinct")}</span>}
+                  </div>
+                  <div className="tl-card__meta">
+                    {formatYear(r.origin, locale)}
+                    {r.ended ? ` – ${formatYear(r.ended, locale)}` : ` – ${pt(locale, "present")}`}
+                  </div>
+                  <p className="tl-card__blurb">{displayBlurb}</p>
+                  <div className="tl-card__footer">
+                    <span className="tag">{locale === "fa" ? FA_FAMILY_LABELS[r.family] : r.family}</span>
+                    <span className="tl-card__go" style={{ color: r.accent }}>
+                      {pt(locale, "explore")}
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       </div>

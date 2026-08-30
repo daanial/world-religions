@@ -10,8 +10,8 @@ export default function NotFound() {
   const t = useT();
 
   usePageSeo({
-    title: "Page not found",
-    description: "The page you requested could not be found on World Religions Explorer.",
+    title: t("notFoundSeoTitle"),
+    description: t("notFoundSeoDescription"),
     path: pathname,
     noindex: true,
   });

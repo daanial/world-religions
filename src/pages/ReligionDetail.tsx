@@ -15,11 +15,25 @@ import { useRegisterNarration } from "../context/NarrationContext";
 import { useApp } from "../context/AppContext";
 import { useLocale, withLocale } from "../lib/locale";
 import { pt } from "../lib/pageI18n";
-import { getRelationshipsFor, getDirectionalRelationship } from "../data/religion-relationships";
+import { getRelationshipsFor, getDirectionalRelationship, type RelationshipKind, type Confidence } from "../data/religion-relationships";
 import { FA_RELIGION_LABELS, FA_RELIGION_META } from "../data/religion-meta.fa";
 import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const RELATIONSHIP_KIND_FA: Record<RelationshipKind, string> = {
+  "Historical descent": "تبار تاریخی",
+  "Mutual influence": "تأثیر متقابل",
+  "Shared geography": "جغرافیای مشترک",
+  "Ritual/textual connections": "پیوندهای آیینی/متنی",
+  "Useful contrasts": "تضادهای آموزنده",
+};
+
+const CONFIDENCE_FA: Record<Confidence, string> = {
+  high: "بالا",
+  medium: "متوسط",
+  low: "پایین",
+};
 
 function renderBold(text: string): React.ReactNode {
   const parts: React.ReactNode[] = [];
@@ -132,8 +146,8 @@ export default function ReligionDetail() {
           }),
         }
       : {
-          title: "Religion not found",
-          description: "The requested religion page could not be found.",
+          title: pt(locale, "religionNotFoundTitle"),
+          description: pt(locale, "religionNotFoundDescription"),
           path: `/religion/${id ?? "unknown"}`,
           noindex: true,
         }
@@ -185,11 +199,11 @@ export default function ReligionDetail() {
               disabled={compareFull}
               style={compareFull ? { opacity: 0.4, cursor: "not-allowed" } : undefined}
             >
-              {isInCompare(religion.id) ? "✓ در مقایسه" : compareFull ? "مقایسه کامل است" : "+ افزودن به مقایسه"}
+              {isInCompare(religion.id) ? pt(locale, "inCompare") : compareFull ? pt(locale, "compareIsFull") : pt(locale, "addToCompareCta")}
             </button>
             {religion.cities && religion.cities.length > 0 && (
               <Link to={withLocale(locale, "/globe")} className="btn btn--ghost">
-                {locale === "fa" ? "نمایش روی کرهٔ زمین" : "View on Globe"}
+                {pt(locale, "viewOnGlobe")}
               </Link>
             )}
           </div>
@@ -198,8 +212,8 @@ export default function ReligionDetail() {
 
       {/* ---------- STATS ---------- */}
       <section className="container rd__stats">
-        <StatCard label={pt(locale, "origin")} value={formatYear(religion.origin)} icon={OriginIcon} />
-        <StatCard label={pt(locale, "age")} value={religion.extinct ? `${ageOf(religion.origin, religion.ended)} yrs` : `${ageOf(religion.origin)} yrs`} icon={ClockIcon} />
+        <StatCard label={pt(locale, "origin")} value={formatYear(religion.origin, locale)} icon={OriginIcon} />
+        <StatCard label={pt(locale, "age")} value={`${religion.extinct ? ageOf(religion.origin, religion.ended) : ageOf(religion.origin)} ${pt(locale, "years")}`} icon={ClockIcon} />
         <StatCard
           label={pt(locale, "followers")}
           value={religion.followers > 0 ? formatFollowers(religion.followers) : "—"}
@@ -230,7 +244,7 @@ export default function ReligionDetail() {
               ))}
               {religion.splitsFrom && (
                 <p className="rd__lineage" dir={locale === "fa" ? "rtl" : "ltr"}>
-                  <span className="rd__lineage-label">{locale === "fa" ? "برآمده از" : "Emerges from"}</span>
+                  <span className="rd__lineage-label">{pt(locale, "emergesFrom")}</span>
                   <Link to={withLocale(locale, `/religion/${religion.splitsFrom}`)} className="rd__lineage-link">
                     {lineageName} ←
                   </Link>
@@ -435,7 +449,7 @@ export default function ReligionDetail() {
           <div className="rd__concepts-head">
             <h2 className="rd__section-title">{pt(locale, "engagedConcepts")}</h2>
             <Link to={withLocale(locale, "/concepts")} className="rd__concepts-link">
-              Open the concept network →
+              {pt(locale, "openConceptNetwork")}
             </Link>
           </div>
           <div className="rd__concepts">
@@ -454,24 +468,27 @@ export default function ReligionDetail() {
         <section className="container rd__related rd-reveal">
           <h2 className="rd__section-title">{pt(locale, "relatedTraditions")}</h2>
           <div className="rd__related-grid">
-            {relatedCards.map((card) => (
-              <Link key={`${card!.kind}-${card!.targetId}`} to={withLocale(locale, `/religion/${card!.targetId}`)} className="rd-rel-card card">
-                <div className="rd-rel-card__bar" style={{ background: card!.religion.accent }} />
-                <div className="rd-rel-card__header">
-                  <h4>{card!.religion.name}</h4>
-                  <span className="rd-rel-card__kind" style={{ borderColor: card!.religion.accent }}>
-                    {card!.kind}
-                  </span>
-                </div>
-                <p className="rd-rel-card__why">{card!.why}</p>
-                <div className="rd-rel-card__footer">
-                  <span className="rd-rel-card__confidence" data-confidence={card!.confidence}>
-                    Confidence: {card!.confidence}
-                  </span>
-                  <span className="rd-rel-card__go" style={{ color: card!.religion.accent }}>{pt(locale, "explore")}</span>
-                </div>
-              </Link>
-            ))}
+            {relatedCards.map((card) => {
+              const relFaName = locale === "fa" ? FA_RELIGION_META[card!.religion.id as keyof typeof FA_RELIGION_META]?.name : undefined;
+              return (
+                <Link key={`${card!.kind}-${card!.targetId}`} to={withLocale(locale, `/religion/${card!.targetId}`)} className="rd-rel-card card">
+                  <div className="rd-rel-card__bar" style={{ background: card!.religion.accent }} />
+                  <div className="rd-rel-card__header">
+                    <h4>{relFaName ?? card!.religion.name}</h4>
+                    <span className="rd-rel-card__kind" style={{ borderColor: card!.religion.accent }}>
+                      {locale === "fa" ? RELATIONSHIP_KIND_FA[card!.kind] : card!.kind}
+                    </span>
+                  </div>
+                  <p className="rd-rel-card__why">{card!.why}</p>
+                  <div className="rd-rel-card__footer">
+                    <span className="rd-rel-card__confidence" data-confidence={card!.confidence}>
+                      {pt(locale, "confidenceLabel")}: {locale === "fa" ? CONFIDENCE_FA[card!.confidence] : card!.confidence}
+                    </span>
+                    <span className="rd-rel-card__go" style={{ color: card!.religion.accent }}>{pt(locale, "explore")}</span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       )}

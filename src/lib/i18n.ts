@@ -39,6 +39,14 @@ export interface UiStrings {
   notFoundTitle: string;
   notFoundLead: string;
   notFoundCta: string;
+  notFoundSeoTitle: string;
+  notFoundSeoDescription: string;
+  navSoundToggleAria: string;
+  navPrimaryAria: string;
+  navLanguageAria: string;
+  footerNavAria: string;
+  footerStackAria: string;
+  footerBottomFine: string;
   conceptsSeoTitle: string;
   conceptsSeoDescription: string;
   conceptsEyebrow: string;
@@ -81,6 +89,14 @@ const en: UiStrings = {
   notFoundTitle: "Lost in the cosmos",
   notFoundLead: "This path leads nowhere — perhaps it was never drawn on the map.",
   notFoundCta: "Return home",
+  notFoundSeoTitle: "Page not found",
+  notFoundSeoDescription: "The page you requested could not be found on World Religions Explorer.",
+  navSoundToggleAria: "Toggle ambient sound",
+  navPrimaryAria: "Primary",
+  navLanguageAria: "Language",
+  footerNavAria: "Footer navigation",
+  footerStackAria: "Technologies used",
+  footerBottomFine: "World Religions Explorer · For educational use",
   conceptsSeoTitle: "Concept Network",
   conceptsSeoDescription:
     "Explore a force-directed map of karma, salvation, sacrifice, enlightenment, and other ideas shared across world religions.",
@@ -128,6 +144,14 @@ const fa: UiStrings = {
   notFoundTitle: "گم‌شده در کیهان",
   notFoundLead: "این مسیر به‌جایی نمی‌رسد — شاید هرگز روی نقشه ترسیم نشده بود.",
   notFoundCta: "بازگشت به خانه",
+  notFoundSeoTitle: "صفحه پیدا نشد",
+  notFoundSeoDescription: "صفحه‌ای که درخواست کردید در کاوشگر ادیان جهان یافت نشد.",
+  navSoundToggleAria: "تغییر وضعیت صدای محیط",
+  navPrimaryAria: "منوی اصلی",
+  navLanguageAria: "زبان",
+  footerNavAria: "پیوندهای پابرگ",
+  footerStackAria: "فناوری‌های به‌کاررفته",
+  footerBottomFine: "کاوشگر ادیان جهان · برای استفادهٔ آموزشی",
   conceptsSeoTitle: "شبکه‌ی مفاهیم",
   conceptsSeoDescription:
     "نقشه‌ای پویا از کارما، رستگاری، قربانی، روشن‌شدگی و دیگر ایده‌های مشترک میان ادیان جهان را کاوش کنید.",
