@@ -9,6 +9,7 @@ import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 import { useLocale, withLocale } from "../lib/locale";
 import { pt } from "../lib/pageI18n";
+import { FA_RELIGION_META, FA_FAMILY_LABELS, FA_REGION_LABELS } from "../data/religion-meta.fa";
 
 // Feature rows for the comparison matrix.
 interface Feature {
@@ -37,6 +38,10 @@ const FEATURES: Feature[] = [
   { key: "pilgrimage", label: "Pilgrimage" },
   { key: "sacrifice", label: "Ritual Sacrifice" },
 ];
+
+function faDisplayName(locale: "en" | "fa", r: Religion): string {
+  return (locale === "fa" ? FA_RELIGION_META[r.id as keyof typeof FA_RELIGION_META]?.name : undefined) ?? r.name;
+}
 
 const FEATURE_LABELS_FA: Partial<Record<keyof ConceptTag, string>> = {
   monotheism: "خدای یگانه (توحید)", polytheism: "خدایان متعدد", heaven: "بهشت / فردوس",
@@ -134,16 +139,16 @@ export default function Compare() {
                   <button
                     className="cmp-header__remove"
                     onClick={() => toggleCompare(r.id)}
-                    aria-label={`${pt(locale, "remove")} ${r.name}`}
+                    aria-label={`${pt(locale, "remove")} ${faDisplayName(locale, r)}`}
                   >
                     ✕
                   </button>
                   <div className="cmp-header__dot" style={{ background: r.accent }} />
                   <Link to={withLocale(locale, `/religion/${r.id}`)} className="cmp-header__name">
-                    {r.name}
+                    {faDisplayName(locale, r)}
                   </Link>
                   <div className="cmp-header__meta">
-                    {formatYear(r.origin)} · {formatFollowers(r.followers)}
+                    {formatYear(r.origin, locale)} · {formatFollowers(r.followers)}
                   </div>
                 </div>
               ))}
@@ -164,7 +169,7 @@ export default function Compare() {
                 <div className="mx__corner" />
                 {selected.map((r) => (
                   <div key={r.id} className="mx__colhead" style={{ color: r.accent }}>
-                    {r.name.split(" ")[0]}
+                    {faDisplayName(locale, r).split(" ")[0]}
                   </div>
                 ))}
 
@@ -186,13 +191,13 @@ export default function Compare() {
               <div className="cmp-facts__grid">
                 {selected.map((r) => (
                   <div key={r.id} className="cmp-fact card" style={{ "--accent": r.accent } as React.CSSProperties}>
-                    <div className="cmp-fact__name">{r.name}</div>
-                    <FactRow label={pt(locale, "origin")} value={formatYear(r.origin)} />
-                    <FactRow label={pt(locale, "age")} value={`${ageOf(r.origin, r.ended)} سال`} />
+                    <div className="cmp-fact__name">{faDisplayName(locale, r)}</div>
+                    <FactRow label={pt(locale, "origin")} value={formatYear(r.origin, locale)} />
+                    <FactRow label={pt(locale, "age")} value={`${ageOf(r.origin, r.ended)} ${pt(locale, "years")}`} />
                     <FactRow label={pt(locale, "followers")} value={r.followers > 0 ? formatFollowers(r.followers) : "—"} />
                     <FactRow label={pt(locale, "countries")} value={r.countries > 0 ? String(r.countries) : "—"} />
-                    <FactRow label={pt(locale, "family")} value={r.family} />
-                    <FactRow label={pt(locale, "region")} value={r.region} />
+                    <FactRow label={pt(locale, "family")} value={locale === "fa" ? FA_FAMILY_LABELS[r.family] : r.family} />
+                    <FactRow label={pt(locale, "region")} value={locale === "fa" ? FA_REGION_LABELS[r.region] : r.region} />
                     <FactRow label={pt(locale, "status")} value={r.extinct ? pt(locale, "extinct") : r.living ? pt(locale, "living") : pt(locale, "historical")} />
                   </div>
                 ))}
@@ -360,9 +365,9 @@ function ReligionPicker({
           {list.map((r) => (
             <button key={r.id} className="picker__item" onClick={() => onPick(r.id)}>
               <span className="picker__item-dot" style={{ background: r.accent }} />
-              <span className="picker__item-name">{r.name}</span>
+              <span className="picker__item-name">{faDisplayName(locale, r)}</span>
               <span className="picker__item-meta">
-                {r.family} · {formatYear(r.origin)}
+                {locale === "fa" ? FA_FAMILY_LABELS[r.family] : r.family} · {formatYear(r.origin, locale)}
               </span>
             </button>
           ))}

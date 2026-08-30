@@ -3,11 +3,35 @@ import * as d3 from "d3";
 import { useNavigate } from "react-router-dom";
 import { RELIGIONS, type Religion } from "../data/religions";
 import { formatYear, formatYearShort } from "../lib/format";
+import { withLocale, type LocaleCode } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
+import { FA_RELIGION_META } from "../data/religion-meta.fa";
 
 interface TimelineChartProps {
   accent: string; // current accent (from hovered/selected religion)
   filter: { extinct: boolean; living: boolean };
+  locale?: LocaleCode;
 }
+
+const LANE_LABELS_FA: Record<string, string> = {
+  Abrahamic: "ابراهیمی",
+  Indian: "هندی",
+  Iranian: "ایرانی",
+  "East Asian": "شرق آسیا",
+  "Indo-European": "هندواروپایی",
+  European: "اروپایی",
+  African: "آفریقایی و جوامع پراکنده",
+  Indigenous: "بومی",
+  Modern: "مدرن",
+};
+
+const ERA_LABELS_FA: Record<string, string> = {
+  "Bronze Age": "عصر برنز",
+  "Iron Age": "عصر آهن",
+  "Axial Age": "عصر محوری",
+  Medieval: "قرون‌وسطا",
+  Modern: "مدرن",
+};
 
 const YEAR_MIN = -3600;
 const YEAR_MAX = new Date().getFullYear();
@@ -84,11 +108,13 @@ const ERAS = [
 ];
 
 
-export default function TimelineChart({ accent }: TimelineChartProps) {
+export default function TimelineChart({ accent, locale = "en" }: TimelineChartProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const navigate = useNavigate();
   const [hovered, setHovered] = useState<string | null>(null);
+  const displayName = (r: Religion) =>
+    (locale === "fa" ? FA_RELIGION_META[r.id as keyof typeof FA_RELIGION_META]?.name : undefined) ?? r.name;
 
   const layout = useMemo(() => computeLayout(), []);
 
@@ -156,7 +182,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
         .attr("font-size", "10px")
         .attr("letter-spacing", "0.18em")
         .attr("text-transform", "uppercase")
-        .text(era.name);
+        .text(locale === "fa" ? ERA_LABELS_FA[era.name] ?? era.name : era.name);
     });
 
     // ---- Gridlines + axis ----
@@ -199,7 +225,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .attr("fill", "var(--text-dim)")
       .attr("font-size", "10.5px")
       .attr("letter-spacing", "0.08em")
-      .text((d) => d.label.toUpperCase());
+      .text((d) => (locale === "fa" ? LANE_LABELS_FA[d.label] ?? d.label : d.label.toUpperCase()));
 
     // lane separators
     g.append("g")
@@ -246,7 +272,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .style("cursor", "pointer")
       .on("mouseenter", (_e, r) => setHovered(r.id))
       .on("mouseleave", () => setHovered(null))
-      .on("click", (_e, r) => navigate(`/religion/${r.id}`));
+      .on("click", (_e, r) => navigate(withLocale(locale, `/religion/${r.id}`)));
 
     barGroups
       .append("rect")
@@ -326,7 +352,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
         const barW = xScale(r.ended ?? YEAR_MAX) - xScale(r.origin);
         return barW > 140 ? 0.85 : 0;
       })
-      .text((r) => r.name);
+      .text((r) => displayName(r));
 
     // "now" marker line
     chart
@@ -339,7 +365,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
       .attr("stroke-width", 1.5)
       .attr("stroke-dasharray", "2 3")
       .attr("opacity", 0.6);
-  }, [size, xScale, margin.left, margin.top, innerH, innerW, navigate, layout]);
+  }, [size, xScale, margin.left, margin.top, innerH, innerW, navigate, layout, locale]);
 
   // highlight hovered bar via DOM mutation (cheap, avoids full redraw)
   useEffect(() => {
@@ -357,7 +383,7 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
         className="tl__canvas"
         style={{ "--accent": hoveredReligion ? hoveredReligion.accent : accent } as React.CSSProperties}
       >
-        <svg ref={svgRef} width={size.width} height={size.height} role="img" aria-label="Religion timeline" />
+        <svg ref={svgRef} width={size.width} height={size.height} role="img" aria-label={pt(locale, "timelineChartAria")} />
         {/* inline gradient defs */}
         <svg width="0" height="0" style={{ position: "absolute" }}>
           <defs>
@@ -377,16 +403,19 @@ export default function TimelineChart({ accent }: TimelineChartProps) {
         <div className="tl__tooltip glass">
           <div className="tl__tooltip-dot" style={{ background: hoveredReligion.accent }} />
           <div>
-            <div className="tl__tooltip-name">{hoveredReligion.name}</div>
+            <div className="tl__tooltip-name">{displayName(hoveredReligion)}</div>
             <div className="tl__tooltip-meta">
-              {formatYear(hoveredReligion.origin)}
-              {hoveredReligion.ended && ` – ${formatYear(hoveredReligion.ended)}`}
-              {!hoveredReligion.ended && " – present"}
-              {hoveredReligion.extinct && <span className="tl__tooltip-tag">Extinct</span>}
+              {formatYear(hoveredReligion.origin, locale)}
+              {hoveredReligion.ended && ` – ${formatYear(hoveredReligion.ended, locale)}`}
+              {!hoveredReligion.ended && ` – ${pt(locale, "present")}`}
+              {hoveredReligion.extinct && <span className="tl__tooltip-tag">{pt(locale, "extinct")}</span>}
               {hoveredReligion.splitsFrom && (
                 <span className="tl__tooltip-tag">
-                  split from{" "}
-                  {RELIGIONS.find((p) => p.id === hoveredReligion.splitsFrom)?.name}
+                  {pt(locale, "splitFrom")}{" "}
+                  {(() => {
+                    const parent = RELIGIONS.find((p) => p.id === hoveredReligion.splitsFrom);
+                    return parent ? displayName(parent) : "";
+                  })()}
                 </span>
               )}
             </div>

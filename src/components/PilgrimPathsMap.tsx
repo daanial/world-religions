@@ -8,6 +8,9 @@ import {
   type MapPoint,
   type RouteKey,
 } from "../data/pilgrimage-routes";
+import { POINT_LABELS_FA } from "../data/pilgrimage-routes.fa";
+import { useLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 interface ArcDef {
   id: string;
@@ -23,6 +26,7 @@ const TICK_COUNT = 36;
 const RING_R = 250;
 
 export default function PilgrimPathsMap({ activeRoute }: PilgrimPathsMapProps) {
+  const locale = useLocale();
   const arcRefs = useRef<Map<string, SVGPathElement>>(new Map());
   const dotRefs = useRef<Map<string, SVGCircleElement>>(new Map());
   const markerRefs = useRef<Map<string, SVGGElement>>(new Map());
@@ -185,7 +189,7 @@ export default function PilgrimPathsMap({ activeRoute }: PilgrimPathsMapProps) {
       viewBox="0 0 1200 600"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="Schematic map of pilgrimage routes converging on sacred destinations"
+      aria-label={pt(locale, "pilgrimPathsMapAria")}
     >
       <g className="pilgrim-map__rules">
         {[150, 300, 450].map((y) => (
@@ -253,7 +257,7 @@ export default function PilgrimPathsMap({ activeRoute }: PilgrimPathsMapProps) {
             >
               <circle cx={point.x} cy={point.y} r={isDest ? 7 : 4.5} />
               <text x={point.x} y={point.y + (isDest ? -16 : -11)}>
-                {point.label}
+                {locale === "fa" ? POINT_LABELS_FA[key] ?? point.label : point.label}
               </text>
             </g>
           );

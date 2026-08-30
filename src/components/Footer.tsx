@@ -33,7 +33,7 @@ export default function Footer() {
             <p className="site-footer__tagline">{t("footerTagline")}</p>
           </div>
 
-          <nav className="site-footer__nav" aria-label="Footer navigation">
+          <nav className="site-footer__nav" aria-label={t("footerNavAria")}>
             <div className="site-footer__nav-title">{t("footerExploreTitle")}</div>
             <ul className="site-footer__links">
               {exploreLinks.map((l) => (
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="site-footer__stack" aria-label="Technologies used">
+        <div className="site-footer__stack" aria-label={t("footerStackAria")}>
           <span className="site-footer__stack-label">{t("footerStackLabel")}</span>
           {stack.map((item) => (
             <span key={item} className="site-footer__stack-pill">
@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="site-footer__bottom">
           <p className="site-footer__fine">
-            © {new Date().getFullYear()} World Religions Explorer · For educational use
+            © {new Date().getFullYear()} {t("footerBottomFine")}
           </p>
         </div>
       </div>

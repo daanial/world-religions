@@ -12,6 +12,19 @@ import {
   interpolatePopulation,
   type ReligionCategory,
 } from "../data/population";
+import { useLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
+
+const CATEGORY_LABELS_FA: Record<ReligionCategory, string> = {
+  Christianity: "مسیحیت",
+  Islam: "اسلام",
+  Hinduism: "هندوئیسم",
+  Buddhism: "بودیسم",
+  "Folk Religions": "ادیان عامیانه",
+  "Other Religions": "دیگر ادیان",
+  Judaism: "یهودیت",
+  Unaffiliated: "بی‌وابستگی دینی",
+};
 
 type ViewMode = "absolute" | "percentage";
 
@@ -46,6 +59,8 @@ function yMaxForMode(mode: ViewMode): number {
 }
 
 export default function PopulationChart() {
+  const locale = useLocale();
+  const catLabel = (cat: ReligionCategory) => (locale === "fa" ? CATEGORY_LABELS_FA[cat] : cat);
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -194,7 +209,7 @@ export default function PopulationChart() {
       .attr("font-weight", 700)
       .attr("letter-spacing", "0.35em")
       .attr("pointer-events", "none")
-      .text("PROJECTED");
+      .text(pt(locale, "popProjectedWatermark"));
 
     const observedLayer = g.append("g").attr("clip-path", "url(#pop-clip)");
 
@@ -345,7 +360,7 @@ export default function PopulationChart() {
       .attr("fill", "var(--text-dim)")
       .attr("font-size", "11px")
       .attr("letter-spacing", "0.12em")
-      .text("YEAR (spacing reflects elapsed time · ticks only at measured anchor years)");
+      .text(pt(locale, "popYearAxisCaption"));
   }, [
     areaGen,
     currentYear,
@@ -357,6 +372,7 @@ export default function PopulationChart() {
     viewMode,
     xScale,
     yScale,
+    locale,
   ]);
 
   const topCategories = useMemo(() => {
@@ -374,29 +390,28 @@ export default function PopulationChart() {
       <header className="pop-chart__head">
         <div>
           <h2 id="pop-chart-title" className="pop-chart__title">
-            Global religious populations
+            {pt(locale, "popChartTitle")}
           </h2>
           <p className="pop-chart__lead">
-            Eight unified categories across sparse anchor years. Scrub or play to explore — values
-            tween smoothly between real measurements only.
+            {pt(locale, "popChartLead")}
           </p>
         </div>
 
         <div className="pop-chart__controls">
-          <div className="pop-chart__toggle" role="group" aria-label="View mode">
+          <div className="pop-chart__toggle" role="group" aria-label={pt(locale, "popViewModeAria")}>
             <button
               type="button"
               className={`pop-toggle-btn${viewMode === "absolute" ? " pop-toggle-btn--active" : ""}`}
               onClick={() => setViewMode("absolute")}
             >
-              Absolute
+              {pt(locale, "popAbsolute")}
             </button>
             <button
               type="button"
               className={`pop-toggle-btn${viewMode === "percentage" ? " pop-toggle-btn--active" : ""}`}
               onClick={() => setViewMode("percentage")}
             >
-              % of world
+              {pt(locale, "popPercentOfWorld")}
             </button>
           </div>
 
@@ -404,9 +419,9 @@ export default function PopulationChart() {
             type="button"
             className="pop-play-btn"
             onClick={togglePlay}
-            aria-label={playing ? "Pause animation" : "Play animation"}
+            aria-label={playing ? pt(locale, "popPauseAnimation") : pt(locale, "popPlayAnimation")}
           >
-            {playing ? "Pause" : "Play"}
+            {playing ? pt(locale, "popPause") : pt(locale, "popPlay")}
           </button>
         </div>
       </header>
@@ -415,22 +430,22 @@ export default function PopulationChart() {
         {RELIGION_CATEGORIES.map((cat) => (
           <span key={cat} className="pop-legend-item">
             <span className="pop-legend-item__swatch" style={{ background: CATEGORY_COLORS[cat] }} />
-            {cat}
+            {catLabel(cat)}
           </span>
         ))}
       </div>
 
       <div className="pop-chart__meta glass">
         <div className="pop-chart__year">
-          <span className="pop-chart__year-label">Year</span>
+          <span className="pop-chart__year-label">{pt(locale, "popYear")}</span>
           <strong>{Math.round(currentYear)}</strong>
-          {currentSnap.isProjected && <span className="pop-chart__badge">Projected</span>}
+          {currentSnap.isProjected && <span className="pop-chart__badge">{pt(locale, "popProjectedBadge")}</span>}
         </div>
         <div className="pop-chart__stats">
           {topCategories.map(({ cat, value }) => (
             <div key={cat} className="pop-stat">
               <span className="pop-stat__dot" style={{ background: CATEGORY_COLORS[cat] }} />
-              <span className="pop-stat__name">{cat}</span>
+              <span className="pop-stat__name">{catLabel(cat)}</span>
               <span className="pop-stat__val">
                 {viewMode === "absolute" ? formatPopulation(value) : `${value.toFixed(1)}%`}
               </span>
@@ -438,7 +453,7 @@ export default function PopulationChart() {
           ))}
         </div>
         <div className="pop-chart__world">
-          World pop. <strong>{formatPopulation(currentSnap.worldPopulation)}</strong>
+          {pt(locale, "popWorldPop")} <strong>{formatPopulation(currentSnap.worldPopulation)}</strong>
         </div>
       </div>
 
@@ -448,7 +463,7 @@ export default function PopulationChart() {
           width={size.width}
           height={size.height}
           role="img"
-          aria-label="Animated stacked area chart of global religious populations"
+          aria-label={pt(locale, "popChartAria")}
         />
       </div>
 
@@ -464,7 +479,7 @@ export default function PopulationChart() {
             stopPlay();
             setCurrentYear(Number(e.target.value));
           }}
-          aria-label="Scrub through years"
+          aria-label={pt(locale, "popScrubberAria")}
           list="pop-anchor-markers"
         />
         <datalist id="pop-anchor-markers">
@@ -474,15 +489,13 @@ export default function PopulationChart() {
         </datalist>
         <div className="pop-scrubber__labels">
           <span>{YEAR_MIN}</span>
-          <span className="pop-scrubber__observed">{LAST_OBSERVED_YEAR} · last estimate</span>
+          <span className="pop-scrubber__observed">{LAST_OBSERVED_YEAR} · {pt(locale, "popLastEstimate")}</span>
           <span>{YEAR_MAX}</span>
         </div>
       </div>
 
       <p className="pop-chart__note">
-        Anchor years only — animation eases between measured points, not fabricated yearly census
-        data. Beyond {LAST_OBSERVED_YEAR}, hatched areas are projections from Pew 2015 and CSGC 2026
-        models.
+        {pt(locale, "popNote", { year: LAST_OBSERVED_YEAR })}
       </p>
     </section>
   );

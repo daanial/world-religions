@@ -3,7 +3,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useApp } from "../context/AppContext";
 import { useNarration } from "../context/NarrationContext";
 import { useLocale, withLocale, splitLocaleFromPath, LOCALE_REGISTRY } from "../lib/locale";
-import { useT, type UiStrings } from "../lib/i18n";
+import { t, useT, type UiStrings } from "../lib/i18n";
 import NarrationButton from "./NarrationButton";
 
 const DESKTOP_NAV_MQ = "(min-width: 900px)";
@@ -167,7 +167,7 @@ export default function NavBar() {
           </span>
         </NavLink>
 
-        <nav className="nav__links" aria-label="Primary" key={loc.pathname}>
+        <nav className="nav__links" aria-label={t("navPrimaryAria")} key={loc.pathname}>
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -196,7 +196,7 @@ export default function NavBar() {
             className="icon-btn"
             onClick={toggleAmbient}
             title={ambientOn ? t("navSoundOn") : t("navSoundOff")}
-            aria-label="Toggle ambient sound"
+            aria-label={t("navSoundToggleAria")}
             aria-pressed={ambientOn}
           >
             {ambientOn ? <SoundOnIcon /> : <SoundOffIcon />}
@@ -235,7 +235,7 @@ export default function NavBar() {
         <nav
           ref={panelRef}
           className="nav-menu__panel"
-          aria-label="Primary"
+          aria-label={t("navPrimaryAria")}
           onClick={(event) => event.stopPropagation()}
         >
           {links.map((l) => (
@@ -308,7 +308,7 @@ function LocaleSwitcher({
         <span lang={current.code}>{current.nativeName}</span>
       </button>
       {open && (
-        <ul className="nav__locale-menu" role="listbox" aria-label="Language">
+        <ul className="nav__locale-menu" role="listbox" aria-label={t(locale, "navLanguageAria")}>
           {LOCALE_REGISTRY.map((l) => (
             <li key={l.code} role="option" aria-selected={l.code === locale}>
               <NavLink

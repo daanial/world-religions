@@ -1,4 +1,6 @@
 import { useNarration } from "../context/NarrationContext";
+import { useLocale } from "../lib/locale";
+import { pt } from "../lib/pageI18n";
 
 export type NarrationButtonVariant = "compact" | "prominent";
 
@@ -16,6 +18,7 @@ export default function NarrationButton({
   className = "",
 }: NarrationButtonProps) {
   const { status, error, activeId, toggleNarration } = useNarration();
+  const locale = useLocale();
 
   const isActive = activeId === id;
   const isPlaying = isActive && status === "playing";
@@ -23,12 +26,18 @@ export default function NarrationButton({
   const isPaused = isActive && status === "paused";
 
   const title = isPlaying
-    ? `Pause narration for ${label}`
+    ? pt(locale, "narrationPause", { label })
     : isPaused
-      ? `Resume narration for ${label}`
-      : `Listen to ${label}`;
+      ? pt(locale, "narrationResume", { label })
+      : pt(locale, "narrationListen", { label });
 
-  const statusLabel = isLoading ? "Loading…" : isPlaying ? "Playing" : isPaused ? "Paused" : "Listen";
+  const statusLabel = isLoading
+    ? pt(locale, "narrationLoading")
+    : isPlaying
+      ? pt(locale, "narrationPlaying")
+      : isPaused
+        ? pt(locale, "narrationPaused")
+        : pt(locale, "narrationListenLabel");
 
   if (variant === "compact") {
     return (
@@ -65,8 +74,8 @@ export default function NarrationButton({
         <span className="narration-btn-prominent__label">{statusLabel}</span>
       </button>
       <span className="sr-only" aria-live="polite">
-        {isLoading && `Loading narration for ${label}`}
-        {isActive && error && `Narration error: ${error}`}
+        {isLoading && pt(locale, "narrationLoadingFor", { label })}
+        {isActive && error && pt(locale, "narrationError", { error })}
       </span>
       {isActive && error && status === "error" && (
         <span className="narration-control__error" role="alert">
