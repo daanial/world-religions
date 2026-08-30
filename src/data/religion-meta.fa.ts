@@ -78,6 +78,83 @@ export const GNOSTICISM_META_FA = {
   ],
 } as const;
 
+export const CHRISTIANITY_META_FA = {
+  name: "مسیحیت",
+  family: "ابراهیمی",
+  region: "خاورمیانه",
+  blurb: "زندگی، مرگ و رستاخیز عیسای مسیح، و رستگاری از راه فیض و ایمان.",
+} as const;
+
+export const ZOROASTRIAN_META_FA = {
+  name: "زرتشتی‌گری",
+  family: "ایرانی",
+  region: "خاورمیانه",
+  blurb: "نبرد کیهانیِ راستی و دروغ در پرتو آموزه‌های اهورامزدا.",
+} as const;
+
+export const SIKHISM_META_FA = {
+  name: "دین سیک",
+  family: "هندی",
+  region: "جنوب آسیا",
+  blurb: "ارادت به واهگورو، برابری انسان‌ها و خدمت بی‌چشمداشت.",
+} as const;
+
+export const MANICHAEAN_META_FA = {
+  name: "آیین مانی",
+  family: "ایرانی",
+  region: "خاورمیانه",
+  blurb: "دوگانه‌انگاریِ کیهانیِ روشنایی و تاریکی در آموزهٔ پیامبر مانی.",
+} as const;
+
+export const MESOAMERICAN_META_FA = {
+  name: "دین بین‌النهرینِ آمریکایی",
+  family: "بومی",
+  region: "قاره آمریکا",
+  blurb: "کیهانی لایه‌لایه، قربانی مقدس و تقویم چرخه‌ای در سنت‌های آزتک و مایا.",
+} as const;
+
+export const TAOISM_META_FA = {
+  name: "آیین تائو",
+  family: "شرق آسیا",
+  region: "شرق آسیا",
+  blurb: "همسازی با تائو از راه بی‌کنشی، طبیعی‌بودن و پرورش انرژی حیاتی.",
+} as const;
+
+export const CHINESE_FOLK_META_FA = {
+  name: "دین عامیانهٔ چینی",
+  family: "شرق آسیا",
+  region: "شرق آسیا",
+  blurb: "پرستش خدایان، نیاکان و ارواح محلی در بطن زندگی روزمرهٔ چینی.",
+} as const;
+
+export const CONFUCIANISM_META_FA = {
+  name: "کنفوسیوس‌گرایی",
+  family: "شرق آسیا",
+  region: "شرق آسیا",
+  blurb: "اخلاق، آیین و خودپروری در خدمتِ هماهنگیِ اجتماعی.",
+} as const;
+
+export const SHINTO_META_FA = {
+  name: "شینتو",
+  family: "شرق آسیا",
+  region: "شرق آسیا",
+  blurb: "ستایش کامی‌ها و پیوند مقدس با طبیعت و سرزمین ژاپن.",
+} as const;
+
+export const JAINISM_META_FA = {
+  name: "دین جین",
+  family: "هندی",
+  region: "جنوب آسیا",
+  blurb: "اهیمسا و ریاضتِ سخت‌گیرانه برای رهاییِ روح از کارما.",
+} as const;
+
+export const YORUBA_META_FA = {
+  name: "دین یوروبا",
+  family: "آفریقایی و جوامع پراکنده",
+  region: "آفریقا",
+  blurb: "پرستش اوریشاها و مشورت با اوراکل ایفا در سنت یوروبا.",
+} as const;
+
 export const FA_RELIGION_META = {
   bahai: BAHAI_META_FA,
   buddhism: BUDDHISM_META_FA,
@@ -85,6 +162,17 @@ export const FA_RELIGION_META = {
   judaism: JUDAISM_META_FA,
   hinduism: HINDUISM_META_FA,
   gnosticism: GNOSTICISM_META_FA,
+  christianity: CHRISTIANITY_META_FA,
+  zoroastrian: ZOROASTRIAN_META_FA,
+  sikhism: SIKHISM_META_FA,
+  manichaean: MANICHAEAN_META_FA,
+  mesoamerican: MESOAMERICAN_META_FA,
+  taoism: TAOISM_META_FA,
+  "chinese-folk": CHINESE_FOLK_META_FA,
+  confucianism: CONFUCIANISM_META_FA,
+  shinto: SHINTO_META_FA,
+  jainism: JAINISM_META_FA,
+  yoruba: YORUBA_META_FA,
 } as const;
 
 export const FA_RELIGION_LABELS: Record<string, string> = {
@@ -94,5 +182,16 @@ export const FA_RELIGION_LABELS: Record<string, string> = {
   islam: ISLAM_META_FA.name,
   judaism: JUDAISM_META_FA.name,
   gnosticism: GNOSTICISM_META_FA.name,
+  christianity: CHRISTIANITY_META_FA.name,
+  zoroastrian: ZOROASTRIAN_META_FA.name,
+  sikhism: SIKHISM_META_FA.name,
+  manichaean: MANICHAEAN_META_FA.name,
+  mesoamerican: MESOAMERICAN_META_FA.name,
+  taoism: TAOISM_META_FA.name,
+  "chinese-folk": CHINESE_FOLK_META_FA.name,
+  confucianism: CONFUCIANISM_META_FA.name,
+  shinto: SHINTO_META_FA.name,
+  jainism: JAINISM_META_FA.name,
+  yoruba: YORUBA_META_FA.name,
   canaanite: "دین کنعانی",
 };

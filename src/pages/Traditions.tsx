@@ -7,6 +7,7 @@ import { usePageSeo } from "../lib/seo";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
 import { useLocale, withLocale } from "../lib/locale";
 import Starfield from "../components/Starfield";
+import { FA_RELIGION_META } from "../data/religion-meta.fa";
 
 type SortOption = "alphabetical" | "oldest" | "newest" | "followers";
 type StatusFilter = "all" | "living" | "extinct";
@@ -448,6 +449,13 @@ interface TraditionCardProps {
 function TraditionCard({ religion }: TraditionCardProps) {
   const locale = useLocale();
   const t = TRANSLATIONS[locale];
+  // Only borrow the translated name/blurb — never family/region, which must stay
+  // in their original English enum values so filtering and the family/region tag
+  // lookups (t.familyNames / t.regionNames, keyed by the English Family/Region type)
+  // keep working regardless of translation status.
+  const faMeta = locale === "fa" ? FA_RELIGION_META[religion.id as keyof typeof FA_RELIGION_META] : undefined;
+  const displayName = faMeta?.name ?? religion.name;
+  const displayBlurb = faMeta?.blurb ?? religion.blurb;
   const imageSrc = getReligionThumbnailSrc(religion.id) ?? getReligionImageSrc(religion.id);
   const followersText = religion.living
     ? religion.followers >= 1000000
@@ -461,22 +469,22 @@ function TraditionCard({ religion }: TraditionCardProps) {
     <Link to={withLocale(locale, `/religion/${religion.id}`)} className="tradition-card card">
       {imageSrc && (
         <div className="tradition-card__image">
-          <img src={imageSrc} alt={`${religion.name} hero`} loading="lazy" />
+          <img src={imageSrc} alt={`${displayName} hero`} loading="lazy" />
         </div>
       )}
       <div className="tradition-card__content">
         <div className="tradition-card__header">
-          <h3 className="tradition-card__name">{religion.name}</h3>
+          <h3 className="tradition-card__name">{displayName}</h3>
           {religion.extinct && <span className="tradition-card__extinct">{t.cardHistorical}</span>}
         </div>
         <div className="tradition-card__meta">
           <span className="tradition-card__date">
-            {formatYear(religion.origin)}
-            {religion.ended ? ` – ${formatYear(religion.ended)}` : t.cardPresent}
+            {formatYear(religion.origin, locale)}
+            {religion.ended ? ` – ${formatYear(religion.ended, locale)}` : t.cardPresent}
           </span>
           {followersText && <span className="tradition-card__followers">{followersText}</span>}
         </div>
-        <p className="tradition-card__blurb">{religion.blurb}</p>
+        <p className="tradition-card__blurb">{displayBlurb}</p>
         <div className="tradition-card__footer">
           <span className="tag">{t.familyNames[religion.family]}</span>
           <span className="tag">{t.regionNames[religion.region]}</span>
