@@ -143,6 +143,7 @@ export default function ReligionDetail() {
             description: religion.blurb,
             path: `/religion/${religion.id}`,
             image: imageSrc,
+            locale,
           }),
         }
       : {

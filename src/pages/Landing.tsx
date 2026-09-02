@@ -67,7 +67,10 @@ export default function Landing() {
     title: locale === "fa" ? "کاوشگر ادیان جهان" : "World Religions Explorer",
     description: locale === "fa" ? "اطلس تعاملی ادیان، فلسفه‌ها و کیهان‌شناسی‌هایی که تاریخ آگاهی انسان را شکل داده‌اند." : SITE_DESCRIPTION,
     path: "/",
-    jsonLd: buildWebsiteJsonLd(),
+    jsonLd: buildWebsiteJsonLd(
+      locale,
+      locale === "fa" ? "اطلس تعاملی ادیان، فلسفه‌ها و کیهان‌شناسی‌هایی که تاریخ آگاهی انسان را شکل داده‌اند." : SITE_DESCRIPTION
+    ),
   });
 
   useEffect(() => {
