@@ -334,6 +334,34 @@ function ReligionPicker({
 }) {
   const [query, setQuery] = useState("");
   const locale = useLocale();
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = panelRef.current?.querySelectorAll<HTMLElement>(
+        "a[href], button:not([disabled]), input:not([disabled])"
+      );
+      if (!items || items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [onClose]);
+
   const list = useMemo(() => {
     const q = query.toLowerCase().trim();
     return RELIGIONS.filter((r) => !excludeIds.includes(r.id)).filter(
@@ -347,7 +375,14 @@ function ReligionPicker({
 
   return (
     <div className="picker" onClick={onClose}>
-      <div className="picker__panel glass" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="picker__panel glass"
+        onClick={(e) => e.stopPropagation()}
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={pt(locale, "addReligion")}
+      >
         <div className="picker__head">
           <h3>{pt(locale, "addReligion")}</h3>
           <button className="picker__close" onClick={onClose} aria-label={pt(locale, "close")}>

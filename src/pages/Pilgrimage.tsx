@@ -17,7 +17,7 @@ import { getPilgrimageImageSrc } from "../lib/pilgrimageImages";
 import { pilgrimageNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
-import { useLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 import { pt } from "../lib/pageI18n";
 
 function PilgrimVideoEmbed({ videoId, title, locale }: { videoId: string; title: string; locale: "en" | "fa" }) {
@@ -199,7 +199,7 @@ function RouteSection({ routeKey, locale }: { routeKey: GeoRouteKey; locale: "en
                 return (
                   <Link
                     key={id}
-                    to={`/religion/${id}`}
+                    to={withLocale(locale, `/religion/${id}`)}
                     className="pilgrim-caption__religion"
                     style={{ borderColor: religion.accent }}
                   >

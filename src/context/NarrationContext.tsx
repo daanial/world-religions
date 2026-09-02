@@ -47,6 +47,7 @@ export function NarrationProvider({ children }: { children: ReactNode }) {
   const objectUrlRef = useRef<string | null>(null);
   const ambientWasOnRef = useRef(false);
   const stopRef = useRef<() => void>(() => {});
+  const requestIdRef = useRef(0);
 
   const register = useCallback((id: string | null, label = "") => {
     setRegistration(id ? { id, label } : null);
@@ -109,6 +110,13 @@ export function NarrationProvider({ children }: { children: ReactNode }) {
       setError(null);
       setActiveId(id);
 
+      // Guards against out-of-order resolution: if a newer toggleNarration
+      // call starts before this one finishes loading/playing, this token
+      // goes stale and we must not let this call's result clobber the
+      // newer one's audio element or state.
+      const requestId = ++requestIdRef.current;
+      const isStale = () => requestId !== requestIdRef.current;
+
       if (ambientOn) {
         ambientWasOnRef.current = true;
         setAmbientOn(false);
@@ -116,26 +124,34 @@ export function NarrationProvider({ children }: { children: ReactNode }) {
 
       try {
         const url = await resolveNarrationAudioUrl(id);
+        if (isStale()) return;
         if (url.startsWith("blob:")) {
           releaseObjectUrl();
           objectUrlRef.current = url;
         }
 
         const audio = new Audio(url);
-        audioRef.current = audio;
-        globalAudio = audio;
-        globalStop = () => stopRef.current();
 
         audio.onended = () => stopRef.current();
         audio.onerror = () => {
+          if (isStale()) return;
           setStatus("error");
           setError("Playback failed");
           stopRef.current();
         };
 
         await audio.play();
+        if (isStale()) {
+          audio.pause();
+          return;
+        }
+
+        audioRef.current = audio;
+        globalAudio = audio;
+        globalStop = () => stopRef.current();
         setStatus("playing");
       } catch (err) {
+        if (isStale()) return;
         if (ambientWasOnRef.current) {
           setAmbientOn(true);
           ambientWasOnRef.current = false;

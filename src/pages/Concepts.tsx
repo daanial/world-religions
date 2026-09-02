@@ -9,7 +9,7 @@ import { usePageSeo } from "../lib/seo";
 import { conceptNarrationId } from "../lib/narration-catalog";
 import { useRegisterNarration } from "../context/NarrationContext";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal";
-import { useLocale } from "../lib/locale";
+import { useLocale, withLocale } from "../lib/locale";
 import { useT } from "../lib/i18n";
 
 export default function Concepts() {
@@ -164,7 +164,7 @@ export default function Concepts() {
                 {conceptReligions[active]?.map((r) => (
                   <Link
                     key={r.id}
-                    to={`/religion/${r.id}`}
+                    to={withLocale(locale, `/religion/${r.id}`)}
                     className="concept-religion"
                     style={{ borderColor: r.accent }}
                   >
