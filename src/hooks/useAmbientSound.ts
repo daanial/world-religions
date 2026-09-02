@@ -23,12 +23,22 @@ export function useAmbientSound() {
       }
       const ctx = ctxRef.current;
       if (ctx) {
-        const t = window.setTimeout(() => {
+        const close = () => {
           ctx.close().catch(() => {});
-          ctxRef.current = null;
-          masterRef.current = null;
-        }, 800);
-        return () => window.clearTimeout(t);
+          if (ctxRef.current === ctx) {
+            ctxRef.current = null;
+            masterRef.current = null;
+          }
+        };
+        const t = window.setTimeout(close, 800);
+        // If ambient sound is toggled back on before the fade-out finishes,
+        // this cleanup runs instead of the timeout firing — close the
+        // context now rather than merely cancelling the timer, otherwise
+        // it's abandoned open (never closed) and leaks.
+        return () => {
+          window.clearTimeout(t);
+          close();
+        };
       }
       return;
     }

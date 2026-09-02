@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Starfield from "../components/Starfield";
 import Globe from "../components/Globe";
@@ -17,6 +17,10 @@ export default function GlobeView() {
   useStaggerReveal(rootRef);
   const [selected, setSelected] = useState<SacredSite | null>(null);
   const locale = useLocale();
+  // Stable identity: Globe's scene-setup effect depends on onSelect, so an
+  // inline arrow here would tear down and rebuild the entire Three.js scene
+  // on every site selection.
+  const handleSelect = useCallback((site: SacredSite) => setSelected(site), []);
 
   usePageSeo({
     title: locale === "fa" ? "کرهٔ جغرافیای مقدس" : "Sacred Geography Globe",
@@ -38,7 +42,7 @@ export default function GlobeView() {
         <div className="globe-stage card reveal">
           <Globe
             selectedId={selected?.id ?? null}
-            onSelect={(site) => setSelected(site)}
+            onSelect={handleSelect}
           />
           <div className="globe-stage__hint">
             <span className="globe-stage__hint-dot" /> {pt(locale, "dragRotate")}

@@ -361,9 +361,12 @@ export default function PopulationChart() {
       .attr("font-size", "11px")
       .attr("letter-spacing", "0.12em")
       .text(pt(locale, "popYearAxisCaption"));
+    // currentYear is intentionally read (not a dependency): it only seeds the
+    // initial playhead/clip position on (re)build. The dedicated effect below
+    // keeps it in sync on every animation frame without rebuilding the chart.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     areaGen,
-    currentYear,
     innerH,
     innerW,
     margin.left,
@@ -374,6 +377,23 @@ export default function PopulationChart() {
     yScale,
     locale,
   ]);
+
+  // Playback ticks currentYear at up to 60fps via requestAnimationFrame — keep
+  // that path to a cheap attribute update on the few elements that actually
+  // move, rather than the full svg.selectAll("*").remove() + rebuild above
+  // (which runs on layout/data/locale changes, not on every animation frame).
+  useEffect(() => {
+    const svg = d3.select(svgRef.current);
+    const projectedStartX = xScale(LAST_OBSERVED_YEAR);
+    const playheadX = xScale(currentYear);
+
+    svg.select("#pop-clip rect").attr("width", playheadX);
+    svg
+      .select("#pop-projected-clip rect")
+      .attr("width", Math.max(0, playheadX - projectedStartX));
+    svg.select(".pop-playhead").attr("x1", playheadX).attr("x2", playheadX);
+    svg.select(".pop-playhead-dot").attr("cx", playheadX);
+  }, [currentYear, xScale]);
 
   const topCategories = useMemo(() => {
     return [...RELIGION_CATEGORIES]
