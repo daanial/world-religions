@@ -353,7 +353,7 @@ export default function InwardPaths() {
             aria-label={pt(locale, "timelineProgressAria")}
             style={{ "--accent": activeFigure.accent ?? "var(--gold)" } as CSSProperties}
           >
-            <p className="ip-scroll-rail__label">Now reading</p>
+            <p className="ip-scroll-rail__label">{pt(locale, "nowReading")}</p>
             <p className="ip-scroll-rail__name">{activeFigure.name}</p>
             <p className="ip-scroll-rail__meta">
               {activeFigure.tradition} · {formatSortYear(activeFigure.sortYear, locale)}

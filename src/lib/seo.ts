@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from "./site";
-import { SUPPORTED_LOCALES, DEFAULT_LOCALE, withLocale, splitLocaleFromPath } from "./locale";
+import { SUPPORTED_LOCALES, DEFAULT_LOCALE, withLocale, splitLocaleFromPath, type LocaleCode } from "./locale";
 
 const DEFAULT_DESCRIPTION =
   "Explore 6,000 years of belief systems through timelines, globes, and concept networks.";
@@ -139,14 +139,14 @@ export function usePageSeo(seo: PageSeo) {
   ]);
 }
 
-export function buildWebsiteJsonLd() {
+export function buildWebsiteJsonLd(locale: LocaleCode = DEFAULT_LOCALE, description?: string) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
-    description: DEFAULT_DESCRIPTION,
-    inLanguage: "en",
+    description: description ?? DEFAULT_DESCRIPTION,
+    inLanguage: locale,
   };
 }
 
@@ -155,6 +155,7 @@ export function buildReligionArticleJsonLd(input: {
   description: string;
   path: string;
   image?: string;
+  locale?: LocaleCode;
 }) {
   return {
     "@context": "https://schema.org",
@@ -163,7 +164,7 @@ export function buildReligionArticleJsonLd(input: {
     description: input.description,
     url: absoluteUrl(input.path),
     image: input.image ? absoluteUrl(input.image) : DEFAULT_OG_IMAGE,
-    inLanguage: "en",
+    inLanguage: input.locale ?? DEFAULT_LOCALE,
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
