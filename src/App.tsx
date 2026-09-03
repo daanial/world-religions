@@ -9,14 +9,19 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Overlays from "./components/Overlays";
 import Landing from "./pages/Landing";
-import ReligionDetail from "./pages/ReligionDetail";
-import Compare from "./pages/Compare";
-import Concepts from "./pages/Concepts";
-import Pilgrimage from "./pages/Pilgrimage";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
-import Traditions from "./pages/Traditions";
 
+// Route-level code splitting: only Landing (the first page nearly every
+// visitor hits) is bundled eagerly. Every other page — including its own
+// data (religion articles, images, etc.) — loads on demand, keeping the
+// initial bundle small. The shared <Suspense> around <Routes> covers all
+// of these.
+const ReligionDetail = lazy(() => import("./pages/ReligionDetail"));
+const Compare = lazy(() => import("./pages/Compare"));
+const Concepts = lazy(() => import("./pages/Concepts"));
+const Pilgrimage = lazy(() => import("./pages/Pilgrimage"));
+const About = lazy(() => import("./pages/About"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Traditions = lazy(() => import("./pages/Traditions"));
 const Timeline = lazy(() => import("./pages/Timeline"));
 const InwardPaths = lazy(() => import("./pages/InwardPaths"));
 const GlobeView = lazy(() => import("./pages/GlobeView"));
