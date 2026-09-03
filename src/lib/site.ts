@@ -4,7 +4,7 @@ export const SITE_URL = "https://religions.cubexic.com";
 export const SITE_NAME = "World Religions Explorer";
 export const SITE_DESCRIPTION =
   "Explore 6,000 years of belief systems through interactive timelines, a sacred geography globe, concept networks, and side-by-side comparisons across 44 traditions.";
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/img/christianity.png`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/img/christianity.webp`;
 
 export const STATIC_ROUTES = [
   "/",
