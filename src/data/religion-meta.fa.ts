@@ -769,6 +769,22 @@ export const NORSE_META_FA = {
   ],
 } as const;
 
+export const SLAVIC_BALTIC_META_FA = {
+  name: "بت‌پرستی اسلاوی و بالتیک",
+  family: "هندواروپایی",
+  region: "اروپا",
+  blurb: "تندرِ پرون و آخرین سنگر بت‌پرستی در اروپا.",
+  description: "ادیان پیشامسیحی مردمان اسلاوی و بالتیک بر خدایان آسمان و تندر (پرون و پرکوناس)، ارواح خانه و نیاکان و بیشه‌های مقدس متمرکز بودند. مسیحی‌شدن رسمی لیتوانی در سال ۱۳۸۷ پایان آخرین دین بت‌پرستِ دولتی در اروپا را رقم زد، هرچند رسوم عامیانه قرن‌ها در کنار مسیحیت ادامه یافتند.",
+  practices: ["پرستش در بیشه‌های مقدس", "ارواح نیاکان و خانه", "جشن‌های فصلیِ آتش", "پیشگویی"],
+  coreIdeas: [
+    { label: "ایزد", value: "پرون/پرکوناس (تندر) و پانتئونی گسترده‌تر" },
+    { label: "زندگی پس از مرگ", value: "ارواح نیاکان (دزیادی) که در آیین‌های فصلی گرامی داشته می‌شوند" },
+  ],
+  sacredTexts: [
+    { name: "سنت شفاهی ــ ثبت‌شده به دست کاتبان مسیحی", description: "بت‌پرستی اسلاوی و بالتیک کتاب مقدس بومی‌ای بر جای نگذاشت؛ دانسته‌های موجود از گزارش‌های بیرونی، از جمله توصیف سالنامهٔ نخستین روسیه از بت‌های پرون در کی‌یف و گزارش‌های مبلغان آلمانی دربارهٔ پرستش بیشه‌ها و کاهنیِ بالتیک، می‌آیند. ترانه‌های عامیانه، جشن‌ها و نام‌های مکان‌ها قطعه‌هایی را مدت‌ها پس از مسیحی‌شدن رسمی حفظ کردند." },
+  ],
+} as const;
+
 export const FA_RELIGION_META = {
   bahai: BAHAI_META_FA,
   buddhism: BUDDHISM_META_FA,
@@ -813,6 +829,7 @@ export const FA_RELIGION_META = {
   druidic: DRUIDIC_META_FA,
   inuit: INUIT_META_FA,
   norse: NORSE_META_FA,
+  "slavic-baltic": SLAVIC_BALTIC_META_FA,
 } as const;
 
 export const FA_RELIGION_LABELS: Record<string, string> = {
@@ -859,4 +876,5 @@ export const FA_RELIGION_LABELS: Record<string, string> = {
   druidic: DRUIDIC_META_FA.name,
   inuit: INUIT_META_FA.name,
   norse: NORSE_META_FA.name,
+  "slavic-baltic": SLAVIC_BALTIC_META_FA.name,
 };
