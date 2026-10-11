@@ -23,12 +23,14 @@ export default function About() {
     const hint = hintRef.current;
     if (!overlay) return;
 
-    gsap.set(overlay, { autoAlpha: 0, y: 24, filter: "blur(12px)" });
+    gsap.set(overlay, { autoAlpha: 0, xPercent: -50, yPercent: -50, y: 24, filter: "blur(12px)" });
     if (hint) gsap.set(hint, { autoAlpha: 1 });
 
     const timeline = gsap.timeline({ delay: 4 });
     timeline.to(overlay, {
       autoAlpha: 1,
+      xPercent: -50,
+      yPercent: -50,
       y: 0,
       filter: "blur(0px)",
       duration: 1.1,
@@ -58,17 +60,25 @@ export default function About() {
           <div className="about-hero__overlay-inner">
             <h1 className="about-hero__title">{pt(locale, "aboutTitle")}</h1>
             <p className="about-hero__lead">
-              {locale === "fa" ? "شش هزار سال باور. جدول‌های زمانی، جغرافیای مقدس، شبکه‌های مفهومی و مقایسهٔ ۴۴ سنت — ساخته‌شده برای کنجکاوی، نه قطعیت." : "Six thousand years of belief. Timelines, sacred geography, concept networks, side-by-side comparisons across 44 traditions — built for curiosity, not certainty."}
+              {locale === "fa" ? "شش هزار سال باور. خط‌های زمانی، جغرافیای مقدس، شبکه‌های مفهومی و مقایسه‌های رودررو میان ۴۴ سنت دینی و فلسفی؛ اطلسی برای آنان که از سرِ کنجکاوی می‌جویند، نه برای آنان که در پیِ یقینِ مطلق‌اند." : "Six thousand years of belief. Timelines, sacred geography, concept networks, side-by-side comparisons across 44 traditions — built for curiosity, not certainty."}
             </p>
             <p className="about-hero__body">
-              {locale === "fa" ? "من با این پرسش‌ها از جوانی روبه‌رو شدم؛ نخست در بهاگاواد گیتا و بعد در شعرهای صوفیانه‌ای که نوجوانی پنهانی می‌خواندم — همان پرسشی که زیرِ هر سنتی که بعدها مطالعه کردم حضور داشت: این شعله در سینهٔ انسان چیست که به سوی نادیدنی دست دراز می‌کند، پیرامون چیزی که نمی‌تواند ببیند معبد و امپراتوری و قانون می‌سازد و گاهی هنوز برای آن می‌سوزد؟ این پروژه تلاشی است برای آن‌که این پرسش مجال نفس‌کشیدن پیدا کند." : "I met these questions young. First in the Bhagavad Gita, then in Sufi verses read in secret as a teenager — the same question underneath every tradition I would later study: what is this flame in the human chest that reaches for the unseen, that builds temples and empires and laws around what it cannot see, and that sometimes, still, burns for it. This project is an attempt to give that question room to breathe."}
+              {locale === "fa" ? "از جوانی با این پرسش‌ها زیسته‌ام. نخست در بهاگاواد گیتا، و سپس در نوجوانی و در ابیاتی از عرفان صوفیانه که پنهانی می‌خواندم و پرسشی واحد در ژرفای همهٔ سنت‌هایی که بعدها به مطالعه‌شان پرداختم: این شعله در سینهٔ انسان چیست که به سوی نادیدنی دست می‌گشاید، پیرامون آنچه نمی‌تواند ببیند معبدها و امپراتوری‌ها و قوانین بنا می‌کند، و گاه هنوز، برای همان نادیدنی، فروزان می‌ماند؟ این پروژه تلاشی است برای آنکه به این پرسش مجالِ نفس کشیدن بدهد." : "I met these questions young. First in the Bhagavad Gita, then in Sufi verses read in secret as a teenager — the same question underneath every tradition I would later study: what is this flame in the human chest that reaches for the unseen, that builds temples and empires and laws around what it cannot see, and that sometimes, still, burns for it. This project is an attempt to give that question room to breathe."}
             </p>
-            <p className="about-hero__body about-hero__body--memorial">
-              {locale === "fa" ? "این پروژه همچنین، جدایی‌ناپذیر از آن، به کشته‌شدگان ژانویهٔ ۲۰۲۶ تقدیم شده است — به زنان و مردانی که به دست حکومت خود در ایران کشته شدند؛ در کشتاری که جهان مجبور شد در تاریکی تماشایش کند، در حالی که اینترنت قطع شده بود تا کسی شاهد آن نباشد. در میان آنان زنی بود که چهره‌اش هرگز نامش را پس نگرفت — زنی که تنها با شمارهٔ ۱۲۷۶۰ ثبت شد. او یکی از هزاران نفر است و این‌جا نمایندهٔ همهٔ آنان ایستاده است." : "It is also, inseparably, dedicated to the dead of January 2026 — to the women and men killed by their own government in Iran, in a massacre the world was made to watch in the dark, the internet cut so the killing could not be witnessed. Among them, a woman whose face was never given back her name — catalogued only as number 12760. She is one of thousands. She stands here for all of them."}
-            </p>
-            <p className="about-hero__body about-hero__body--memorial">
-              {locale === "fa" ? "به درختانی که افتادند و به همهٔ جنگل‌های بی‌نام کنارشان: شما از یاد نرفته‌اید. دلیل وجود این پروژه شمایید." : "To the trees that fell, and to all the unnamed forests beside them: you are not lost to memory. You are why this exists."}
-            </p>
+            {locale === "fa" ? (
+              <p className="about-hero__body about-hero__body--memorial">
+                همچنین به سروهای روانی که در شب‌های سرد زمستان فرو افتادند: شما از حافظهٔ ما محو نخواهید شد. این اثر، به پاسِ شما، هستی یافته است.
+              </p>
+            ) : (
+              <>
+                <p className="about-hero__body about-hero__body--memorial">
+                  It is also, inseparably, dedicated to the dead of January 2026 — to the women and men killed by their own government in Iran, in a massacre the world was made to watch in the dark, the internet cut so the killing could not be witnessed. Among them, a woman whose face was never given back her name — catalogued only as number 12760. She is one of thousands. She stands here for all of them.
+                </p>
+                <p className="about-hero__body about-hero__body--memorial">
+                  To the trees that fell, and to all the unnamed forests beside them: you are not lost to memory. You are why this exists.
+                </p>
+              </>
+            )}
             <p className="about-hero__credit">
               {locale === "fa" ? "ساخته‌شده توسط " : "Created by "}
               <a href="https://danialkeshani.com" target="_blank" rel="noopener noreferrer">
