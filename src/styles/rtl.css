@@ -12,18 +12,81 @@
  */
 
 /*
- * Estedad (https://fonts.google.com/specimen/Estedad) covers Persian and
- * Arabic script. Scoped to html[lang="fa"] rather than html[dir="rtl"]
- * so a future Arabic-script language (e.g. "ar") can reuse it by adding
- * its own selector here — but a future non-Arabic-script RTL language
- * (e.g. Hebrew, "he") would need a different font, not this one.
- * Overriding the --font-* variables (defined in tokens.css) means every
- * component that already does font-family: var(--font-display|body)
- * picks this up automatically — no per-component changes needed.
+ * Body copy stays on Estedad. Titles use Abar Bold (self-hosted). The
+ * face is a single bold cut, declared across the weights headings
+ * already request so the browser does not synthesize a second bold.
+ * Latin characters in a title (the English wordmark) fall through to
+ * Cinzel. Scoped to html[lang="fa"] rather than html[dir="rtl"] so a
+ * future Arabic-script language can choose its own faces.
  */
+/* Separate faces, not a weight range. A range (500 800) is ignored by
+   some browsers, the whole face is skipped, and titles fall back to Estedad. */
+@font-face {
+  font-family: "Abar";
+  src: url("/fonts/abar-bold.woff2") format("woff2"),
+       url("/fonts/abar-bold.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Abar";
+  src: url("/fonts/abar-bold.woff2") format("woff2"),
+       url("/fonts/abar-bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Abar";
+  src: url("/fonts/abar-bold.woff2") format("woff2"),
+       url("/fonts/abar-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 html[lang="fa"] {
-  --font-display: "Estedad", "Tahoma", serif;
+  --font-display: "Abar", "Cinzel", "Estedad", "Tahoma", serif;
   --font-body: "Estedad", "Tahoma", system-ui, sans-serif;
+}
+
+/* Abar's tall alef and descending ج/ن sit outside the tight Latin
+   heading box. Give Persian titles room, and stop the hero lines from
+   slicing glyphs: those spans are overflow:hidden with a 0.95 line box
+   so the entrance animation can clip, which cuts the Persian wordmark. */
+html[lang="fa"] :is(h1, h2, h3, h4) {
+  font-family: "Abar", "Cinzel", "Estedad", "Tahoma", serif;
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+html[lang="fa"] .hero__title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 0.35em;
+  font-size: min(4.5rem, 15vw);
+  line-height: 1.4;
+}
+
+html[lang="fa"] .hero__title-line {
+  display: inline-block;
+  overflow: visible;
+  line-height: 1.4;
+  padding-block: 0.08em 0.12em;
+}
+
+html[lang="fa"] .about-hero__overlay {
+  text-align: start;
+}
+
+html[lang="fa"] .about-hero__body--memorial {
+  padding-left: 0;
+  padding-inline-start: 14px;
+  border-left: none;
+  border-inline-start: 2px solid rgba(230, 180, 80, 0.35);
 }
 
 /*

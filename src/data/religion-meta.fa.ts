@@ -626,7 +626,7 @@ export const MAORI_META_FA = {
 } as const;
 
 export const DREAMTIME_META_FA = {
-  name: "دریمینگِ بومیانِ استرالیا",
+  name: "رؤیاپردازی نیاکانی بومیان استرالیا",
   family: "بومی",
   region: "اقیانوسیه",
   blurb: "کهن‌ترین دینِ پیوستهٔ جهان.",

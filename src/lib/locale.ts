@@ -27,8 +27,9 @@ export interface LocaleMeta {
  *      src/data/religion-articles/index.ts's getReligionArticle().
  *   3. Add the locale's dictionary object to src/lib/i18n.ts.
  *   4. If it's RTL, confirm its script has a font covered somewhere
- *      (Estedad in rtl.css covers Persian + Arabic script only — a
- *      non-Arabic-script RTL language like Hebrew needs its own font).
+ *      (Estedad is the Persian body face; Abar Bold is the Persian
+ *      title face, both in rtl.css — a non-Arabic-script RTL language
+ *      like Hebrew needs its own font).
  * See docs/i18n.md for the full walkthrough.
  */
 export const LOCALE_REGISTRY = [

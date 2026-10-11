@@ -4,6 +4,7 @@ import { AppProvider } from "./context/AppContext";
 import { NarrationProvider } from "./context/NarrationContext";
 import { useAmbientSound } from "./hooks/useAmbientSound";
 import { splitLocaleFromPath, LocaleContext } from "./lib/locale";
+import { pinPersianTitleFont } from "./lib/pinFaDisplayFont";
 import { useT, t } from "./lib/i18n";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -85,6 +86,13 @@ function LocalizedApp() {
     document.documentElement.lang = locale;
     document.documentElement.dir = locale === "fa" ? "rtl" : "ltr";
   }, [locale]);
+
+  // Fontara injects an inline !important font on titles. Re-assert Abar
+  // after each route so Persian headings keep the display face.
+  useEffect(() => {
+    if (locale !== "fa") return;
+    return pinPersianTitleFont(document);
+  }, [locale, location.pathname]);
 
   // React Router matches routes literally, so a request for "/fa/timeline"
   // would otherwise fall through to the catch-all NotFound route below.
